@@ -1,0 +1,76 @@
+page-profile {
+.profile_bg{
+ /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c8066a+0,210434+44,09031e+100 */
+background: #c8066a; /* Old browsers */
+background: -moz-linear-gradient(top, #c8066a 0%, #210434 44%, #09031e 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #c8066a 0%,#210434 44%,#09031e 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #c8066a 0%,#210434 44%,#09031e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c8066a', endColorstr='#09031e',GradientType=0 ); /* IE6-9 */
+}
+.back-button{
+    display: none !important;
+}
+.profile_outer{
+    display: block;
+}
+.profilehead{
+    text-align: center;
+    color: #fff;
+    font-size: 17px;
+}
+.profilepic{
+    width: 100%;
+    text-align: center;
+}
+.userpro{
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin: 0px auto;
+    border-radius: 50%;
+    // border: 5px solid #fff;
+    overflow: hidden;
+}
+.userpro img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+}
+.profiletitle{
+    font-size: 22px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+.address {
+    float: left;
+    width: 100%;
+    text-align: left;
+    color: #fff;
+    margin-top: 46px;
+}
+.address p{
+    margin-top: 0px;
+}
+
+.addresstitle {
+    text-transform: uppercase;
+    color: #b00101;
+    font-weight: 600;
+    font-size:20px;
+}
+
+.edittitle{
+    text-transform: uppercase;
+    color: #ffae00;
+    font-weight: 600;
+    font-size:20px;
+    text-decoration:underline;
+}
+
+}

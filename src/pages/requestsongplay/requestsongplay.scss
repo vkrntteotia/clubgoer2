@@ -1,0 +1,121 @@
+page-requestsongplay {
+    .req_song{
+        padding: 0 30px;
+    }
+    .req_song .item{
+        background: none;
+        padding:0 !important; 
+    }
+    .text-input {
+        margin: 5px 0 5px 0 !important;
+        font-size: 12px;
+    }
+    .reqsong_title{
+        text-align: center;
+        color: #fff;
+    }
+
+    .item-block:first-child{
+        border: none !important;
+    }
+    .label{
+        font-size: 14px;
+    }
+    .remember .item-inner{
+        border: none !important;
+    }
+    .centerbutton{
+        text-align: center;
+        margin: 10px;
+    }
+    .item.item-md .checkbox-md {
+	margin: 9px 8px 9px 4px;}
+
+    .text-input::-webkit-input-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input::-moz-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input:-ms-input-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input:-moz-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input{
+          color: #fff;
+      }
+    
+    .select_radio .item{
+        background: #b00101;
+        color: #fff;
+        margin-bottom:10px; 
+    }
+    .select_radio .item .label {
+        color: #fff;
+    }
+    
+    .select_radio .item::before {
+        width: 60px;
+        background: #000 !important;
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 100%;
+    }
+    .minprice {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .item-radio-checked {
+        background: #ff0000 !important;
+        color: #fff;
+    }
+    .radio-md .radio-checked{
+        border-color: #ff0000 !important;
+    }
+    .radio-md .radio-inner{
+        background-color: #ff0000 !important;
+    }
+    .centerbutton2 {
+        padding: 20px 0 0 0;
+        text-align: center;
+    }
+
+    .radio-ios .radio-icon {
+        position: relative;
+        display: block;
+        width: 21px;
+        height: 21px;
+        border: 2px solid #FFE;
+        border-radius: 50%;
+        padding: 0;
+    }
+
+    .radio-ios .radio-checked .radio-inner {
+        left: 6px;
+        top: 2px;
+        border-color: #fff;
+    }
+    .item-ios .radio-ios[item-left], .item-ios .radio-ios[item-start] {
+        margin: 7px 21px 8px 3px;
+    }
+
+    .item-radio.item-ios ion-label {
+        margin-left: 20px !important;
+    }
+
+    .alertbullet {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 999;
+    }
+
+}

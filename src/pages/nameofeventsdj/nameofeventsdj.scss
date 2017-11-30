@@ -1,0 +1,76 @@
+page-nameofeventsdj {
+    .header {
+        background-color: #0e1629;
+    }
+    .logo {
+        width: 40%;
+        float: right;
+        text-align: right;
+        position: absolute;
+        right: 18px;
+        top: 35px;
+    }
+    .logo img {
+        width: 12%;
+        margin-top: 19px;
+    }
+    .content {
+        width: 100%;
+        float: left;
+    }
+    .content .colm {
+        width: 100%;
+        float: left;
+        position: relative;
+    }
+    .content .colm img {
+        width: 100%;
+        float: left;
+    }
+    .colm h6 {
+        position: absolute;
+        color: #fff;
+        top: 0;
+        left: 0;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 20px;
+        text-align: center;
+        width: 100%;
+        margin: auto;
+        padding: 0;
+        bottom: 0;
+        display: inline-table;
+    }
+    .content .colm .cricle {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+        border-radius: 50%;
+        text-align: center;
+    }
+    .content .colm .cricle p {
+        width: 100%;
+        float: left;
+        text-align: center;
+        margin: 0;
+        line-height: 20px;
+        font-size: 12px;
+    }
+    .colm .one {
+        left: 40px !important;
+    }
+    .colm .two {
+        left: 5px !important;
+    }
+    .colm .three {
+        left: 19px !important;
+    }
+    .colm .four {
+        left: 83px !important;
+    }
+}

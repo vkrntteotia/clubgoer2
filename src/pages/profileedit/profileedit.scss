@@ -1,0 +1,72 @@
+page-profileedit {
+    .profile_bg{
+ /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c8066a+0,210434+44,09031e+100 */
+background: #c8066a; /* Old browsers */
+background: -moz-linear-gradient(top, #c8066a 0%, #210434 44%, #09031e 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #c8066a 0%,#210434 44%,#09031e 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #c8066a 0%,#210434 44%,#09031e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c8066a', endColorstr='#09031e',GradientType=0 ); /* IE6-9 */
+}
+
+.editpro_form{
+    width: 100%;
+    float: left;
+}
+
+.profilepic{
+    width: 100%;
+    text-align: center;
+}
+.userpro{
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin: 0px auto;
+    border-radius: 50%;
+    //border: 5px solid #fff;
+    overflow: hidden;
+}
+.text-input{
+    text-decoration: none !important;
+}
+.text-input-md{
+    text-decoration: none !important;
+}
+.userpro img {
+    position: absolute;
+    height:100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 0;
+    top: 0;
+}
+.profiletitle{
+    font-size: 22px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.editpro_form .item{
+    border:none !important;
+    background: rgba(255,255,255,0.1);
+    margin: 0 0 5px 0;
+    border-radius: 5px;
+}
+.editpro_form .text-input{
+    color: #fff;
+}
+input.uploadimg {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    opacity: 0;
+}
+.editpro_form .item-button {
+    height: 32px !important;
+     background-color: #b00101;
+     border-radius: 5px;
+}
+}

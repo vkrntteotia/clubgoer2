@@ -1,0 +1,38 @@
+page-termsdj {
+    .termsdj p{
+        color: #fff;
+    }
+    .termsdj li{
+        color: #fff;
+    }
+    .termsdj ul {
+        padding-left: 25px;
+    }
+    .content .main{
+        width: 100%;
+        float: left;
+        margin-top: 12px;
+       }
+       .content .main h3{
+          width: 100%;
+          float: left;
+          color: #222222;
+          margin: 0px;
+          font-weight: 500;
+          font-size: 17px;
+          text-align: center;
+       }
+       .content .main p{
+          width: 100%;
+          float: left;
+          color: #6a6a6a;
+          font-size: 14px;
+          font-weight: 400;
+          margin-top: 4px;
+          margin-bottom: 2px;
+          line-height: 19px;
+      }
+     .scroll-content {
+        margin-top: 44px !important;
+     }
+}

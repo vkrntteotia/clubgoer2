@@ -1,0 +1,106 @@
+page-subscribedjupdate {
+	.header{
+		background-color: #0e1629;
+	}
+	.logo{
+		width: 40%;
+    float: right;
+    text-align: right;
+    position: absolute;
+    right: 18px;
+    top: 35px;
+	}
+	.logo img{
+		width: 12%;
+		margin-top: 19px;
+	}
+	.content{
+		background-image: url(../assets/img/sbackground.png);
+		width: 100%;
+		float: left;
+		background-size: cover;
+	}
+	.remember .item-inner{
+        border: none !important;
+    }
+
+.content-sec {
+		width: calc(100% - 30px);
+		float: none;
+		margin: auto;
+		background-color: #fff;
+		-webkit-box-shadow: 0px 0px 28px #656565;
+		box-shadow: 0px 0px 28px #656565;
+		border-radius: 20px;
+		margin: auto;
+		padding: 8px 0;
+		height: min-content;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
+
+
+	.top-sec h4{
+		width: 100%;
+		float: left;
+		text-align: center;
+		color: #0a0f26;
+		margin-top: 0px;
+	}
+	
+	.top-sec p{
+			width: 100%;
+    text-align: center;
+    color: #686868;
+    border-bottom: 1px solid #cbcbcb;
+    padding-bottom: 20px;
+	}
+	.bottom-sec{
+		width: 100%;
+		float: left;
+		text-align: center;
+	}
+	.bottom-sec h1{
+		font-size: 50px;
+    text-align: center;
+    color: #b00101;
+    margin-top: 5px;
+	}
+	.bottom-sec p{
+		width: 100%;
+    text-align: center;
+	color: #0a0f26;
+	margin-top: -10px;
+	}
+	.bottom-sec .button{
+	width: 70%;
+    background-color: #b00101;
+    margin: 10px auto;
+    text-align: center;
+    float: none;
+	}
+	.bottom-sec .button:hover{
+		background-color: #b00101;	
+	}
+	.bottom-sec .button.activated{
+		background-color: #b00101;
+	}
+	.term{
+		font-size: 15px !important;
+		color: #656565 !important;
+		margin: 0 !important;
+	}
+	.term .item-cover{
+		display: none !important; 
+	}
+	.term .checkbox-checked{
+		border-color: #b00101;
+		background-color: #b00101;
+	}
+	.checkbox{
+		vertical-align: middle;
+	}
+}

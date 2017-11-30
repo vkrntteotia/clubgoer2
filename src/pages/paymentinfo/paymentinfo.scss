@@ -1,0 +1,88 @@
+page-paymentinfo {
+    .selectpayment {
+        padding: 5vh 0;
+        float: left;
+        width: 100%;
+    }
+    h4.selettitle {
+        text-align: center;
+        font-weight: 500 !important;
+        color: #ffae00;
+        text-transform: uppercase;
+        margin-top: 0;
+    }
+    .selectpayment .item{
+        background: none;
+        color: #fff;
+        width: 50%;
+        text-align: center;
+        float: left;
+    }
+    span.cardtitle {
+        float: left;
+        text-align: center;
+        width: 100%;
+    }
+    .item-radio-checked span.cardtitle{
+        color: #8bbd09;
+    }
+    .selectpayment .label img{
+        border:2px solid transparent;
+        padding: 2px;
+    }
+    .item-radio-checked img{
+        border:2px solid #8bbd09 !important;
+        padding: 2px;
+    }
+    .radio {
+        position: absolute !important;
+        width: 100%;
+        height: 100%;
+    }
+    .radio-icon{
+        opacity: 0 !important;
+    }
+
+
+    .creditcard {
+        width: 100%;
+        float: left;
+        background: #373737;
+        padding: 25px;
+    }
+    .creditcard .item{
+        background: none;
+    }
+    .creditcard .label {
+        text-transform: uppercase;
+        font-weight: 600 !important;
+        font-size: 15px;
+    }
+    .text-input{
+    text-decoration: none !important;
+    }
+    .text-input-md{
+        text-decoration: none !important;
+    }
+    .datetime-text {
+        font-size: 14px;
+        font-weight: 300;
+        padding: 0;
+        margin: 0;
+        min-height: 15px;
+        height: 15px;
+    }
+    .text-input{
+        color: #fff;
+    }
+    .centerbutton {
+        padding: 20px;
+        float: left;
+        text-align: center;
+        width: 100%;
+    }
+    .datetime-md{
+        padding-top: 9px !important;
+    }
+
+}

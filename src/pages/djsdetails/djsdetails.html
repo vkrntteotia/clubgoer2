@@ -1,0 +1,52 @@
+<!--
+  Generated template for the DjsdetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="black">
+        <ion-title>Dj's Details</ion-title>
+        <ion-buttons end class="rbutton">
+            <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="djs_bg">
+    <div class="djdetails_sec">
+        <div class="full_img">
+            <img [src]="djs?.User.image">
+        </div>
+    </div>
+    <div class="padding titletxt">
+        <p style="font-size: 17px;"><span>Name : </span>{{djs?.User.complete_name}}</p>
+        <p style="font-size: 17px;"><span>E-mail : </span>{{djs?.User.email}}</p>
+        <p style="font-size: 17px;"><span>Dj Code : </span>{{djs?.User.djcode}}</p>
+        <p style="font-size: 17px;" *ngIf="djs?.User.biography"><span>Dj Biography : </span>{{djs?.User.biography}}</p>
+
+        <iframe *ngIf="videoUrl" width="320" height="315" [src]="videoUrl" frameborder="0"></iframe>
+    </div>
+    <h4>Upcoming Events</h4>
+    <div class="productscroll">
+
+        <ion-scroll scrollX="true" *ngIf="djs?.Event">
+            <div class="event_box" *ngIf="djs?.Event?.length == 0">
+                <h3 style="color: #fff;">No events available</h3>
+            </div>
+            <div class="event_box" *ngFor="let dj of djs?.Event">
+                <h5 style="font-size: 17px;">{{dj?.event_name}}</h5>
+                <div class="imageboxed">
+                    <img [src]="dj?.image">
+                </div>
+                <p style="font-size: 17px;">Venue name : {{dj?.venue_name}} <br>
+                    <!-- Event day : Sunday <br> -->
+                    Event time : &nbsp;&nbsp;&nbsp;&nbsp; {{dj?.event_date+" "+dj?.event_time | date:'MM-dd-yyyy HH:mm a'}} <br>&nbsp;&nbsp;&nbsp;&nbsp;to <br>{{dj?.start_event+" "+dj?.scheduled_start_time | date:'MM-dd-yyyy HH:mm a'}}</p>
+            </div>
+        </ion-scroll>
+
+    </div>
+</ion-content>

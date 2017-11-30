@@ -1,0 +1,289 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+.usersidebar .item h2 {
+    color: #fff;//#ffae00;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+ion-item.menudjc h2{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+
+.back-button-icon{
+    color: #fff;//#ffae00;
+}
+.logo{
+    top:13px !important;
+}
+.button-ios.activated{
+    background-color: #750000 !important;
+}
+// .active{
+//     background: #fff; 
+// }
+ion-icon.icon.icon-md.ion-md-homecustom.item-icon, ion-icon.icon.icon-ios.ion-ios-homecustom.item-icon  {
+    background: url(../assets/img/home.png);
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+
+ion-icon.icon.icon-md.ion-md-profile.item-icon, ion-icon.icon.icon-ios.ion-ios-profile.item-icon  {
+    background: url(../assets/img/profile.png);
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+ion-icon.icon.icon-md.ion-md-voteup.item-icon, ion-icon.icon.icon-ios.ion-ios-voteup.item-icon  {
+    background: url(../assets/img/voteup.png);
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+ion-icon.icon.icon-md.ion-md-djs.item-icon, ion-icon.icon.icon-ios.ion-ios-djs.item-icon  {
+    background: url(../assets/img/djs.png);
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+ion-icon.icon.icon-md.ion-md-shoutout.item-icon, ion-icon.icon.icon-ios.ion-ios-shoutout.item-icon  {
+    background: url(../assets/img/play.png);
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+ion-icon.icon.icon-md.ion-md-historical.item-icon, ion-icon.icon.icon-ios.ion-ios-historical.item-icon  {
+    background: url(../assets/img/historical.png);
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+ion-icon.icon.icon-md.ion-md-terms.item-icon, ion-icon.icon.icon-ios.ion-ios-terms.item-icon  {
+    background: url(../assets/img/terms.png);
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+
+ion-icon.icon.icon-md.ion-md-privacy.item-icon, ion-icon.icon.icon-ios.ion-ios-privacy.item-icon  {
+    background: url(../assets/img/privacy.png);
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+
+ion-icon.icon.icon-md.ion-md-settingss.item-icon, ion-icon.icon.icon-ios.ion-ios-settingss.item-icon  {
+    background: url(../assets/img/setting.png);
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+ion-icon.icon.icon-md.ion-md-logout.item-icon, ion-icon.icon.icon-ios.ion-ios-logout.item-icon {
+    background: url(../assets/img/logout.png);
+    background-size: 23px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+
+/*======= menu2 Css ========*/
+
+ion-icon.icon.icon-md.ion-md-eve.item-icon, ion-icon.icon.icon-ios.ion-ios-eve.item-icon {
+    background: url(../assets/img/eve.png);
+    background-size: 19px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+ion-icon.icon.icon-md.ion-md-edi.item-icon, ion-icon.icon.icon-ios.ion-ios-edi.item-icon {
+    background: url(../assets/img/edi.png);
+    background-size: 19px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+ion-icon.icon.icon-md.ion-md-req.item-icon, ion-icon.icon.icon-ios.ion-ios-req.item-icon {
+    background: url(../assets/img/req.png);
+    background-size: 19px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+ion-icon.icon.icon-md.ion-md-tra.item-icon, ion-icon.icon.icon-ios.ion-ios-tra.item-icon {
+    background: url(../assets/img/tra.png);
+    background-size: 19px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+ion-icon.icon.icon-md.ion-md-ter.item-icon, ion-icon.icon.icon-ios.ion-ios-ter.item-icon {
+    background: url(../assets/img/req.png);
+    background-size: 19px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+ion-icon.icon.icon-md.ion-md-hel.item-icon, ion-icon.icon.icon-ios.ion-ios-hel.item-icon {
+    background: url(../assets/img/hel.png);
+    background-size: 19px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+ion-icon.icon.icon-md.ion-md-log.item-icon, ion-icon.icon.icon-ios.ion-ios-log.item-icon {
+    background: url(../assets/img/log.png);
+    background-size: 19px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+.act{
+    padding-left: 17px;
+    width: 100%;
+    float: left;
+}
+
+
+.margintop{
+    margin-top:0 !important; 
+}
+.margintop .scroll-content{
+    margin-top:0 !important; 
+}
+.toolbar-title {
+    text-align: center !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+
+}
+.alert {margin: 2px !important;}
+
+.custom_btn{
+    letter-spacing: 3px;
+    background-color: #b00101;
+    border-radius: 5px;
+}
+.header-md::after{
+    background-image:none !important; 
+}
+h1,h2,h3,h4,h5{
+    font-weight: 400 !important;
+}
+.back-button-text-ios{
+    display: none;
+}
+
+.rbutton {
+    width: 44px !important;
+    margin: 0 6px;
+    text-align: center !important;
+}
+.text-input{
+    margin-left: 0 !important;
+}
+
+
+/*======= Alert Css ========*/
+
+.alert-md .alert-wrapper {
+    border-radius: 15px;
+    max-width: 280px;
+    background-color: rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: 1px solid #fff; 
+    text-align: center;
+}
+
+.alert-md .alert-head {
+    text-align: center !important;
+}
+.alert-md .alert-message {
+    color: #fff;
+    text-align: center !important;
+}
+.alert-md .alert-button-group {
+    justify-content: center !important;
+}
+.alert-md .alert-button{
+    background-color: #b00101;
+    min-width: 100px;
+    color: #fff;
+    text-align: center;
+    border-radius: 30px;
+    justify-content: center !important;
+}
+.alert-md .alert-button .button-inner{
+     justify-content: center !important;
+}
+
+
+//   .alert-md .alert-button-group{
+//         display: none !important;
+//     }
+
+
+.text-input{
+    text-decoration: none !important;
+}
+.text-input-md{
+    text-decoration: none !important;
+}
+
+
+ /*======= Alert Css ========*/
+
+ ion-avatar.dj{
+    width: 70px !important;
+    height: 70px !important;
+    border: 5px solid #fff !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+}
+ion-avatar.dj img{
+    width: 100% !important;
+    height: 100% !important;
+}
+ion-item.menudjc h2{
+    text-transform: uppercase;
+}
+ion-itemion-item.menudjc p{
+    text-transform: capitalize;
+}
+.back-button-icon{
+    font-size: 23px;
+}
+ion-icon.icon.icon-ios.ion-ios-menu{
+    color: #fff !important;
+}
+
+
+#iphone-frame > .statusbar {
+    background-image: url(assets/img/statusbar.png) !important;
+    display: none !important;
+}
+.statusbar {
+    background-image: url(assets/img/statusbar.png) !important;
+    display: none !important;
+    top: -20px !important;
+}
+
+ion-navbar.toolbar.toolbar-ios.toolbar-ios-dark.statusbar-padding {
+    top: -18px !important;
+    position: absolute;
+}

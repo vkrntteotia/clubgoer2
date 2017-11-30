@@ -1,0 +1,49 @@
+<!--
+  Generated template for the SubscribedjPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="black">
+		<ion-title>Subscription Plan</ion-title>
+		<button (click)="setBackButtonAction()"ion-button="bar-button">
+        <span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" aria-label="arrow back"></ion-icon>
+        <span class="back-button-text back-button-text-ios" style="transform: translateX(0px);"></span></span>
+        <div class="button-effect"></div>
+    </button>
+    <div class="logo">
+    	<img src="assets/img/rlogo.png">
+    </div>
+</ion-navbar>
+</ion-header>
+<ion-content padding>
+		<div class="content-sec">
+			<ion-grid>
+				<ion-row>
+					<ion-col>
+						<div class="top-sec">
+							<h4>{{subscriv?.plan_name}}</h4>
+							<p>{{subscriv?.description}}</p>
+						</div>
+						<div class="bottom-sec">
+							<h1>${{subscriv?.monthly_rate}}</h1>
+							<p>Recurring</p>
+							<h1 class="term">
+								<span>
+								<ion-checkbox color="dark" checked="true" [(ngModel)]="data.checkbx" name="checkbx" #checkbx='ngModel'></ion-checkbox>
+							</span>
+							I accept the <a style="text-decoration: underline;" button (click)="terms()" clear item-right>terms and conditions.</a>
+							</h1>
+
+							<!-- <ion-item class="remember" style="border:none; width: 50%; float: left;">
+								<ion-label style="color:#000;">I accept the terms and conditions.</ion-label>
+								<ion-checkbox color="secondary" checked="true" [(ngModel)]="data.checkbx" name="checkbx" #checkbx='ngModel'></ion-checkbox>
+							</ion-item> -->
+							<button ion-button (click)="subscribe(data.checkbx)">Subscribe</button>
+						</div>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+	</ion-content>	

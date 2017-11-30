@@ -1,0 +1,116 @@
+page-paymenthistorydj {
+	.header{
+		background-color: #0e1629;
+	}
+	.logo{
+		width: 40%;
+    float: right;
+    text-align: right;
+    position: absolute;
+    right: 18px;
+    top: 35px;
+	}
+	.logo img{
+		width: 12%;
+	}
+	.past{
+	width: 100%;
+	float: left;
+	
+}
+.past .list{
+	width: 100%;
+	float: left;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    
+}
+.past .item {
+	width: 100%;
+	float: left;
+    border-top: none !important;
+	position: relative;
+	margin-top: 5px;
+    margin: 5px 0px;
+    border-bottom: 0.55px solid #c8c7cc;
+     padding-right: 70px;
+     padding-left: 0px;
+
+}
+.past .item-inner{
+	border:none !important
+	;
+}
+.past .item h3{
+	width: 100%;
+    color: #222222;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 500 !important;
+    margin: 0px;
+
+}
+.past .item h2{
+	width: 100%;
+    color: #222222;
+    font-size: 17px;
+    letter-spacing: 1px;
+    font-weight: 500 !important;
+    margin: 0px;
+    
+}
+.past .item p{
+	width: 100%;
+    float: left;
+    color: #484848;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin: 0px;
+   
+
+}
+.past .item .label{
+	margin: 0px 8px 15px 0;
+}
+.past .item .right-sec{
+	position: absolute;
+    top: 0;
+    right: 0;
+    width: 75px;
+    height: 48px;
+    text-align: right;
+    margin: 0px;
+}
+.past .item .right-sec button{
+	    width: 74%;
+    float: right;
+    margin: 0;
+    background-color: #b00101;
+    font-size: 12px;
+}
+.past .item .right-sec p{
+	position: absolute;
+	top: 41px;
+}
+.total{
+	width: 100%;
+    float: left;
+    padding-right: 85px;
+    position: relative;
+}
+.total h2{
+	width: 100%;
+    float: left;
+    text-align: right;
+    font-size: 18px;
+    font-weight: 500 !important;
+}
+.total h3{
+	    position: absolute;
+    text-align: right;
+    top: 0;
+    right: 0;
+    font-size: 18px;
+    font-weight: 700 !important;
+}
+}

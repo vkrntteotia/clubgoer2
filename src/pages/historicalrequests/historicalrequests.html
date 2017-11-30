@@ -1,0 +1,45 @@
+<!--
+  Generated template for the HistoricalrequestsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="black">
+    <button ion-button menuToggle>
+      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>
+    </button>
+    <ion-title>Historical Requests</ion-title>
+    <ion-buttons end class="rbutton">
+      <button ion-button clear><ion-icon><img width="15px" src="assets/img/rlogo.png"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+  
+  <ion-list-header class="listhader" style="margin-top:10px;">
+    <div class="left_items">Song Name</div>
+    <div class="right_items">Amount Paid</div>
+  </ion-list-header>
+</ion-header>
+
+
+<ion-content style="background: url(assets/img/loginbg.jpg); background-size:cover;">
+<ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>
+<div class="historicalrequests">
+  <ion-list no-lines>
+    <ion-item color="black" *ngFor="let request of requests;">
+      <div class="list_head">
+        <h2>{{request.ClubgoerRequest.songname}}</h2>
+        <ion-note item-end="" class="note"> {{request.ClubgoerRequest.pay_paypal ? "Paid" : "Not paid"}} <span>${{request.ClubgoerRequest.tip_amount}}</span></ion-note>
+      </div>
+      <div class="itembottom">
+      <p>Requested Type <button class="playnow" clear>{{request.TipOption.name}}</button></p>
+      </div>
+    </ion-item>
+    
+  </ion-list>
+</div>
+
+</ion-content>

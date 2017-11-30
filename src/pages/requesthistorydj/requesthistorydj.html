@@ -1,0 +1,36 @@
+<!--
+  Generated template for the RequesthistorydjPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="black">
+    <ion-title>Request History</ion-title>
+    <div class="logo">
+    	<img src="assets/img/rlogo.png">
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+ <div class="past">
+	<ion-list>
+      <ion-item *ngFor="let req of reqhistdata; let i = index">
+        	<div class="img-sec">
+        		<img src="assets/img/headphn.png">
+        	</div>
+        	<h3> {{req?.ClubgoerRequest.songname}} </h3>
+        	<p>{{req?.ClubgoerRequest.artist_name}}</p>
+        	<p>Requested By : {{req?.Clubgoer.complete_name}}</p>
+      </ion-item>
+      <div class="unshow" *ngIf="reqhistdata?.ClubgoerRequest?.length == 0">
+        <h3>No request available</h3>
+      </div>
+    </ion-list>
+</div>
+</ion-content>

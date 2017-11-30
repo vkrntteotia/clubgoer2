@@ -1,0 +1,40 @@
+page-djslist {
+    .djslist{
+        padding: 2%;
+        width: 100%;
+    }
+    .imagebox {
+    width: 46%;
+    position: relative;
+    float: left;
+    margin: 2%;
+    overflow: hidden;
+    border-radius: 5px;
+    height: 100px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.imagebox h3 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+}
+
+.imagebox img {
+    height: auto;
+    width: 100%;
+}
+}

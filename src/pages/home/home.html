@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="black">
+    <button ion-button menuToggle>
+      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+    <ion-buttons end class="rbutton">
+      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding style="background: url(assets/img/loginbg.jpg); background-size:cover;">
+  <div class="homemain">
+    <div class="logo"><img src="assets/img/logo.png"></div>
+    <div class="home_list">
+    <ion-item no-lines item-right>
+      <button (click)="entercodePage()"  ion-button secondary color="" block>Enter Dj Code <ion-icon name="arrow-forward"></ion-icon></button>
+    </ion-item>
+    <ion-item no-lines>
+      <button  (click)="editprofile()" ion-button secondary  block>Edit Profile <ion-icon name="arrow-forward"></ion-icon></button>
+    </ion-item>
+    <ion-item no-lines>
+      <button (click)="historicalrequestsPage()" ion-button secondary  block>Historical Requests <ion-icon name="arrow-forward"></ion-icon></button>
+    </ion-item>
+  </div>
+  </div>
+</ion-content>

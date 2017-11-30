@@ -1,0 +1,102 @@
+<!--
+  Generated template for the PaymentinfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="black">
+    <button ion-button menuToggle>
+      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>
+    </button>
+    <ion-title>Payment Info</ion-title>
+    <ion-buttons end class="rbutton">
+      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content style="background:#5a5a5a;">
+  <div class="paymentinfo">
+    <form #payinfoForm="ngForm" novalidate >
+    <div class="selectpayment">
+      <h4 class="selettitle">Select Payment Method</h4>
+      <ion-list radio-group no-lines [(ngModel)]="data.relationship" name="relationship">
+        <ion-item>
+          <ion-label>
+            <img width="60px" src="assets/img/visa.png">
+            <span class="cardtitle">Credit Card</span>
+          </ion-label>
+          <ion-radio checked="true"  value="1" (click)="setbitnow(1)"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <img width="60px" src="assets/img/paypal.png">
+            <span class="cardtitle">PayPal</span>
+          </ion-label>
+          <ion-radio value="2" (click)="setbitnow(0)"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="creditcard" *ngIf="setbit">
+      <h4 class="selettitle">Credit Card Info</h4>
+      <ion-list>
+          <ion-item>
+            <ion-label stacked>name on card</ion-label>
+            <ion-input type="text" [(ngModel)]="data.name" name="name"  placeholder="Name" #name='ngModel' pattern='[a-zA-Z]+' placeholder="John Henry Doe"></ion-input>
+          </ion-item>
+          <ion-label  class="alert alert-danger" color="danger">
+          <div *ngIf="name.errors && (name.dirty || name.touched)">
+            <div [hidden]="!name.errors.required" >
+                Field is required
+            </div>
+          </div>
+        </ion-label>
+          <ion-item>
+            <ion-label stacked>card number</ion-label>
+            <ion-input type="number" placeholder="1234-5678-9012-3456" [(ngModel)]="data.cardnum" name="cardnum" #cardnum='ngModel' required></ion-input>
+          </ion-item>
+          <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="cardnum.errors && (cardnum.dirty || cardnum.touched)">
+          <div [hidden]="!cardnum.errors.required" >
+              Field is required
+          </div>
+        </div>
+          </ion-label>
+
+          <ion-item style="float:left; width:68%; margin-right:2%;">
+            <ion-label stacked>expiration Date</ion-label>
+            <ion-datetime style="color:#fff;" min="{{minyear}}" max="{{maxyear}}" displayFormat="MM/YYYY" placeholder="MM/YYYY"  [(ngModel)]="data.monyear" name="monyear"  #monyear='ngModel' required></ion-datetime>
+          </ion-item>
+          <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="monyear.errors && (monyear.dirty || monyear.touched)">
+       <div [hidden]="!monyear.errors.required" >
+         Field is required
+        </div>
+        </div>
+          </ion-label>
+          <ion-item style="float:left; width:30%; padding-left:0;">
+            <ion-label stacked>Cvv</ion-label>
+            <ion-input type="number" placeholder="xxx" [(ngModel)]="data.cvv" name="cvv" #cvv='ngModel' required></ion-input>
+          </ion-item>
+          <ion-label  class="alert alert-danger" color="danger">
+              <div *ngIf="cvv.errors && (cvv.dirty || cvv.touched)">
+                <div [hidden]="!cvv.errors.required" >
+                      Field is required
+                </div>
+                <div [hidden]="!cvv.errors.pattern" >
+                      Invalid cvv
+                </div>
+              </div>
+          </ion-label>
+      </ion-list>
+      <div class="centerbutton">
+              <button class="custom_btn" (click)="paynow(payinfoForm)" [disabled]="!payinfoForm.form.valid" color="yellow" type="submit" style="text-transform: uppercase;" ion-button round>Submit</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</ion-content>

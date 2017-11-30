@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "927891099719",
+    "firebase_url": "https://realtimerequest.firebaseio.com",
+    "project_id": "realtimerequest",
+    "storage_bucket": "realtimerequest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927891099719:android:f0b8d1024618b2c9",
+        "android_client_info": {
+          "package_name": "io.djapp1234"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927891099719-taelv8pii8qu84jtouv5tfcvc2htb21v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbzhxcBGNw0pabB2r0HAnzU8xJ-TytgI8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

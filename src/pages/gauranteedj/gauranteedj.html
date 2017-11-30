@@ -1,0 +1,145 @@
+<!--
+  Generated template for the PlaynowlistdjPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="black">
+    <ion-title>{{eventname}}</ion-title>
+    <div class="logo">
+    	<img src="assets/img/rlogo.png">
+    </div>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+	<div class="past">
+	<ion-list>
+      <ion-item *ngFor="let play of playtopreq; let i = index">
+        	<div class="img-sec">
+        		<img src="assets/img/headphn.png">
+        	</div>
+        	<h3>{{play?.ClubgoerRequest.songname}} </h3>
+        	<p>{{play?.ClubgoerRequest.artist_name}}</p>
+        	<div class="img-right">
+        		<div class="imgmain">
+        			<img src="assets/img/playnow.png" *ngIf="play?.ClubgoerRequest.topque">
+					<img src="assets/img/playnow.png" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque"> 
+					<img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)">
+        		</div>
+        	</div>
+	  </ion-item>
+	    <div class="unshow" *ngIf="playtopreq?.length == 0">
+		 <h3> No request available</h3>
+		 </div>
+   	  
+      <!-- <ion-item>
+        	<div class="img-sec">
+        		<img src="assets/img/headphn.png">
+        	</div>
+        	<h3> Kanzee Ft Emzzy E </h3>
+        	<p>artist name</p>
+        	<div class="img-right">
+        		<div class="imgmain">
+        		<img src="assets/img/playimg.png">
+        		<img src="assets/img/cross.png">
+        	</div>
+        	</div>
+			</ion-item>
+			<ion-item>
+				<div class="img-sec">
+					<img src="assets/img/headphn.png">
+				</div>
+				<h3> Kanzee Ft Emzzy E </h3>
+				<p>artist name</p>
+				<div class="img-right">
+					<div class="imgmain">
+					<img src="assets/img/playimg.png">
+					<img src="assets/img/cross.png">
+				</div>
+				</div>
+		</ion-item>
+		<ion-item>
+			<div class="img-sec">
+				<img src="assets/img/headphn.png">
+			</div>
+			<h3> Kanzee Ft Emzzy E </h3>
+			<p>artist name</p>
+			<div class="img-right">
+				<div class="imgmain">
+				<img src="assets/img/playimg.png">
+				<img src="assets/img/cross.png">
+			</div>
+			</div>
+	</ion-item>
+	<ion-item>
+		<div class="img-sec">
+			<img src="assets/img/headphn.png">
+		</div>
+		<h3> Kanzee Ft Emzzy E </h3>
+		<p>artist name</p>
+		<div class="img-right">
+			<div class="imgmain">
+			<img src="assets/img/playimg.png">
+			<img src="assets/img/cross.png">
+		</div>
+		</div>
+</ion-item>
+<ion-item>
+	<div class="img-sec">
+		<img src="assets/img/headphn.png">
+	</div>
+	<h3> Kanzee Ft Emzzy E </h3>
+	<p>artist name</p>
+	<div class="img-right">
+		<div class="imgmain">
+		<img src="assets/img/playimg.png">
+		<img src="assets/img/cross.png">
+	</div>
+	</div>
+</ion-item>
+<ion-item>
+	<div class="img-sec">
+		<img src="assets/img/headphn.png">
+	</div>
+	<h3> Kanzee Ft Emzzy E </h3>
+	<p>artist name</p>
+	<div class="img-right">
+		<div class="imgmain">
+		<img src="assets/img/playimg.png">
+		<img src="assets/img/cross.png">
+	</div>
+	</div>
+</ion-item>
+<ion-item>
+	<div class="img-sec">
+		<img src="assets/img/headphn.png">
+	</div>
+	<h3> Kanzee Ft Emzzy E </h3>
+	<p>artist name</p>
+	<div class="img-right">
+		<div class="imgmain">
+		<img src="assets/img/playimg.png">
+		<img src="assets/img/cross.png">
+	</div>
+	</div>
+</ion-item>
+<ion-item>
+	<div class="img-sec">
+		<img src="assets/img/headphn.png">
+	</div>
+	<h3> Kanzee Ft Emzzy E </h3>
+	<p>artist name</p>
+	<div class="img-right">
+		<div class="imgmain">
+		<img src="assets/img/playimg.png">
+		<img src="assets/img/cross.png">
+	</div>
+	</div>
+</ion-item> -->
+  </ion-list>
+</div>
+</ion-content>
+

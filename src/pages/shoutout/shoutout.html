@@ -1,0 +1,72 @@
+<!--
+  Generated template for the ShoutoutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="black">
+    <button ion-button menuToggle>
+      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>
+    </button>
+    <ion-title>Shout Out</ion-title>
+    <ion-buttons end class="rbutton">
+      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background: url(assets/img/loginbg.jpg); background-size:cover;">
+  <div class="shoutout_outer">
+  <div class="logo"><img src="assets/img/logo.png"></div>
+<div class="form_sec">
+  <form #shoutoutForm="ngForm" novalidate > 
+  <div class="form_secinn">
+  <ion-list>
+
+ <ion-item>
+    <ion-input type="text" [(ngModel)]="data.name" name="name"  placeholder="Name" #name='ngModel' required></ion-input>
+ </ion-item>
+ <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="name.errors && (name.dirty || name.touched)">
+       <div [hidden]="!name.errors.required" >
+         Field is required
+        </div>
+    </div>
+ </ion-label>
+  <ion-item>
+    <ion-input type="text" placeholder="Shoutout Type" [(ngModel)]="data.shouttype" name="shouttype" #shouttype='ngModel' required></ion-input>
+  </ion-item>
+  <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="shouttype.errors && (shouttype.dirty || shouttype.touched)">
+       <div [hidden]="!shouttype.errors.required" >
+         Field is required
+        </div>
+    </div>
+  </ion-label>
+  <ion-item>
+    <ion-input type="tel" placeholder="Tip Amount" pattern="[0-9]+" [(ngModel)]="data.tipamt" name="tipamt" #tipamt='ngModel' required></ion-input>
+  </ion-item>
+  <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="tipamt.errors && (tipamt.dirty || tipamt.touched)">
+       <div [hidden]="!tipamt.errors.required" >
+              Field is required
+        </div>
+        <div [hidden]="!tipamt.errors.pattern" >
+              Only number allowed
+        </div>
+    </div>
+  </ion-label>
+  
+</ion-list>
+</div>
+<div class="centerbutton">
+   <button class="custom_btn" (click)="shoutout(shoutoutForm)" [disabled]="!shoutoutForm.form.valid" color="yellow" style="text-transform: uppercase;" ion-button round>Request Shout Out</button>
+</div>
+</form>
+</div>
+</div>
+</ion-content>

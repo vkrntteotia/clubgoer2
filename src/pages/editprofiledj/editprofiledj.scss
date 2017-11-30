@@ -1,0 +1,111 @@
+page-editprofiledj {
+	.header{
+		background-color: #0e1629;
+	}
+	
+	.content{
+		background-image: url(../assets/img/bgdrk.png);
+    background-size: cover;
+    background-position: center;
+ 	}
+ 	.form-sec{
+ 		width: 100%;
+ 		float: left;
+ 	}
+ 	.form-sec .list{
+ 		width: 100%;
+ 		float: left;
+ 		margin: 0px;
+
+
+	 }
+	 .form-sec .list .item button{
+		background: none;
+		width: auto;
+		padding: 7px 5px;
+		text-align: left;
+		padding-left: 0px;
+	 }
+	 .form-sec .list .item button span{
+		font-size: 16px;
+		font-weight: 400 !important;
+	 }
+	 .form-sec .list .item .text-input{
+		font-size: 16px;
+		font-weight: 400 !important;
+	 }
+ 	.form-sec .list .item{
+ 	background: rgba(206, 198, 198, 0.24);
+    width: 100%;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    margin-top: 10px;
+ 	}
+ 	.form-sec .list .item .item-inner{
+ 		border:none;
+ 	}
+ 	.form-sec .list .item .img-sec{
+ 		width: 100%;
+	    float: left;
+	    text-align: center;
+	    height: 90px;
+ 	}
+ 	.form-sec .list .item .img-sec img{
+ 		width: 47%;
+ 	}
+ 	.head-sec{
+ 		width: 100%;
+ 		float: left;
+		 margin-top: 5vh;
+		 position: relative;
+ 	}
+ 	.head-sec .image{
+ 		width: 100px;
+    margin: auto;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    height: 100px;
+    overflow: hidden;
+ 		
+ 	}
+ 	.head-sec .image img{
+ 		width: 100px;
+        height: 100px;
+ 	}
+ 	.btn-sec{
+ 		width: 100%;
+ 		float: left;
+ 		text-align: center;
+ 	}
+ 	.btn-sec button{
+ 		background-color: #b00101;
+        width: 65%;
+	 }
+	 .head-sec .edit-image{
+		width: 25px;
+		border: 2px solid #fff;
+		border-radius: 50%;
+		height: 25px;
+		overflow: hidden;
+		position: absolute;
+		top: 70px;
+		right: 95px;
+		background-color: #fff;
+		text-align: center;
+		color: #000;
+		
+	}
+	.head-sec .edit-image .icon{
+		font-size: 16px;
+		width: 100%;
+		float: left;
+		position: absolute;
+		right: 0px;
+		top: 2px;
+		cursor: pointer;
+	}
+	.abc.activated{
+		background: none !important;
+	}
+}

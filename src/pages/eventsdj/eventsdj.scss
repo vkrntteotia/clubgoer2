@@ -1,0 +1,67 @@
+page-eventsdj {
+
+	.logo{
+		width: 40%;
+    float: right;
+    text-align: right;
+    position: absolute;
+    right: 18px;
+    top: 35px;
+	}
+	.logo img {
+		width: 12%;
+		margin-top: 19px;
+	}
+	.content-sec{
+		width: 100%;
+		float: left;
+		
+	}
+	.img-top{
+	width: 100%;
+    float: left;
+    text-align: center;
+	}
+	.img-top img{
+		width: 100px;
+	}
+	.btnsec{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		float: left;
+		right: 0;
+		left: 0;
+		margin: auto;
+		top: 0;
+		height: 118px;
+	}
+	.top-btn{
+		width: 100%;
+		float: left;
+		text-align: center;
+	}
+	.bottom-btn{
+		width: 100%;
+		float: left;
+		text-align: center;
+	}
+    .bottom-btn .button{
+		background-color: #b00101;
+		padding: 23px 0px;
+		font-size: 15px;
+		text-transform: uppercase;
+		border-radius: 5px;
+		width: 75%;
+	}
+	.top-btn .button{
+		background-color: #b00101;
+		padding: 23px 0px;
+		font-size: 15px;
+		text-transform: uppercase;
+		border-radius: 5px;
+		width: 75%;
+        
+}
+
+}

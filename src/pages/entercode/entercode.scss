@@ -1,0 +1,61 @@
+page-entercode {
+    .logo{
+
+        width: 100%;
+        text-align: center;
+    }
+    .logo img{
+		width: 36%;
+	}
+    .form_sec {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        height: fit-content;
+        width: 85%;
+    }
+    .form_sec .item{
+        padding: 0;
+        background: none !important;
+        color: #a9abaf !important;
+        text-align: center;
+        border-top: none !important;
+    }
+    .text-input{
+    text-decoration: none !important;
+    }
+    .text-input-md{
+        text-decoration: none !important;
+    }
+    .label{
+        font-size: 14px;
+    }
+  
+    .centerbutton{
+        margin: 10px;
+        text-align: center;
+    }
+    .text-input::-webkit-input-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input::-moz-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input:-ms-input-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input:-moz-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input{
+          color: #fff;
+          text-align: center;
+      }
+}

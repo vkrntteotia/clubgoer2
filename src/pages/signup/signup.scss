@@ -1,0 +1,78 @@
+page-signup  {
+    .toolbar-title {
+       text-align: center;
+    }
+    
+    .headerbg{
+        background: none;
+    }
+    .headerbg .toolbar-background  {
+        background: none !important;
+        border: none;
+    }
+    .login_outer {
+        margin-top: 64px;
+        display: block;
+        height: 100%;
+    }
+
+    .back-button{
+        display: none !important;
+    }
+    
+    .text-input{
+    text-decoration: none !important;
+    }
+    .text-input-md{
+        text-decoration: none !important;
+    }
+    .logo{
+
+        width: 100%;
+        text-align: center;
+    }
+    .logo img{
+		width: 36%;
+	}
+    .form_sec .item{
+        padding: 0;
+        background: none !important;
+        color: #a9abaf !important;
+    }
+    .item-block:first-child{
+        border: none !important;
+    }
+    .label{
+        font-size: 14px;
+    }
+    .remember .item-inner{
+        border: none !important;
+    }
+    .centerbutton{
+        margin: 10px;
+        text-align: center;
+    }
+    .text-input::-webkit-input-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input::-moz-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input:-ms-input-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input:-moz-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input{
+          color: #fff;
+      }
+    //   .scroll-content {
+    //     overflow: hidden !important;
+    // }
+}
+

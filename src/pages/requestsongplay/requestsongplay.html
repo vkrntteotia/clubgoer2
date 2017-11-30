@@ -1,0 +1,74 @@
+<!--
+  Generated template for the RequestsongplayPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="black">
+    <button ion-button menuToggle>
+      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>
+    </button>
+    <ion-title>Requests a Song</ion-title>
+    <ion-buttons end class="rbutton">
+      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>
+    </ion-buttons>
+  </ion-navbar>
+  
+</ion-header>
+
+
+<ion-content style="background:#242424;">
+  <h4 class="reqsong_title">Request a Song!</h4>
+  <form #requestsongForm="ngForm" novalidate > 
+  <div class="req_song">
+    <ion-list>
+      <ion-item>
+        <ion-input placeholder="Enter Song Name" [(ngModel)]="data.name" name="name" #name='ngModel' required></ion-input>
+      </ion-item>
+      <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="name.errors && (name.dirty || name.touched)">
+          <div [hidden]="!name.errors.required" >
+              Field is required
+          </div>
+        </div>
+      </ion-label>
+      <ion-item>
+      <ion-input placeholder="Enter Artist Name" [(ngModel)]="data.artistname" name="artistname" #artistname='ngModel' required></ion-input>
+      </ion-item>
+      <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="artistname.errors && (artistname.dirty || artistname.touched)">
+          <div [hidden]="!artistname.errors.required">
+              Field is required
+          </div>
+        </div>
+      </ion-label>
+    </ion-list>
+  </div>
+
+ <div class="select_radio">
+    <ion-list no-lines radio-group [(ngModel)]="requeststype" name="requeststype">
+      <ion-item *ngFor="let req of request; let i = index">
+        <ion-label>{{req?.TipOption.name}}</ion-label>
+        <ion-radio item-left value="{{req?.TipOption.id}}" (click)="setflag(i)"></ion-radio>
+          <ion-icon ios="ios-alert" md="ios-alert" class="alertbullet" color="black" item-right name="information-circle" (click)="setAlert(i)"></ion-icon>
+      </ion-item>
+    </ion-list>
+    <ion-item style="background:#000;" [hidden]="!flag">
+        <ion-input style="padding-left:58px;" type="tel" pattern="[0-9]+" placeholder="Enter Tip Amount" [(ngModel)]="data.tipamt" name="tipamt" #tipamt='ngModel'></ion-input>
+        <ion-label class="minprice" >(Min ${{minprice}})</ion-label>
+    </ion-item>
+    <ion-label  class="alert alert-danger" color="danger">
+        <div *ngIf="tipamt.errors && (tipamt.dirty || tipamt.touched)">
+          <div [hidden]="!tipamt.errors.pattern" >
+              Only number allowed
+          </div>
+        </div>
+      </ion-label>
+    <div class="centerbutton2">
+      <button class="custom_btn" (click)="requestsong(requestsongForm)" [disabled]="!requestsongForm.form.valid"  color="yellow" type="submit" style="text-transform: uppercase;" ion-button round>REQUEST AND TIP NOW</button>
+    </div>
+  </div>
+  </form>
+</ion-content>

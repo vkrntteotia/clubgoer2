@@ -1,0 +1,101 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="{{classval}}">
+
+  <ion-navbar align-title="center" color="dark" style="background: none;">
+    <ion-title align-title="center">Sign Up</ion-title>
+    <button (click)="setBackButtonAction()"ion-button="bar-button">
+        <span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" aria-label="arrow back"></ion-icon>
+        <span class="back-button-text back-button-text-ios" style="transform: translateX(0px);"></span></span>
+        <div class="button-effect"></div>
+      </button>
+    <ion-buttons end class="rbutton">
+      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="margintop" padding style="background: url(assets/img/loginbg.jpg); background-size:cover;" (ionScroll)="scrollHandler($event)">
+  <div class="login_outer">
+    <div class="logo"><img src="assets/img/logo.png"></div>
+    <div class="form_sec">
+      <form #signupdjForm="ngForm" novalidate>
+        <ion-list>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="data.name" name="name" placeholder="Name" #name='ngModel' required></ion-input>
+          </ion-item>
+          <ion-label class="alert alert-danger" color="danger">
+            <div *ngIf="name.errors && (name.dirty || name.touched)">
+              <div [hidden]="!name.errors.required">
+                Field is required
+              </div>
+            </div>
+          </ion-label>
+          <ion-item>
+            <ion-input type="email" [(ngModel)]="data.email" name="email" placeholder="Email Address" #email='ngModel' required pattern='^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$'
+              required></ion-input>
+          </ion-item>
+          <ion-label class="alert alert-danger" color="danger">
+            <div *ngIf="email.errors && (email.dirty || email.touched)">
+              <div [hidden]="!email.errors.required">
+                Email is required
+              </div>
+              <div [hidden]="!email.errors.pattern">
+                Invalid email
+              </div>
+            </div>
+          </ion-label>
+
+          <ion-item>
+            <ion-input type="password" minlength="5" [(ngModel)]="data.password" name="password" placeholder="Password" #password='ngModel'
+              required></ion-input>
+          </ion-item>
+          <ion-label class="alert alert-danger" color="danger">
+            <div *ngIf="password.errors && (password.dirty || password.touched)">
+              <div [hidden]="!password.errors.required">
+                Password is required
+              </div>
+            </div>
+            <div *ngIf="password.errors && (password.dirty || password.touched)">
+              <div [hidden]="!password.errors.minlength">
+                Minimum length 5 character
+              </div>
+            </div>
+          </ion-label>
+          
+          <ion-item>
+            <ion-input type="password" minlength="5" [(ngModel)]="data.cpassword" name="cpassword" placeholder="Confirm Password" #cpassword='ngModel'
+              required></ion-input>
+          </ion-item>
+          <ion-label class="alert alert-danger" color="danger">
+            <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)">
+              <div [hidden]="!cpassword.errors.required">
+                Confirm password is required
+              </div>
+            </div>
+            <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)">
+              <div [hidden]="!cpassword.errors.minlength">
+                Minimum length 5 character
+              </div>
+            </div>
+          </ion-label>
+
+        </ion-list>
+        <div class="centerbutton">
+          <button class="custom_btn" (click)="register(signupdjForm)" [disabled]="!signupdjForm.form.valid" color="red" style="text-transform: uppercase;"
+            ion-button round>sign Up</button>
+        </div>
+      </form>
+      <div class="centerbutton" style="color:#fff;">Have an account?</div>
+      <div class="centerbutton" style="color:#fff; text-transform:uppercase; text-decoration:underline; margin-top:8px;" (click)="signinPage()">Sign In</div>
+
+      <!--<div class="centerbutton" style="color:#fff; margin-top: 10vh;">Skip</div>-->
+    </div>
+  </div>
+</ion-content>

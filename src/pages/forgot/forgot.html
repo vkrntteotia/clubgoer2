@@ -1,0 +1,42 @@
+<ion-header class="headerbg">
+
+  <ion-navbar color="black">
+    <ion-title>Forget Password</ion-title>
+    <ion-buttons end class="rbutton">
+      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="margintop" padding style="background: url(assets/img/loginbg.jpg); background-size:cover;">
+<div class="login_outer">
+  <div class="logo"><img src="assets/img/logo.png"></div>
+<div class="form_sec">
+<form #forgotForm="ngForm" (ngSubmit)="forgot(forgotForm)" novalidate>
+  <ion-list>
+  <ion-item>
+    <ion-input type="email" [(ngModel)]="data.email" name="email" placeholder="Email Address" #email='ngModel' pattern='^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$' required></ion-input>
+        </ion-item>
+        <ion-label class="alert alert-danger" color="danger">
+        <div *ngIf="email.errors && (email.dirty || email.touched)" >
+        <div [hidden]="!email.errors.required" >
+         Email is required
+        </div>
+        <div [hidden]="!email.errors.pattern" >
+         Invalid email
+        </div>
+        </div>
+       </ion-label>
+</ion-list>
+<div class="centerbutton">
+   <button class="custom_btn" color="red" style="text-transform: uppercase;" type="submit" [disabled]="!forgotForm.form.valid" ion-button >Submit</button>
+</div>
+</form>
+
+
+
+</div>
+</div>
+</ion-content>

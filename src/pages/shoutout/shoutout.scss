@@ -1,0 +1,63 @@
+page-shoutout {
+    .shoutout_outer {
+        display: block;
+        height: 100%;
+    }
+    .logo{
+
+        width: 100%;
+        text-align: center;
+    }
+    .logo img{
+		width: 36%;
+	}
+    .form_sec .item{
+        padding: 0;
+        background: none !important;
+        color: #a9abaf !important;
+    }
+    .text-input{
+    text-decoration: none !important;
+    }
+    .text-input-md{
+        text-decoration: none !important;
+    }
+    .form_secinn{
+        padding: 10vh 0;
+    }
+    .item-block:first-child{
+        border: none !important;
+    }
+    .label{
+        font-size: 14px;
+    }
+    .remember .item-inner{
+        border: none !important;
+    }
+    .centerbutton{
+
+        text-align: center;
+    }
+    .item.item-md .checkbox-md {
+	margin: 9px 8px 9px 4px;}
+
+    .text-input::-webkit-input-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input::-moz-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input:-ms-input-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input:-moz-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input{
+          color: #fff;
+      }
+}

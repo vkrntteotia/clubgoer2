@@ -1,0 +1,117 @@
+page-logindj {
+ .back-button{
+        display: none !important;
+    }
+    .headerbg{
+        background: none;
+    }
+    .headerbg .toolbar-background  {
+        background: none !important;
+        border: none;
+    }
+     button.custom_btn.disable-hover.button.button-ios.button-default.button-default-ios.button-round.button-round-ios.button-ios-red {
+        text-transform: uppercase;
+        background-color: #b00101;
+        border-radius: 4px;
+        
+}
+    .login_outer {
+        margin-top: 64px;
+        display: block;
+        height: 100%;
+    }
+    .text-input{
+    text-decoration: none !important;
+    }
+    .text-input-md{
+        text-decoration: none !important;
+    }
+    .login_outer .button-inner{
+        color: #fff !important;
+    }
+    .logo{
+
+        width: 100%;
+        text-align: center;
+    }
+    .logo img{
+		width: 36%;
+	}
+    .form_sec .item{
+        padding: 0;
+        background: none !important;
+
+
+    }
+    .item-block:first-child{
+        border: none !important;
+    }
+    .label{
+        font-size: 14px;
+    }
+    .remember .item-inner{
+        border: none !important;
+    }
+    .centerbutton{
+        text-align: center;
+        margin: 10px;
+    }
+    .item.item-md .checkbox-md {
+	margin: 9px 8px 9px 4px;}
+
+    .text-input::-webkit-input-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input::-moz-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input:-ms-input-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input:-moz-placeholder {
+    color:#fff !important;
+    opacity: 0.5;
+    }
+    .text-input{
+          color: #fff;
+      }
+    .checkbox-icon{
+        border-radius: 30px !important;
+    }
+
+    .form_sec {
+        padding-top: 10vh;
+    }
+    .checkbox-checked {
+        border-color: #fff !important;
+        background-color: #fff !important;
+        color: #000 !important;
+    }
+    .checkbox-checked .checkbox-inner {
+        border-color: #000 !important;
+    }
+    // .scroll-content {
+	// 	overflow: hidden !important;
+	// }
+
+}
+
+
+.alert-wrapper{
+    opacity: 1 !important;
+    transform: scale(1);
+    background-color: rgba(0, 0, 0, 0.69) !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+    box-shadow: 0 0 15px #fff;
+}
+.alert-ios .alert-sub-title {
+    font-size: 14px;
+    color: #fff;
+}
+.alert-ios .alert-message{
+    overflow-y:hidden;
+}

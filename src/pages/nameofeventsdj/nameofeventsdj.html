@@ -1,0 +1,87 @@
+<!--
+  Generated template for the NameofeventsdjPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="black">
+        <button ion-button menuToggle>
+					<ion-icon style="color:#fff;" name="menu"></ion-icon>
+			</button>
+        <ion-title>{{eventname}}</ion-title>
+        <div class="logo">
+            <img src="assets/img/rlogo.png">
+        </div>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>
+    </ion-refresher>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-6>
+                <div class="colm" (click)="play(eventidd)">
+                    <img src="assets/img/playbg.png">
+                    <h6>Play Now</h6>
+                    <div class="cricle">
+                        <p>{{playnow}}</p>
+                    </div>
+                </div>
+            </ion-col>
+            <ion-col col-6>
+                <div class="colm" (click)="topque(eventidd)">
+                    <img src="assets/img/topbg.png">
+                    <h6 class="">Top Queue </h6>
+                    <div class="cricle">
+                        <p>{{topqueue}}</p>
+                    </div>
+                </div>
+            </ion-col>
+            <ion-col col-6 (click)="grntply(eventidd)">
+                <div class="colm">
+                    <img src="assets/img/guarbg.png">
+                    <h6 class="">GUARANTEED PLAY</h6>
+                    <div class="cricle">
+                        <p>{{gauranteedplay}}</p>
+                    </div>
+                </div>
+            </ion-col>
+
+            <ion-col col-6 (click)="possply(eventidd)">
+                <div class="colm">
+                    <img src="assets/img/possbg.png">
+                    <h6 class="">Possibly Play</h6>
+                    <div class="cricle">
+                        <p>{{possiblyplay}}</p>
+                    </div>
+                </div>
+            </ion-col>
+
+            <ion-col col-12 (click)="voteupnow(eventidd)">
+                <div class="colm">
+                    <img src="assets/img/votbg.png">
+                    <h6 class="">Voteup Requests</h6>
+                    <div class="cricle">
+                        <p>{{voteup}}</p>
+                    </div>
+                </div>
+            </ion-col>
+            
+            <ion-col col-12 (click)="shoutout(eventidd)">
+                <div class="colm">
+                    <img src="assets/img/votbg.png">
+                    <h6 class="">Shoutouts Requests</h6>
+                    <div class="cricle">
+                        <p>{{shoutoutdj}}</p>
+                    </div>
+                </div>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+</ion-content>

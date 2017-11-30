@@ -1,0 +1,122 @@
+<!--
+  Generated template for the ManageeventsdjPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="black">
+        <ion-title>Manage Events</ion-title>
+        <div class="logo">
+            <img src="assets/img/rlogo.png">
+        </div>
+    </ion-navbar>
+    <ion-toolbar class="tabing">
+        <ion-segment style="padding:5px;" color="red" full [(ngModel)]="segments">
+
+            <ion-segment-button class="segment-button segment-activated" value="team" ng-reflect-value="sale" aria-pressed="true"> Upcoming Events </ion-segment-button>
+
+            <ion-segment-button value="reserve"> Past Events </ion-segment-button>
+
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="background: #f2f2f2;">
+    <div [ngSwitch]="segments">
+        <div class="past">
+            <ion-list *ngSwitchCase="'team'">
+                <ion-item *ngFor="let u of upevnt; let k = index">
+                    <div> <button ion-button (click)="editEvent(u?.Event.id)"> Edit </button></div>
+                    <div class="brdr" (click)="omniaclubevent(u?.Event.id,u?.Event.event_name)">
+                        <div class="date-sec blue">
+                            <h2>{{u?.Event.Day}}</h2>
+                            <h1>{{u?.Event.Month}}</h1>
+                        </div>
+                        <h3>{{u?.Event.event_name}}</h3>
+                        <p>{{u?.Event.venue_address}}</p>
+
+                    </div>
+
+                </ion-item>
+
+                <div class="unshow" *ngIf="upevnt?.length == 0">
+                    <h3>Upcoming events unavailable</h3>
+                </div>
+            </ion-list>
+        </div>
+
+        <div class="past">
+            <ion-list *ngSwitchCase="'reserve'">
+                <ion-item *ngFor="let p of pastevnt; let i = index" (click)="pastevent(p?.Event.id)">
+                    <div class="brdr">
+                        <div class="date-sec blue">
+                            <h2>{{p?.Event.Day}}</h2>
+                            <h1>{{p?.Event.Month}}</h1>
+                        </div>
+                        <h3>{{p?.Event.event_name}}</h3>
+                        <p>{{p?.Event.venue_address}}</p>
+                    </div>
+                </ion-item>
+                <div class="unshow" *ngIf="pastevnt?.length == 0">
+                    <h3>Past events unavailable</h3>
+                </div>
+
+                <!-- <ion-item (click)="pastevent()">
+      	<div class="brdr">
+        	<div class="date-sec pink">
+        		<h2>06</h2>
+        		<h1>Sep</h1>
+        	</div>
+        	<h3>Rage Against the machine</h3>
+        	<p>Event location</p>
+        </div>
+      </ion-item>
+      <ion-item (click)="pastevent()">
+      	<div class="brdr">
+        	<div class="date-sec blue">
+        		<h2>06</h2>
+        		<h1>Sep</h1>
+        	</div>
+        	<h3>Rage Against the machine</h3>
+        	<p>Event location</p>
+        </div>
+      </ion-item>
+      <ion-item (click)="pastevent()">
+      	<div class="brdr">
+        	<div class="date-sec pink">
+        		<h2>06</h2>
+        		<h1>Sep</h1>
+        	</div>
+        	<h3>Rage Against the machine</h3>
+        	<p>Event location</p>
+        </div>
+      </ion-item>
+      <ion-item (click)="pastevent()">
+      	<div class="brdr">
+        	<div class="date-sec blue">
+        		<h2>06</h2>
+        		<h1>Sep</h1>
+        	</div>
+        	<h3>Rage Against the machine</h3>
+        	<p>Event location</p>
+        </div>
+      </ion-item>
+      <ion-item (click)="pastevent()">
+      	<div class="brdr">
+        	<div class="date-sec pink">
+        		<h2>06</h2>
+        		<h1>Sep</h1>
+        	</div>
+        	<h3>Rage Against the machine</h3>
+        	<p>Event location</p>
+        </div>
+      </ion-item> -->
+            </ion-list>
+        </div>
+
+    </div>
+
+</ion-content>

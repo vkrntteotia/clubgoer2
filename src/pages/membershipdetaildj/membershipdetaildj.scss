@@ -1,0 +1,188 @@
+page-membershipdetaildj {
+	.logo{
+		width: 40%;
+    float: right;
+    text-align: right;
+    position: absolute;
+    right: 18px;
+    top: 35px;
+	}
+	.logo img{
+		width: 12%;
+		margin-top: 19px;
+	}
+	.content-sec{
+	    width: 100%;
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    right: 0;
+	    margin: auto;
+	    height: 218px;
+	}
+	.content-sec h1{
+		font-size: 15px;
+	    font-weight: 700 !important;
+	    text-align: center;
+	    margin: 0;
+	    width: 100%;
+	    float: left;
+	    color: #222222;
+	    margin-bottom: 2px;
+	}
+	.content-sec .pay{
+		width: 100%;
+		float: left;
+		text-align: center;
+	}
+	.content-sec .pay h4{
+	    margin: auto;
+	    width: 80px;
+	    height: 80px;
+	    border-radius: 50%;
+	    background-color: #f2f2f2;
+	    text-align: center;
+	    font-weight: 700 !important;
+	    line-height: 80px;
+	    border: 1px solid #afafaf;
+	    font-size: 15px;
+	    float: none;
+	    color: #222222;
+	}
+	.content-sec p{
+		color: #222222;
+		font-size: 12px;
+	    font-weight: 400 !important;
+	    text-align: center;
+	    margin: 0;
+	    width: 100%;
+	    float: left;
+	    margin-top: 2px;
+	}
+	.content-sec p span{
+		font-weight: 700;
+	}
+	.content-sec h2{
+		font-size: 15px;
+	    font-weight: 500 !important;
+	    text-align: center;
+	    margin: 0;
+	    width: 100%;
+	    float: left;
+	    color: #222222;
+	    margin: 5px 0px 2px 0px;
+	}
+	.content-sec h3{
+		font-size: 13px;
+	    font-weight: 500 !important;
+	    text-align: center;
+	    margin: 0;
+	    width: 100%;
+	    float: left;
+	    color: #222222;
+	}
+	.btnsec .button {
+		width: auto;
+		font-size: 12px;
+		text-transform: uppercase;
+		margin: 2px;
+		white-space: normal;
+		font-weight: 600;
+	}
+	.btnsec {
+		width: 100%;
+		float: left;
+		padding: 9px;
+		display: flex;
+		word-wrap: break-word;
+		white-space: normal;
+		background: #f9f9f9;
+		border-top: 1px solid #ddd;
+	}
+	.cardbody {
+		padding: 20px 0 0!important;
+		float: left;
+		width: 100%;
+	}
+
+
+
+	.pay {
+		margin: 0 auto;
+		width: 120px;
+		height: 120px;
+		background: #333;
+		border-radius: 50%;
+		text-align: center;
+		display: table;
+		vertical-align: middle;
+		font-size: 20px;
+		color: #fff;
+		padding-top: 15%;
+		border: 5px dashed #fff;
+		box-shadow: 0 0 17px #ccc;
+		font-weight: 500;
+	}
+	
+	.card_sec{
+		border-radius: 15px;
+		text-align: center;
+	}
+	.card_sec .card-header h1 {
+		text-transform: uppercase;
+		font-size: 15px;
+		letter-spacing: 2px;
+		font-weight: 600 !important;
+	}
+	
+	.card_sec .card-header {
+		background: #F9F9F9;
+		border-bottom: 1px solid #ddd;
+	}
+	.valid {
+		background: #f9f9f9;
+		width: 86%;
+		display: block;
+		color: #000;
+		font-weight: 600;
+		padding: 5px 15px;
+		margin: 15px;
+		border-top: 1px dashed #ccc;
+		border-bottom: 1px dashed #ccc;
+		float: left;
+	}
+	.cardbody h3 {
+		width: 50%;
+		display: inline-block;
+		float: left;
+		padding: 3px;
+		text-align: center;
+		font-size: 11px;
+	}
+	.cardbody h2 {
+		float: left;
+		width: 100%;
+		margin: 10px 0;
+		text-transform: uppercase;
+		font-weight: 600 !important;
+		letter-spacing: 1px;
+		position: relative;
+	}
+	
+	.cardbody h2::before {
+		border-bottom: 1px solid #ccc;
+		position: absolute;
+		width: 16%;
+		content: "";
+		left: 15px;
+		top: 9px;
+	}
+	.cardbody h2::after {
+		border-bottom: 1px solid #ccc;
+		position: absolute;
+		width: 16%;
+		content: "";
+		right: 15px;
+		top: 9px;
+	}
+}

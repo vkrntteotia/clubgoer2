@@ -1,0 +1,59 @@
+<ion-menu id="clubgoer" [content]="content" *ngIf="role == 'clubgoer'">
+  <ion-header>
+    <ion-toolbar color="black">
+      <div class="usersidebar">
+        <ion-list no-lines>
+          <ion-item color="black">
+            <ion-avatar item-start>
+              <img src={{profile?.image}}>
+            </ion-avatar>
+            <h2>{{profile?.complete_name}}</h2>
+            <p>{{profile?.email}}</p>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content style="background:#000;">
+    <ion-list no-lines>
+      <button color="black" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" [class.active]="checkActivePage(p)">
+        <ion-icon name="{{p.icon}}" item-left></ion-icon>
+        {{p.title}}
+      </button>
+      
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-menu id="dj" [content]="content" *ngIf="role == 'dj'" [swipeEnabled]="false">
+  <ion-header>
+    <ion-toolbar color="black">
+      <div>
+        <ion-list no-lines>
+          <ion-item color="black" class="menudjc">
+            <ion-avatar item-start class="dj">
+              <img src={{profile?.image}}>
+            </ion-avatar>
+            <h2 style="color:#fff">{{profile?.complete_name}}</h2>
+            <p>DJ</p>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content style="background:#000;font-size:14px;">
+      <div class="act"><h3 style="color:#fff; margin:0px; font-size:15px">Active</h3></div>
+    <ion-list no-lines>
+      <button color="black" menuClose ion-item *ngFor="let p of djmenu" (click)="openPage(p)" [class.active]="checkActivePage(p)" style="font-size:14px;">
+        <ion-icon name="{{p.icon}}" item-left></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,55 @@
+<!--
+  Generated template for the PasteventdjPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+		
+			<ion-navbar color="black">
+				<ion-title>{{pastevntdata?.Event.event_name}}</ion-title>
+				<div class="logo">
+						
+					<img src="assets/img/rlogo.png">
+				</div>
+			</ion-navbar>
+		
+		</ion-header>
+		
+		
+		<ion-content>
+			<div class="imgsec">
+					<img [src]="pastevntdata?.Event.image">
+				<!-- <img src="assets/img/sbg.png"> -->
+			</div>
+			<div class="content-sec" padding>
+				<h1>{{pastevntdata?.Event.venue_name}}</h1>
+				<div class="content-text">
+					<h3>{{pastevntdata?.Event.event_name}}</h3>
+					<p>{{pastevntdata?.Event.event_date| date:'MM-dd-yyyy' }}</p>
+					<p>{{pastevntdata?.Event.event_time}} to {{pastevntdata?.Event.scheduled_start_time}}</p>
+				</div>
+				<div class="content-text">
+					<h3>Tip Amounts</h3>
+					<p>Play Now ${{pastevntdata?.TipOptionPrice.playnow}}</p>
+					<p>Guaranteed Play  ${{pastevntdata?.TipOptionPrice.guareteedplay}}</p>
+					<p>Possibly Play  ${{pastevntdata?.TipOptionPrice.possiblyplay}}</p>
+				</div>
+				<div class="bottom-sec">
+					<h3>Address</h3>
+					<p>{{pastevntdata?.Event.venue_address}}</p>
+				</div>
+				<div class="btn-sec">
+					<div class="top-btn">
+						<h3>Request History</h3>
+						<button ion-button (click)="reqhs(pastevntdata?.Event.id)">View</button>
+					</div>
+		
+					<div class="bottom-btn">
+						<h3>Payment History</h3>
+						<button ion-button (click)="payhs(pastevntdata?.Event.id)">View</button>
+					</div>
+				</div>
+		
+			</div>
+				</ion-content>
