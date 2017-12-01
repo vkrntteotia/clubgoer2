@@ -153,17 +153,17 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
             }
           })
         } 
-        else if(tmp == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/corepay?'){
-          if(tmpr=="https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/"){
+        else if(tmp == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/corepay?' && tmpr == "https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/"){
+          
                   browser.close();
                   this.navCtrl.push(HomePage);
                   let alert = this.alertCtrl.create({
                     title: 'Payment info',
-                    subTitle: "ffggfPayment unsuccessfull"
+                    subTitle: "Payment unsuccessfull"
                     });
                     alert.present();
                     setTimeout(()=>alert.dismiss(),1500);
-              }
+            
           }
         else if(redirect_url[0] == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/closewindow?'){
             browser.close();
@@ -192,7 +192,7 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
           this.navCtrl.push(HomePage);
           let alert = this.alertCtrl.create({
             title: 'Payment info',
-            subTitle: "Payment hello unsuccessfull"
+            subTitle: "Payment unsuccessfull"
             });
             alert.present();
             setTimeout(()=>alert.dismiss(),1500);

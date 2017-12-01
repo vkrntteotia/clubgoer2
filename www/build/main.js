@@ -8083,17 +8083,15 @@ var PayinfoPage = (function () {
                     }
                 });
             }
-            else if (tmp == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/corepay?') {
-                if (tmpr == "https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/") {
-                    browser.close();
-                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
-                    var alert_3 = _this.alertCtrl.create({
-                        title: 'Payment info',
-                        subTitle: "ffggfPayment unsuccessfull"
-                    });
-                    alert_3.present();
-                    setTimeout(function () { return alert_3.dismiss(); }, 1500);
-                }
+            else if (tmp == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/corepay?' && tmpr == "https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/") {
+                browser.close();
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
+                var alert_3 = _this.alertCtrl.create({
+                    title: 'Payment info',
+                    subTitle: "Payment unsuccessfull"
+                });
+                alert_3.present();
+                setTimeout(function () { return alert_3.dismiss(); }, 1500);
             }
             else if (redirect_url[0] == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/closewindow?') {
                 browser.close();
@@ -8124,7 +8122,7 @@ var PayinfoPage = (function () {
                 _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
                 var alert_6 = _this.alertCtrl.create({
                     title: 'Payment info',
-                    subTitle: "Payment hello unsuccessfull"
+                    subTitle: "Payment unsuccessfull"
                 });
                 alert_6.present();
                 setTimeout(function () { return alert_6.dismiss(); }, 1500);
