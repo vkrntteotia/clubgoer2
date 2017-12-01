@@ -30,7 +30,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var VariableProvider = (function () {
     function VariableProvider(http) {
         this.http = http;
-        this.baseUrl = "http://priyank.crystalbiltech.com/dj/api/";
+        this.baseUrl = "http://vikrant.crystalbiltech.com/dj/api/";
         // public SIGNUP_API="users/registration"; 
         this.SIGNIN_API = "users/fblogin";
         console.log('Hello VariableProvider Provider');
@@ -39,9 +39,10 @@ var VariableProvider = (function () {
 }());
 VariableProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], VariableProvider);
 
+var _a;
 //# sourceMappingURL=variable.js.map
 
 /***/ }),
@@ -7425,7 +7426,7 @@ var Appsetting = (function () {
     function Appsetting(http, toastCtrl) {
         this.http = http;
         this.toastCtrl = toastCtrl;
-        this.myGlobalVar = 'http://priyank.crystalbiltech.com/dj/api/'; //shop/shippingaddress
+        this.myGlobalVar = 'http://vikrant.crystalbiltech.com/dj/api/'; //shop/shippingaddress
         this.checknetwork();
     }
     Appsetting.prototype.checknetwork = function () {
@@ -7443,9 +7444,10 @@ var Appsetting = (function () {
 }());
 Appsetting = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["p" /* ToastController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["p" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["p" /* ToastController */]) === "function" && _b || Object])
 ], Appsetting);
 
+var _a, _b;
 //# sourceMappingURL=appsetting.js.map
 
 /***/ }),

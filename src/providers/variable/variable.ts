@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class VariableProvider {
 
- public baseUrl: string="http://priyank.crystalbiltech.com/dj/api/";
+ public baseUrl: string="http://vikrant.crystalbiltech.com/dj/api/";
   // public SIGNUP_API="users/registration"; 
   public SIGNIN_API="users/fblogin"; 
 
