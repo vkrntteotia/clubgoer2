@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 445:
+/***/ 467:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VoteupPageModule", function() { return VoteupPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VoteupdjPageModule", function() { return VoteupdjPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__voteup__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__voteupdj__ = __webpack_require__(149);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var VoteupPageModule = (function () {
-    function VoteupPageModule() {
+var VoteupdjPageModule = (function () {
+    function VoteupdjPageModule() {
     }
-    return VoteupPageModule;
+    return VoteupdjPageModule;
 }());
-VoteupPageModule = __decorate([
+VoteupdjPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__voteup__["a" /* VoteupPage */],
+            __WEBPACK_IMPORTED_MODULE_2__voteupdj__["a" /* VoteupdjPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__voteup__["a" /* VoteupPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__voteupdj__["a" /* VoteupdjPage */]),
         ],
     })
-], VoteupPageModule);
+], VoteupdjPageModule);
 
-//# sourceMappingURL=voteup.module.js.map
+//# sourceMappingURL=voteupdj.module.js.map
 
 /***/ })
 

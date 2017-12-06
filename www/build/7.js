@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 485:
+/***/ 473:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TermsdjPageModule", function() { return TermsdjPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TermsdjsubsPageModule", function() { return TermsdjsubsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__termsdj__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__termsdjsubs__ = __webpack_require__(77);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var TermsdjPageModule = (function () {
-    function TermsdjPageModule() {
+var TermsdjsubsPageModule = (function () {
+    function TermsdjsubsPageModule() {
     }
-    return TermsdjPageModule;
+    return TermsdjsubsPageModule;
 }());
-TermsdjPageModule = __decorate([
+TermsdjsubsPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__termsdj__["a" /* TermsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_2__termsdjsubs__["a" /* TermsdjsubsPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__termsdj__["a" /* TermsdjPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__termsdjsubs__["a" /* TermsdjsubsPage */]),
         ],
     })
-], TermsdjPageModule);
+], TermsdjsubsPageModule);
 
-//# sourceMappingURL=termsdj.module.js.map
+//# sourceMappingURL=termsdjsubs.module.js.map
 
 /***/ })
 

@@ -65,8 +65,9 @@ getevent(evid){
   }
   var Serialized = this.serializeObj(data);
   this.http.post(this.appsetting.myGlobalVar + 'events/getevent', Serialized, options).map(res => res.json()).subscribe(response => {
-    console.log(response.data.Event.image);
+    
     this.srcImage = response.data.Event.image;  
+    this.imgTosend = response.data.Event.image;
 
      this.data = {
       'venuename' : response.data.Event.venue_name,
@@ -93,7 +94,7 @@ toggleDetails(taggel) {
     }
   }
 
-  addeventnow(addevent) {
+  editeventnow(editeven) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
     let options = new RequestOptions({ headers: headers });
@@ -102,26 +103,22 @@ toggleDetails(taggel) {
     var dj_code = JSON.parse(localStorage.getItem("USER_DATA")).paypal_email;
     var subscribedj = JSON.parse(localStorage.getItem("USER_DATA")).subscription_status;
 
-    if (addevent.value.eventstartdt == addevent.value.eventenddt) {
+    if (editeven.value.eventstartdt == editeven.value.eventenddt) {
 
-      if (addevent.value.eventsarttm > addevent.value.eventendtm) {
+      if (editeven.value.eventsarttm > editeven.value.eventendtm) {
         this.Loader.dismiss();
         let alert = this.alertCtrl.create({
           title: 'Time ',
           subTitle: 'Please enter appropriate time.',
           buttons: ['ok']
         });
-
         alert.present();
         return false;
-
-      }
-
-
+      }    
     }
     if (subscribedj == 0) {
       let alert = this.alertCtrl.create({
-        title: 'Add event',
+        title: 'Edit event',
         subTitle: 'Please subscribe first',
       });
       alert.present();
@@ -132,7 +129,7 @@ toggleDetails(taggel) {
     else if (dj_code == null) {
       let alert = this.alertCtrl.create({
         title: 'PayPal Account',
-        subTitle: 'To add an event, please add your PayPal email address first.',
+        subTitle: 'To edit an event, please add your PayPal email address first.',
         buttons: ['ok']
       });
       alert.present();
@@ -149,9 +146,9 @@ toggleDetails(taggel) {
     //   setTimeout(() => alert.dismiss(), 3500);
     //   this.Loader.dismiss();
     }
-    else if (addevent.value.minplay < 2 || addevent.value.mingrnt < 2 || addevent.value.minpossi < 2) {
+    else if (editeven.value.minplay < 2 || editeven.value.mingrnt < 2 || editeven.value.minpossi < 2) {
       let alert = this.alertCtrl.create({
-        title: 'Add event',
+        title: 'Edit event',
         subTitle: 'Please enter tip amount greater than 1',
       });
       alert.present();
@@ -159,31 +156,32 @@ toggleDetails(taggel) {
       this.Loader.dismiss();
     }
     else {
-      alert("load");
+      this.Loader.present()
       // this.Loader.present();
       var data = {
-        event_id: this.event_id,
-        venue_name: addevent.value.venuename,
-        venue_addr: addevent.value.venueaddress,
-        event_name: addevent.value.eventname,
-        event_start_date: addevent.value.eventstartdt,
-        event_end_date: addevent.value.eventenddt,
-        event_start_time: addevent.value.eventsarttm,
-        event_end_time: addevent.value.eventendtm,
-        play_now_amt: addevent.value.minplay,
-        guaranteed_play: addevent.value.mingrnt,
-        possibly_play: addevent.value.minpossi,
+        event_id: this.editevnt,
+        venue_name: editeven.value.venuename,
+        venue_addr: editeven.value.venueaddress,
+        event_name: editeven.value.eventname,
+        event_start_date: editeven.value.eventstartdt,
+        event_end_date: editeven.value.eventenddt,
+        event_start_time: editeven.value.eventsarttm,
+        event_end_time: editeven.value.eventendtm,
+        play_now_amt: editeven.value.minplay,
+        guaranteed_play: editeven.value.mingrnt,
+        possibly_play: editeven.value.minpossi,
         image: imgsend,
         role: 'dj'
       }
-
+      console.log(data);
       var Serialized = this.serializeObj(data);
       this.http.post(this.appsetting.myGlobalVar + 'events/editevent', Serialized, options).map(res => res.json()).subscribe(response => {
-        alert(JSON.stringify(response));
+        console.log(response);
+        this.Loader.dismiss()
         if (response.status == 0) {
           this.Loader.dismiss();
           let alert = this.alertCtrl.create({
-            title: 'Add event',
+            title: 'Edit event',
             subTitle: response.msg,
           });
           alert.present();
@@ -192,7 +190,7 @@ toggleDetails(taggel) {
         } else {
           this.Loader.dismiss();
           let alert = this.alertCtrl.create({
-            title: 'Add event',
+            title: 'Edit event',
             subTitle: response.msg,
           });
           alert.present();

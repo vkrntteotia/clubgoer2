@@ -23,13 +23,13 @@
 				<div class="img-sec">
 					<img src="assets/img/headphn.png">
 				</div>
-				<h3>{{play?.ClubgoerRequest.songname}} </h3>
-				<p>{{play?.ClubgoerRequest.artist_name}}</p>
+				<h3>Song name : {{play?.ClubgoerRequest.songname}} </h3>
+				<p>Artist name : {{play?.ClubgoerRequest.artist_name}}</p>
 				<div class="img-right">
 					<div class="imgmain">
-						<img src="assets/img/playimg.png" *ngIf="play?.ClubgoerRequest.topque">
+						<!-- <img src="assets/img/playimg.png" *ngIf="play?.ClubgoerRequest.topque">
 						<img src="assets/img/playnow.png" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque">
-						<img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)">
+						<img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)"> -->
 					</div>
 				</div>
 		  </ion-item>

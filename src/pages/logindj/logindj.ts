@@ -112,11 +112,11 @@ export class LogindjPage {
     // .catch(error => {
     //   console.error('Error getting token', error)
     // });
-  this.firebase.onTokenRefresh().subscribe(
-    token => {
-      console.log(`The new token is ${token}`);
-      this.token = token;
-      console.log('onTokenRefresh->', this.token)
+  // this.firebase.onTokenRefresh().subscribe(
+  //   token => {
+  //     console.log(`The new token is ${token}`);
+  //     this.token = token;
+  //     console.log('onTokenRefresh->', this.token);
 
  if (form.value.checkbx == true) {
       localStorage.setItem("usernamedj", form.value.email);
@@ -175,7 +175,7 @@ export class LogindjPage {
       }
     })
       })
-    })
+    //})
   }
 
   fblogin() {

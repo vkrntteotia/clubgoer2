@@ -32,7 +32,6 @@ export class ShoutoutdjPage {
   }
 
   shoutoutreq(){
-    alert("hello");
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
     var options = new RequestOptions({ headers: headers });
@@ -42,7 +41,7 @@ export class ShoutoutdjPage {
     });
     Loader.present().then(() => {
       var data = {
-        djid: 3,
+        djid: Userid,
         eventid:this.eventid
             }
       var serialized = this.serializeObj(data);
@@ -50,7 +49,6 @@ export class ShoutoutdjPage {
         .map(res => res.json())
         .subscribe(data => {
           Loader.dismiss();
-          alert(JSON.stringify(data));
           if (data.isSucess == "true") {
             this.playnowreq=data.data;
           } else {

@@ -1,6 +1,6 @@
-webpackJsonp([48],{
+webpackJsonp([49],{
 
-/***/ 106:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39,10 +39,9 @@ var VariableProvider = (function () {
 }());
 VariableProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
 ], VariableProvider);
 
-var _a;
 //# sourceMappingURL=variable.js.map
 
 /***/ }),
@@ -294,7 +293,7 @@ SongrequestsPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__payinfo_payinfo__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__payinfo_payinfo__ = __webpack_require__(69);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -680,7 +679,7 @@ VoteupPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__payinfo_payinfo__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__payinfo_payinfo__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(26);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1443,7 +1442,7 @@ VotelikePage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1822,7 +1821,7 @@ var PasteventdjPage = (function () {
 PasteventdjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-pasteventdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/pasteventdj/pasteventdj.html"*/'<!--\n  Generated template for the PasteventdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		\n			<ion-navbar color="black">\n				<ion-title>{{pastevntdata?.Event.event_name}}</ion-title>\n				<div class="logo">\n						\n					<img src="assets/img/rlogo.png">\n				</div>\n			</ion-navbar>\n		\n		</ion-header>\n		\n		\n		<ion-content>\n			<div class="imgsec">\n					<img [src]="pastevntdata?.Event.image">\n				<!-- <img src="assets/img/sbg.png"> -->\n			</div>\n			<div class="content-sec" padding>\n				<h1>{{pastevntdata?.Event.venue_name}}</h1>\n				<div class="content-text">\n					<h3>{{pastevntdata?.Event.event_name}}</h3>\n					<p>{{pastevntdata?.Event.event_date| date:\'MM-dd-yyyy\' }}</p>\n					<p>{{pastevntdata?.Event.event_time}} to {{pastevntdata?.Event.scheduled_start_time}}</p>\n				</div>\n				<div class="content-text">\n					<h3>Tip Amounts</h3>\n					<p>Play Now ${{pastevntdata?.TipOptionPrice.playnow}}</p>\n					<p>Guaranteed Play  ${{pastevntdata?.TipOptionPrice.guareteedplay}}</p>\n					<p>Possibly Play  ${{pastevntdata?.TipOptionPrice.possiblyplay}}</p>\n				</div>\n				<div class="bottom-sec">\n					<h3>Address</h3>\n					<p>{{pastevntdata?.Event.venue_address}}</p>\n				</div>\n				<div class="btn-sec">\n					<div class="top-btn">\n						<h3>Request History</h3>\n						<button ion-button (click)="reqhs(pastevntdata?.Event.id)">View</button>\n					</div>\n		\n					<div class="bottom-btn">\n						<h3>Payment History</h3>\n						<button ion-button (click)="payhs(pastevntdata?.Event.id)">View</button>\n					</div>\n				</div>\n		\n			</div>\n				</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/pasteventdj/pasteventdj.html"*/,
+        selector: 'page-pasteventdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/pasteventdj/pasteventdj.html"*/'<!--\n  Generated template for the PasteventdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		\n			<ion-navbar color="black">\n				<ion-title>{{pastevntdata?.Event.event_name}}</ion-title>\n				<div class="logo">\n						\n					<img src="assets/img/rlogo.png">\n				</div>\n			</ion-navbar>\n		\n		</ion-header>\n		\n		\n		<ion-content>\n			<div class="imgsec">\n					<img [src]="pastevntdata?.Event.image">\n				<!-- <img src="assets/img/sbg.png"> -->\n			</div>\n			<div class="content-sec" padding>\n				<h1>{{pastevntdata?.Event.venue_name}}</h1>\n				<div class="content-text">\n					<h3>{{pastevntdata?.Event.event_name}}</h3>\n					<p>{{pastevntdata?.Event.event_date | date:\'MM-dd-yyyy\' }} to {{pastevntdata?.Event.start_event | date:\'MM-dd-yyyy\' }}</p>\n					<p>{{pastevntdata?.Event.event_time}} to {{pastevntdata?.Event.scheduled_start_time}}</p>\n				</div>\n				<div class="content-text">\n					<h3>Tip Amounts</h3>\n					<p>Play Now ${{pastevntdata?.TipOptionPrice.playnow}}</p>\n					<p>Guaranteed Play  ${{pastevntdata?.TipOptionPrice.guareteedplay}}</p>\n					<p>Possibly Play  ${{pastevntdata?.TipOptionPrice.possiblyplay}}</p>\n				</div>\n				<div class="bottom-sec">\n					<h3>Address</h3>\n					<p>{{pastevntdata?.Event.venue_address}}</p>\n				</div>\n				<div class="btn-sec">\n					<div class="top-btn">\n						<h3>Request History</h3>\n						<button ion-button (click)="reqhs(pastevntdata?.Event.id)">View</button>\n					</div>\n		\n					<div class="bottom-btn">\n						<h3>Payment History</h3>\n						<button ion-button (click)="payhs(pastevntdata?.Event.id)">View</button>\n					</div>\n				</div>\n		\n			</div>\n				</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/pasteventdj/pasteventdj.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -1846,7 +1845,7 @@ PasteventdjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2097,8 +2096,8 @@ RequesthistorydjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__manageeventsdj_manageeventsdj__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__nameofeventsdj_nameofeventsdj__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__manageeventsdj_manageeventsdj__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__nameofeventsdj_nameofeventsdj__ = __webpack_require__(75);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2270,7 +2269,7 @@ var OmniaclubeventdjPage = (function () {
 OmniaclubeventdjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-omniaclubeventdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/omniaclubeventdj/omniaclubeventdj.html"*/'<!--\n  Generated template for the OmniaclubeventdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		\n			<ion-navbar color="black">\n				<ion-title>{{upevntdata?.Event.event_name}}</ion-title>\n				<div class="logo">\n					<img src="assets/img/rlogo.png">\n				</div>\n			</ion-navbar>\n		\n		</ion-header>\n		\n		\n		<ion-content>\n			<div class="imgsec" *ngIf="upevntdata?.Event.image">\n				<!-- <img src="assets/img/sbg.png"> -->\n				<img [src]="upevntdata?.Event.image">\n			</div>\n			<div class="content-sec" padding>\n				<h1>{{upevntdata?.Event.venue_name}}</h1>\n				<div class="content-text">\n					<h3>{{upevntdata?.Event.event_name}}</h3>\n					<p>{{upevntdata?.Event.event_date | date:\'MM-dd-yyyy\'}}</p>\n					<p>{{upevntdata?.Event.event_time}} to {{upevntdata?.Event.scheduled_start_time}} </p>\n				</div>\n				<div class="content-text">\n					<h3>Tip Amounts</h3>\n					<p>Play Now ${{upevntdata?.TipOptionPrice.playnow}}</p>\n					<p>Guaranteed Play ${{upevntdata?.TipOptionPrice.guareteedplay}}</p>\n					<p>Possibly Play ${{upevntdata?.TipOptionPrice.possiblyplay}}</p>\n				</div>\n				<div class="bottom-sec">\n					<h3>Address</h3>\n					<p>{{upevntdata?.Event.venue_address}}\n					</p>\n				</div>\n				<div class="btn-sec">\n					<button ion-button (click)="deletevnt(upevntdata?.Event.id)">Delete Event</button>\n					<button ion-button (click)="startevent(upevntdata?.Event.id,upevntdata?.Event.event_name)" [ngStyle]="{\'background-color\': buttonColor}" *ngIf="upevntdata?.Event.active!=1">Start Event</button>\n					<button ion-button [ngStyle]="{\'background-color\': buttonColor}" *ngIf="upevntdata?.Event.active==1">Event started</button>\n				</div>\n		\n			</div>\n		\n		</ion-content>\n		'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/omniaclubeventdj/omniaclubeventdj.html"*/,
+        selector: 'page-omniaclubeventdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/omniaclubeventdj/omniaclubeventdj.html"*/'<!--\n  Generated template for the OmniaclubeventdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		\n			<ion-navbar color="black">\n				<ion-title>{{upevntdata?.Event.event_name}}</ion-title>\n				<div class="logo">\n					<img src="assets/img/rlogo.png">\n				</div>\n			</ion-navbar>\n		\n		</ion-header>\n		\n		\n		<ion-content>\n			<div class="imgsec" *ngIf="upevntdata?.Event.image">\n				<!-- <img src="assets/img/sbg.png"> -->\n				<img [src]="upevntdata?.Event.image">\n			</div>\n			<div class="content-sec" padding>\n				<h1>{{upevntdata?.Event.venue_name}}</h1>\n				<div class="content-text">\n					<h3>{{upevntdata?.Event.event_name}}</h3>\n					<p>{{upevntdata?.Event.event_date | date:\'MM-dd-yyyy\'}} to {{upevntdata?.Event.start_event | date:\'MM-dd-yyyy\'}}</p>\n					<p>{{upevntdata?.Event?.event_time}} to {{upevntdata?.Event?.scheduled_start_time}} </p>\n				</div>\n				<div class="content-text">\n					<h3>Tip Amounts</h3>\n					<p>Play Now ${{upevntdata?.TipOptionPrice.playnow}}</p>\n					<p>Guaranteed Play ${{upevntdata?.TipOptionPrice.guareteedplay}}</p>\n					<p>Possibly Play ${{upevntdata?.TipOptionPrice.possiblyplay}}</p>\n				</div>\n				<div class="bottom-sec">\n					<h3>Address</h3>\n					<p>{{upevntdata?.Event.venue_address}}\n					</p>\n				</div>\n				<div class="btn-sec">\n					<button ion-button (click)="deletevnt(upevntdata?.Event.id)">Delete Event</button>\n					<button ion-button (click)="startevent(upevntdata?.Event.id,upevntdata?.Event.event_name)" [ngStyle]="{\'background-color\': buttonColor}" *ngIf="upevntdata?.Event.active!=1">Start Event</button>\n					<button ion-button [ngStyle]="{\'background-color\': buttonColor}" *ngIf="upevntdata?.Event.active==1">Event started</button>\n				</div>\n		\n			</div>\n		\n		</ion-content>\n		'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/omniaclubeventdj/omniaclubeventdj.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -3037,6 +3036,161 @@ PossiblydjPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VotingPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventsdj_eventsdj__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__voteupdj_voteupdj__ = __webpack_require__(149);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the VotingPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var VotingPage = (function () {
+    function VotingPage(navCtrl, navParams, http, appsetting, loadingCtrl, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.appsetting = appsetting;
+        this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
+        this.extra = [1];
+        this.gg = 0;
+        this.data = {};
+        this.songs = [];
+        this.songname = [];
+        this.Loader = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+        this.eventid = navParams.get("eventid");
+        this.eventname = navParams.get("eventname");
+    }
+    VotingPage.prototype.seerequests = function (eventtid) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__voteupdj_voteupdj__["a" /* VoteupdjPage */], {
+            eventrid: eventtid
+        });
+    };
+    VotingPage.prototype.addsong = function (data) {
+        var jj = this;
+        this.extra.push(this.extra.length + 1);
+        // var bd ={
+        //   'songname':data.value['songname'+this.gg],
+        //   'artist':data.value['artist'+this.gg]
+        //   };
+        // this.songs.push(bd);
+        this.gg++;
+    };
+    VotingPage.prototype.send = function (songdata) {
+        var _this = this;
+        var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
+        if (this.gg == 0) {
+            var bd = {
+                'songname': songdata.value['songname' + this.gg],
+                'artist': songdata.value['artist' + this.gg],
+                'eventid': this.eventid,
+                'djid': Userid
+            };
+            this.songs.push(bd);
+        }
+        else if (this.gg > 0) {
+            if (this.gg + 1 != this.songs.length) {
+                this.songs = [];
+                for (var i = 0; i <= this.gg; i++) {
+                    var bd = {
+                        'songname': songdata.value['songname' + i],
+                        'artist': songdata.value['artist' + i],
+                        'eventid': this.eventid,
+                        'djid': Userid
+                    };
+                    this.songs.push(bd);
+                }
+            }
+        }
+        var sendata = {
+            songs: this.songs
+        };
+        if (this.eventid == 0) {
+            var alertr_1 = this.alertCtrl.create({
+                title: 'Voteup request',
+                subTitle: 'There is no current event to add voteup request',
+            });
+            alertr_1.present();
+            setTimeout(function () { return alertr_1.dismiss(); }, 3500);
+        }
+        else {
+            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+            headers.append('Content-Type', 'application/json; charset=utf-8');
+            var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+            this.Loader.present();
+            this.http.post(this.appsetting.myGlobalVar + 'events/addvoteupreq', JSON.stringify(sendata), options)
+                .map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                _this.Loader.dismiss();
+                if (data.isSucess == "true") {
+                    var alertr_2 = _this.alertCtrl.create({
+                        title: 'Voteup request',
+                        subTitle: data.msg,
+                    });
+                    alertr_2.present();
+                    setTimeout(function () { return alertr_2.dismiss(); }, 1500);
+                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                }
+                else {
+                    var alertr_3 = _this.alertCtrl.create({
+                        title: 'Voteup request',
+                        subTitle: data.msg,
+                    });
+                    alertr_3.present();
+                    setTimeout(function () { return alertr_3.dismiss(); }, 1500);
+                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                }
+            });
+        }
+    };
+    VotingPage.prototype.ionViewDidLoad = function () {
+        console.log('loaded voting');
+    };
+    return VotingPage;
+}());
+VotingPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-voting',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voting/voting.html"*/'<!--\n  Generated template for the VotingPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  \n    <ion-navbar>\n      <ion-title>voting</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  <ion-content padding>\n    <div class="content-text">\n      <h1 style="font-size:14px">Songs For Voting</h1>\n      </div>\n      <div class="content-sec">\n      <div class="song">\n      <form class="form-sec" #votesong="ngForm" novalidate>\n        <ion-list *ngFor="let ext of extra; let i = index">\n             <ion-grid>\n              <ion-row>\n               <ion-col col-6 class="left">\n            <ion-item>\n              <ion-label stacked>Song Name</ion-label>\n              <ion-input type="text" [(ngModel)]="i.songname" name=\'songname{{i}}\' required></ion-input>\n            </ion-item>\n            <!-- <ion-label  class="alert alert-danger" color="danger">\n                <div *ngIf="songname{{i}}.errors && (songname{{i}}.dirty || songname{{i}}.touched)" >\n                  <div [hidden]="!songname{{i}}.errors.required" >\n                    Song name is required\n                  </div>\n                </div>\n            </ion-label> -->\n          </ion-col>\n          <ion-col col-6 class="right">\n            <ion-item>\n              <ion-label stacked>Artist</ion-label>\n                 <ion-input type="text" [(ngModel)]="i.artist" name="artist{{i}}" required></ion-input>\n            </ion-item>\n            <!-- <ion-label  class="alert alert-danger" color="danger">\n                <div *ngIf="artist{{i}}.errors && (artist{{i}}.dirty || artist{{i}}.touched)" >\n                  <div [hidden]="!artist{{i}}.errors.required" >\n                    Artist name is required\n                  </div>\n                </div>\n            </ion-label> -->\n          </ion-col>\n       \n            </ion-row>\n           \n          </ion-grid>\n         \n        </ion-list>\n        <div class="plusbtn">\n            <button ion-fab mini (click)="addsong(votesong)"><ion-icon name="add"></ion-icon></button>\n           </div>\n         <button ion-button full color="theme-header" [disabled]="!votesong.form.valid" (click)="send(votesong)">Add </button>\n       </form>\n       <button ion-button full color="theme-header" (click)="seerequests(eventid)">See requests </button>\n      </div>\n         </div>\n        </ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voting/voting.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+], VotingPage);
+
+//# sourceMappingURL=voting.js.map
+
+/***/ }),
+
+/***/ 149:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VoteupdjPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
@@ -3070,47 +3224,46 @@ var VoteupdjPage = (function () {
         this.appsetting = appsetting;
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
-        this.eventid = navParams.get("eventid");
-        this.eventname = navParams.get("eventname");
-        if (this.eventname == undefined) {
-            this.eventname = "Dj Admin Event";
-        }
-        this.playnowlist();
+        this.Loader = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+        this.eventid = navParams.get("eventrid");
+        this.getvoteuprequest(this.eventid);
     }
+    VoteupdjPage.prototype.getvoteuprequest = function (evid) {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var data = {
+            eventid: evid
+        };
+        var serialized = this.serializeObj(data);
+        //this.Loader.present();
+        this.http.post(this.appsetting.myGlobalVar + 'events/getvoteupreq', serialized, options)
+            .map(function (res) { return res.json(); })
+            .subscribe(function (data) {
+            _this.Loader.dismiss();
+            if (data.isSucess == "true") {
+                _this.playnowreq = data.data;
+            }
+            else {
+                _this.playnowreq = [];
+                var alertr_1 = _this.alertCtrl.create({
+                    title: 'Voteup requests',
+                    subTitle: data.msg,
+                });
+                alertr_1.present();
+                setTimeout(function () { return alertr_1.dismiss(); }, 1500);
+            }
+        });
+    };
     VoteupdjPage.prototype.addtolist = function (addsong) {
         var data = {
             name: addsong.value.name,
             artist: addsong.value.artist
         };
         this.songs = data;
-    };
-    VoteupdjPage.prototype.playnowlist = function () {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
-        var Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
-        });
-        Loader.present().then(function () {
-            var data = {
-                djid: Userid,
-                eventid: _this.eventid
-            };
-            var serialized = _this.serializeObj(data);
-            _this.http.post(_this.appsetting.myGlobalVar + 'events/voteupreqt', serialized, options)
-                .map(function (res) { return res.json(); })
-                .subscribe(function (data) {
-                Loader.dismiss();
-                if (data.isSucess == "true") {
-                    _this.playnowreq = data.data;
-                }
-                else {
-                    _this.playnowreq = [];
-                }
-            });
-        });
     };
     VoteupdjPage.prototype.playimg = function (id, idd) {
         var _this = this;
@@ -3133,12 +3286,12 @@ var VoteupdjPage = (function () {
                 .subscribe(function (data) {
                 Loader.dismiss();
                 if (data.isSucess == "true") {
-                    var alertr_1 = _this.alertCtrl.create({
+                    var alertr_2 = _this.alertCtrl.create({
                         title: 'Requests',
                         subTitle: data.msg,
                     });
-                    alertr_1.present();
-                    setTimeout(function () { return alertr_1.dismiss(); }, 1500);
+                    alertr_2.present();
+                    setTimeout(function () { return alertr_2.dismiss(); }, 1500);
                     _this.playnowreq = data.data;
                     //this.navCtrl.push(EventsdjPage);
                 }
@@ -3169,12 +3322,12 @@ var VoteupdjPage = (function () {
                 Loader.dismiss();
                 console.log(data);
                 if (data.isSucess == "true") {
-                    var alertr_2 = _this.alertCtrl.create({
+                    var alertr_3 = _this.alertCtrl.create({
                         title: 'Requests',
                         subTitle: data.msg,
                     });
-                    alertr_2.present();
-                    setTimeout(function () { return alertr_2.dismiss(); }, 1500);
+                    alertr_3.present();
+                    setTimeout(function () { return alertr_3.dismiss(); }, 1500);
                     _this.playnowreq = data.data;
                     //this.navCtrl.push(EventsdjPage);
                 }
@@ -3197,7 +3350,7 @@ var VoteupdjPage = (function () {
 VoteupdjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-voteupdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voteupdj/voteupdj.html"*/'<!--\n  Generated template for the PlaynowlistdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n	\n	  <ion-navbar color="black">\n		<ion-title>{{eventname}}</ion-title>\n		<div class="logo">\n			<img src="assets/img/rlogo.png">\n		</div>\n	  </ion-navbar>\n	\n	</ion-header>\n	\n	\n	<ion-content padding>\n		<div class="past">\n		<ion-list>\n		  <ion-item *ngFor="let play of playnowreq; let i = index">\n				<div class="img-sec">\n					<img src="assets/img/headphn.png">\n				</div>\n				<h3>{{play?.ClubgoerRequest.songname}} </h3>\n				<p>{{play?.ClubgoerRequest.artist_name}}</p>\n				<div class="img-right">\n					<div class="imgmain">\n						<img src="assets/img/playimg.png" *ngIf="play?.ClubgoerRequest.topque">\n						<img src="assets/img/playnow.png" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque">\n						<img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)">\n					</div>\n				</div>\n		  </ion-item>\n		   <div class="unshow" *ngIf="playnowreq?.length == 0">\n			  <h3> No request available</h3>\n		   </div>\n	  </ion-list>\n	</div>\n	</ion-content>\n	'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voteupdj/voteupdj.html"*/,
+        selector: 'page-voteupdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voteupdj/voteupdj.html"*/'<!--\n  Generated template for the PlaynowlistdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n	\n	  <ion-navbar color="black">\n		<ion-title>{{eventname}}</ion-title>\n		<div class="logo">\n			<img src="assets/img/rlogo.png">\n		</div>\n	  </ion-navbar>\n	\n	</ion-header>\n	\n	\n	<ion-content padding>\n		<div class="past">\n		<ion-list>\n		  <ion-item *ngFor="let play of playnowreq; let i = index">\n				<div class="img-sec">\n					<img src="assets/img/headphn.png">\n				</div>\n				<h3>Song name : {{play?.ClubgoerRequest.songname}} </h3>\n				<p>Artist name : {{play?.ClubgoerRequest.artist_name}}</p>\n				<div class="img-right">\n					<div class="imgmain">\n						<!-- <img src="assets/img/playimg.png" *ngIf="play?.ClubgoerRequest.topque">\n						<img src="assets/img/playnow.png" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque">\n						<img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)"> -->\n					</div>\n				</div>\n		  </ion-item>\n		   <div class="unshow" *ngIf="playnowreq?.length == 0">\n			  <h3> No request available</h3>\n		   </div>\n	  </ion-list>\n	</div>\n	</ion-content>\n	'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voteupdj/voteupdj.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -3211,7 +3364,7 @@ VoteupdjPage = __decorate([
 
 /***/ }),
 
-/***/ 149:
+/***/ 150:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3221,7 +3374,7 @@ VoteupdjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -3288,8 +3441,8 @@ var EditeventPage = (function () {
         };
         var Serialized = this.serializeObj(data);
         this.http.post(this.appsetting.myGlobalVar + 'events/getevent', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-            console.log(response.data.Event.image);
             _this.srcImage = response.data.Event.image;
+            _this.imgTosend = response.data.Event.image;
             _this.data = {
                 'venuename': response.data.Event.venue_name,
                 'venueaddress': response.data.Event.venue_address,
@@ -3313,7 +3466,7 @@ var EditeventPage = (function () {
             this.taggel = true;
         }
     };
-    EditeventPage.prototype.addeventnow = function (addevent) {
+    EditeventPage.prototype.editeventnow = function (editeven) {
         var _this = this;
         var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
@@ -3322,8 +3475,8 @@ var EditeventPage = (function () {
         var imgsend = this.imgTosend;
         var dj_code = JSON.parse(localStorage.getItem("USER_DATA")).paypal_email;
         var subscribedj = JSON.parse(localStorage.getItem("USER_DATA")).subscription_status;
-        if (addevent.value.eventstartdt == addevent.value.eventenddt) {
-            if (addevent.value.eventsarttm > addevent.value.eventendtm) {
+        if (editeven.value.eventstartdt == editeven.value.eventenddt) {
+            if (editeven.value.eventsarttm > editeven.value.eventendtm) {
                 this.Loader.dismiss();
                 var alert_1 = this.alertCtrl.create({
                     title: 'Time ',
@@ -3336,7 +3489,7 @@ var EditeventPage = (function () {
         }
         if (subscribedj == 0) {
             var alert_2 = this.alertCtrl.create({
-                title: 'Add event',
+                title: 'Edit event',
                 subTitle: 'Please subscribe first',
             });
             alert_2.present();
@@ -3347,7 +3500,7 @@ var EditeventPage = (function () {
         else if (dj_code == null) {
             var alert_3 = this.alertCtrl.create({
                 title: 'PayPal Account',
-                subTitle: 'To add an event, please add your PayPal email address first.',
+                subTitle: 'To edit an event, please add your PayPal email address first.',
                 buttons: ['ok']
             });
             alert_3.present();
@@ -3363,9 +3516,9 @@ var EditeventPage = (function () {
             //   setTimeout(() => alert.dismiss(), 3500);
             //   this.Loader.dismiss();
         }
-        else if (addevent.value.minplay < 2 || addevent.value.mingrnt < 2 || addevent.value.minpossi < 2) {
+        else if (editeven.value.minplay < 2 || editeven.value.mingrnt < 2 || editeven.value.minpossi < 2) {
             var alert_4 = this.alertCtrl.create({
-                title: 'Add event',
+                title: 'Edit event',
                 subTitle: 'Please enter tip amount greater than 1',
             });
             alert_4.present();
@@ -3373,30 +3526,32 @@ var EditeventPage = (function () {
             this.Loader.dismiss();
         }
         else {
-            alert("load");
+            this.Loader.present();
             // this.Loader.present();
             var data = {
-                event_id: this.event_id,
-                venue_name: addevent.value.venuename,
-                venue_addr: addevent.value.venueaddress,
-                event_name: addevent.value.eventname,
-                event_start_date: addevent.value.eventstartdt,
-                event_end_date: addevent.value.eventenddt,
-                event_start_time: addevent.value.eventsarttm,
-                event_end_time: addevent.value.eventendtm,
-                play_now_amt: addevent.value.minplay,
-                guaranteed_play: addevent.value.mingrnt,
-                possibly_play: addevent.value.minpossi,
+                event_id: this.editevnt,
+                venue_name: editeven.value.venuename,
+                venue_addr: editeven.value.venueaddress,
+                event_name: editeven.value.eventname,
+                event_start_date: editeven.value.eventstartdt,
+                event_end_date: editeven.value.eventenddt,
+                event_start_time: editeven.value.eventsarttm,
+                event_end_time: editeven.value.eventendtm,
+                play_now_amt: editeven.value.minplay,
+                guaranteed_play: editeven.value.mingrnt,
+                possibly_play: editeven.value.minpossi,
                 image: imgsend,
                 role: 'dj'
             };
+            console.log(data);
             var Serialized = this.serializeObj(data);
             this.http.post(this.appsetting.myGlobalVar + 'events/editevent', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                alert(JSON.stringify(response));
+                console.log(response);
+                _this.Loader.dismiss();
                 if (response.status == 0) {
                     _this.Loader.dismiss();
                     var alert_5 = _this.alertCtrl.create({
-                        title: 'Add event',
+                        title: 'Edit event',
                         subTitle: response.msg,
                     });
                     alert_5.present();
@@ -3406,7 +3561,7 @@ var EditeventPage = (function () {
                 else {
                     _this.Loader.dismiss();
                     var alert_6 = _this.alertCtrl.create({
-                        title: 'Add event',
+                        title: 'Edit event',
                         subTitle: response.msg,
                     });
                     alert_6.present();
@@ -3505,7 +3660,7 @@ var EditeventPage = (function () {
 EditeventPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-editevent',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editevent/editevent.html"*/'<!--\n  Generated template for the EditeventPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="black">\n        <ion-title>Edit Event</ion-title>\n        <div class="logo">\n            <img src="assets/img/rlogo.png">\n        </div>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n    <div class="imgsec">\n        <img [src]="logo">\n    </div>\n    <div class="form-sec">\n        <ion-grid>\n            <ion-row>\n                <ion-col>\n                    <form #addeventForm="ngForm" class="event-form">\n                        <ion-col col-12>\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="text" placeholder="Venue name" [(ngModel)]="data.venuename" name="venuename" #venuename=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="venuename.errors && (venuename.dirty || venuename.touched)">\n                                            <div [hidden]="!venuename.errors.required">\n                                                Field is required\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12>\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="text" placeholder="Venue address" [(ngModel)]="data.venueaddress" name="venueaddress" #venueaddress=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="venueaddress.errors && (venueaddress.dirty || venueaddress.touched)">\n                                            <div [hidden]="!venueaddress.errors.required">\n                                                Field is required\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12>\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="text" placeholder="Event name" [(ngModel)]="data.eventname" name="eventname" #eventname=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="eventname.errors && (eventname.dirty || eventname.touched)">\n                                            <div [hidden]="!eventname.errors.required">\n                                                Field is required\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n                        <div class="colm">\n                            <ion-col col-12>\n                                <ion-row>\n                                    <ion-col col-6>\n                                        <ion-list>\n                                            <ion-item>\n\n                                                <ion-datetime min="{{minyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY" [(ngModel)]="data.eventstartdt" (ngModelChange)="updateDueDate($event)" name="eventstartdt" placeholder="Event start date" #eventstartdt=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventstartdt.errors && (eventstartdt.dirty || eventstartdt.touched)">\n                                                    <div [hidden]="!eventstartdt.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n\n                                    <ion-col col-6>\n                                        <ion-list>\n                                            <ion-item>\n                                                <ion-datetime min="{{maxyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY" placeholder="Event end date" [(ngModel)]="data.eventenddt" name="eventenddt" #eventenddt=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventenddt.errors && (eventenddt.dirty || eventenddt.touched)">\n                                                    <div [hidden]="!eventenddt.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n                                </ion-row>\n                            </ion-col>\n                        </div>\n                        <div class="colm>">\n                            <ion-col col-12>\n                                <ion-row>\n                                    <ion-col col-6 class="padding0lft">\n                                        <ion-list>\n                                            <ion-item>\n                                                <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event start time" [(ngModel)]="data.eventsarttm" name="eventsarttm" #eventsarttm=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventsarttm.errors && (eventsarttm.dirty || eventsarttm.touched)">\n                                                    <div [hidden]="!eventsarttm.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n                                    <ion-col col-6 class="padding0rgt">\n                                        <ion-list>\n                                            <ion-item>\n                                                <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event end time" [(ngModel)]="data.eventendtm" name="eventendtm" #eventendtm=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventendtm.errors && (eventendtm.dirty || eventendtm.touched)">\n                                                    <div [hidden]="!eventendtm.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n                                </ion-row>\n                            </ion-col>\n                        </div>\n                        <ion-col col-12>\n                            <ion-row>\n                                <div class="tip" (click)="toggleDetails(taggel)">\n                                    <h3>Setup Tip Amounts</h3>\n                                    <button class="abc" ion-button icon-right>\n									<ion-icon name="arrow-down"></ion-icon>\n								</button>\n                                </div>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12 *ngIf="taggel">\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="tel" placeholder="Minimum amount for Play Now" min="2" [(ngModel)]="data.minplay" name="minplay" #minplay=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="minplay.errors && (minplay.dirty || minplay.touched)">\n                                            <div [hidden]="!minplay.errors.required">\n                                                Field is required\n                                            </div>\n                                            <div [hidden]="!minplay.errors.min">\n                                                Minimum amount should be 2\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12 *ngIf="taggel">\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="tel" placeholder="Minimum amount for Guaranteed Play" min="2" [(ngModel)]="data.mingrnt" name="mingrnt" #mingrnt=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="mingrnt.errors && (mingrnt.dirty || mingrnt.touched)">\n                                            <div [hidden]="!mingrnt.errors.required">\n                                                Field is required\n                                            </div>\n                                            <div [hidden]="!mingrnt.errors.min">\n                                                Minimum amount should be 2\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12 *ngIf="taggel">\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="tel" placeholder="Minimum amount for Possibly Play" min="2" [(ngModel)]="data.minpossi" name="minpossi" #minpossi=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="minpossi.errors && (minpossi.dirty || minpossi.touched)">\n                                            <div [hidden]="!minpossi.errors.required">\n                                                Field is required\n                                            </div>\n                                            <div [hidden]="!minpossi.errors.min">\n                                                Minimum amount should be 2\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12>\n                            <ion-row>\n                                <div *ngIf="srcImage" class="upload_imgouter">\n                                    <img [src]="srcImage" [(ngModel)]="data.img" name="img" #img=\'ngModel\'>\n                                </div>\n                                <!-- <ion-label  class="alert alert-danger" color="danger">\n									<div *ngIf="img.errors && (img.dirty || img.touched)">\n										   <div [hidden]="!img.errors.required" >\n											 Field is required\n										</div>\n									</div>\n								</ion-label> -->\n                                <div class="file-upload">\n                                    <!-- <label for="upload" class="file-upload__label">Upload Image <span> <ion-icon name="camera"></ion-icon></span></label> -->\n                                    <!-- <button class="file-upload__input" ion-button full (click)="CameraAction()" style="background:none;"></button> -->\n                                    <label for="upload" class="file-upload__label">Upload Image <span> <ion-icon name="camera"></ion-icon></span></label>\n                                    <input id="upload" class="file-upload__input" (click)="CameraAction()" type="button" name="file-upload">\n                                </div>\n\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12>\n                            <ion-row>\n                                <div class="bottombtn">\n                                    <button ion-button type="submit" [disabled]="!addeventForm.form.valid" (click)="addeventnow(addeventForm)">Save</button>\n                                </div>\n                            </ion-row>\n                        </ion-col>\n                    </form>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editevent/editevent.html"*/,
+        selector: 'page-editevent',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editevent/editevent.html"*/'<!--\n  Generated template for the EditeventPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="black">\n        <ion-title>Edit Event</ion-title>\n        <div class="logo">\n            <img src="assets/img/rlogo.png">\n        </div>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n    <div class="imgsec">\n        <img [src]="logo">\n    </div>\n    <div class="form-sec">\n        <ion-grid>\n            <ion-row>\n                <ion-col>\n                    <form #editeventForm="ngForm" class="event-form">\n                        <ion-col col-12>\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="text" placeholder="Venue name" [(ngModel)]="data.venuename" name="venuename" #venuename=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="venuename.errors && (venuename.dirty || venuename.touched)">\n                                            <div [hidden]="!venuename.errors.required">\n                                                Field is required\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12>\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="text" placeholder="Venue address" [(ngModel)]="data.venueaddress" name="venueaddress" #venueaddress=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="venueaddress.errors && (venueaddress.dirty || venueaddress.touched)">\n                                            <div [hidden]="!venueaddress.errors.required">\n                                                Field is required\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12>\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="text" placeholder="Event name" [(ngModel)]="data.eventname" name="eventname" #eventname=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="eventname.errors && (eventname.dirty || eventname.touched)">\n                                            <div [hidden]="!eventname.errors.required">\n                                                Field is required\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n                        <div class="colm">\n                            <ion-col col-12>\n                                <ion-row>\n                                    <ion-col col-6>\n                                        <ion-list>\n                                            <ion-item>\n\n                                                <ion-datetime min="{{minyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY" [(ngModel)]="data.eventstartdt" (ngModelChange)="updateDueDate($event)" name="eventstartdt" placeholder="Event start date" #eventstartdt=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventstartdt.errors && (eventstartdt.dirty || eventstartdt.touched)">\n                                                    <div [hidden]="!eventstartdt.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n\n                                    <ion-col col-6>\n                                        <ion-list>\n                                            <ion-item>\n                                                <ion-datetime min="{{maxyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY" placeholder="Event end date" [(ngModel)]="data.eventenddt" name="eventenddt" #eventenddt=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventenddt.errors && (eventenddt.dirty || eventenddt.touched)">\n                                                    <div [hidden]="!eventenddt.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n                                </ion-row>\n                            </ion-col>\n                        </div>\n                        <div class="colm>">\n                            <ion-col col-12>\n                                <ion-row>\n                                    <ion-col col-6 class="padding0lft">\n                                        <ion-list>\n                                            <ion-item>\n                                                <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event start time" [(ngModel)]="data.eventsarttm" name="eventsarttm" #eventsarttm=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventsarttm.errors && (eventsarttm.dirty || eventsarttm.touched)">\n                                                    <div [hidden]="!eventsarttm.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n                                    <ion-col col-6 class="padding0rgt">\n                                        <ion-list>\n                                            <ion-item>\n                                                <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event end time" [(ngModel)]="data.eventendtm" name="eventendtm" #eventendtm=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventendtm.errors && (eventendtm.dirty || eventendtm.touched)">\n                                                    <div [hidden]="!eventendtm.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n                                </ion-row>\n                            </ion-col>\n                        </div>\n                        <ion-col col-12>\n                            <ion-row>\n                                <div class="tip" (click)="toggleDetails(taggel)">\n                                    <h3>Setup Tip Amounts</h3>\n                                    <button class="abc" ion-button icon-right>\n									<ion-icon name="arrow-down"></ion-icon>\n								</button>\n                                </div>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12 *ngIf="taggel">\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="tel" placeholder="Minimum amount for Play Now" min="2" [(ngModel)]="data.minplay" name="minplay" #minplay=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="minplay.errors && (minplay.dirty || minplay.touched)">\n                                            <div [hidden]="!minplay.errors.required">\n                                                Field is required\n                                            </div>\n                                            <div [hidden]="!minplay.errors.min">\n                                                Minimum amount should be 2\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12 *ngIf="taggel">\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="tel" placeholder="Minimum amount for Guaranteed Play" min="2" [(ngModel)]="data.mingrnt" name="mingrnt" #mingrnt=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="mingrnt.errors && (mingrnt.dirty || mingrnt.touched)">\n                                            <div [hidden]="!mingrnt.errors.required">\n                                                Field is required\n                                            </div>\n                                            <div [hidden]="!mingrnt.errors.min">\n                                                Minimum amount should be 2\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12 *ngIf="taggel">\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="tel" placeholder="Minimum amount for Possibly Play" min="2" [(ngModel)]="data.minpossi" name="minpossi" #minpossi=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="minpossi.errors && (minpossi.dirty || minpossi.touched)">\n                                            <div [hidden]="!minpossi.errors.required">\n                                                Field is required\n                                            </div>\n                                            <div [hidden]="!minpossi.errors.min">\n                                                Minimum amount should be 2\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12>\n                            <ion-row>\n                                <div *ngIf="srcImage" class="upload_imgouter">\n                                    <img [src]="srcImage" [(ngModel)]="data.img" name="img" #img=\'ngModel\'>\n                                </div>\n                                <!-- <ion-label  class="alert alert-danger" color="danger">\n									<div *ngIf="img.errors && (img.dirty || img.touched)">\n										   <div [hidden]="!img.errors.required" >\n											 Field is required\n										</div>\n									</div>\n								</ion-label> -->\n                                <div class="file-upload">\n                                    <!-- <label for="upload" class="file-upload__label">Upload Image <span> <ion-icon name="camera"></ion-icon></span></label> -->\n                                    <!-- <button class="file-upload__input" ion-button full (click)="CameraAction()" style="background:none;"></button> -->\n                                    <label for="upload" class="file-upload__label">Upload Image <span> <ion-icon name="camera"></ion-icon></span></label>\n                                    <input id="upload" class="file-upload__input" (click)="CameraAction()" type="button" name="file-upload">\n                                </div>\n\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12>\n                            <ion-row>\n                                <div class="bottombtn">\n                                    <button ion-button type="submit" [disabled]="!editeventForm.form.valid" (click)="editeventnow(editeventForm)">Save</button>\n                                </div>\n                            </ion-row>\n                        </ion-col>\n                    </form>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editevent/editevent.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -3522,7 +3677,7 @@ EditeventPage = __decorate([
 
 /***/ }),
 
-/***/ 150:
+/***/ 151:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3532,8 +3687,8 @@ EditeventPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__termsdjsubs_termsdjsubs__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__termsdjsubs_termsdjsubs__ = __webpack_require__(77);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3698,7 +3853,7 @@ SubscribedjupdatePage = __decorate([
 
 /***/ }),
 
-/***/ 151:
+/***/ 152:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3854,7 +4009,7 @@ ChangepasswordPage = __decorate([
 
 /***/ }),
 
-/***/ 152:
+/***/ 153:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3947,7 +4102,7 @@ TransactionhstrydjPage = __decorate([
 
 /***/ }),
 
-/***/ 153:
+/***/ 154:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4055,7 +4210,7 @@ HelpdjPage = __decorate([
 
 /***/ }),
 
-/***/ 154:
+/***/ 155:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4211,7 +4366,7 @@ ChangepassworddjPage = __decorate([
 
 /***/ }),
 
-/***/ 155:
+/***/ 156:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4322,7 +4477,7 @@ TermsdjPage = __decorate([
 
 /***/ }),
 
-/***/ 164:
+/***/ 165:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -4335,11 +4490,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 164;
+webpackEmptyAsyncContext.id = 165;
 
 /***/ }),
 
-/***/ 20:
+/***/ 18:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4347,11 +4502,11 @@ webpackEmptyAsyncContext.id = 164;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__addeventdj_addeventdj__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__manageeventsdj_manageeventsdj__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__manageeventsdj_manageeventsdj__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_appsetting__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__membershipdetaildj_membershipdetaildj__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__membershipdetaildj_membershipdetaildj__ = __webpack_require__(76);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4472,200 +4627,204 @@ EventsdjPage = __decorate([
 
 /***/ }),
 
-/***/ 206:
+/***/ 207:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/addeventdj/addeventdj.module": [
-		458,
-		47
+		459,
+		48
 	],
 	"../pages/changepassword/changepassword.module": [
-		481,
-		46
+		483,
+		47
 	],
 	"../pages/changepassworddj/changepassworddj.module": [
-		484,
-		45
+		486,
+		46
 	],
 	"../pages/djsdetails/djsdetails.module": [
-		450,
-		44
+		451,
+		45
 	],
 	"../pages/djslist/djslist.module": [
-		451,
-		43
+		452,
+		44
 	],
 	"../pages/editevent/editevent.module": [
-		469,
-		42
+		471,
+		43
 	],
 	"../pages/editprofiledj/editprofiledj.module": [
-		457,
-		41
+		458,
+		42
 	],
 	"../pages/entercode/entercode.module": [
-		448,
-		40
+		449,
+		41
 	],
 	"../pages/eventsdj/eventsdj.module": [
-		474,
-		39
+		476,
+		40
 	],
 	"../pages/forgot/forgot.module": [
-		456,
-		38
+		457,
+		39
 	],
 	"../pages/gauranteedj/gauranteedj.module": [
-		464,
-		37
+		465,
+		38
 	],
 	"../pages/helpdj/helpdj.module": [
-		483,
-		36
+		485,
+		37
 	],
 	"../pages/historicalrequests/historicalrequests.module": [
-		449,
-		35
+		450,
+		36
 	],
 	"../pages/intro/intro.module": [
-		488,
+		490,
 		0
 	],
 	"../pages/login/login.module": [
-		480,
-		34
+		482,
+		35
 	],
 	"../pages/logindj/logindj.module": [
-		476,
-		33
+		478,
+		34
 	],
 	"../pages/manageeventsdj/manageeventsdj.module": [
-		470,
-		32
+		472,
+		33
 	],
 	"../pages/membershipdetaildj/membershipdetaildj.module": [
-		473,
-		31
+		475,
+		32
 	],
 	"../pages/nameofeventsdj/nameofeventsdj.module": [
-		467,
-		30
+		469,
+		31
 	],
 	"../pages/omniaclubeventdj/omniaclubeventdj.module": [
-		468,
-		29
+		470,
+		30
 	],
 	"../pages/pasteventdj/pasteventdj.module": [
-		461,
-		28
+		462,
+		29
 	],
 	"../pages/payinfo/payinfo.module": [
-		443,
-		27
+		444,
+		28
 	],
 	"../pages/paymenthistorydj/paymenthistorydj.module": [
-		459,
-		26
+		460,
+		27
 	],
 	"../pages/paymentinfo/paymentinfo.module": [
-		487,
-		25
+		489,
+		26
 	],
 	"../pages/playnowlistdj/playnowlistdj.module": [
-		462,
-		24
+		463,
+		25
 	],
 	"../pages/possiblydj/possiblydj.module": [
-		465,
-		23
+		466,
+		24
 	],
 	"../pages/privacy/privacy.module": [
-		453,
-		22
+		454,
+		23
 	],
 	"../pages/profile/profile.module": [
-		441,
-		21
+		442,
+		22
 	],
 	"../pages/profileedit/profileedit.module": [
-		442,
-		20
+		443,
+		21
 	],
 	"../pages/requesthistorydj/requesthistorydj.module": [
-		460,
-		19
+		461,
+		20
 	],
 	"../pages/requestsongplay/requestsongplay.module": [
-		444,
-		18
+		445,
+		19
 	],
 	"../pages/settings/settings.module": [
-		486,
-		17
+		488,
+		18
 	],
 	"../pages/shoutout/shoutout.module": [
-		446,
-		16
+		447,
+		17
 	],
 	"../pages/shoutoutdj/shoutoutdj.module": [
-		455,
-		15
+		456,
+		16
 	],
 	"../pages/signindj/signindj.module": [
-		478,
-		14
+		480,
+		15
 	],
 	"../pages/signup/signup.module": [
+		481,
+		14
+	],
+	"../pages/signupdj/signupdj.module": [
 		479,
 		13
 	],
-	"../pages/signupdj/signupdj.module": [
-		477,
+	"../pages/songrequests/songrequests.module": [
+		448,
 		12
 	],
-	"../pages/songrequests/songrequests.module": [
-		447,
+	"../pages/subscribedj/subscribedj.module": [
+		477,
 		11
 	],
-	"../pages/subscribedj/subscribedj.module": [
-		475,
+	"../pages/subscribedjupdate/subscribedjupdate.module": [
+		474,
 		10
 	],
-	"../pages/subscribedjupdate/subscribedjupdate.module": [
-		472,
+	"../pages/terms/terms.module": [
+		453,
 		9
 	],
-	"../pages/terms/terms.module": [
-		452,
+	"../pages/termsdj/termsdj.module": [
+		487,
 		8
 	],
-	"../pages/termsdj/termsdj.module": [
-		485,
+	"../pages/termsdjsubs/termsdjsubs.module": [
+		473,
 		7
 	],
-	"../pages/termsdjsubs/termsdjsubs.module": [
-		471,
+	"../pages/topqueuedj/topqueuedj.module": [
+		464,
 		6
 	],
-	"../pages/topqueuedj/topqueuedj.module": [
-		463,
+	"../pages/transactionhstrydj/transactionhstrydj.module": [
+		484,
 		5
 	],
-	"../pages/transactionhstrydj/transactionhstrydj.module": [
-		482,
+	"../pages/votelike/votelike.module": [
+		455,
 		4
 	],
-	"../pages/votelike/votelike.module": [
-		454,
+	"../pages/voteup/voteup.module": [
+		446,
 		3
 	],
-	"../pages/voteup/voteup.module": [
-		445,
+	"../pages/voteupdj/voteupdj.module": [
+		467,
 		2
 	],
-	"../pages/voteupdj/voteupdj.module": [
-		466,
+	"../pages/voting/voting.module": [
+		468,
 		1
 	]
 };
@@ -4680,7 +4839,7 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 206;
+webpackAsyncContext.id = 207;
 module.exports = webpackAsyncContext;
 
 /***/ }),
@@ -4692,9 +4851,9 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profileedit_profileedit__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profileedit_profileedit__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entercode_entercode__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__historicalrequests_historicalrequests__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__historicalrequests_historicalrequests__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(59);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4766,7 +4925,7 @@ HomePage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signupdj_signupdj__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signupdj_signupdj__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(59);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4844,8 +5003,8 @@ SignindjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__termsdjsubs_termsdjsubs__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__termsdjsubs_termsdjsubs__ = __webpack_require__(77);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5012,7 +5171,7 @@ SubscribedjPage = __decorate([
 
 /***/ }),
 
-/***/ 367:
+/***/ 368:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5058,7 +5217,7 @@ SettingsPage = __decorate([
 
 /***/ }),
 
-/***/ 368:
+/***/ 369:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5204,14 +5363,14 @@ PaymentinfoPage = __decorate([
 
 /***/ }),
 
-/***/ 369:
+/***/ 370:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(371);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_module__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_module__ = __webpack_require__(389);
 
 
 
@@ -5221,7 +5380,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 388:
+/***/ 389:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5229,74 +5388,76 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(438);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(439);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_djsdetails_djsdetails__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_votelike_votelike__ = __webpack_require__(138);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_list_list__ = __webpack_require__(439);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_list_list__ = __webpack_require__(440);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_signup_signup__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_forgot_forgot__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_changepassword_changepassword__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_profile_profile__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_profileedit_profileedit__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_streaming_media__ = __webpack_require__(440);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_forgot_forgot__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_changepassword_changepassword__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_profile_profile__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_profileedit_profileedit__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_streaming_media__ = __webpack_require__(441);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_entercode_entercode__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_historicalrequests_historicalrequests__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_historicalrequests_historicalrequests__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_requestsongplay_requestsongplay__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_shoutout_shoutout__ = __webpack_require__(133);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_settings_settings__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_settings_settings__ = __webpack_require__(368);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_voteup_voteup__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_terms_terms__ = __webpack_require__(136);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_privacy_privacy__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_paymentinfo_paymentinfo__ = __webpack_require__(368);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_payinfo_payinfo__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_paymentinfo_paymentinfo__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_payinfo_payinfo__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_djslist_djslist__ = __webpack_require__(135);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_songrequests_songrequests__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_in_app_browser__ = __webpack_require__(326);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_signupdj_signupdj__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_in_app_browser__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_signupdj_signupdj__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_logindj_logindj__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_editprofiledj_editprofiledj__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_nameofeventsdj_nameofeventsdj__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_nameofeventsdj_nameofeventsdj__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_paymenthistorydj_paymenthistorydj__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_requesthistorydj_requesthistorydj__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_helpdj_helpdj__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_editevent_editevent__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_termsdj_termsdj__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_helpdj_helpdj__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_editevent_editevent__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_termsdj_termsdj__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_signindj_signindj__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_changepassworddj_changepassworddj__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_eventsdj_eventsdj__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_changepassworddj_changepassworddj__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_eventsdj_eventsdj__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_playnowlistdj_playnowlistdj__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_addeventdj_addeventdj__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_subscribedj_subscribedj__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_omniaclubeventdj_omniaclubeventdj__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_pasteventdj_pasteventdj__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_manageeventsdj_manageeventsdj__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_topqueuedj_topqueuedj__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_gauranteedj_gauranteedj__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_termsdjsubs_termsdjsubs__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_possiblydj_possiblydj__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_voteupdj_voteupdj__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_shoutoutdj_shoutoutdj__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_subscribedjupdate_subscribedjupdate__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_transactionhstrydj_transactionhstrydj__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__ionic_native_paypal__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__ionic_native_status_bar__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__ionic_native_splash_screen__ = __webpack_require__(366);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__ionic_native_camera__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__ionic_native_facebook__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__providers_variable_variable__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__providers_common_common__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__ionic_native_firebase__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_voting_voting__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_omniaclubeventdj_omniaclubeventdj__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_pasteventdj_pasteventdj__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_manageeventsdj_manageeventsdj__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_topqueuedj_topqueuedj__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_gauranteedj_gauranteedj__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_termsdjsubs_termsdjsubs__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_possiblydj_possiblydj__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_voteupdj_voteupdj__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_shoutoutdj_shoutoutdj__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_subscribedjupdate_subscribedjupdate__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_transactionhstrydj_transactionhstrydj__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__ionic_native_paypal__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__ionic_native_status_bar__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__ionic_native_splash_screen__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__providers_appsetting__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__ionic_native_camera__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__ionic_native_facebook__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__providers_variable_variable__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__providers_common_common__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__ionic_native_firebase__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -5370,7 +5531,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_52__pages_shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */],
+            __WEBPACK_IMPORTED_MODULE_53__pages_shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */],
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
             __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
             __WEBPACK_IMPORTED_MODULE_8__pages_list_list__["a" /* ListPage */],
@@ -5385,7 +5546,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_16__pages_entercode_entercode__["a" /* EntercodePage */],
             __WEBPACK_IMPORTED_MODULE_25__pages_payinfo_payinfo__["a" /* PayinfoPage */],
             __WEBPACK_IMPORTED_MODULE_6__pages_votelike_votelike__["a" /* VotelikePage */],
-            __WEBPACK_IMPORTED_MODULE_48__pages_gauranteedj_gauranteedj__["a" /* GauranteedjPage */],
+            __WEBPACK_IMPORTED_MODULE_44__pages_voting_voting__["a" /* VotingPage */],
+            __WEBPACK_IMPORTED_MODULE_49__pages_gauranteedj_gauranteedj__["a" /* GauranteedjPage */],
             __WEBPACK_IMPORTED_MODULE_17__pages_historicalrequests_historicalrequests__["a" /* HistoricalrequestsPage */],
             __WEBPACK_IMPORTED_MODULE_18__pages_requestsongplay_requestsongplay__["a" /* RequestsongplayPage */],
             __WEBPACK_IMPORTED_MODULE_19__pages_shoutout_shoutout__["a" /* ShoutoutPage */],
@@ -5394,31 +5556,31 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_26__pages_djslist_djslist__["a" /* DjslistPage */],
             __WEBPACK_IMPORTED_MODULE_20__pages_settings_settings__["a" /* SettingsPage */],
             __WEBPACK_IMPORTED_MODULE_22__pages_terms_terms__["a" /* TermsPage */],
-            __WEBPACK_IMPORTED_MODULE_49__pages_termsdjsubs_termsdjsubs__["a" /* TermsdjsubsPage */],
+            __WEBPACK_IMPORTED_MODULE_50__pages_termsdjsubs_termsdjsubs__["a" /* TermsdjsubsPage */],
             __WEBPACK_IMPORTED_MODULE_23__pages_privacy_privacy__["a" /* PrivacyPage */],
-            __WEBPACK_IMPORTED_MODULE_50__pages_possiblydj_possiblydj__["a" /* PossiblydjPage */],
+            __WEBPACK_IMPORTED_MODULE_51__pages_possiblydj_possiblydj__["a" /* PossiblydjPage */],
             __WEBPACK_IMPORTED_MODULE_37__pages_termsdj_termsdj__["a" /* TermsdjPage */],
             __WEBPACK_IMPORTED_MODULE_27__pages_songrequests_songrequests__["a" /* SongrequestsPage */],
             __WEBPACK_IMPORTED_MODULE_38__pages_signindj_signindj__["a" /* SignindjPage */],
             __WEBPACK_IMPORTED_MODULE_40__pages_eventsdj_eventsdj__["a" /* EventsdjPage */],
             __WEBPACK_IMPORTED_MODULE_42__pages_addeventdj_addeventdj__["a" /* AddeventdjPage */],
-            __WEBPACK_IMPORTED_MODULE_47__pages_topqueuedj_topqueuedj__["a" /* TopqueuedjPage */],
+            __WEBPACK_IMPORTED_MODULE_48__pages_topqueuedj_topqueuedj__["a" /* TopqueuedjPage */],
             __WEBPACK_IMPORTED_MODULE_43__pages_subscribedj_subscribedj__["a" /* SubscribedjPage */],
-            __WEBPACK_IMPORTED_MODULE_44__pages_omniaclubeventdj_omniaclubeventdj__["a" /* OmniaclubeventdjPage */],
-            __WEBPACK_IMPORTED_MODULE_45__pages_pasteventdj_pasteventdj__["a" /* PasteventdjPage */],
-            __WEBPACK_IMPORTED_MODULE_46__pages_manageeventsdj_manageeventsdj__["a" /* ManageeventsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_45__pages_omniaclubeventdj_omniaclubeventdj__["a" /* OmniaclubeventdjPage */],
+            __WEBPACK_IMPORTED_MODULE_46__pages_pasteventdj_pasteventdj__["a" /* PasteventdjPage */],
+            __WEBPACK_IMPORTED_MODULE_47__pages_manageeventsdj_manageeventsdj__["a" /* ManageeventsdjPage */],
             __WEBPACK_IMPORTED_MODULE_29__pages_signupdj_signupdj__["a" /* SignupdjPage */],
             __WEBPACK_IMPORTED_MODULE_30__pages_logindj_logindj__["a" /* LogindjPage */],
             __WEBPACK_IMPORTED_MODULE_31__pages_editprofiledj_editprofiledj__["a" /* EditprofiledjPage */],
             __WEBPACK_IMPORTED_MODULE_32__pages_nameofeventsdj_nameofeventsdj__["a" /* NameofeventsdjPage */],
-            __WEBPACK_IMPORTED_MODULE_54__pages_transactionhstrydj_transactionhstrydj__["a" /* TransactionhstrydjPage */],
+            __WEBPACK_IMPORTED_MODULE_55__pages_transactionhstrydj_transactionhstrydj__["a" /* TransactionhstrydjPage */],
             __WEBPACK_IMPORTED_MODULE_41__pages_playnowlistdj_playnowlistdj__["a" /* PlaynowlistdjPage */],
             __WEBPACK_IMPORTED_MODULE_35__pages_helpdj_helpdj__["a" /* HelpdjPage */],
-            __WEBPACK_IMPORTED_MODULE_53__pages_subscribedjupdate_subscribedjupdate__["a" /* SubscribedjupdatePage */],
+            __WEBPACK_IMPORTED_MODULE_54__pages_subscribedjupdate_subscribedjupdate__["a" /* SubscribedjupdatePage */],
             __WEBPACK_IMPORTED_MODULE_34__pages_requesthistorydj_requesthistorydj__["a" /* RequesthistorydjPage */],
             __WEBPACK_IMPORTED_MODULE_33__pages_paymenthistorydj_paymenthistorydj__["a" /* PaymenthistorydjPage */],
-            __WEBPACK_IMPORTED_MODULE_57__pages_membershipdetaildj_membershipdetaildj__["a" /* MembershipdetaildjPage */],
-            __WEBPACK_IMPORTED_MODULE_51__pages_voteupdj_voteupdj__["a" /* VoteupdjPage */],
+            __WEBPACK_IMPORTED_MODULE_58__pages_membershipdetaildj_membershipdetaildj__["a" /* MembershipdetaildjPage */],
+            __WEBPACK_IMPORTED_MODULE_52__pages_voteupdj_voteupdj__["a" /* VoteupdjPage */],
             __WEBPACK_IMPORTED_MODULE_36__pages_editevent_editevent__["a" /* EditeventPage */],
         ],
         imports: [
@@ -5452,6 +5614,7 @@ AppModule = __decorate([
                     { loadChildren: '../pages/gauranteedj/gauranteedj.module#GauranteedjPageModule', name: 'GauranteedjPage', segment: 'gauranteedj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/possiblydj/possiblydj.module#PossiblydjPageModule', name: 'PossiblydjPage', segment: 'possiblydj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/voteupdj/voteupdj.module#VoteupdjPageModule', name: 'VoteupdjPage', segment: 'voteupdj', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/voting/voting.module#VotingPageModule', name: 'VotingPage', segment: 'voting', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/nameofeventsdj/nameofeventsdj.module#NameofeventsdjPageModule', name: 'NameofeventsdjPage', segment: 'nameofeventsdj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/omniaclubeventdj/omniaclubeventdj.module#OmniaclubeventdjPageModule', name: 'OmniaclubeventdjPage', segment: 'omniaclubeventdj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/editevent/editevent.module#EditeventPageModule', name: 'EditeventPage', segment: 'editevent', priority: 'low', defaultHistory: [] },
@@ -5495,53 +5658,54 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_37__pages_termsdj_termsdj__["a" /* TermsdjPage */],
             __WEBPACK_IMPORTED_MODULE_16__pages_entercode_entercode__["a" /* EntercodePage */],
             __WEBPACK_IMPORTED_MODULE_6__pages_votelike_votelike__["a" /* VotelikePage */],
+            __WEBPACK_IMPORTED_MODULE_44__pages_voting_voting__["a" /* VotingPage */],
             __WEBPACK_IMPORTED_MODULE_17__pages_historicalrequests_historicalrequests__["a" /* HistoricalrequestsPage */],
-            __WEBPACK_IMPORTED_MODULE_57__pages_membershipdetaildj_membershipdetaildj__["a" /* MembershipdetaildjPage */],
+            __WEBPACK_IMPORTED_MODULE_58__pages_membershipdetaildj_membershipdetaildj__["a" /* MembershipdetaildjPage */],
             __WEBPACK_IMPORTED_MODULE_18__pages_requestsongplay_requestsongplay__["a" /* RequestsongplayPage */],
             __WEBPACK_IMPORTED_MODULE_19__pages_shoutout_shoutout__["a" /* ShoutoutPage */],
             __WEBPACK_IMPORTED_MODULE_20__pages_settings_settings__["a" /* SettingsPage */],
             __WEBPACK_IMPORTED_MODULE_21__pages_voteup_voteup__["a" /* VoteupPage */],
-            __WEBPACK_IMPORTED_MODULE_50__pages_possiblydj_possiblydj__["a" /* PossiblydjPage */],
-            __WEBPACK_IMPORTED_MODULE_48__pages_gauranteedj_gauranteedj__["a" /* GauranteedjPage */],
+            __WEBPACK_IMPORTED_MODULE_51__pages_possiblydj_possiblydj__["a" /* PossiblydjPage */],
+            __WEBPACK_IMPORTED_MODULE_49__pages_gauranteedj_gauranteedj__["a" /* GauranteedjPage */],
             __WEBPACK_IMPORTED_MODULE_22__pages_terms_terms__["a" /* TermsPage */],
             __WEBPACK_IMPORTED_MODULE_24__pages_paymentinfo_paymentinfo__["a" /* PaymentinfoPage */],
             __WEBPACK_IMPORTED_MODULE_23__pages_privacy_privacy__["a" /* PrivacyPage */],
-            __WEBPACK_IMPORTED_MODULE_47__pages_topqueuedj_topqueuedj__["a" /* TopqueuedjPage */],
+            __WEBPACK_IMPORTED_MODULE_48__pages_topqueuedj_topqueuedj__["a" /* TopqueuedjPage */],
             __WEBPACK_IMPORTED_MODULE_26__pages_djslist_djslist__["a" /* DjslistPage */],
             __WEBPACK_IMPORTED_MODULE_27__pages_songrequests_songrequests__["a" /* SongrequestsPage */],
             __WEBPACK_IMPORTED_MODULE_38__pages_signindj_signindj__["a" /* SignindjPage */],
             __WEBPACK_IMPORTED_MODULE_40__pages_eventsdj_eventsdj__["a" /* EventsdjPage */],
             __WEBPACK_IMPORTED_MODULE_42__pages_addeventdj_addeventdj__["a" /* AddeventdjPage */],
             __WEBPACK_IMPORTED_MODULE_43__pages_subscribedj_subscribedj__["a" /* SubscribedjPage */],
-            __WEBPACK_IMPORTED_MODULE_49__pages_termsdjsubs_termsdjsubs__["a" /* TermsdjsubsPage */],
-            __WEBPACK_IMPORTED_MODULE_44__pages_omniaclubeventdj_omniaclubeventdj__["a" /* OmniaclubeventdjPage */],
-            __WEBPACK_IMPORTED_MODULE_45__pages_pasteventdj_pasteventdj__["a" /* PasteventdjPage */],
-            __WEBPACK_IMPORTED_MODULE_46__pages_manageeventsdj_manageeventsdj__["a" /* ManageeventsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_50__pages_termsdjsubs_termsdjsubs__["a" /* TermsdjsubsPage */],
+            __WEBPACK_IMPORTED_MODULE_45__pages_omniaclubeventdj_omniaclubeventdj__["a" /* OmniaclubeventdjPage */],
+            __WEBPACK_IMPORTED_MODULE_46__pages_pasteventdj_pasteventdj__["a" /* PasteventdjPage */],
+            __WEBPACK_IMPORTED_MODULE_47__pages_manageeventsdj_manageeventsdj__["a" /* ManageeventsdjPage */],
             __WEBPACK_IMPORTED_MODULE_29__pages_signupdj_signupdj__["a" /* SignupdjPage */],
             __WEBPACK_IMPORTED_MODULE_30__pages_logindj_logindj__["a" /* LogindjPage */],
-            __WEBPACK_IMPORTED_MODULE_53__pages_subscribedjupdate_subscribedjupdate__["a" /* SubscribedjupdatePage */],
+            __WEBPACK_IMPORTED_MODULE_54__pages_subscribedjupdate_subscribedjupdate__["a" /* SubscribedjupdatePage */],
             __WEBPACK_IMPORTED_MODULE_31__pages_editprofiledj_editprofiledj__["a" /* EditprofiledjPage */],
             __WEBPACK_IMPORTED_MODULE_32__pages_nameofeventsdj_nameofeventsdj__["a" /* NameofeventsdjPage */],
-            __WEBPACK_IMPORTED_MODULE_54__pages_transactionhstrydj_transactionhstrydj__["a" /* TransactionhstrydjPage */],
+            __WEBPACK_IMPORTED_MODULE_55__pages_transactionhstrydj_transactionhstrydj__["a" /* TransactionhstrydjPage */],
             __WEBPACK_IMPORTED_MODULE_41__pages_playnowlistdj_playnowlistdj__["a" /* PlaynowlistdjPage */],
             __WEBPACK_IMPORTED_MODULE_35__pages_helpdj_helpdj__["a" /* HelpdjPage */],
-            __WEBPACK_IMPORTED_MODULE_51__pages_voteupdj_voteupdj__["a" /* VoteupdjPage */],
-            __WEBPACK_IMPORTED_MODULE_52__pages_shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */],
+            __WEBPACK_IMPORTED_MODULE_52__pages_voteupdj_voteupdj__["a" /* VoteupdjPage */],
+            __WEBPACK_IMPORTED_MODULE_53__pages_shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */],
             __WEBPACK_IMPORTED_MODULE_34__pages_requesthistorydj_requesthistorydj__["a" /* RequesthistorydjPage */],
             __WEBPACK_IMPORTED_MODULE_33__pages_paymenthistorydj_paymenthistorydj__["a" /* PaymenthistorydjPage */],
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_64__ionic_native_firebase__["a" /* Firebase */],
-            __WEBPACK_IMPORTED_MODULE_59__providers_appsetting__["a" /* Appsetting */],
-            __WEBPACK_IMPORTED_MODULE_58__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_56__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_60__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_61__ionic_native_facebook__["a" /* Facebook */],
+            __WEBPACK_IMPORTED_MODULE_65__ionic_native_firebase__["a" /* Firebase */],
+            __WEBPACK_IMPORTED_MODULE_60__providers_appsetting__["a" /* Appsetting */],
+            __WEBPACK_IMPORTED_MODULE_59__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_57__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_61__ionic_native_camera__["a" /* Camera */],
+            __WEBPACK_IMPORTED_MODULE_62__ionic_native_facebook__["a" /* Facebook */],
             __WEBPACK_IMPORTED_MODULE_28__ionic_native_in_app_browser__["a" /* InAppBrowser */],
-            __WEBPACK_IMPORTED_MODULE_55__ionic_native_paypal__["a" /* PayPal */],
+            __WEBPACK_IMPORTED_MODULE_56__ionic_native_paypal__["a" /* PayPal */],
             { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicErrorHandler */] },
-            __WEBPACK_IMPORTED_MODULE_62__providers_variable_variable__["a" /* VariableProvider */],
-            __WEBPACK_IMPORTED_MODULE_63__providers_common_common__["a" /* CommonProvider */],
+            __WEBPACK_IMPORTED_MODULE_63__providers_variable_variable__["a" /* VariableProvider */],
+            __WEBPACK_IMPORTED_MODULE_64__providers_common_common__["a" /* CommonProvider */],
             __WEBPACK_IMPORTED_MODULE_15__ionic_native_streaming_media__["a" /* StreamingMedia */]
         ]
     })
@@ -5562,12 +5726,12 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__forgot_forgot__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__forgot_forgot__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_appsetting__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_common_common__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_variable_variable__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_variable_variable__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__signindj_signindj__ = __webpack_require__(35);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5831,19 +5995,19 @@ LoginPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogindjPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signupdj_signupdj__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signupdj_signupdj__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_facebook__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_facebook__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__forgot_forgot__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__forgot_forgot__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_appsetting__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_common_common__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_variable_variable__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_variable_variable__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__signindj_signindj__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_firebase__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_firebase__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5953,68 +6117,69 @@ var LogindjPage = (function () {
         // .catch(error => {
         //   console.error('Error getting token', error)
         // });
-        this.firebase.onTokenRefresh().subscribe(function (token) {
-            console.log("The new token is " + token);
-            _this.token = token;
-            console.log('onTokenRefresh->', _this.token);
-            if (form.value.checkbx == true) {
-                localStorage.setItem("usernamedj", form.value.email);
-                localStorage.setItem("passworddj", form.value.password);
-            }
-            else {
-                localStorage.removeItem("usernamedj");
-                localStorage.removeItem("passworddj");
-            }
-            var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]();
-            headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-            var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
-            var data = {
-                email: form.value.email,
-                password: form.value.password,
-                token: _this.token
-            };
-            console.log(data);
-            console.log("vikrant");
-            var Serialized = _this.serializeObj(data);
-            var Loading = _this.loadingCtrl.create({
-                content: 'Please wait...',
-            });
-            Loading.present().then(function () {
-                _this.http.post(_this.appsetting.myGlobalVar + 'users/logindj', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                    Loading.dismiss();
-                    alert(JSON.stringify(response));
-                    if (response.status == true) {
-                        _this.Loading.dismiss();
-                        var alert_2 = _this.alertCtrl.create({
-                            title: 'Logged in',
-                            subTitle: response.msg,
-                            cssClass: 'newpop'
-                        });
-                        alert_2.present();
-                        setTimeout(function () { return alert_2.dismiss(); }, 1500);
-                        localStorage.removeItem("fblogin");
-                        localStorage.setItem("USER_DATA", JSON.stringify(response.user));
-                        _this.appsetting.profile = response.user;
-                        _this.events.publish('role', 'dj');
-                        if (response.user.subscription_status != 1) {
-                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
-                        }
-                        else {
-                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__["a" /* EventsdjPage */]);
-                        }
+        // this.firebase.onTokenRefresh().subscribe(
+        //   token => {
+        //     console.log(`The new token is ${token}`);
+        //     this.token = token;
+        //     console.log('onTokenRefresh->', this.token);
+        if (form.value.checkbx == true) {
+            localStorage.setItem("usernamedj", form.value.email);
+            localStorage.setItem("passworddj", form.value.password);
+        }
+        else {
+            localStorage.removeItem("usernamedj");
+            localStorage.removeItem("passworddj");
+        }
+        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var data = {
+            email: form.value.email,
+            password: form.value.password,
+            token: this.token
+        };
+        console.log(data);
+        console.log("vikrant");
+        var Serialized = this.serializeObj(data);
+        var Loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+        });
+        Loading.present().then(function () {
+            _this.http.post(_this.appsetting.myGlobalVar + 'users/logindj', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                Loading.dismiss();
+                alert(JSON.stringify(response));
+                if (response.status == true) {
+                    _this.Loading.dismiss();
+                    var alert_2 = _this.alertCtrl.create({
+                        title: 'Logged in',
+                        subTitle: response.msg,
+                        cssClass: 'newpop'
+                    });
+                    alert_2.present();
+                    setTimeout(function () { return alert_2.dismiss(); }, 1500);
+                    localStorage.removeItem("fblogin");
+                    localStorage.setItem("USER_DATA", JSON.stringify(response.user));
+                    _this.appsetting.profile = response.user;
+                    _this.events.publish('role', 'dj');
+                    if (response.user.subscription_status != 1) {
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
                     }
                     else {
-                        _this.Loading.dismiss();
-                        var alert_3 = _this.alertCtrl.create({
-                            title: 'Login',
-                            subTitle: response.msg
-                        });
-                        alert_3.present();
-                        setTimeout(function () { return alert_3.dismiss(); }, 1500);
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__["a" /* EventsdjPage */]);
                     }
-                });
+                }
+                else {
+                    _this.Loading.dismiss();
+                    var alert_3 = _this.alertCtrl.create({
+                        title: 'Login',
+                        subTitle: response.msg
+                    });
+                    alert_3.present();
+                    setTimeout(function () { return alert_3.dismiss(); }, 1500);
+                }
             });
         });
+        //})
     };
     LogindjPage.prototype.fblogin = function () {
         var _this = this;
@@ -6144,7 +6309,7 @@ LogindjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6511,246 +6676,246 @@ EditprofiledjPage = __decorate([
 
 /***/ }),
 
-/***/ 420:
+/***/ 421:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 208,
-	"./af.js": 208,
-	"./ar": 209,
-	"./ar-dz": 210,
-	"./ar-dz.js": 210,
-	"./ar-kw": 211,
-	"./ar-kw.js": 211,
-	"./ar-ly": 212,
-	"./ar-ly.js": 212,
-	"./ar-ma": 213,
-	"./ar-ma.js": 213,
-	"./ar-sa": 214,
-	"./ar-sa.js": 214,
-	"./ar-tn": 215,
-	"./ar-tn.js": 215,
-	"./ar.js": 209,
-	"./az": 216,
-	"./az.js": 216,
-	"./be": 217,
-	"./be.js": 217,
-	"./bg": 218,
-	"./bg.js": 218,
-	"./bm": 219,
-	"./bm.js": 219,
-	"./bn": 220,
-	"./bn.js": 220,
-	"./bo": 221,
-	"./bo.js": 221,
-	"./br": 222,
-	"./br.js": 222,
-	"./bs": 223,
-	"./bs.js": 223,
-	"./ca": 224,
-	"./ca.js": 224,
-	"./cs": 225,
-	"./cs.js": 225,
-	"./cv": 226,
-	"./cv.js": 226,
-	"./cy": 227,
-	"./cy.js": 227,
-	"./da": 228,
-	"./da.js": 228,
-	"./de": 229,
-	"./de-at": 230,
-	"./de-at.js": 230,
-	"./de-ch": 231,
-	"./de-ch.js": 231,
-	"./de.js": 229,
-	"./dv": 232,
-	"./dv.js": 232,
-	"./el": 233,
-	"./el.js": 233,
-	"./en-au": 234,
-	"./en-au.js": 234,
-	"./en-ca": 235,
-	"./en-ca.js": 235,
-	"./en-gb": 236,
-	"./en-gb.js": 236,
-	"./en-ie": 237,
-	"./en-ie.js": 237,
-	"./en-nz": 238,
-	"./en-nz.js": 238,
-	"./eo": 239,
-	"./eo.js": 239,
-	"./es": 240,
-	"./es-do": 241,
-	"./es-do.js": 241,
-	"./es-us": 242,
-	"./es-us.js": 242,
-	"./es.js": 240,
-	"./et": 243,
-	"./et.js": 243,
-	"./eu": 244,
-	"./eu.js": 244,
-	"./fa": 245,
-	"./fa.js": 245,
-	"./fi": 246,
-	"./fi.js": 246,
-	"./fo": 247,
-	"./fo.js": 247,
-	"./fr": 248,
-	"./fr-ca": 249,
-	"./fr-ca.js": 249,
-	"./fr-ch": 250,
-	"./fr-ch.js": 250,
-	"./fr.js": 248,
-	"./fy": 251,
-	"./fy.js": 251,
-	"./gd": 252,
-	"./gd.js": 252,
-	"./gl": 253,
-	"./gl.js": 253,
-	"./gom-latn": 254,
-	"./gom-latn.js": 254,
-	"./gu": 255,
-	"./gu.js": 255,
-	"./he": 256,
-	"./he.js": 256,
-	"./hi": 257,
-	"./hi.js": 257,
-	"./hr": 258,
-	"./hr.js": 258,
-	"./hu": 259,
-	"./hu.js": 259,
-	"./hy-am": 260,
-	"./hy-am.js": 260,
-	"./id": 261,
-	"./id.js": 261,
-	"./is": 262,
-	"./is.js": 262,
-	"./it": 263,
-	"./it.js": 263,
-	"./ja": 264,
-	"./ja.js": 264,
-	"./jv": 265,
-	"./jv.js": 265,
-	"./ka": 266,
-	"./ka.js": 266,
-	"./kk": 267,
-	"./kk.js": 267,
-	"./km": 268,
-	"./km.js": 268,
-	"./kn": 269,
-	"./kn.js": 269,
-	"./ko": 270,
-	"./ko.js": 270,
-	"./ky": 271,
-	"./ky.js": 271,
-	"./lb": 272,
-	"./lb.js": 272,
-	"./lo": 273,
-	"./lo.js": 273,
-	"./lt": 274,
-	"./lt.js": 274,
-	"./lv": 275,
-	"./lv.js": 275,
-	"./me": 276,
-	"./me.js": 276,
-	"./mi": 277,
-	"./mi.js": 277,
-	"./mk": 278,
-	"./mk.js": 278,
-	"./ml": 279,
-	"./ml.js": 279,
-	"./mr": 280,
-	"./mr.js": 280,
-	"./ms": 281,
-	"./ms-my": 282,
-	"./ms-my.js": 282,
-	"./ms.js": 281,
-	"./my": 283,
-	"./my.js": 283,
-	"./nb": 284,
-	"./nb.js": 284,
-	"./ne": 285,
-	"./ne.js": 285,
-	"./nl": 286,
-	"./nl-be": 287,
-	"./nl-be.js": 287,
-	"./nl.js": 286,
-	"./nn": 288,
-	"./nn.js": 288,
-	"./pa-in": 289,
-	"./pa-in.js": 289,
-	"./pl": 290,
-	"./pl.js": 290,
-	"./pt": 291,
-	"./pt-br": 292,
-	"./pt-br.js": 292,
-	"./pt.js": 291,
-	"./ro": 293,
-	"./ro.js": 293,
-	"./ru": 294,
-	"./ru.js": 294,
-	"./sd": 295,
-	"./sd.js": 295,
-	"./se": 296,
-	"./se.js": 296,
-	"./si": 297,
-	"./si.js": 297,
-	"./sk": 298,
-	"./sk.js": 298,
-	"./sl": 299,
-	"./sl.js": 299,
-	"./sq": 300,
-	"./sq.js": 300,
-	"./sr": 301,
-	"./sr-cyrl": 302,
-	"./sr-cyrl.js": 302,
-	"./sr.js": 301,
-	"./ss": 303,
-	"./ss.js": 303,
-	"./sv": 304,
-	"./sv.js": 304,
-	"./sw": 305,
-	"./sw.js": 305,
-	"./ta": 306,
-	"./ta.js": 306,
-	"./te": 307,
-	"./te.js": 307,
-	"./tet": 308,
-	"./tet.js": 308,
-	"./th": 309,
-	"./th.js": 309,
-	"./tl-ph": 310,
-	"./tl-ph.js": 310,
-	"./tlh": 311,
-	"./tlh.js": 311,
-	"./tr": 312,
-	"./tr.js": 312,
-	"./tzl": 313,
-	"./tzl.js": 313,
-	"./tzm": 314,
-	"./tzm-latn": 315,
-	"./tzm-latn.js": 315,
-	"./tzm.js": 314,
-	"./uk": 316,
-	"./uk.js": 316,
-	"./ur": 317,
-	"./ur.js": 317,
-	"./uz": 318,
-	"./uz-latn": 319,
-	"./uz-latn.js": 319,
-	"./uz.js": 318,
-	"./vi": 320,
-	"./vi.js": 320,
-	"./x-pseudo": 321,
-	"./x-pseudo.js": 321,
-	"./yo": 322,
-	"./yo.js": 322,
-	"./zh-cn": 323,
-	"./zh-cn.js": 323,
-	"./zh-hk": 324,
-	"./zh-hk.js": 324,
-	"./zh-tw": 325,
-	"./zh-tw.js": 325
+	"./af": 209,
+	"./af.js": 209,
+	"./ar": 210,
+	"./ar-dz": 211,
+	"./ar-dz.js": 211,
+	"./ar-kw": 212,
+	"./ar-kw.js": 212,
+	"./ar-ly": 213,
+	"./ar-ly.js": 213,
+	"./ar-ma": 214,
+	"./ar-ma.js": 214,
+	"./ar-sa": 215,
+	"./ar-sa.js": 215,
+	"./ar-tn": 216,
+	"./ar-tn.js": 216,
+	"./ar.js": 210,
+	"./az": 217,
+	"./az.js": 217,
+	"./be": 218,
+	"./be.js": 218,
+	"./bg": 219,
+	"./bg.js": 219,
+	"./bm": 220,
+	"./bm.js": 220,
+	"./bn": 221,
+	"./bn.js": 221,
+	"./bo": 222,
+	"./bo.js": 222,
+	"./br": 223,
+	"./br.js": 223,
+	"./bs": 224,
+	"./bs.js": 224,
+	"./ca": 225,
+	"./ca.js": 225,
+	"./cs": 226,
+	"./cs.js": 226,
+	"./cv": 227,
+	"./cv.js": 227,
+	"./cy": 228,
+	"./cy.js": 228,
+	"./da": 229,
+	"./da.js": 229,
+	"./de": 230,
+	"./de-at": 231,
+	"./de-at.js": 231,
+	"./de-ch": 232,
+	"./de-ch.js": 232,
+	"./de.js": 230,
+	"./dv": 233,
+	"./dv.js": 233,
+	"./el": 234,
+	"./el.js": 234,
+	"./en-au": 235,
+	"./en-au.js": 235,
+	"./en-ca": 236,
+	"./en-ca.js": 236,
+	"./en-gb": 237,
+	"./en-gb.js": 237,
+	"./en-ie": 238,
+	"./en-ie.js": 238,
+	"./en-nz": 239,
+	"./en-nz.js": 239,
+	"./eo": 240,
+	"./eo.js": 240,
+	"./es": 241,
+	"./es-do": 242,
+	"./es-do.js": 242,
+	"./es-us": 243,
+	"./es-us.js": 243,
+	"./es.js": 241,
+	"./et": 244,
+	"./et.js": 244,
+	"./eu": 245,
+	"./eu.js": 245,
+	"./fa": 246,
+	"./fa.js": 246,
+	"./fi": 247,
+	"./fi.js": 247,
+	"./fo": 248,
+	"./fo.js": 248,
+	"./fr": 249,
+	"./fr-ca": 250,
+	"./fr-ca.js": 250,
+	"./fr-ch": 251,
+	"./fr-ch.js": 251,
+	"./fr.js": 249,
+	"./fy": 252,
+	"./fy.js": 252,
+	"./gd": 253,
+	"./gd.js": 253,
+	"./gl": 254,
+	"./gl.js": 254,
+	"./gom-latn": 255,
+	"./gom-latn.js": 255,
+	"./gu": 256,
+	"./gu.js": 256,
+	"./he": 257,
+	"./he.js": 257,
+	"./hi": 258,
+	"./hi.js": 258,
+	"./hr": 259,
+	"./hr.js": 259,
+	"./hu": 260,
+	"./hu.js": 260,
+	"./hy-am": 261,
+	"./hy-am.js": 261,
+	"./id": 262,
+	"./id.js": 262,
+	"./is": 263,
+	"./is.js": 263,
+	"./it": 264,
+	"./it.js": 264,
+	"./ja": 265,
+	"./ja.js": 265,
+	"./jv": 266,
+	"./jv.js": 266,
+	"./ka": 267,
+	"./ka.js": 267,
+	"./kk": 268,
+	"./kk.js": 268,
+	"./km": 269,
+	"./km.js": 269,
+	"./kn": 270,
+	"./kn.js": 270,
+	"./ko": 271,
+	"./ko.js": 271,
+	"./ky": 272,
+	"./ky.js": 272,
+	"./lb": 273,
+	"./lb.js": 273,
+	"./lo": 274,
+	"./lo.js": 274,
+	"./lt": 275,
+	"./lt.js": 275,
+	"./lv": 276,
+	"./lv.js": 276,
+	"./me": 277,
+	"./me.js": 277,
+	"./mi": 278,
+	"./mi.js": 278,
+	"./mk": 279,
+	"./mk.js": 279,
+	"./ml": 280,
+	"./ml.js": 280,
+	"./mr": 281,
+	"./mr.js": 281,
+	"./ms": 282,
+	"./ms-my": 283,
+	"./ms-my.js": 283,
+	"./ms.js": 282,
+	"./my": 284,
+	"./my.js": 284,
+	"./nb": 285,
+	"./nb.js": 285,
+	"./ne": 286,
+	"./ne.js": 286,
+	"./nl": 287,
+	"./nl-be": 288,
+	"./nl-be.js": 288,
+	"./nl.js": 287,
+	"./nn": 289,
+	"./nn.js": 289,
+	"./pa-in": 290,
+	"./pa-in.js": 290,
+	"./pl": 291,
+	"./pl.js": 291,
+	"./pt": 292,
+	"./pt-br": 293,
+	"./pt-br.js": 293,
+	"./pt.js": 292,
+	"./ro": 294,
+	"./ro.js": 294,
+	"./ru": 295,
+	"./ru.js": 295,
+	"./sd": 296,
+	"./sd.js": 296,
+	"./se": 297,
+	"./se.js": 297,
+	"./si": 298,
+	"./si.js": 298,
+	"./sk": 299,
+	"./sk.js": 299,
+	"./sl": 300,
+	"./sl.js": 300,
+	"./sq": 301,
+	"./sq.js": 301,
+	"./sr": 302,
+	"./sr-cyrl": 303,
+	"./sr-cyrl.js": 303,
+	"./sr.js": 302,
+	"./ss": 304,
+	"./ss.js": 304,
+	"./sv": 305,
+	"./sv.js": 305,
+	"./sw": 306,
+	"./sw.js": 306,
+	"./ta": 307,
+	"./ta.js": 307,
+	"./te": 308,
+	"./te.js": 308,
+	"./tet": 309,
+	"./tet.js": 309,
+	"./th": 310,
+	"./th.js": 310,
+	"./tl-ph": 311,
+	"./tl-ph.js": 311,
+	"./tlh": 312,
+	"./tlh.js": 312,
+	"./tr": 313,
+	"./tr.js": 313,
+	"./tzl": 314,
+	"./tzl.js": 314,
+	"./tzm": 315,
+	"./tzm-latn": 316,
+	"./tzm-latn.js": 316,
+	"./tzm.js": 315,
+	"./uk": 317,
+	"./uk.js": 317,
+	"./ur": 318,
+	"./ur.js": 318,
+	"./uz": 319,
+	"./uz-latn": 320,
+	"./uz-latn.js": 320,
+	"./uz.js": 319,
+	"./vi": 321,
+	"./vi.js": 321,
+	"./x-pseudo": 322,
+	"./x-pseudo.js": 322,
+	"./yo": 323,
+	"./yo.js": 323,
+	"./zh-cn": 324,
+	"./zh-cn.js": 324,
+	"./zh-hk": 325,
+	"./zh-hk.js": 325,
+	"./zh-tw": 326,
+	"./zh-tw.js": 326
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -6766,11 +6931,11 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 420;
+webpackContext.id = 421;
 
 /***/ }),
 
-/***/ 438:
+/***/ 439:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6779,29 +6944,29 @@ webpackContext.id = 420;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(367);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_profile_profile__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_profile_profile__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_djslist_djslist__ = __webpack_require__(135);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_terms_terms__ = __webpack_require__(136);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_privacy_privacy__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_appsetting__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_votelike_votelike__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_shoutoutdj_shoutoutdj__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_historicalrequests_historicalrequests__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_changepassword_changepassword__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_transactionhstrydj_transactionhstrydj__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_helpdj_helpdj__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_shoutoutdj_shoutoutdj__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_historicalrequests_historicalrequests__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_changepassword_changepassword__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_transactionhstrydj_transactionhstrydj__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_helpdj_helpdj__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_logindj_logindj__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_login_login__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_changepassworddj_changepassworddj__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_changepassworddj_changepassworddj__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_signindj_signindj__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_eventsdj_eventsdj__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_eventsdj_eventsdj__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_editprofiledj_editprofiledj__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_nameofeventsdj_nameofeventsdj__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_termsdj_termsdj__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_firebase__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_nameofeventsdj_nameofeventsdj__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_termsdj_termsdj__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_firebase__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7122,7 +7287,7 @@ MyApp = __decorate([
 
 /***/ }),
 
-/***/ 439:
+/***/ 440:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7376,7 +7541,7 @@ var SignupPage = (function () {
 SignupPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-signup',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header class="{{classval}}">\n\n  <ion-navbar align-title="center" color="dark" style="background: none;">\n    <ion-title align-title="center">Sign Up</ion-title>\n    <button (click)="setBackButtonAction()"ion-button="bar-button">\n      <span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" aria-label="arrow back"></ion-icon>\n      <span class="back-button-text back-button-text-ios" style="transform: translateX(0px);"></span></span>\n      <div class="button-effect"></div>\n    </button>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="margintop" padding style="background: url(assets/img/loginbg.jpg); background-size:cover;" (ionScroll)="scrollHandler($event)">\n<div class="login_outer">\n  <div class="logo"><img src="assets/img/logo.png"></div>\n<div class="form_sec">\n  <form #signupForm="ngForm" novalidate > \n  <ion-list>\n\n  <ion-item>\n    <ion-input type="text" [(ngModel)]="data.name" name="name"  placeholder="Name" #name=\'ngModel\' pattern=\'[a-zA-Z ]+\' required></ion-input>\n  </ion-item>\n  <ion-label  class="alert alert-danger" color="danger">\n        <div *ngIf="name.errors && (name.dirty || name.touched)">\n       <div [hidden]="!name.errors.required" >\n         Field is required\n        </div>\n    </div>\n  </ion-label>\n  <ion-item>\n          <ion-input type="email" [(ngModel)]="data.email" name="email" placeholder="Email Address"   #email=\'ngModel\' required pattern=\'^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$\' required  ></ion-input>\n        </ion-item>\n      <ion-label  class="alert alert-danger" color="danger">\n     <div *ngIf="email.errors && (email.dirty || email.touched)" >\n       <div [hidden]="!email.errors.required" >\n         Email is required\n        </div>\n        <div [hidden]="!email.errors.pattern" >\n         Invalid email\n        </div>\n     </div>\n    </ion-label>\n\n<ion-item>\n          <ion-input type="password" minlength="5" [(ngModel)]="data.password" name="password" placeholder="Password" #password=\'ngModel\' required ></ion-input>\n        </ion-item>\n     <ion-label class="alert alert-danger" color="danger">\n        <div *ngIf="password.errors && (password.dirty || password.touched)">\n        <div [hidden]="!password.errors.required" >\n         Password is required\n        </div>\n    </div>\n     <div *ngIf="password.errors && (password.dirty || password.touched)" >\n       <div [hidden]="!password.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n   </ion-label>\n\n   <ion-item>\n          <ion-input type="password" minlength="5" [(ngModel)]="data.cpassword" name="cpassword" placeholder="Confirm Password" #cpassword=\'ngModel\' required></ion-input>\n        </ion-item>\n  <ion-label class="alert alert-danger" color="danger">\n    <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)" >\n       <div [hidden]="!cpassword.errors.required" >\n         Confirm password is required\n        </div>\n    </div>\n    <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)" >\n       <div [hidden]="!cpassword.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n    </ion-label>\n  \n</ion-list>\n<div class="centerbutton">\n   <button class="custom_btn" (click)="register(signupForm)" [disabled]="!signupForm.form.valid" color="yellow" style="text-transform: uppercase;" ion-button round>sign Up</button>\n</div>\n  </form>\n<div class="centerbutton" style="color:#fff;">Have an account?</div>\n<div class="centerbutton" style="color:#fff; text-transform:uppercase; text-decoration:underline; margin-top:8px;"  (click)="signinPage()">Sign In</div>\n<!--<div class="centerbutton" style="color:#fff; margin-top: 10vh;">Skip</div>-->\n</div>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signup/signup.html"*/,
+        selector: 'page-signup',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header class="{{classval}}">\n\n  <ion-navbar align-title="center" color="dark" style="background: none;">\n    <ion-title align-title="center">Sign Up</ion-title>\n    <button (click)="setBackButtonAction()"ion-button="bar-button">\n      <span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" aria-label="arrow back"></ion-icon>\n      <span class="back-button-text back-button-text-ios" style="transform: translateX(0px);"></span></span>\n      <div class="button-effect"></div>\n    </button>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="margintop" padding style="background: url(assets/img/loginbg.jpg); background-size:cover;" (ionScroll)="scrollHandler($event)">\n<div class="login_outer">\n  <div class="logo"><img src="assets/img/logo.png"></div>\n<div class="form_sec">\n  <form #signupForm="ngForm" novalidate > \n  <ion-list>\n\n  <ion-item>\n    <ion-input type="text" [(ngModel)]="data.name" name="name"  placeholder="Name" #name=\'ngModel\' pattern=\'[a-zA-Z ]+\' required></ion-input>\n  </ion-item>\n  <ion-label  class="alert alert-danger" color="danger">\n        <div *ngIf="name.errors && (name.dirty || name.touched)">\n       <div [hidden]="!name.errors.required" >\n         Field is required\n        </div>\n    </div>\n  </ion-label>\n      <ion-item>\n          <ion-input type="email" [(ngModel)]="data.email" name="email" placeholder="Email Address"   #email=\'ngModel\' required pattern=\'^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$\' required  ></ion-input>\n      </ion-item>\n      <ion-label  class="alert alert-danger" color="danger">\n            <div *ngIf="email.errors && (email.dirty || email.touched)" >\n              <div [hidden]="!email.errors.required" >\n                Email is required\n                </div>\n                <div [hidden]="!email.errors.pattern" >\n                Invalid email\n                </div>\n            </div>\n      </ion-label>\n\n<ion-item>\n          <ion-input type="password" minlength="5" [(ngModel)]="data.password" name="password" placeholder="Password" #password=\'ngModel\' required ></ion-input>\n        </ion-item>\n     <ion-label class="alert alert-danger" color="danger">\n        <div *ngIf="password.errors && (password.dirty || password.touched)">\n        <div [hidden]="!password.errors.required" >\n         Password is required\n        </div>\n    </div>\n     <div *ngIf="password.errors && (password.dirty || password.touched)" >\n       <div [hidden]="!password.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n   </ion-label>\n\n   <ion-item>\n          <ion-input type="password" minlength="5" [(ngModel)]="data.cpassword" name="cpassword" placeholder="Confirm Password" #cpassword=\'ngModel\' required></ion-input>\n        </ion-item>\n  <ion-label class="alert alert-danger" color="danger">\n    <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)" >\n       <div [hidden]="!cpassword.errors.required" >\n         Confirm password is required\n        </div>\n    </div>\n    <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)" >\n       <div [hidden]="!cpassword.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n    </ion-label>\n  \n</ion-list>\n<div class="centerbutton">\n   <button class="custom_btn" (click)="register(signupForm)" [disabled]="!signupForm.form.valid" color="yellow" style="text-transform: uppercase;" ion-button round>sign Up</button>\n</div>\n  </form>\n<div class="centerbutton" style="color:#fff;">Have an account?</div>\n<div class="centerbutton" style="color:#fff; text-transform:uppercase; text-decoration:underline; margin-top:8px;" (click)="signinPage()">Sign In</div>\n<!--<div class="centerbutton" style="color:#fff; margin-top: 10vh;">Skip</div>-->\n</div>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signup/signup.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -7444,10 +7609,9 @@ var Appsetting = (function () {
 }());
 Appsetting = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["p" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["p" /* ToastController */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["p" /* ToastController */]])
 ], Appsetting);
 
-var _a, _b;
 //# sourceMappingURL=appsetting.js.map
 
 /***/ }),
@@ -7506,7 +7670,7 @@ CommonProvider = __decorate([
 
 /***/ }),
 
-/***/ 66:
+/***/ 67:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7517,7 +7681,7 @@ CommonProvider = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profileedit_profileedit__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profileedit_profileedit__ = __webpack_require__(68);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7668,7 +7832,7 @@ ProfilePage = __decorate([
 
 /***/ }),
 
-/***/ 67:
+/***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7679,7 +7843,7 @@ ProfilePage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profile_profile__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profile_profile__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__ = __webpack_require__(51);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7922,7 +8086,7 @@ ProfileeditPage = __decorate([
 
 /***/ }),
 
-/***/ 68:
+/***/ 69:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7932,7 +8096,7 @@ ProfileeditPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__ = __webpack_require__(327);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_common_common__ = __webpack_require__(60);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8200,7 +8364,7 @@ PayinfoPage = __decorate([
 
 /***/ }),
 
-/***/ 69:
+/***/ 70:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8308,7 +8472,7 @@ HistoricalrequestsPage = __decorate([
 
 /***/ }),
 
-/***/ 70:
+/***/ 71:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8354,7 +8518,6 @@ var ShoutoutdjPage = (function () {
     }
     ShoutoutdjPage.prototype.shoutoutreq = function () {
         var _this = this;
-        alert("hello");
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
@@ -8364,7 +8527,7 @@ var ShoutoutdjPage = (function () {
         });
         Loader.present().then(function () {
             var data = {
-                djid: 3,
+                djid: Userid,
                 eventid: _this.eventid
             };
             var serialized = _this.serializeObj(data);
@@ -8372,7 +8535,6 @@ var ShoutoutdjPage = (function () {
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 Loader.dismiss();
-                alert(JSON.stringify(data));
                 if (data.isSucess == "true") {
                     _this.playnowreq = data.data;
                 }
@@ -8481,7 +8643,7 @@ ShoutoutdjPage = __decorate([
 
 /***/ }),
 
-/***/ 71:
+/***/ 72:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8611,7 +8773,7 @@ ForgotPage = __decorate([
 
 /***/ }),
 
-/***/ 72:
+/***/ 73:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8625,6 +8787,7 @@ ForgotPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_appsetting__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_firebase__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8644,6 +8807,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the SignupdjPage page.
  *
@@ -8651,7 +8815,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var SignupdjPage = (function () {
-    function SignupdjPage(navCtrl, navParams, appsetting, http, loadingCtrl, toastCtrl, alertCtrl, events, zone) {
+    function SignupdjPage(navCtrl, navParams, appsetting, http, loadingCtrl, toastCtrl, alertCtrl, events, zone, firebase) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.appsetting = appsetting;
@@ -8661,6 +8825,7 @@ var SignupdjPage = (function () {
         this.alertCtrl = alertCtrl;
         this.events = events;
         this.zone = zone;
+        this.firebase = firebase;
         this.scrollAmount = 44;
         this.data = '';
         this.Loading = this.loadingCtrl.create({
@@ -8736,44 +8901,50 @@ var SignupdjPage = (function () {
             setTimeout(function () { return alert_4.dismiss(); }, 1500);
         }
         else if (signup.value.password == signup.value.cpassword) {
-            this.Loading.present();
-            var data = {
-                name: signup.value.name,
-                email: signup.value.email,
-                password: signup.value.password,
-                role: 'dj'
-            };
-            var Serialized = this.serializeObj(data);
-            var Loading = this.loadingCtrl.create({
-                content: 'Please wait...',
-            });
-            Loading.present().then(function () {
-                _this.http.post(_this.appsetting.myGlobalVar + 'users/registration', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                    Loading.dismiss();
-                    console.log(response);
-                    if (response.isSuccess == true) {
-                        _this.Loading.dismiss();
-                        _this.events.publish('role', 'dj');
-                        localStorage.setItem("USER_DATA", JSON.stringify(response.user_data));
-                        var alert_5 = _this.alertCtrl.create({
-                            title: 'Sign Up',
-                            subTitle: response.msg,
-                            buttons: ['ok']
-                        });
-                        alert_5.present();
-                        //  setTimeout(() => alert.dismiss(), 4500);
-                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
-                    }
-                    else {
-                        _this.Loading.dismiss();
-                        var alert_6 = _this.alertCtrl.create({
-                            title: 'Signup',
-                            subTitle: response.msg,
-                            buttons: ['ok']
-                        });
-                        alert_6.present();
-                        //setTimeout(() => alert.dismiss(), 4500);
-                    }
+            this.firebase.onTokenRefresh().subscribe(function (token) {
+                console.log("The new token is " + token);
+                _this.token = token;
+                console.log('onTokenRefresh->', _this.token);
+                _this.Loading.present();
+                var data = {
+                    name: signup.value.name,
+                    email: signup.value.email,
+                    password: signup.value.password,
+                    role: 'dj',
+                    token: _this.token
+                };
+                var Serialized = _this.serializeObj(data);
+                var Loading = _this.loadingCtrl.create({
+                    content: 'Please wait...',
+                });
+                Loading.present().then(function () {
+                    _this.http.post(_this.appsetting.myGlobalVar + 'users/registration', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                        Loading.dismiss();
+                        console.log(response);
+                        if (response.isSuccess == true) {
+                            _this.Loading.dismiss();
+                            _this.events.publish('role', 'dj');
+                            localStorage.setItem("USER_DATA", JSON.stringify(response.user_data));
+                            var alert_5 = _this.alertCtrl.create({
+                                title: 'Sign Up',
+                                subTitle: response.msg,
+                                buttons: ['ok']
+                            });
+                            alert_5.present();
+                            //  setTimeout(() => alert.dismiss(), 4500);
+                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
+                        }
+                        else {
+                            _this.Loading.dismiss();
+                            var alert_6 = _this.alertCtrl.create({
+                                title: 'Signup',
+                                subTitle: response.msg,
+                                buttons: ['ok']
+                            });
+                            alert_6.present();
+                            //setTimeout(() => alert.dismiss(), 4500);
+                        }
+                    });
                 });
             });
         }
@@ -8813,14 +8984,15 @@ SignupdjPage = __decorate([
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */]])
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */],
+        __WEBPACK_IMPORTED_MODULE_8__ionic_native_firebase__["a" /* Firebase */]])
 ], SignupdjPage);
 
 //# sourceMappingURL=signupdj.js.map
 
 /***/ }),
 
-/***/ 73:
+/***/ 74:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8831,7 +9003,7 @@ SignupdjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__omniaclubeventdj_omniaclubeventdj__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editevent_editevent__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editevent_editevent__ = __webpack_require__(150);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8954,7 +9126,7 @@ ManageeventsdjPage = __decorate([
 
 /***/ }),
 
-/***/ 74:
+/***/ 75:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8967,8 +9139,8 @@ ManageeventsdjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topqueuedj_topqueuedj__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__gauranteedj_gauranteedj__ = __webpack_require__(146);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__possiblydj_possiblydj__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__voteupdj_voteupdj__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shoutoutdj_shoutoutdj__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shoutoutdj_shoutoutdj__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__voting_voting__ = __webpack_require__(148);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8986,6 +9158,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+//import { VoteupdjPage } from '../voteupdj/voteupdj';
 
 
 /**
@@ -9130,13 +9303,13 @@ var NameofeventsdjPage = (function () {
     };
     NameofeventsdjPage.prototype.voteupnow = function (eventid) {
         if (this.eventname == undefined) {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__voteupdj_voteupdj__["a" /* VoteupdjPage */], {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__voting_voting__["a" /* VotingPage */], {
                 eventid: eventid,
                 eventname: this.eventname
             });
         }
         else {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__voteupdj_voteupdj__["a" /* VoteupdjPage */], {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__voting_voting__["a" /* VotingPage */], {
                 eventid: eventid,
                 eventname: this.eventname
             });
@@ -9144,13 +9317,13 @@ var NameofeventsdjPage = (function () {
     };
     NameofeventsdjPage.prototype.shoutout = function (eventid) {
         if (this.eventname == undefined) {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */], {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */], {
                 eventid: eventid,
                 eventname: this.eventname
             });
         }
         else {
-            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_9__shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */], {
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */], {
                 eventid: eventid,
                 eventname: this.eventname
             });
@@ -9188,7 +9361,7 @@ NameofeventsdjPage = __decorate([
 
 /***/ }),
 
-/***/ 75:
+/***/ 76:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9197,8 +9370,8 @@ NameofeventsdjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__subscribedjupdate_subscribedjupdate__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__subscribedjupdate_subscribedjupdate__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9387,7 +9560,7 @@ MembershipdetaildjPage = __decorate([
 
 /***/ }),
 
-/***/ 76:
+/***/ 77:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9504,5 +9677,5 @@ TermsdjsubsPage = __decorate([
 
 /***/ })
 
-},[369]);
+},[370]);
 //# sourceMappingURL=main.js.map

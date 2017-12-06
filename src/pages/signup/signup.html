@@ -38,19 +38,19 @@
         </div>
     </div>
   </ion-label>
-  <ion-item>
+      <ion-item>
           <ion-input type="email" [(ngModel)]="data.email" name="email" placeholder="Email Address"   #email='ngModel' required pattern='^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$' required  ></ion-input>
-        </ion-item>
+      </ion-item>
       <ion-label  class="alert alert-danger" color="danger">
-     <div *ngIf="email.errors && (email.dirty || email.touched)" >
-       <div [hidden]="!email.errors.required" >
-         Email is required
-        </div>
-        <div [hidden]="!email.errors.pattern" >
-         Invalid email
-        </div>
-     </div>
-    </ion-label>
+            <div *ngIf="email.errors && (email.dirty || email.touched)" >
+              <div [hidden]="!email.errors.required" >
+                Email is required
+                </div>
+                <div [hidden]="!email.errors.pattern" >
+                Invalid email
+                </div>
+            </div>
+      </ion-label>
 
 <ion-item>
           <ion-input type="password" minlength="5" [(ngModel)]="data.password" name="password" placeholder="Password" #password='ngModel' required ></ion-input>
@@ -90,7 +90,7 @@
 </div>
   </form>
 <div class="centerbutton" style="color:#fff;">Have an account?</div>
-<div class="centerbutton" style="color:#fff; text-transform:uppercase; text-decoration:underline; margin-top:8px;"  (click)="signinPage()">Sign In</div>
+<div class="centerbutton" style="color:#fff; text-transform:uppercase; text-decoration:underline; margin-top:8px;" (click)="signinPage()">Sign In</div>
 <!--<div class="centerbutton" style="color:#fff; margin-top: 10vh;">Skip</div>-->
 </div>
 </div>

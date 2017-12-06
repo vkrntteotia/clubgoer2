@@ -18,58 +18,52 @@ import { Appsetting } from '../../providers/appsetting';
 export class VoteupdjPage {
 
   public playnowreq;eventid;eventname;songs;
+  public Loader=this.loadingCtrl.create({
+    content: 'Please wait...'
+  });
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
     public http: Http,
     public appsetting: Appsetting,
     public loadingCtrl: LoadingController,
     private alertCtrl: AlertController) {
-      this.eventid = navParams.get("eventid");
-      this.eventname = navParams.get("eventname");
-      if(this.eventname==undefined){
-            this.eventname = "Dj Admin Event";
-      }
-      this.playnowlist();
+      this.eventid = navParams.get("eventrid");
+      this.getvoteuprequest(this.eventid);
   }
 
-  addtolist(addsong){
-        
+  getvoteuprequest(evid){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+    var options = new RequestOptions({ headers: headers });
+    var data = {
+      eventid:evid
+    }; 
+    var serialized = this.serializeObj(data);
+     //this.Loader.present();
+     this.http.post(this.appsetting.myGlobalVar + 'events/getvoteupreq', serialized, options)
+     .map(res => res.json())
+     .subscribe(data => {
+       this.Loader.dismiss();
+       if (data.isSucess == "true") {
+        this.playnowreq=data.data;
+       } else {
+        this.playnowreq=[];
+        let alertr = this.alertCtrl.create({
+          title: 'Voteup requests',
+          subTitle: data.msg,
+        });
+          alertr.present();
+      setTimeout(()=>alertr.dismiss(),1500);
+       }
+     })
+  }
+
+  addtolist(addsong){        
     var data = {
       name: addsong.value.name,
       artist: addsong.value.artist
         }
-
     this.songs= data;
-
-
-
-  }
-
-  playnowlist(){
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-    var options = new RequestOptions({ headers: headers });
-    var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
-    let Loader = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    Loader.present().then(() => {
-      var data = {
-        djid: Userid,
-        eventid:this.eventid
-            }
-      var serialized = this.serializeObj(data);
-      this.http.post(this.appsetting.myGlobalVar + 'events/voteupreqt', serialized, options)
-        .map(res => res.json())
-        .subscribe(data => {
-          Loader.dismiss();
-          if (data.isSucess == "true") {
-            this.playnowreq=data.data;
-          } else {
-            this.playnowreq=[];
-          }
-        })
-    });
   }
   
   playimg(id,idd){

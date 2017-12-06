@@ -6,8 +6,9 @@ import { Appsetting } from '../../providers/appsetting';
 import { TopqueuedjPage } from '../topqueuedj/topqueuedj';
 import { GauranteedjPage } from '../gauranteedj/gauranteedj';
 import { PossiblydjPage } from '../possiblydj/possiblydj';
-import { VoteupdjPage } from '../voteupdj/voteupdj';
+//import { VoteupdjPage } from '../voteupdj/voteupdj';
 import { ShoutoutdjPage } from '../shoutoutdj/shoutoutdj';
+import { VotingPage } from '../voting/voting';
 /**
  * Generated class for the NameofeventsdjPage page.
  *
@@ -164,12 +165,12 @@ export class NameofeventsdjPage {
 
   voteupnow(eventid) {
     if (this.eventname == undefined) {
-      this.navCtrl.push(VoteupdjPage, {
+      this.navCtrl.push(VotingPage, {
         eventid: eventid,
         eventname: this.eventname
       });
     } else {
-      this.navCtrl.push(VoteupdjPage, {
+      this.navCtrl.push(VotingPage, {
         eventid: eventid,
         eventname: this.eventname
       });

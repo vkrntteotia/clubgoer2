@@ -8,6 +8,8 @@ import { NgZone } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
 import { Appsetting } from '../../providers/appsetting';
 import { SubscribedjPage } from '../subscribedj/subscribedj';
+import { Firebase } from '@ionic-native/firebase';
+
 /**
  * Generated class for the SignupdjPage page.
  *
@@ -21,7 +23,7 @@ import { SubscribedjPage } from '../subscribedj/subscribedj';
   templateUrl: 'signupdj.html',
 })
 export class SignupdjPage {
-  public scrollAmount = 44;classval;
+  public scrollAmount = 44;classval;token;
   public data = ''; id;
   public Loading = this.loadingCtrl.create({
     content: 'Please wait...'
@@ -36,7 +38,8 @@ export class SignupdjPage {
     public toastCtrl: ToastController,
     private alertCtrl: AlertController,
     public events: Events,
-    public zone: NgZone
+    public zone: NgZone,
+    private firebase: Firebase
   ) {
     this.ionViewDidEnter();
         if (localStorage.getItem("USER_DATA")) {
@@ -80,6 +83,7 @@ export class SignupdjPage {
       //Write here wherever you wanna do
       this.navCtrl.push(SignindjPage);
    }
+
   public register(signup) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
@@ -108,12 +112,18 @@ export class SignupdjPage {
     setTimeout(()=>alert.dismiss(),1500);
     } 
    else if (signup.value.password == signup.value.cpassword) {
-      this.Loading.present();
+    this.firebase.onTokenRefresh().subscribe(
+      token => {
+        console.log(`The new token is ${token}`);
+        this.token = token;
+        console.log('onTokenRefresh->', this.token);  
+    this.Loading.present();
       var data = {
         name: signup.value.name,
         email: signup.value.email,
         password: signup.value.password,
-        role: 'dj'
+        role: 'dj',
+        token: this.token
       }
       var Serialized = this.serializeObj(data);
       var Loading = this.loadingCtrl.create({
@@ -147,6 +157,7 @@ export class SignupdjPage {
         }
       })
     })
+  })
     } else {
       let alert = this.alertCtrl.create({
         title: 'Signup',

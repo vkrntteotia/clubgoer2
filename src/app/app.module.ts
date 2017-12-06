@@ -49,6 +49,7 @@ import { PlaynowlistdjPage } from '../pages/playnowlistdj/playnowlistdj';
 import { AddeventdjPage } from '../pages/addeventdj/addeventdj';
 
 import { SubscribedjPage } from '../pages/subscribedj/subscribedj';
+import { VotingPage } from '../pages/voting/voting';
 import { OmniaclubeventdjPage } from '../pages/omniaclubeventdj/omniaclubeventdj';
 import { PasteventdjPage } from '../pages/pasteventdj/pasteventdj';
 import { ManageeventsdjPage } from '../pages/manageeventsdj/manageeventsdj';
@@ -87,6 +88,7 @@ import { Firebase } from '@ionic-native/firebase';
     EntercodePage,
     PayinfoPage,
     VotelikePage,
+    VotingPage,
     GauranteedjPage,
     HistoricalrequestsPage,
     RequestsongplayPage,
@@ -147,6 +149,7 @@ import { Firebase } from '@ionic-native/firebase';
     TermsdjPage,
     EntercodePage,
     VotelikePage,
+    VotingPage,
     HistoricalrequestsPage,
     MembershipdetaildjPage,
     RequestsongplayPage,

@@ -105,11 +105,11 @@
     NSArray *items = payment[@"items"];
     NSDictionary *shippingAddress = payment[@"shippingAddress"];
     
-    NSString *src = @"5.00";
-    NSString *sra = @"1";
-    NSString *a3 = @"1";
-    NSString *p3 = @"1";
-    NSString *t3 = @"D";
+    // NSString *src = @"5.00";
+    // NSString *sra = @"1";
+    // NSString *a3 = @"1";
+    // NSString *p3 = @"1";
+    // NSString *t3 = @"D";
 
     PayPalPaymentIntent intent;
     if ([intentStr isEqualToString:@"order"]) {
@@ -125,11 +125,11 @@
                                                    currencyCode:currency
                                                shortDescription:shortDescription
                                                          intent:intent];
-    ppPayment.src = src;
-    ppPayment.sra = sra;
-    ppPayment.a3 = a3;
-    ppPayment.p3 = p3;
-    ppPayment.t3 = t3;
+    // ppPayment.src = src;
+    // ppPayment.sra = sra;
+    // ppPayment.a3 = a3;
+    // ppPayment.p3 = p3;
+    // ppPayment.t3 = t3;
 
     ppPayment.invoiceNumber = invoiceNumber;
     ppPayment.custom = custom;

@@ -26,7 +26,7 @@
 				<h1>{{pastevntdata?.Event.venue_name}}</h1>
 				<div class="content-text">
 					<h3>{{pastevntdata?.Event.event_name}}</h3>
-					<p>{{pastevntdata?.Event.event_date| date:'MM-dd-yyyy' }}</p>
+					<p>{{pastevntdata?.Event.event_date | date:'MM-dd-yyyy' }} to {{pastevntdata?.Event.start_event | date:'MM-dd-yyyy' }}</p>
 					<p>{{pastevntdata?.Event.event_time}} to {{pastevntdata?.Event.scheduled_start_time}}</p>
 				</div>
 				<div class="content-text">

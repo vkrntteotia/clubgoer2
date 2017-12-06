@@ -1,14 +1,14 @@
 webpackJsonp([42],{
 
-/***/ 469:
+/***/ 458:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditeventPageModule", function() { return EditeventPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditprofiledjPageModule", function() { return EditprofiledjPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__editevent__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__editprofiledj__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EditeventPageModule = (function () {
-    function EditeventPageModule() {
+var EditprofiledjPageModule = (function () {
+    function EditprofiledjPageModule() {
     }
-    return EditeventPageModule;
+    return EditprofiledjPageModule;
 }());
-EditeventPageModule = __decorate([
+EditprofiledjPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__editevent__["a" /* EditeventPage */],
+            __WEBPACK_IMPORTED_MODULE_2__editprofiledj__["a" /* EditprofiledjPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__editevent__["a" /* EditeventPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__editprofiledj__["a" /* EditprofiledjPage */]),
         ],
     })
-], EditeventPageModule);
+], EditprofiledjPageModule);
 
-//# sourceMappingURL=editevent.module.js.map
+//# sourceMappingURL=editprofiledj.module.js.map
 
 /***/ })
 
