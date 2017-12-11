@@ -214,7 +214,7 @@
                         <ion-col col-12>
                             <ion-row>
                                 <div *ngIf="srcImage" class="upload_imgouter">
-                                    <img [src]="srcImage" [(ngModel)]="data.img" name="img" #img='ngModel'>
+                                    <img [src]="srcImage">
                                 </div>
                                 <!-- <ion-label  class="alert alert-danger" color="danger">
 									<div *ngIf="img.errors && (img.dirty || img.touched)">
@@ -223,13 +223,9 @@
 										</div>
 									</div>
 								</ion-label> -->
-                                <div class="file-upload">
-                                    <!-- <label for="upload" class="file-upload__label">Upload Image <span> <ion-icon name="camera"></ion-icon></span></label> -->
-                                    <!-- <button class="file-upload__input" ion-button full (click)="CameraAction()" style="background:none;"></button> -->
-                                    <label for="upload" class="file-upload__label">Upload Image <span> <ion-icon name="camera"></ion-icon></span></label>
-                                    <input id="upload" class="file-upload__input" (click)="CameraAction()" type="button" name="file-upload">
-                                </div>
-
+                                
+                                    <input (click)="CameraAction()" type="button">
+                                
                             </ion-row>
                         </ion-col>
 

@@ -22,7 +22,8 @@ import { CommonProvider } from '../../providers/common/common';
 export class PayinfoPage {
   public data = {}; minyear;maxyear;setbit;pdata;video;
   public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(
    public navCtrl: NavController,
@@ -103,10 +104,10 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
     var tmp="";
     var tmpr="";
     //var options = "location=no,hidden=no";
-    var browser = this.iab.create('http://priyank.crystalbiltech.com/paypal-adaptive/chained-payment/proccess.php?data='+encodeURIComponent(JSON.stringify(this.pdata)),target,options);
+    var browser = this.iab.create('http://vikrant.crystalbiltech.com/paypal-adaptive/chained-payment/proccess.php?data='+encodeURIComponent(JSON.stringify(this.pdata)),target,options);
     browser.on('loadstart').subscribe((e) => {
 
-        alert(JSON.stringify(e));
+        //alert(JSON.stringify(e));
               //console.log(e);
         //let url = e.url;
         //console.log(url);
@@ -129,7 +130,7 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
         }
       //  console.log(redirect_uri);
       //  alert(redirect_uri[0]);
-        if (redirect_uri[0] == 'https://priyank.crystalbiltech.com/?') {
+        if (redirect_uri[0] == 'https://vikrant.crystalbiltech.com/?') {
         //  alert('code--->' + code);
           browser.close();
           this.http.post(this.appsetting.myGlobalVar + 'users/sendnotif', serialized_data, option).map(res => res.json()).subscribe(response => {
@@ -138,18 +139,20 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
               this.navCtrl.push(HomePage);
               let alert = this.alertCtrl.create({
                 title: 'Payment info',
-                subTitle: "Payment done successfully"
+                subTitle: "Payment done successfully",
+                buttons:['ok']
                 });
                 alert.present();
-                setTimeout(()=>alert.dismiss(),1500);
+                setTimeout(()=>alert.dismiss(),3500);
             } else {
               this.navCtrl.push(HomePage);
               let alert = this.alertCtrl.create({
                 title: 'Payment info',
-                subTitle: "Hello Something went wrong"
+                subTitle: "Hello Something went wrong",
+                buttons:['ok']
                 });
                 alert.present();
-                setTimeout(()=>alert.dismiss(),1500);
+                setTimeout(()=>alert.dismiss(),3500);
             }
           })
         } 
@@ -159,10 +162,11 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
                   this.navCtrl.push(HomePage);
                   let alert = this.alertCtrl.create({
                     title: 'Payment info',
-                    subTitle: "Payment unsuccessfull"
+                    subTitle: "Payment unsuccessfull",
+                    buttons:['ok']
                     });
                     alert.present();
-                    setTimeout(()=>alert.dismiss(),1500);
+                    setTimeout(()=>alert.dismiss(),3500);
             
           }
         else if(redirect_url[0] == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/closewindow?'){
@@ -173,18 +177,20 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
                 this.navCtrl.push(HomePage);
                 let alert = this.alertCtrl.create({
                   title: 'Payment info',
-                  subTitle: "Payment done successfully"
+                  subTitle: "Payment done successfully",
+                  buttons:['ok']
                   });
                   alert.present();
-                  setTimeout(()=>alert.dismiss(),1500);
+                  setTimeout(()=>alert.dismiss(),3500);
               } else {
                 this.navCtrl.push(HomePage);
                 let alert = this.alertCtrl.create({
                   title: 'Payment info',
-                  subTitle: "something went wrong"
+                  subTitle: "something went wrong",
+                  buttons:['ok']
                   });
                   alert.present();
-                  setTimeout(()=>alert.dismiss(),1500);  
+                  setTimeout(()=>alert.dismiss(),3500);  
               }
             })
         } else if(redirect_rrl[0] == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/closewindow?'){
@@ -192,10 +198,11 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
           this.navCtrl.push(HomePage);
           let alert = this.alertCtrl.create({
             title: 'Payment info',
-            subTitle: "Payment unsuccessfull"
+            subTitle: "Payment unsuccessfull",
+            buttons:['ok']
             });
             alert.present();
-            setTimeout(()=>alert.dismiss(),1500);
+            setTimeout(()=>alert.dismiss(),3500);
        } 
       }, err => {
         //console.log("InAppBrowser loadstart Event Error: " + err);
@@ -235,9 +242,10 @@ ionViewDidEnter() {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-       setTimeout(()=>alert.dismiss(),1500);
+       setTimeout(()=>alert.dismiss(),2500);
       }
     }
 serializeObj(obj) {

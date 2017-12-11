@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController, LoadingController } from 'ionic-angular';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import { Appsetting } from '../../providers/appsetting';
 /**
@@ -17,10 +17,15 @@ import { Appsetting } from '../../providers/appsetting';
 export class RequesthistorydjPage {
   public pastevntid;
   public reqhistdata;
+  public Loader = this.loadingCtrl.create({
+    content: 'Please wait...',
+    dismissOnPageChange: true
+  });
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
     public http: Http,
     public appsetting: Appsetting,
+    private alertCtrl: AlertController,
     public loadingCtrl: LoadingController) {
     this.pastevntid = navParams.get("eventid");
     this.getreqhistory(this.pastevntid);
@@ -32,7 +37,8 @@ export class RequesthistorydjPage {
     var options = new RequestOptions({ headers: headers });
     var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
     let Loader = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Please wait...',
+      dismissOnPageChange: true
     });
     Loader.present().then(() => {
       var data = {
@@ -63,6 +69,20 @@ export class RequesthistorydjPage {
         return result.join("&");
   }
   
+  ionViewDidEnter() {
+    if (window.navigator.onLine == true) {
+    } else {
+      this.Loader.dismiss();
+       let alert = this.alertCtrl.create({
+        title: 'Network connection',
+        subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
+        });
+       alert.present();
+       setTimeout(()=>alert.dismiss(),3500);
+      }
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad RequesthistorydjPage');
   }

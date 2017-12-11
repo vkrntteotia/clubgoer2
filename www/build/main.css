@@ -33384,6 +33384,216 @@ page-addeventdj .ion-md-camera:before {
   content: "\f3f6";
 }
 
+page-addeventdjnew .header {
+  background-color: #0e1629;
+}
+
+page-addeventdjnew .content {
+  width: 100%;
+  float: left;
+  padding-bottom: 20px !important;
+  position: relative;
+}
+
+page-addeventdjnew .form-sec {
+  width: 85%;
+  float: none;
+  margin: auto;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 28px #656565;
+  box-shadow: 0px 0px 28px #656565;
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 130px;
+  margin-bottom: 10vh !important;
+}
+
+page-addeventdjnew .form-sec .col {
+  width: 100%;
+  float: left;
+}
+
+page-addeventdjnew .form-sec .colm .row .col:first-child {
+  padding: 0px 1px 0px 0px;
+}
+
+page-addeventdjnew .form-sec .colm .row .col:last-child {
+  padding: 0px 0px 0px 1px;
+}
+
+page-addeventdjnew .form-sec .event-form .item {
+  border: 1px solid #c8c7cc;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+}
+
+page-addeventdjnew .form-sec .event-form .list {
+  margin: 0px;
+  width: 100%;
+  float: left;
+}
+
+page-addeventdjnew .form-sec .topbtn {
+  width: 100%;
+  text-align: center;
+  float: left;
+}
+
+page-addeventdjnew .form-sec .topbtn .button {
+  width: 75%;
+  float: none;
+  background-color: #b00101;
+}
+
+page-addeventdjnew .form-sec .bottombtn {
+  width: 100%;
+  text-align: center;
+  float: left;
+}
+
+page-addeventdjnew .form-sec .bottombtn .button {
+  width: 75%;
+  float: none;
+  background-color: #b00101;
+}
+
+page-addeventdjnew .form-sec .input {
+  font-size: 11px;
+}
+
+page-addeventdjnew .datetime-ios {
+  font-size: 11px;
+  padding-left: 0px !important;
+}
+
+page-addeventdjnew .padding0lft {
+  padding: 0px 1px 0px 0px;
+}
+
+page-addeventdjnew .padding0rgt {
+  padding: 0px 0px 0px 1px;
+}
+
+page-addeventdjnew .file-upload {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  float: left;
+  border: 1px solid #c8c7cc;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+}
+
+page-addeventdjnew .file-upload__label {
+  display: block;
+  padding: 1em 2em;
+  color: #797979;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+  width: 100%;
+  font-size: 11px;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+page-addeventdjnew .file-upload__label span {
+  width: auto;
+  float: right;
+  position: absolute;
+  right: 18px;
+  top: 1px;
+  font-size: 25px;
+}
+
+page-addeventdjnew .file-upload__input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 1;
+  width: 0;
+  height: 100%;
+  opacity: 0;
+}
+
+page-addeventdjnew .item {
+  height: 37px;
+  min-height: 32px;
+}
+
+page-addeventdjnew .item .item-inner {
+  border: none !important;
+}
+
+page-addeventdjnew .tip {
+  width: 100%;
+  float: left;
+}
+
+page-addeventdjnew .tip h3 {
+  width: 70%;
+  float: left;
+  font-size: 12px;
+  margin-top: 8px;
+  padding-left: 2px;
+  font-weight: 500 !important;
+}
+
+page-addeventdjnew .tip button {
+  width: 20%;
+  float: right;
+  background-color: #fff;
+  height: 25px;
+  color: #656565;
+  padding-right: 0px;
+  margin-right: 0px;
+}
+
+page-addeventdjnew .abc.activated {
+  background: none !important;
+}
+
+page-addeventdjnew .abc {
+  webkit-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+page-addeventdjnew .abc .icon:before {
+  content: "\f3d0";
+}
+
+page-addeventdjnew .upload_imgouter {
+  height: 150px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+page-addeventdjnew .upload_imgouter img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+page-addeventdjnew ion-datetime {
+  font-size: 11px;
+  padding: 0px !important;
+}
+
+page-addeventdjnew .ion-md-camera:before {
+  content: "\f3f6";
+}
+
 page-changepassword .login_outer {
   margin-top: 64px;
   display: block;
@@ -35243,6 +35453,136 @@ page-nameofeventsdj .colm .four {
   left: 83px !important;
 }
 
+page-notificationdj .header {
+  background-color: #0e1629;
+}
+
+page-notificationdj .logo {
+  width: 40%;
+  float: right;
+  text-align: right;
+  position: absolute;
+  right: 18px;
+  top: 35px;
+}
+
+page-notificationdj .logo img {
+  width: 12%;
+  margin-top: 19px;
+}
+
+page-notificationdj .past {
+  width: 100%;
+  float: left;
+}
+
+page-notificationdj .past .list {
+  width: 100%;
+  float: left;
+  margin: 0px;
+}
+
+page-notificationdj .past .list .item:last-child {
+  border-bottom: none;
+}
+
+page-notificationdj .past .item {
+  width: 100%;
+  float: left;
+  padding-left: 48px;
+  padding-right: 50px;
+  border-top: none !important;
+  position: relative;
+  margin-top: 5px;
+  margin: 5px 0px;
+  border-bottom: 0.55px solid #c8c7cc;
+}
+
+page-notificationdj .past .item-inner {
+  border: none !important;
+}
+
+page-notificationdj .past .item h3 {
+  width: 100%;
+  color: #222222;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 500 !important;
+  margin: 0px;
+}
+
+page-notificationdj .past .item p {
+  width: 100%;
+  float: left;
+  color: #484848;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin: 0px;
+}
+
+page-notificationdj .past .item .label {
+  margin: 0px 8px 15px 0;
+}
+
+page-notificationdj .past .item .img-sec {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55px;
+  height: 48px;
+  text-align: left;
+  margin: 0px;
+  color: #fff;
+}
+
+page-notificationdj .past .item .img-right {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  width: 55px;
+  height: 48px;
+  text-align: right;
+  margin: 0px;
+  color: #fff;
+}
+
+page-notificationdj .past .item .img-right .imgmain img {
+  width: 37%;
+  padding-top: 9px;
+}
+
+page-notificationdj .past .item .img-right .imgmain img:first-child {
+  padding-right: 5px;
+}
+
+page-notificationdj .past .item .img-right .imgmain img:last-child {
+  padding-left: 5px;
+}
+
+page-notificationdj .past .item .img-sec img {
+  width: 60%;
+  float: left;
+}
+
+page-notificationdj .unshow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 30px;
+}
+
+page-notificationdj .unshow h3 {
+  margin: 0;
+  font-size: 16px;
+  width: 100%;
+  float: left;
+  text-align: center;
+  font-weight: 700 !important;
+}
+
 page-omniaclubeventdj .header {
   background-color: #0e1629;
 }
@@ -36612,73 +36952,116 @@ page-shoutoutdj .logo img {
   margin-top: 19px;
 }
 
-page-shoutoutdj .content {
+page-shoutoutdj .past {
   width: 100%;
   float: left;
 }
 
-page-shoutoutdj .content .colm {
+page-shoutoutdj .past .list {
   width: 100%;
   float: left;
+  margin: 0px;
+}
+
+page-shoutoutdj .past .list .item:last-child {
+  border-bottom: none;
+}
+
+page-shoutoutdj .past .item {
+  width: 100%;
+  float: left;
+  padding-left: 48px;
+  padding-right: 50px;
+  border-top: none !important;
   position: relative;
+  margin-top: 5px;
+  margin: 5px 0px;
+  border-bottom: 0.55px solid #c8c7cc;
 }
 
-page-shoutoutdj .content .colm img {
+page-shoutoutdj .past .item-inner {
+  border: none !important;
+}
+
+page-shoutoutdj .past .item h3 {
+  width: 100%;
+  color: #222222;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 500 !important;
+  margin: 0px;
+}
+
+page-shoutoutdj .past .item p {
   width: 100%;
   float: left;
+  color: #484848;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin: 0px;
 }
 
-page-shoutoutdj .colm h6 {
+page-shoutoutdj .past .item .label {
+  margin: 0px 8px 15px 0;
+}
+
+page-shoutoutdj .past .item .img-sec {
   position: absolute;
-  color: #fff;
   top: 0;
   left: 0;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 20px;
-  text-align: center;
-  width: 100%;
-  margin: auto;
-  padding: 0;
-  bottom: 0;
-  display: inline-table;
+  width: 55px;
+  height: 48px;
+  text-align: left;
+  margin: 0px;
+  color: #fff;
 }
 
-page-shoutoutdj .content .colm .cricle {
-  width: 20px;
-  height: 20px;
+page-shoutoutdj .past .item .img-right {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
-  background-color: white;
-  color: black;
-  border-radius: 50%;
-  text-align: center;
+  top: 2px;
+  right: 0px;
+  width: 55px;
+  height: 48px;
+  text-align: right;
+  margin: 0px;
+  color: #fff;
 }
 
-page-shoutoutdj .content .colm .cricle p {
+page-shoutoutdj .past .item .img-right .imgmain img {
+  width: 37%;
+  padding-top: 9px;
+}
+
+page-shoutoutdj .past .item .img-right .imgmain img:first-child {
+  padding-right: 5px;
+}
+
+page-shoutoutdj .past .item .img-right .imgmain img:last-child {
+  padding-left: 5px;
+}
+
+page-shoutoutdj .past .item .img-sec img {
+  width: 60%;
+  float: left;
+}
+
+page-shoutoutdj .unshow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 30px;
+}
+
+page-shoutoutdj .unshow h3 {
+  margin: 0;
+  font-size: 16px;
   width: 100%;
   float: left;
   text-align: center;
-  margin: 0;
-  line-height: 20px;
-  font-size: 12px;
-}
-
-page-shoutoutdj .colm .one {
-  left: 40px !important;
-}
-
-page-shoutoutdj .colm .two {
-  left: 5px !important;
-}
-
-page-shoutoutdj .colm .three {
-  left: 19px !important;
-}
-
-page-shoutoutdj .colm .four {
-  left: 83px !important;
+  font-weight: 700 !important;
 }
 
 page-signindj .header {
@@ -37714,6 +38097,25 @@ page-votelike .time {
   font-size: 11px;
 }
 
+page-votelike .unshow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 30px;
+}
+
+page-votelike .unshow h3 {
+  margin: 0;
+  font-size: 16px;
+  width: 100%;
+  float: left;
+  text-align: center;
+  font-weight: 700 !important;
+}
+
 page-voteup .voteup .item {
   background: rgba(0, 0, 0, 0.1);
   color: #fff;
@@ -37733,6 +38135,25 @@ page-voteup .time {
   right: 26px;
   bottom: 0;
   font-size: 11px;
+}
+
+page-voteup .unshow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 30px;
+}
+
+page-voteup .unshow h3 {
+  margin: 0;
+  font-size: 16px;
+  width: 100%;
+  float: left;
+  text-align: center;
+  font-weight: 700 !important;
 }
 
 page-voteupdj .header {

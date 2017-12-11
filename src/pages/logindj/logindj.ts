@@ -14,8 +14,6 @@ import { VariableProvider } from '../../providers/variable/variable';
 import { SignindjPage } from '../signindj/signindj';
 import { Firebase } from '@ionic-native/firebase';
 
-
-
 /**
  * Generated class for the LogindjPage page.
  *
@@ -35,7 +33,8 @@ export class LogindjPage {
   public profilepicface: any;
   public facebook_data: any;
   public Loading = this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -66,6 +65,7 @@ export class LogindjPage {
       }
     }
   }
+
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {
@@ -73,11 +73,13 @@ export class LogindjPage {
       let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
       });
       alert.present();
-      setTimeout(() => alert.dismiss(), 1500);
+      setTimeout(() => alert.dismiss(), 3500);
     }
   }
+  
   scrollHandler(event) {
     console.log(`ScrollEvent: ${event}`)
    // console.log(JSON.stringify(event.scrollTop));
@@ -97,7 +99,6 @@ export class LogindjPage {
   }
 
   login(form) {
-   
     // this.firebase.getToken().then(token => {
     //   console.log(`The token is ${token}`)
      
@@ -112,12 +113,11 @@ export class LogindjPage {
     // .catch(error => {
     //   console.error('Error getting token', error)
     // });
-  // this.firebase.onTokenRefresh().subscribe(
-  //   token => {
-  //     console.log(`The new token is ${token}`);
-  //     this.token = token;
-  //     console.log('onTokenRefresh->', this.token);
 
+  this.firebase.onTokenRefresh().subscribe(
+    token => {
+      console.log(`The new token is ${token}`);
+      this.token = token;
  if (form.value.checkbx == true) {
       localStorage.setItem("usernamedj", form.value.email);
       localStorage.setItem("passworddj", form.value.password);
@@ -144,7 +144,6 @@ export class LogindjPage {
       Loading.present().then(() => {
     this.http.post(this.appsetting.myGlobalVar + 'users/logindj', Serialized, options).map(res => res.json()).subscribe(response => {
       Loading.dismiss();
-      alert(JSON.stringify(response));
       if (response.status == true) {
         this.Loading.dismiss();
         let alert = this.alertCtrl.create({
@@ -168,14 +167,15 @@ export class LogindjPage {
         this.Loading.dismiss();
         let alert = this.alertCtrl.create({
           title: 'Login',
-          subTitle: response.msg
+          subTitle: response.msg,
+          buttons:['ok']
         });
         alert.present();
-        setTimeout(() => alert.dismiss(), 1500);
+        setTimeout(() => alert.dismiss(), 3500);
       }
     })
       })
-    //})
+    })
   }
 
   fblogin() {
@@ -183,8 +183,10 @@ export class LogindjPage {
       .then((res: FacebookLoginResponse) => {
         this.fb.api('me/?fields=id,email,last_name,first_name', ["public_profile", "email"])
           .then((result) => {
-            console.log("result");
-            console.log(result);
+            this.firebase.onTokenRefresh().subscribe(
+              token => {
+                //console.log(`The new token is ${token}`);
+                this.token = token;
             this.profilepicface = "https://graph.facebook.com/" + result.id + "/picture?type=large";
             localStorage.setItem('facebook_pic', this.profilepicface);
             localStorage.setItem('facebook_login', JSON.stringify(result));
@@ -195,7 +197,8 @@ export class LogindjPage {
               fb_id: result.id,
               name: result.first_name + " " + result.last_name,
               img: this.profilepicface,
-              role: "dj"
+              role: "dj",
+              token:this.token
             }
             var serialized_data = this.Cmn.serializeObj(signindata);
             let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' });
@@ -218,10 +221,11 @@ export class LogindjPage {
 
                   let alert = this.alertCtrl.create({
                     title: 'Logged in',
-                    subTitle: resolve.msg
+                    subTitle: resolve.msg,
+                    buttons:['ok']
                   });
                   alert.present();
-                  setTimeout(() => alert.dismiss(), 1500);
+                  setTimeout(() => alert.dismiss(), 2500);
                   this.events.publish('role', 'dj');
                   if(resolve.data.User.subscription_status!=1){
                     this.navCtrl.push(SubscribedjPage);
@@ -232,13 +236,15 @@ export class LogindjPage {
                   let alert = this.alertCtrl.create({
                     title: 'Login',
                     subTitle: resolve.msg,
+                    buttons:['ok']
                   });
                   alert.present();
-                  setTimeout(() => alert.dismiss(), 1500);
+                  setTimeout(() => alert.dismiss(), 2500);
                  
                 }
               })
           })
+        })
           }).catch(d => {
            // Loading.dismiss();
            console.log("vikki");

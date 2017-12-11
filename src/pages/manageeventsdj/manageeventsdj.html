@@ -37,7 +37,7 @@
                         </div>
                         <h3>{{u?.Event.event_name}}</h3>
                         <p>{{u?.Event.venue_address}}</p>
-
+                        <p *ngIf="u?.Event.active!=1"> Start now</p>
                     </div>
 
                 </ion-item>
@@ -63,57 +63,6 @@
                 <div class="unshow" *ngIf="pastevnt?.length == 0">
                     <h3>Past events unavailable</h3>
                 </div>
-
-                <!-- <ion-item (click)="pastevent()">
-      	<div class="brdr">
-        	<div class="date-sec pink">
-        		<h2>06</h2>
-        		<h1>Sep</h1>
-        	</div>
-        	<h3>Rage Against the machine</h3>
-        	<p>Event location</p>
-        </div>
-      </ion-item>
-      <ion-item (click)="pastevent()">
-      	<div class="brdr">
-        	<div class="date-sec blue">
-        		<h2>06</h2>
-        		<h1>Sep</h1>
-        	</div>
-        	<h3>Rage Against the machine</h3>
-        	<p>Event location</p>
-        </div>
-      </ion-item>
-      <ion-item (click)="pastevent()">
-      	<div class="brdr">
-        	<div class="date-sec pink">
-        		<h2>06</h2>
-        		<h1>Sep</h1>
-        	</div>
-        	<h3>Rage Against the machine</h3>
-        	<p>Event location</p>
-        </div>
-      </ion-item>
-      <ion-item (click)="pastevent()">
-      	<div class="brdr">
-        	<div class="date-sec blue">
-        		<h2>06</h2>
-        		<h1>Sep</h1>
-        	</div>
-        	<h3>Rage Against the machine</h3>
-        	<p>Event location</p>
-        </div>
-      </ion-item>
-      <ion-item (click)="pastevent()">
-      	<div class="brdr">
-        	<div class="date-sec pink">
-        		<h2>06</h2>
-        		<h1>Sep</h1>
-        	</div>
-        	<h3>Rage Against the machine</h3>
-        	<p>Event location</p>
-        </div>
-      </ion-item> -->
             </ion-list>
         </div>
 

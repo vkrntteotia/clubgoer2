@@ -28,7 +28,8 @@ export class TermsPage {
   }
 
   public Loader = this.loadingCtrl.create({
-		content: 'Please wait...'
+		content: 'Please wait...',
+    dismissOnPageChange: true
 	});
     getterms(){
     this.Loader.present();
@@ -62,13 +63,14 @@ serializeObj(obj) {
     ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {
-      this.Loader.dismiss();
+      this.Loader.dismissAll();
        let alert = this.alertCtrl.create({
         title: 'Network connection',
-        subTitle: 'Something went wrong check your internet connection'
+        subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-       setTimeout(()=>alert.dismiss(),1500);
+       setTimeout(()=>alert.dismiss(),2500);
       }
   }
 

@@ -17,6 +17,10 @@ import { Appsetting } from '../../providers/appsetting';
 })
 export class TopqueuedjPage {
 public playtopreq;eventid;eventname;
+public Loader = this.loadingCtrl.create({
+  content: 'Please wait...',
+  dismissOnPageChange: true
+});
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
     public http: Http,
@@ -26,7 +30,7 @@ public playtopreq;eventid;eventname;
       this.eventid = navParams.get("eventid");
       this.eventname = navParams.get("eventname");
       if(this.eventname==undefined){
-            this.eventname = "Dj Admin Event";
+          this.eventname = "Dj Admin Event";
       }
       this.playnowlist();
   }
@@ -37,7 +41,8 @@ public playtopreq;eventid;eventname;
     var options = new RequestOptions({ headers: headers });
     var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
     let Loader = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Please wait...',
+      dismissOnPageChange: true
     });
     Loader.present().then(() => {
       var data = {
@@ -60,7 +65,6 @@ public playtopreq;eventid;eventname;
   }
   
   playimg(id,idd){
-    alert(id+" "+idd)
       let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
       var options = new RequestOptions({ headers: headers });
@@ -75,7 +79,7 @@ public playtopreq;eventid;eventname;
           id:Userid
         }
         var serialized = this.serializeObj(data);
-        this.http.post(this.appsetting.myGlobalVar + 'events/topquereq', serialized, options)
+        this.http.post(this.appsetting.myGlobalVar + 'events/topquereqdj', serialized, options)
           .map(res => res.json())
           .subscribe(data => {
             Loader.dismiss();
@@ -84,9 +88,10 @@ public playtopreq;eventid;eventname;
               let alertr = this.alertCtrl.create({
                   title: 'Requests',
                   subTitle: data.msg,
+                  buttons:['ok']
                 });
                   alertr.present();
-              setTimeout(()=>alertr.dismiss(),1500);
+              setTimeout(()=>alertr.dismiss(),3500);
               this.playtopreq=data.data;
               //this.navCtrl.push(EventsdjPage);
             } else {
@@ -111,7 +116,7 @@ public playtopreq;eventid;eventname;
           id:Userid
               }
         var serialized = this.serializeObj(data);
-        this.http.post(this.appsetting.myGlobalVar + 'events/requesttopstatus', serialized, options)
+        this.http.post(this.appsetting.myGlobalVar + 'events/toprequeststatus', serialized, options)
           .map(res => res.json())
           .subscribe(data => {
             Loader.dismiss();
@@ -120,9 +125,10 @@ public playtopreq;eventid;eventname;
               let alertr = this.alertCtrl.create({
                   title: 'Requests',
                   subTitle: data.msg,
+                  buttons:['ok']
                 });
                   alertr.present();
-              setTimeout(()=>alertr.dismiss(),1500);
+              setTimeout(()=>alertr.dismiss(),3500);
               this.playtopreq=data.data;
               //this.navCtrl.push(EventsdjPage);
             } else {
@@ -137,6 +143,20 @@ public playtopreq;eventid;eventname;
     for (var property in obj)
       result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
         return result.join("&");
+  }
+
+  ionViewDidEnter() {
+    if (window.navigator.onLine == true) {
+    } else {
+      this.Loader.dismissAll();
+       let alert = this.alertCtrl.create({
+        title: 'Network connection',
+        subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
+        });
+       alert.present();
+       setTimeout(()=>alert.dismiss(),2500);
+      }
   }
 
   ionViewDidLoad() {

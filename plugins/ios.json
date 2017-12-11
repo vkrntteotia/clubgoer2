@@ -14,8 +14,6 @@
       "PACKAGE_NAME": "io.djapp1234"
     },
     "cordova-plugin-camera": {
-      "CAMERA_USAGE_DESCRIPTION": " ",
-      "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
       "PACKAGE_NAME": "io.djapp1234"
     },
     "cordova-plugin-compat": {
@@ -27,6 +25,9 @@
     "cordova-plugin-facebook4": {
       "APP_ID": "300176463724883",
       "APP_NAME": "RealtimeRequest",
+      "PACKAGE_NAME": "io.djapp1234"
+    },
+    "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "io.djapp1234"
     },
     "cordova-plugin-firebase": {
@@ -53,6 +54,9 @@
   },
   "dependent_plugins": {
     "card.io.cordova.mobilesdk": {
+      "PACKAGE_NAME": "io.djapp1234"
+    },
+    "cordova-plugin-file": {
       "PACKAGE_NAME": "io.djapp1234"
     }
   }

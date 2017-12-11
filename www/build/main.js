@@ -1,6 +1,6 @@
-webpackJsonp([49],{
+webpackJsonp([51],{
 
-/***/ 107:
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46,14 +46,14 @@ VariableProvider = __decorate([
 
 /***/ }),
 
-/***/ 129:
+/***/ 131:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EntercodePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__songrequests_songrequests__ = __webpack_require__(130);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__songrequests_songrequests__ = __webpack_require__(132);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
@@ -93,7 +93,8 @@ var EntercodePage = (function () {
         this.alertCtrl = alertCtrl;
         this.data = '';
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
     }
     EntercodePage.prototype.serializeObj = function (obj) {
@@ -122,24 +123,25 @@ var EntercodePage = (function () {
             djcode: form.value.code,
             date: date
         };
-        console.log(data);
-        console.log("vikki");
         var Serialized = this.serializeObj(data);
         this.http.post(this.appsetting.myGlobalVar + 'events/entercode', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (data) {
             _this.Loading.dismiss();
             if (data.isSucess == "true") {
-                // console.log("vikrantDjcode");
-                // console.log(data);
-                // console.log("data Success");
-                _this.showConfirm(data.data);
+                if (data.data.Event == undefined) {
+                    _this.showConfirm(data.data[0]);
+                }
+                else {
+                    _this.showConfirm(data.data);
+                }
             }
             else {
                 var alert_1 = _this.alertCtrl.create({
                     title: 'Dj Confirmation',
                     subTitle: data.msg,
+                    buttons: ['ok']
                 });
                 alert_1.present();
-                setTimeout(function () { return alert_1.dismiss(); }, 1500);
+                setTimeout(function () { return alert_1.dismiss(); }, 3500);
             }
         });
     };
@@ -184,6 +186,7 @@ var EntercodePage = (function () {
             var alert_2 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_2.present();
             setTimeout(function () { return alert_2.dismiss(); }, 1500);
@@ -212,16 +215,16 @@ EntercodePage = __decorate([
 
 /***/ }),
 
-/***/ 130:
+/***/ 132:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SongrequestsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__requestsongplay_requestsongplay__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__voteup_voteup__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shoutout_shoutout__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__requestsongplay_requestsongplay__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__voteup_voteup__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shoutout_shoutout__ = __webpack_require__(135);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -243,14 +246,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var SongrequestsPage = (function () {
-    function SongrequestsPage(navCtrl, navParams) {
+    function SongrequestsPage(navCtrl, navParams, loadingCtrl, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
+        this.Loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
         this.djid = navParams.get("djid");
         this.eventid = navParams.get("eventid");
     }
     SongrequestsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SongrequestsPage');
+    };
+    SongrequestsPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loading.dismiss();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
+        }
     };
     SongrequestsPage.prototype.voteupPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__voteup_voteup__["a" /* VoteupPage */], {
@@ -277,14 +300,16 @@ SongrequestsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-songrequests',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/songrequests/songrequests.html"*/'<!--\n  Generated template for the SongrequestsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Requests</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n<ion-content padding style="background: url(assets/img/loginbg.jpg); background-size:cover;">\n\n  <div class="homemain">\n    <div class="logo"><img src="assets/img/logo.png"></div>\n    <div class="home_list">\n    <ion-item no-lines item-right>\n      <button (click)="requestsongplayPage()" ion-button secondary color="" class="gredient" block>Request a Song<ion-icon name="arrow-forward"></ion-icon></button>\n    </ion-item>\n    <ion-item no-lines>\n      <button (click)="voteupPage()" ion-button secondary class="gredient" block>Vote Up Requests<ion-icon name="arrow-forward"></ion-icon></button>\n    </ion-item>\n    <ion-item no-lines>\n      <button (click)="shoutoutPage()" ion-button secondary class="gredient" block>Request Shout Out <ion-icon name="arrow-forward"></ion-icon></button>\n    </ion-item>\n  </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/songrequests/songrequests.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
 ], SongrequestsPage);
 
 //# sourceMappingURL=songrequests.js.map
 
 /***/ }),
 
-/***/ 131:
+/***/ 133:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -324,7 +349,8 @@ var RequestsongplayPage = (function () {
         this.alertCtrl = alertCtrl;
         this.data = {};
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.flag = false;
         this.djid = navParams.get("djid");
@@ -394,9 +420,10 @@ var RequestsongplayPage = (function () {
             var alert_4 = this.alertCtrl.create({
                 title: 'Request a song',
                 subTitle: 'Please select request option',
+                buttons: ['ok']
             });
             alert_4.present();
-            setTimeout(function () { return alert_4.dismiss(); }, 1500);
+            setTimeout(function () { return alert_4.dismiss(); }, 3500);
         }
         else {
             if (form.value.tipamt != "") {
@@ -404,9 +431,10 @@ var RequestsongplayPage = (function () {
                     var alert_5 = this.alertCtrl.create({
                         title: 'Request a song',
                         subTitle: 'Tip amount should be greater than minimum tip',
+                        buttons: ['ok']
                     });
                     alert_5.present();
-                    setTimeout(function () { return alert_5.dismiss(); }, 1500);
+                    setTimeout(function () { return alert_5.dismiss(); }, 3500);
                     return false;
                 }
             }
@@ -472,9 +500,10 @@ var RequestsongplayPage = (function () {
                 var alert_6 = _this.alertCtrl.create({
                     title: 'Request a song',
                     subTitle: data.msg,
+                    buttons: ['ok']
                 });
                 alert_6.present();
-                setTimeout(function () { return alert_6.dismiss(); }, 1500);
+                setTimeout(function () { return alert_6.dismiss(); }, 3500);
             }
         });
     };
@@ -485,10 +514,11 @@ var RequestsongplayPage = (function () {
             this.Loading.dismiss();
             var alert_7 = this.alertCtrl.create({
                 title: 'Network connection',
-                subTitle: 'Something went wrong check your internet connection'
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_7.present();
-            setTimeout(function () { return alert_7.dismiss(); }, 1500);
+            setTimeout(function () { return alert_7.dismiss(); }, 3500);
         }
     };
     RequestsongplayPage.prototype.ionViewDidLoad = function () {
@@ -513,7 +543,7 @@ RequestsongplayPage = __decorate([
 
 /***/ }),
 
-/***/ 132:
+/***/ 134:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -550,7 +580,8 @@ var VoteupPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.djid = navParams.get("djid");
         this.eventid = navParams.get("eventid");
@@ -588,9 +619,10 @@ var VoteupPage = (function () {
                 var alert_1 = _this.alertCtrl.create({
                     title: 'Dj Details',
                     subTitle: data.msg,
+                    buttons: ['ok']
                 });
                 alert_1.present();
-                setTimeout(function () { return alert_1.dismiss(); }, 1500);
+                setTimeout(function () { return alert_1.dismiss(); }, 2500);
             }
         });
     };
@@ -624,17 +656,19 @@ var VoteupPage = (function () {
                 var alert_2 = _this.alertCtrl.create({
                     title: 'Voteup Request',
                     subTitle: data.msg,
+                    buttons: ['ok']
                 });
                 alert_2.present();
-                setTimeout(function () { return alert_2.dismiss(); }, 1500);
+                setTimeout(function () { return alert_2.dismiss(); }, 3500);
             }
             else {
                 var alert_3 = _this.alertCtrl.create({
                     title: 'Voteup Request',
                     subTitle: data.msg,
+                    buttons: ['ok']
                 });
                 alert_3.present();
-                setTimeout(function () { return alert_3.dismiss(); }, 1500);
+                setTimeout(function () { return alert_3.dismiss(); }, 3500);
             }
         });
     };
@@ -642,13 +676,14 @@ var VoteupPage = (function () {
         if (window.navigator.onLine == true) {
         }
         else {
-            this.Loading.dismiss();
+            this.Loading.dismissAll();
             var alert_4 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_4.present();
-            setTimeout(function () { return alert_4.dismiss(); }, 1500);
+            setTimeout(function () { return alert_4.dismiss(); }, 2500);
         }
     };
     return VoteupPage;
@@ -656,7 +691,7 @@ var VoteupPage = (function () {
 VoteupPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-voteup',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voteup/voteup.html"*/'<!--\n  Generated template for the VoteupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Voteup Request</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content style="background: url(assets/img/loginbg.jpg); background-size:cover;">\n  <div class="voteup">\n    <ion-list no-lines>\n      <ion-item *ngFor="let request of requests; let i = index">\n        <h2>{{request?.ClubgoerRequest.songname}}</h2>\n        <p>{{request?.TipOption.name}}</p>\n        <ion-note item-end="" class="note note-ios"> \n          <button color="light" clear small ion-button icon-left  (click)="likeusrrequest(request?.ClubgoerRequest.id,request?.ClubgoerRequest.like,i)">\n            {{request?.RequestLike.length}}\n            <ion-icon *ngIf="request?.ClubgoerRequest.like>0" color="yellow" style="font-size:13px; padding-left:8px;" name="thumbs-up"></ion-icon>\n            <ion-icon *ngIf="request?.ClubgoerRequest.like==0" color="yellow" style="font-size:13px; padding-left:8px;" name="thumbs-down"></ion-icon>\n          </button> \n        </ion-note>\n        <ion-note item-end="" class="note time">${{request?.ClubgoerRequest.tip_amount}}</ion-note>\n      </ion-item>\n    </ion-list>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voteup/voteup.html"*/,
+        selector: 'page-voteup',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voteup/voteup.html"*/'<!--\n  Generated template for the VoteupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Voteup Request</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content style="background: url(assets/img/loginbg.jpg); background-size:cover;">\n  <div class="voteup">\n    <ion-list no-lines>\n      <ion-item *ngFor="let request of requests; let i = index">\n        <h2>{{request?.ClubgoerRequest.songname}}</h2>\n        <p>{{request?.TipOption.name}}</p>\n        <ion-note item-end="" class="note note-ios"> \n          <button color="light" clear small ion-button icon-left  (click)="likeusrrequest(request?.ClubgoerRequest.id,request?.ClubgoerRequest.like,i)">\n            {{request?.RequestLike.length}}\n            <ion-icon *ngIf="request?.ClubgoerRequest.like>0" color="yellow" style="font-size:13px; padding-left:8px;" name="thumbs-up"></ion-icon>\n            <ion-icon *ngIf="request?.ClubgoerRequest.like==0" color="yellow" style="font-size:13px; padding-left:8px;" name="thumbs-down"></ion-icon>\n          </button> \n        </ion-note>\n        <ion-note item-end="" class="note time">${{request?.ClubgoerRequest.tip_amount}}</ion-note>\n      </ion-item>\n      <div class="unshow" *ngIf="requests?.length == 0">\n          <h3>No request available</h3>\n      </div>\n    </ion-list>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voteup/voteup.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -670,7 +705,7 @@ VoteupPage = __decorate([
 
 /***/ }),
 
-/***/ 133:
+/***/ 135:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -680,7 +715,7 @@ VoteupPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__payinfo_payinfo__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__home_home__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -712,7 +747,8 @@ var ShoutoutPage = (function () {
         this.alertCtrl = alertCtrl;
         this.data = {};
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.djid = navParams.get("djid");
         this.eventid = navParams.get("eventid");
@@ -743,9 +779,10 @@ var ShoutoutPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Shoutout',
                 subTitle: 'Please fill the tip amount',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 3500);
         }
         else if (form.value.tipamt == 0) {
             var serialized = this.serializeObj(postdata);
@@ -755,18 +792,20 @@ var ShoutoutPage = (function () {
                     var alert_2 = _this.alertCtrl.create({
                         title: 'Shoutout',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alert_2.present();
-                    setTimeout(function () { return alert_2.dismiss(); }, 1500);
+                    setTimeout(function () { return alert_2.dismiss(); }, 3500);
                     _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__home_home__["a" /* HomePage */]);
                 }
                 else {
                     var alert_3 = _this.alertCtrl.create({
                         title: 'Shoutout',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alert_3.present();
-                    setTimeout(function () { return alert_3.dismiss(); }, 1500);
+                    setTimeout(function () { return alert_3.dismiss(); }, 3500);
                 }
             });
         }
@@ -774,9 +813,10 @@ var ShoutoutPage = (function () {
             var alert_4 = this.alertCtrl.create({
                 title: 'Shoutout',
                 subTitle: 'Tip amount should be greater than 1',
+                buttons: ['ok']
             });
             alert_4.present();
-            setTimeout(function () { return alert_4.dismiss(); }, 1500);
+            setTimeout(function () { return alert_4.dismiss(); }, 3500);
         }
         else {
             this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__payinfo_payinfo__["a" /* PayinfoPage */], {
@@ -792,9 +832,10 @@ var ShoutoutPage = (function () {
             var alert_5 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_5.present();
-            setTimeout(function () { return alert_5.dismiss(); }, 1500);
+            setTimeout(function () { return alert_5.dismiss(); }, 2500);
         }
     };
     return ShoutoutPage;
@@ -816,7 +857,7 @@ ShoutoutPage = __decorate([
 
 /***/ }),
 
-/***/ 134:
+/***/ 136:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -825,7 +866,7 @@ ShoutoutPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -858,7 +899,8 @@ var DjsdetailsPage = (function () {
         this.alertCtrl = alertCtrl;
         this.sanitizer = sanitizer;
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.djid = navParams.get("djid");
         this.showdjsdetail(this.djid);
@@ -883,11 +925,9 @@ var DjsdetailsPage = (function () {
             _this.Loading.dismiss();
             if (data.isSucess == "true") {
                 _this.djs = data.data;
-                console.log(data);
-                //alert(JSON.stringify(data));
-                console.log("result");
                 console.log(_this.djs);
-                if (data.data.User.audiourl == null || data.data.User.audiourl == undefined) {
+                if (data.data.User.audiourl == null || data.data.User.audiourl == undefined || data.data.User.audiourl == "") {
+                    _this.videoUrl = "";
                 }
                 else {
                     _this.utube = data.data.User.audiourl.replace("watch?v=", "embed/");
@@ -898,9 +938,10 @@ var DjsdetailsPage = (function () {
                 var alert_1 = _this.alertCtrl.create({
                     title: 'Dj Details',
                     subTitle: data.msg,
+                    buttons: ['ok']
                 });
                 alert_1.present();
-                setTimeout(function () { return alert_1.dismiss(); }, 1500);
+                setTimeout(function () { return alert_1.dismiss(); }, 3500);
             }
         });
     };
@@ -912,6 +953,7 @@ var DjsdetailsPage = (function () {
             var alert_2 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_2.present();
             setTimeout(function () { return alert_2.dismiss(); }, 1500);
@@ -922,7 +964,7 @@ var DjsdetailsPage = (function () {
 DjsdetailsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-djsdetails',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/djsdetails/djsdetails.html"*/'<!--\n  Generated template for the DjsdetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="black">\n        <ion-title>Dj\'s Details</ion-title>\n        <ion-buttons end class="rbutton">\n            <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="djs_bg">\n    <div class="djdetails_sec">\n        <div class="full_img">\n            <img [src]="djs?.User.image">\n        </div>\n    </div>\n    <div class="padding titletxt">\n        <p style="font-size: 17px;"><span>Name : </span>{{djs?.User.complete_name}}</p>\n        <p style="font-size: 17px;"><span>E-mail : </span>{{djs?.User.email}}</p>\n        <p style="font-size: 17px;"><span>Dj Code : </span>{{djs?.User.djcode}}</p>\n        <p style="font-size: 17px;" *ngIf="djs?.User.biography"><span>Dj Biography : </span>{{djs?.User.biography}}</p>\n\n        <iframe *ngIf="videoUrl" width="320" height="315" [src]="videoUrl" frameborder="0"></iframe>\n    </div>\n    <h4>Upcoming Events</h4>\n    <div class="productscroll">\n\n        <ion-scroll scrollX="true" *ngIf="djs?.Event">\n            <div class="event_box" *ngIf="djs?.Event?.length == 0">\n                <h3 style="color: #fff;">No events available</h3>\n            </div>\n            <div class="event_box" *ngFor="let dj of djs?.Event">\n                <h5 style="font-size: 17px;">{{dj?.event_name}}</h5>\n                <div class="imageboxed">\n                    <img [src]="dj?.image">\n                </div>\n                <p style="font-size: 17px;">Venue name : {{dj?.venue_name}} <br>\n                    <!-- Event day : Sunday <br> -->\n                    Event time : &nbsp;&nbsp;&nbsp;&nbsp; {{dj?.event_date+" "+dj?.event_time | date:\'MM-dd-yyyy HH:mm a\'}} <br>&nbsp;&nbsp;&nbsp;&nbsp;to <br>{{dj?.start_event+" "+dj?.scheduled_start_time | date:\'MM-dd-yyyy HH:mm a\'}}</p>\n            </div>\n        </ion-scroll>\n\n    </div>\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/djsdetails/djsdetails.html"*/,
+        selector: 'page-djsdetails',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/djsdetails/djsdetails.html"*/'<!--\n  Generated template for the DjsdetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="black">\n        <ion-title>Dj\'s Details</ion-title>\n        <ion-buttons end class="rbutton">\n            <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="djs_bg">\n    <div class="djdetails_sec">\n        <div class="full_img">\n            <img [src]="djs?.User.image">\n        </div>\n    </div>\n    <div class="padding titletxt">\n        <p style="font-size: 17px;"><span>Name : </span>{{djs?.User.complete_name}}</p>\n        <p style="font-size: 17px;"><span>E-mail : </span>{{djs?.User.email}}</p>\n        <p style="font-size: 17px;"><span>Dj Code : </span>{{djs?.User.djcode}}</p>\n        <p style="font-size: 17px;" *ngIf="djs?.User.biography"><span>Dj Biography : </span>{{djs?.User.biography}}</p>\n{{videoUrl}}\n        <iframe *ngIf="videoUrl" width="320" height="315" [src]="videoUrl" frameborder="0"></iframe>\n    </div>\n    <h4>Upcoming Events</h4>\n    <div class="productscroll">\n\n        <ion-scroll scrollX="true" *ngIf="djs?.Event">\n            <div class="event_box" *ngIf="djs?.Event?.length == 0">\n                <h3 style="color: #fff;">No events available</h3>\n            </div>\n            <div class="event_box" *ngFor="let dj of djs?.Event">\n                <h5 style="font-size: 17px;">{{dj?.event_name}}</h5>\n                <div class="imageboxed">\n                    <img [src]="dj?.image">\n                </div>\n                <p style="font-size: 17px;">Venue name : {{dj?.venue_name}} <br>\n                    <!-- Event day : Sunday <br> -->\n                    Event time : &nbsp;&nbsp;&nbsp;&nbsp; {{dj?.event_date+" "+dj?.event_time | date:\'MM-dd-yyyy HH:mm a\'}} <br>&nbsp;&nbsp;&nbsp;&nbsp;to <br>{{dj?.start_event+" "+dj?.scheduled_start_time | date:\'MM-dd-yyyy HH:mm a\'}}</p>\n            </div>\n        </ion-scroll>\n\n    </div>\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/djsdetails/djsdetails.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -937,7 +979,7 @@ DjsdetailsPage = __decorate([
 
 /***/ }),
 
-/***/ 135:
+/***/ 137:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -946,7 +988,7 @@ DjsdetailsPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__djsdetails_djsdetails__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__djsdetails_djsdetails__ = __webpack_require__(136);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -978,7 +1020,8 @@ var DjslistPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.showdjslist();
     }
@@ -1011,9 +1054,10 @@ var DjslistPage = (function () {
                 var alert_1 = _this.alertCtrl.create({
                     title: 'Dj List',
                     subTitle: data.msg,
+                    buttons: ['ok']
                 });
                 alert_1.present();
-                setTimeout(function () { return alert_1.dismiss(); }, 1500);
+                setTimeout(function () { return alert_1.dismiss(); }, 3500);
             }
         });
     };
@@ -1036,9 +1080,10 @@ var DjslistPage = (function () {
             var alert_2 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_2.present();
-            setTimeout(function () { return alert_2.dismiss(); }, 1500);
+            setTimeout(function () { return alert_2.dismiss(); }, 3500);
         }
     };
     return DjslistPage;
@@ -1061,7 +1106,7 @@ DjslistPage = __decorate([
 
 /***/ }),
 
-/***/ 136:
+/***/ 138:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1102,7 +1147,8 @@ var TermsPage = (function () {
         this.toastCtrl = toastCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
     }
     TermsPage.prototype.getterms = function () {
@@ -1139,13 +1185,14 @@ var TermsPage = (function () {
         if (window.navigator.onLine == true) {
         }
         else {
-            this.Loader.dismiss();
+            this.Loader.dismissAll();
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
-                subTitle: 'Something went wrong check your internet connection'
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     return TermsPage;
@@ -1168,7 +1215,7 @@ TermsPage = __decorate([
 
 /***/ }),
 
-/***/ 137:
+/***/ 139:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1211,7 +1258,8 @@ var PrivacyPage = (function () {
         this.toastCtrl = toastCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.getterms();
     }
@@ -1249,13 +1297,14 @@ var PrivacyPage = (function () {
         if (window.navigator.onLine == true) {
         }
         else {
-            this.Loader.dismiss();
+            this.Loader.dismissAll();
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
-                subTitle: 'Something went wrong check your internet connection'
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     return PrivacyPage;
@@ -1279,7 +1328,7 @@ PrivacyPage = __decorate([
 
 /***/ }),
 
-/***/ 138:
+/***/ 140:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1316,7 +1365,8 @@ var VotelikePage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.djid = navParams.get("djid");
         this.eventid = navParams.get("eventid");
@@ -1350,6 +1400,7 @@ var VotelikePage = (function () {
                 var alert_1 = _this.alertCtrl.create({
                     title: 'Dj Details',
                     subTitle: data.msg,
+                    buttons: ['ok']
                 });
                 alert_1.present();
                 setTimeout(function () { return alert_1.dismiss(); }, 1500);
@@ -1386,9 +1437,10 @@ var VotelikePage = (function () {
                 var alert_2 = _this.alertCtrl.create({
                     title: 'Voteup Request',
                     subTitle: data.msg,
+                    buttons: ['ok']
                 });
                 alert_2.present();
-                setTimeout(function () { return alert_2.dismiss(); }, 1500);
+                setTimeout(function () { return alert_2.dismiss(); }, 3500);
             }
             else {
                 var alert_3 = _this.alertCtrl.create({
@@ -1396,7 +1448,7 @@ var VotelikePage = (function () {
                     subTitle: data.msg,
                 });
                 alert_3.present();
-                setTimeout(function () { return alert_3.dismiss(); }, 1500);
+                setTimeout(function () { return alert_3.dismiss(); }, 3500);
             }
         });
     };
@@ -1404,13 +1456,14 @@ var VotelikePage = (function () {
         if (window.navigator.onLine == true) {
         }
         else {
-            this.Loading.dismiss();
+            this.Loading.dismissAll();
             var alert_4 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_4.present();
-            setTimeout(function () { return alert_4.dismiss(); }, 1500);
+            setTimeout(function () { return alert_4.dismiss(); }, 2500);
         }
     };
     return VotelikePage;
@@ -1418,7 +1471,7 @@ var VotelikePage = (function () {
 VotelikePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-votelike',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/votelike/votelike.html"*/'<!--\n  Generated template for the VoteupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Voteup Request</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content style="background: url(assets/img/loginbg.jpg); background-size:cover;">\n  <div class="voteup">\n    <ion-list no-lines>\n      <ion-item *ngFor="let request of requests; let i = index">\n        <h2>{{request?.ClubgoerRequest.songname}}</h2>\n        <p>{{request?.TipOption.name}}</p>\n        <ion-note item-end="" class="note note-ios"> \n          <button color="light" clear small ion-button icon-left>\n            {{request?.RequestLike.length}}\n            <ion-icon *ngIf="request?.ClubgoerRequest.like>0" color="yellow" style="font-size:13px; padding-left:8px;" name="thumbs-up"></ion-icon>\n            <ion-icon *ngIf="request?.ClubgoerRequest.like==0" color="yellow" style="font-size:13px; padding-left:8px;" name="thumbs-down"></ion-icon>\n          </button> \n        </ion-note>\n        <ion-note item-end="" class="note time">${{request?.ClubgoerRequest.tip_amount}}</ion-note>\n      </ion-item>\n    </ion-list>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/votelike/votelike.html"*/,
+        selector: 'page-votelike',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/votelike/votelike.html"*/'<!--\n  Generated template for the VoteupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Voteup Request</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content style="background: url(assets/img/loginbg.jpg); background-size:cover;">\n  <div class="voteup">\n    <ion-list no-lines>\n      <ion-item *ngFor="let request of requests; let i = index">\n        <h2>{{request?.ClubgoerRequest.songname}}</h2>\n        <p>{{request?.TipOption.name}}</p>\n        <ion-note item-end="" class="note note-ios"> \n          <button color="light" clear small ion-button icon-left>\n            {{request?.RequestLike.length}}\n            <ion-icon *ngIf="request?.ClubgoerRequest.like>0" color="yellow" style="font-size:13px; padding-left:8px;" name="thumbs-up"></ion-icon>\n            <ion-icon *ngIf="request?.ClubgoerRequest.like==0" color="yellow" style="font-size:13px; padding-left:8px;" name="thumbs-down"></ion-icon>\n          </button> \n        </ion-note>\n        <ion-note item-end="" class="note time">${{request?.ClubgoerRequest.tip_amount}}</ion-note>\n      </ion-item>\n      <div class="unshow" *ngIf="requests?.length == 0">\n          <h3>No request available</h3>\n      </div>\n    </ion-list>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/votelike/votelike.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -1432,19 +1485,216 @@ VotelikePage = __decorate([
 
 /***/ }),
 
-/***/ 139:
+/***/ 141:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddeventdjPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShoutoutdjPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+//import { EventsdjPage } from '../eventsdj/eventsdj';
+/**
+ * Generated class for the PlaynowlistdjPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var ShoutoutdjPage = (function () {
+    function ShoutoutdjPage(navCtrl, navParams, http, appsetting, loadingCtrl, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.appsetting = appsetting;
+        this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
+        this.Loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+        this.eventid = navParams.get("eventid");
+        this.eventname = navParams.get("eventname");
+        if (this.eventname == undefined) {
+            this.eventname = "Dj Admin Event";
+        }
+        this.shoutoutreq();
+    }
+    ShoutoutdjPage.prototype.shoutoutreq = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
+        var Loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+        Loader.present().then(function () {
+            var data = {
+                djid: Userid,
+                eventid: _this.eventid
+            };
+            var serialized = _this.serializeObj(data);
+            _this.http.post(_this.appsetting.myGlobalVar + 'events/getshoutouts', serialized, options)
+                .map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                Loader.dismiss();
+                if (data.isSucess == "true") {
+                    _this.shoutreq = data.data;
+                }
+                else {
+                    _this.shoutreq = [];
+                }
+            });
+        });
+    };
+    ShoutoutdjPage.prototype.playimg = function (id, idd) {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
+        var Loader = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+        Loader.present().then(function () {
+            var data = {
+                reqid: id,
+                eventid: idd,
+                id: Userid,
+                reqoption: 3
+            };
+            var serialized = _this.serializeObj(data);
+            _this.http.post(_this.appsetting.myGlobalVar + 'events/votetopquereq', serialized, options)
+                .map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                Loader.dismiss();
+                if (data.isSucess == "true") {
+                    var alertr_1 = _this.alertCtrl.create({
+                        title: 'Requests',
+                        subTitle: data.msg,
+                        buttons: ['ok']
+                    });
+                    alertr_1.present();
+                    setTimeout(function () { return alertr_1.dismiss(); }, 3500);
+                    _this.shoutreq = data.data;
+                    //this.navCtrl.push(EventsdjPage);
+                }
+                else {
+                }
+            });
+        });
+    };
+    ShoutoutdjPage.prototype.cross = function (id, idd) {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
+        var Loader = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+        Loader.present().then(function () {
+            var data = {
+                reqid: id,
+                eventid: idd,
+                id: Userid,
+                reqopt: 3
+            };
+            var serialized = _this.serializeObj(data);
+            _this.http.post(_this.appsetting.myGlobalVar + 'events/shoutrequeststatus', serialized, options)
+                .map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                Loader.dismiss();
+                console.log(data);
+                if (data.isSucess == "true") {
+                    var alertr_2 = _this.alertCtrl.create({
+                        title: 'Requests',
+                        subTitle: data.msg,
+                        buttons: ['ok']
+                    });
+                    alertr_2.present();
+                    setTimeout(function () { return alertr_2.dismiss(); }, 3500);
+                    _this.shoutreq = data.data;
+                    //this.navCtrl.push(EventsdjPage);
+                }
+                else {
+                }
+            });
+        });
+    };
+    ShoutoutdjPage.prototype.serializeObj = function (obj) {
+        var result = [];
+        for (var property in obj)
+            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
+        return result.join("&");
+    };
+    ShoutoutdjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loading.dismissAll();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
+        }
+    };
+    ShoutoutdjPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ShoutoutDjPage');
+    };
+    return ShoutoutdjPage;
+}());
+ShoutoutdjPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-shoutoutdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/shoutoutdj/shoutoutdj.html"*/'<!--\n  Generated template for the PlaynowlistdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <ion-title>{{eventname}}</ion-title>\n    <div class="logo">\n    	<img src="assets/img/rlogo.png">\n    </div>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<div class="past">\n	<ion-list>\n      <ion-item *ngFor="let shout of shoutreq; let i = index">\n        	<div class="img-sec">\n        		<img src="assets/img/headphn.png">\n        	</div>\n        	<h3>{{shout?.ClubgoerRequest.shoutout_type}} </h3>\n        	<p>{{shout?.ClubgoerRequest.shoutout_name}}</p>\n        	<div class="img-right">\n        		<div class="imgmain">\n        			<img src="assets/img/playimg.png" *ngIf="shout?.ClubgoerRequest.topque">\n					<img src="assets/img/playnow.png" (click)="playimg(shout?.ClubgoerRequest.id,shout?.Event.id)" *ngIf="!shout?.ClubgoerRequest.topque">\n					<img src="assets/img/cross.png" (click)="cross(shout?.ClubgoerRequest.id,shout?.Event.id)">\n        		</div>\n        	</div>\n	  </ion-item>\n	   <div class="unshow" *ngIf="shoutreq?.length == 0">\n		  <h3> No request available</h3>\n	   </div>\n  </ion-list>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/shoutoutdj/shoutoutdj.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+], ShoutoutdjPage);
+
+//# sourceMappingURL=shoutoutdj.js.map
+
+/***/ }),
+
+/***/ 142:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddeventdjnewPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_transfer__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_file_path__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1463,17 +1713,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the AddeventdjPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var AddeventdjPage = (function () {
-    function AddeventdjPage(navCtrl, navParams, http, camera, actionSheetCtrl, loadingCtrl, toastCtrl, appsetting, alertCtrl) {
+
+
+
+var AddeventdjnewPage = (function () {
+    function AddeventdjnewPage(navCtrl, navParams, platform, http, transfer, file, filePath, camera, actionSheetCtrl, loadingCtrl, toastCtrl, appsetting, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.platform = platform;
         this.http = http;
+        this.transfer = transfer;
+        this.file = file;
+        this.filePath = filePath;
         this.camera = camera;
         this.actionSheetCtrl = actionSheetCtrl;
         this.loadingCtrl = loadingCtrl;
@@ -1483,7 +1734,8 @@ var AddeventdjPage = (function () {
         this.taggel = true;
         this.data = {};
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         var d = new Date();
         var mm = ("0" + (d.getMonth() + 1)).slice(-2);
@@ -1495,9 +1747,9 @@ var AddeventdjPage = (function () {
         //if(this.logo==null){
         this.logo = "assets/img/sbg.png";
         //}
-        // console.log(JSON.parse(localStorage.getItem("USER_DATA")).paypal_email);
+        //  console.log(JSON.parse(localStorage.getItem("USER_DATA")).paypal_email);
     }
-    AddeventdjPage.prototype.toggleDetails = function (taggel) {
+    AddeventdjnewPage.prototype.toggleDetails = function (taggel) {
         if (taggel) {
             this.taggel = false;
         }
@@ -1505,14 +1757,52 @@ var AddeventdjPage = (function () {
             this.taggel = true;
         }
     };
-    AddeventdjPage.prototype.addeventnow = function (addevent) {
+    AddeventdjnewPage.prototype.uploadImage = function (url) {
+        var _this = this;
+        // Destination URL
+        var url = url;
+        // File for Upload  uploadeventimg
+        var targetPath = cordova.file.dataDirectory + this.newFileName;
+        // File name only
+        var filename = this.newFileName;
+        var options = {
+            fileKey: "file",
+            fileName: filename,
+            chunkedMode: false,
+            mimeType: "multipart/form-data",
+            params: { 'fileName': filename }
+        };
+        var fileTransfer = this.transfer.create();
+        this.Loader.present();
+        // Use the FileTransfer to upload the image
+        fileTransfer.upload(targetPath, url, options).then(function (data) {
+            console.log(data);
+            if (url == _this.appsetting.myGlobalVar + 'events/uploadeventimgnow') {
+                //this.Loader.dismissAll();
+                _this.Loader.dismiss();
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                //this.presentToast('Image succesful uploaded.');
+            }
+            else {
+                _this.Loader.dismissAll();
+                _this.Loader.dismiss();
+                _this.srcImage = _this.appsetting.showGlobalurl + _this.newFileName;
+                _this.presentToast('Image succesful uploaded.');
+            }
+        }, function (err) {
+            _this.Loader.dismissAll();
+            _this.presentToast('Error while uploading file.');
+        });
+    };
+    AddeventdjnewPage.prototype.addeventnow = function (addevent) {
         var _this = this;
         var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
         var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
         var user_id = JSON.parse(localStorage.getItem("USER_DATA")).id;
-        var imgsend = this.imgTosend;
-        var dj_code = JSON.parse(localStorage.getItem("USER_DATA")).paypal_email;
+        var imgsend = this.newFileName;
+        var paypl_emil = JSON.parse(localStorage.getItem("USER_DATA")).paypal_email;
+        var dj_code = JSON.parse(localStorage.getItem("USER_DATA")).djcode;
         var subscribedj = JSON.parse(localStorage.getItem("USER_DATA")).subscription_status;
         if (addevent.value.eventstartdt == addevent.value.eventenddt) {
             if (addevent.value.eventsarttm > addevent.value.eventendtm) {
@@ -1530,16 +1820,17 @@ var AddeventdjPage = (function () {
             var alert_2 = this.alertCtrl.create({
                 title: 'Add event',
                 subTitle: 'Please subscribe first',
+                buttons: ['ok']
             });
             alert_2.present();
             setTimeout(function () { return alert_2.dismiss(); }, 3500);
             this.Loader.dismiss();
             this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
         }
-        else if (dj_code == null) {
+        else if (dj_code == null || dj_code == "" || dj_code == undefined) {
             var alert_3 = this.alertCtrl.create({
                 title: 'PayPal Account',
-                subTitle: 'To add an event, please add your PayPal email address first.',
+                subTitle: 'To add an event, please add your Djcode first.',
                 buttons: ['ok']
             });
             alert_3.present();
@@ -1547,22 +1838,35 @@ var AddeventdjPage = (function () {
             this.Loader.dismiss();
             this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__["a" /* EditprofiledjPage */]);
         }
-        else if (imgsend == undefined) {
+        else if (paypl_emil == null || paypl_emil == "" || paypl_emil == undefined) {
             var alert_4 = this.alertCtrl.create({
-                title: 'Add event',
-                subTitle: 'Please select image first',
+                title: 'PayPal Account',
+                subTitle: 'To add an event, please add your PayPal email address first.',
+                buttons: ['ok']
             });
             alert_4.present();
-            setTimeout(function () { return alert_4.dismiss(); }, 3500);
+            //setTimeout(()=>alert.dismiss(),3500);
             this.Loader.dismiss();
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__["a" /* EditprofiledjPage */]);
         }
-        else if (addevent.value.minplay < 2 || addevent.value.mingrnt < 2 || addevent.value.minpossi < 2) {
+        else if (imgsend == undefined) {
             var alert_5 = this.alertCtrl.create({
                 title: 'Add event',
-                subTitle: 'Please enter tip amount greater than 1',
+                subTitle: 'Please select image first',
+                buttons: ['ok']
             });
             alert_5.present();
             setTimeout(function () { return alert_5.dismiss(); }, 3500);
+            this.Loader.dismiss();
+        }
+        else if (addevent.value.minplay < 2 || addevent.value.mingrnt < 2 || addevent.value.minpossi < 2) {
+            var alert_6 = this.alertCtrl.create({
+                title: 'Add event',
+                subTitle: 'Please enter tip amount greater than 1',
+                buttons: ['ok']
+            });
+            alert_6.present();
+            setTimeout(function () { return alert_6.dismiss(); }, 3500);
             this.Loader.dismiss();
         }
         else {
@@ -1584,85 +1888,127 @@ var AddeventdjPage = (function () {
             };
             var Serialized = this.serializeObj(data);
             this.http.post(this.appsetting.myGlobalVar + 'events/addevent', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                _this.Loader.dismiss();
                 if (response.status == 0) {
-                    _this.Loader.dismiss();
-                    var alert_6 = _this.alertCtrl.create({
-                        title: 'Add event',
-                        subTitle: response.msg,
-                    });
-                    alert_6.present();
-                    setTimeout(function () { return alert_6.dismiss(); }, 2500);
-                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__["a" /* EventsdjPage */]);
-                }
-                else {
-                    _this.Loader.dismiss();
                     var alert_7 = _this.alertCtrl.create({
                         title: 'Add event',
                         subTitle: response.msg,
+                        buttons: ['ok']
                     });
                     alert_7.present();
                     setTimeout(function () { return alert_7.dismiss(); }, 2500);
+                    _this.uploadImage(_this.appsetting.myGlobalVar + 'events/uploadeventimgnow');
+                }
+                else {
+                    _this.Loader.dismiss();
+                    var alert_8 = _this.alertCtrl.create({
+                        title: 'Add event',
+                        subTitle: response.msg,
+                        buttons: ['ok']
+                    });
+                    alert_8.present();
+                    setTimeout(function () { return alert_8.dismiss(); }, 2500);
                 }
             });
         }
     };
-    AddeventdjPage.prototype.updateDueDate = function (curdt) {
+    AddeventdjnewPage.prototype.updateDueDate = function (curdt) {
         this.maxyear = curdt;
         this.data['eventenddt'] = curdt;
     };
-    AddeventdjPage.prototype.serializeObj = function (obj) {
+    AddeventdjnewPage.prototype.serializeObj = function (obj) {
         var result = [];
         for (var property in obj)
             result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
         return result.join("&");
     };
-    AddeventdjPage.prototype.CameraAction = function () {
+    AddeventdjnewPage.prototype.takePicture = function (sourceType) {
+        var _this = this;
+        //this.srcImage='';
+        this.imgTosend = '';
+        var options = {
+            quality: 8,
+            sourceType: sourceType,
+            allowEdit: true,
+            targetWidth: 600,
+            targetHeight: 600,
+            correctOrientation: true,
+            destinationType: this.camera.DestinationType.FILE_URI,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE,
+            saveToPhotoAlbum: false
+        };
+        this.camera.getPicture(options).then(function (imageUri) {
+            //this.srcImage = 'data:image/jpeg;base64,' + imageUri;
+            _this.imgTosend = imageUri;
+            if (_this.platform.is('android') && sourceType === _this.camera.PictureSourceType.PHOTOLIBRARY) {
+                _this.filePath.resolveNativePath(imageUri)
+                    .then(function (filePath) {
+                    var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+                    var currentName = imageUri.substring(imageUri.lastIndexOf('/') + 1, imageUri.lastIndexOf('?'));
+                    _this.copyFileToLocalDir(correctPath, currentName, _this.createFileName());
+                });
+            }
+            else {
+                _this.currentName = imageUri.substr(imageUri.lastIndexOf('/') + 1);
+                var correctPath = imageUri.substr(0, imageUri.lastIndexOf('/') + 1);
+                console.log("currentName");
+                console.log(_this.currentName);
+                console.log("correctPath");
+                console.log(correctPath);
+                _this.copyFileToLocalDir(correctPath, _this.currentName, _this.createFileName());
+            }
+        }, function (err) {
+            alert(JSON.stringify(err));
+        });
+    };
+    // Create a new name for the image
+    AddeventdjnewPage.prototype.createFileName = function () {
+        var d = new Date(), n = d.getTime();
+        this.newFileName = n + ".jpg";
+        return this.newFileName;
+    };
+    // Copy the image to a local folder
+    AddeventdjnewPage.prototype.copyFileToLocalDir = function (namePath, currentName, newFileName) {
+        var _this = this;
+        this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(function (success) {
+            //this.srcImage = newFileName;
+            _this.uploadImage(_this.appsetting.myGlobalVar + 'events/uploadeventimg');
+        }, function (error) {
+            _this.presentToast('Error while storing file.');
+        });
+    };
+    AddeventdjnewPage.prototype.presentToast = function (text) {
+        var toast = this.toastCtrl.create({
+            message: text,
+            duration: 3000,
+            position: 'top'
+        });
+        toast.present();
+    };
+    // Always get the accurate path to your apps folder
+    AddeventdjnewPage.prototype.pathForImage = function (img) {
+        if (img === null) {
+            return '';
+        }
+        else {
+            return cordova.file.dataDirectory + img;
+        }
+    };
+    AddeventdjnewPage.prototype.CameraActionadd = function () {
         var _this = this;
         var actionsheet = this.actionSheetCtrl.create({
             title: "Choose Album",
             buttons: [{
                     text: 'Camera',
                     handler: function () {
-                        var options = {
-                            quality: 8,
-                            sourceType: 1,
-                            allowEdit: true,
-                            targetWidth: 600,
-                            targetHeight: 600,
-                            correctOrientation: true,
-                            destinationType: _this.camera.DestinationType.DATA_URL,
-                            encodingType: _this.camera.EncodingType.JPEG,
-                            mediaType: _this.camera.MediaType.PICTURE
-                        };
-                        _this.camera.getPicture(options).then(function (imageUri) {
-                            _this.srcImage = 'data:image/jpeg;base64,' + imageUri;
-                            _this.imgTosend = imageUri;
-                        }, function (err) {
-                            alert(JSON.stringify(err));
-                            console.log(err);
-                        });
+                        _this.takePicture(_this.camera.PictureSourceType.CAMERA);
                     }
                 },
                 {
                     text: 'Gallery',
                     handler: function () {
-                        var options = {
-                            quality: 8,
-                            sourceType: 0,
-                            allowEdit: true,
-                            targetWidth: 600,
-                            targetHeight: 600,
-                            correctOrientation: true,
-                            destinationType: _this.camera.DestinationType.DATA_URL,
-                            encodingType: _this.camera.EncodingType.JPEG,
-                            mediaType: _this.camera.MediaType.PICTURE
-                        };
-                        _this.camera.getPicture(options).then(function (imageData) {
-                            _this.srcImage = 'data:image/jpeg;base64,' + imageData;
-                            _this.imgTosend = imageData;
-                        }, function (err) {
-                            alert(JSON.stringify(err));
-                        });
+                        _this.takePicture(_this.camera.PictureSourceType.PHOTOLIBRARY);
                     }
                 },
                 {
@@ -1675,53 +2021,58 @@ var AddeventdjPage = (function () {
         });
         actionsheet.present();
     };
-    AddeventdjPage.prototype.ionViewDidEnter = function () {
+    AddeventdjnewPage.prototype.ionViewDidEnter = function () {
         if (window.navigator.onLine == true) {
         }
         else {
             this.Loader.dismiss();
-            var alert_8 = this.alertCtrl.create({
+            var alert_9 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
-            alert_8.present();
-            setTimeout(function () { return alert_8.dismiss(); }, 1500);
+            alert_9.present();
+            setTimeout(function () { return alert_9.dismiss(); }, 1500);
         }
     };
-    AddeventdjPage.prototype.ionViewDidLoad = function () {
+    AddeventdjnewPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad AddeventdjPage');
     };
-    return AddeventdjPage;
+    return AddeventdjnewPage;
 }());
-AddeventdjPage = __decorate([
+AddeventdjnewPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-addeventdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/addeventdj/addeventdj.html"*/'<!--\n  Generated template for the AddeventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		<ion-navbar color="black">\n			<ion-title>Add Event</ion-title>\n	    	 <ion-buttons end class="rbutton">\n		        <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n		     </ion-buttons>\n		</ion-navbar>\n	</ion-header>\n	\n	\n	<ion-content>\n		<div class="imgsec">\n			<img [src]="logo">\n		</div>\n		<div class="form-sec">\n			<ion-grid>\n				<ion-row>\n					<ion-col>\n						\n						<form #addeventForm="ngForm" class="event-form">\n							<ion-col col-12>\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="text" placeholder="Venue name" [(ngModel)]="data.venuename" name="venuename" #venuename=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="venuename.errors && (venuename.dirty || venuename.touched)">\n											   <div [hidden]="!venuename.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n							</ion-col>\n								\n								<ion-col col-12>\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="text" placeholder="Venue address" [(ngModel)]="data.venueaddress" name="venueaddress" #venueaddress=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="venueaddress.errors && (venueaddress.dirty || venueaddress.touched)">\n											   <div [hidden]="!venueaddress.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n								<ion-col col-12>\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="text" placeholder="Event name" [(ngModel)]="data.eventname" name="eventname" #eventname=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventname.errors && (eventname.dirty || eventname.touched)">\n											   <div [hidden]="!eventname.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n								 <div class="colm">\n						<ion-col col-12>\n								<ion-row>\n							<ion-col col-6>\n									<ion-list>\n										<ion-item>\n												\n												<ion-datetime min="{{minyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY" [(ngModel)]="data.eventstartdt" (ngModelChange)="updateDueDate($event)" name="eventstartdt" placeholder="Event start date" #eventstartdt=\'ngModel\' required></ion-datetime>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventstartdt.errors && (eventstartdt.dirty || eventstartdt.touched)">\n											   <div [hidden]="!eventstartdt.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									 </ion-list>\n							</ion-col>\n	\n							<ion-col col-6>\n									<ion-list>\n										<ion-item>\n												<ion-datetime min="{{maxyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY"  placeholder="Event end date" [(ngModel)]="data.eventenddt" name="eventenddt" #eventenddt=\'ngModel\' required></ion-datetime>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventenddt.errors && (eventenddt.dirty || eventenddt.touched)">\n											   <div [hidden]="!eventenddt.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									 </ion-list>\n							</ion-col>\n							</ion-row>\n						</ion-col>\n					</div>\n						<div class="colm>">\n						<ion-col col-12>\n							<ion-row>\n							<ion-col col-6 class="padding0lft">\n									<ion-list>\n										<ion-item>\n												<ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event start time" [(ngModel)]="data.eventsarttm" name="eventsarttm" #eventsarttm=\'ngModel\' required></ion-datetime>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventsarttm.errors && (eventsarttm.dirty || eventsarttm.touched)">\n											   <div [hidden]="!eventsarttm.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									 </ion-list>\n							</ion-col>\n							<ion-col col-6 class="padding0rgt">\n									<ion-list>\n										<ion-item>\n												<ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event end time" [(ngModel)]="data.eventendtm" name="eventendtm" #eventendtm=\'ngModel\' required></ion-datetime>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventendtm.errors && (eventendtm.dirty || eventendtm.touched)">\n											   <div [hidden]="!eventendtm.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									 </ion-list>\n							</ion-col>\n						</ion-row>\n						</ion-col>\n					</div>\n					<ion-col col-12>\n						<ion-row>\n							<div class="tip" (click)="toggleDetails(taggel)">\n								<h3>Setup Tip Amounts</h3>\n								<button class="abc" ion-button icon-right>\n									<ion-icon name="arrow-down"></ion-icon>\n								</button>\n							</div>\n						</ion-row>\n					</ion-col>\n					<ion-col col-12 *ngIf="taggel">\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="tel" placeholder="Minimum amount for Play Now" min="2" [(ngModel)]="data.minplay" name="minplay" #minplay=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="minplay.errors && (minplay.dirty || minplay.touched)">\n											   <div [hidden]="!minplay.errors.required" >\n													 Field is required\n											   </div>\n												<div [hidden]="!minplay.errors.min" >\n													Minimum amount should be 2 \n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n							 \n								<ion-col col-12 *ngIf="taggel">\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="tel" placeholder="Minimum amount for Guaranteed Play" min="2" [(ngModel)]="data.mingrnt" name="mingrnt" #mingrnt=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="mingrnt.errors && (mingrnt.dirty || mingrnt.touched)">\n											   <div [hidden]="!mingrnt.errors.required" >\n												 Field is required\n												</div>\n												<div [hidden]="!mingrnt.errors.min" >\n													Minimum amount should be 2 \n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n								<ion-col col-12 *ngIf="taggel">\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="tel" placeholder="Minimum amount for Possibly Play" min="2" [(ngModel)]="data.minpossi" name="minpossi" #minpossi=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="minpossi.errors && (minpossi.dirty || minpossi.touched)">\n											   <div [hidden]="!minpossi.errors.required" >\n													 Field is required\n											   </div>\n											   <div [hidden]="!minpossi.errors.min" >\n													Minimum amount should be 2 \n											   </div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n							\n						<ion-col col-12>\n							<ion-row>\n								<div *ngIf="srcImage" class="upload_imgouter">\n									<img [src]="srcImage" [(ngModel)]="data.img" name="img" #img=\'ngModel\'/>\n								</div>\n								<!-- <ion-label  class="alert alert-danger" color="danger">\n									<div *ngIf="img.errors && (img.dirty || img.touched)">\n										   <div [hidden]="!img.errors.required" >\n											 Field is required\n										</div>\n									</div>\n								</ion-label> -->\n								<div class="file-upload">\n										<!-- <label for="upload" class="file-upload__label">Upload Image <span> <ion-icon name="camera"></ion-icon></span></label> -->\n										<!-- <button class="file-upload__input" ion-button full (click)="CameraAction()" style="background:none;"></button> -->\n										<label for="upload" class="file-upload__label">Upload Image <span> <ion-icon name="camera"></ion-icon></span></label>\n										<input id="upload" class="file-upload__input" (click)="CameraAction()" type="button" name="file-upload">  \n								</div>\n								\n							</ion-row>\n						</ion-col>\n						\n						<ion-col col-12>\n							<ion-row>\n								<div class="bottombtn">\n									<button ion-button type="submit" [disabled]="!addeventForm.form.valid"  (click)="addeventnow(addeventForm)">Save</button>\n								</div>\n							</ion-row>\n						</ion-col>\n					</form>\n					</ion-col>\n				</ion-row>\n			</ion-grid>\n		</div>\n	\n	</ion-content>\n	\n	'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/addeventdj/addeventdj.html"*/,
+        selector: 'page-addeventdjnew',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/addeventdjnew/addeventdjnew.html"*/'<!--\n  Generated template for the AddeventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		<ion-navbar color="black">\n			<ion-title>Add Event</ion-title>\n	    	 <ion-buttons end class="rbutton">\n		        <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n		     </ion-buttons>\n		</ion-navbar>\n	</ion-header>\n	\n	\n	<ion-content>\n		<div class="imgsec">\n			<img [src]="logo">\n		</div>\n		<div class="form-sec">\n			<ion-grid>\n				<ion-row>\n					<ion-col>\n						\n						<form #addeventForm="ngForm" class="event-form">\n							<ion-col col-12>\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="text" placeholder="Venue name" [(ngModel)]="data.venuename" name="venuename" #venuename=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="venuename.errors && (venuename.dirty || venuename.touched)">\n											   <div [hidden]="!venuename.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n							</ion-col>\n								\n								<ion-col col-12>\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="text" placeholder="Venue address" [(ngModel)]="data.venueaddress" name="venueaddress" #venueaddress=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="venueaddress.errors && (venueaddress.dirty || venueaddress.touched)">\n											   <div [hidden]="!venueaddress.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n								<ion-col col-12>\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="text" placeholder="Event name" [(ngModel)]="data.eventname" name="eventname" #eventname=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventname.errors && (eventname.dirty || eventname.touched)">\n											   <div [hidden]="!eventname.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n								 <div class="colm">\n						<ion-col col-12>\n								<ion-row>\n							<ion-col col-6>\n									<ion-list>\n										<ion-item>\n												\n												<ion-datetime min="{{minyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY" [(ngModel)]="data.eventstartdt" (ngModelChange)="updateDueDate($event)" name="eventstartdt" placeholder="Event start date" #eventstartdt=\'ngModel\' required></ion-datetime>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventstartdt.errors && (eventstartdt.dirty || eventstartdt.touched)">\n											   <div [hidden]="!eventstartdt.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									 </ion-list>\n							</ion-col>\n	\n							<ion-col col-6>\n									<ion-list>\n										<ion-item>\n												<ion-datetime min="{{maxyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY"  placeholder="Event end date" [(ngModel)]="data.eventenddt" name="eventenddt" #eventenddt=\'ngModel\' required></ion-datetime>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventenddt.errors && (eventenddt.dirty || eventenddt.touched)">\n											   <div [hidden]="!eventenddt.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									 </ion-list>\n							</ion-col>\n							</ion-row>\n						</ion-col>\n					</div>\n						<div class="colm>">\n						<ion-col col-12>\n							<ion-row>\n							<ion-col col-6 class="padding0lft">\n									<ion-list>\n										<ion-item>\n												<ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event start time" [(ngModel)]="data.eventsarttm" name="eventsarttm" #eventsarttm=\'ngModel\' required></ion-datetime>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventsarttm.errors && (eventsarttm.dirty || eventsarttm.touched)">\n											   <div [hidden]="!eventsarttm.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									 </ion-list>\n							</ion-col>\n							<ion-col col-6 class="padding0rgt">\n									<ion-list>\n										<ion-item>\n												<ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event end time" [(ngModel)]="data.eventendtm" name="eventendtm" #eventendtm=\'ngModel\' required></ion-datetime>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventendtm.errors && (eventendtm.dirty || eventendtm.touched)">\n											   <div [hidden]="!eventendtm.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									 </ion-list>\n							</ion-col>\n						</ion-row>\n						</ion-col>\n					</div>\n					<ion-col col-12>\n						<ion-row>\n							<div class="tip" (click)="toggleDetails(taggel)">\n								<h3>Setup Tip Amounts</h3>\n								<button class="abc" ion-button icon-right>\n									<ion-icon name="arrow-down"></ion-icon>\n								</button>\n							</div>\n						</ion-row>\n					</ion-col>\n					<ion-col col-12 *ngIf="taggel">\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="tel" placeholder="Minimum amount for Play Now" min="2" [(ngModel)]="data.minplay" name="minplay" #minplay=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="minplay.errors && (minplay.dirty || minplay.touched)">\n											   <div [hidden]="!minplay.errors.required" >\n													 Field is required\n											   </div>\n												<div [hidden]="!minplay.errors.min" >\n													Minimum amount should be 2 \n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n							 \n								<ion-col col-12 *ngIf="taggel">\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="tel" placeholder="Minimum amount for Guaranteed Play" min="2" [(ngModel)]="data.mingrnt" name="mingrnt" #mingrnt=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="mingrnt.errors && (mingrnt.dirty || mingrnt.touched)">\n											   <div [hidden]="!mingrnt.errors.required" >\n												 Field is required\n												</div>\n												<div [hidden]="!mingrnt.errors.min" >\n													Minimum amount should be 2 \n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n								<ion-col col-12 *ngIf="taggel">\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="tel" placeholder="Minimum amount for Possibly Play" min="2" [(ngModel)]="data.minpossi" name="minpossi" #minpossi=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="minpossi.errors && (minpossi.dirty || minpossi.touched)">\n											   <div [hidden]="!minpossi.errors.required" >\n													 Field is required\n											   </div>\n											   <div [hidden]="!minpossi.errors.min" >\n													Minimum amount should be 2 \n											   </div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n							\n						<ion-col col-12>\n							<ion-row>\n								<div *ngIf="srcImage" class="upload_imgouter">\n									<img [src]="srcImage"/>\n								</div>  \n								<!-- <ion-label  class="alert alert-danger" color="danger">\n									<div *ngIf="img.errors && (img.dirty || img.touched)">\n										   <div [hidden]="!img.errors.required" >\n											 Field is required\n										</div>\n									</div>\n								</ion-label> -->\n								\n										<input (click)="CameraActionadd()" type="button">  \n							\n								\n							</ion-row>\n						</ion-col>\n						\n						<ion-col col-12>\n							<ion-row>\n								<div class="bottombtn">\n									<button ion-button type="submit" [disabled]="!addeventForm.form.valid"  (click)="addeventnow(addeventForm)">Save</button>\n								</div>\n							</ion-row>\n						</ion-col>\n					</form>\n					</ion-col>\n				</ion-row>\n			</ion-grid>\n		</div>\n	\n	</ion-content>\n	\n	'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/addeventdjnew/addeventdjnew.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Platform */],
         __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_9__ionic_native_transfer__["a" /* Transfer */],
+        __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__["a" /* File */],
+        __WEBPACK_IMPORTED_MODULE_10__ionic_native_file_path__["a" /* FilePath */],
         __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
         __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__["a" /* Appsetting */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
-], AddeventdjPage);
+], AddeventdjnewPage);
 
-//# sourceMappingURL=addeventdj.js.map
+//# sourceMappingURL=addeventdjnew.js.map
 
 /***/ }),
 
-/***/ 140:
+/***/ 143:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PasteventdjPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__paymenthistorydj_paymenthistorydj__ = __webpack_require__(141);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__requesthistorydj_requesthistorydj__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__paymenthistorydj_paymenthistorydj__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__requesthistorydj_requesthistorydj__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_appsetting__ = __webpack_require__(6);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1754,7 +2105,8 @@ var PasteventdjPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.pastevntid = navParams.get("eventid");
         this.pastevent(this.pastevntid);
@@ -1806,9 +2158,10 @@ var PasteventdjPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     PasteventdjPage.prototype.payhs = function (eventid) {
@@ -1835,7 +2188,7 @@ PasteventdjPage = __decorate([
 
 /***/ }),
 
-/***/ 141:
+/***/ 144:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1844,8 +2197,8 @@ PasteventdjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1876,6 +2229,10 @@ var PaymenthistorydjPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.payPal = payPal;
         this.alertCtrl = alertCtrl;
+        this.Loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
         this.pastevntid = navParams.get("eventid");
         this.getpayhistory(this.pastevntid);
     }
@@ -1886,7 +2243,8 @@ var PaymenthistorydjPage = (function () {
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
         var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
         var Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         Loader.present().then(function () {
             var data = {
@@ -1914,6 +2272,20 @@ var PaymenthistorydjPage = (function () {
             });
         });
     };
+    PaymenthistorydjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loader.dismissAll();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 3500);
+        }
+    };
     PaymenthistorydjPage.prototype.refundnow = function (clubgoerqstid, money, song, artist, adminemail) {
         var _this = this;
         //alert(clubgoerqstid+" "+money+" "+song+" "+artist+" "+adminemail);
@@ -1940,17 +2312,19 @@ var PaymenthistorydjPage = (function () {
                             var alertr_1 = _this.alertCtrl.create({
                                 title: 'Subscribed',
                                 subTitle: response.msg,
+                                buttons: ['ok']
                             });
                             alertr_1.present();
-                            setTimeout(function () { return alertr_1.dismiss(); }, 1500);
+                            setTimeout(function () { return alertr_1.dismiss(); }, 3500);
                         }
                         else {
-                            var alert_1 = _this.alertCtrl.create({
+                            var alert_2 = _this.alertCtrl.create({
                                 title: 'Subscribed',
                                 subTitle: response.msg,
+                                buttons: ['ok']
                             });
-                            alert_1.present();
-                            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+                            alert_2.present();
+                            setTimeout(function () { return alert_2.dismiss(); }, 3500);
                         }
                     });
                 }, function () {
@@ -1992,7 +2366,7 @@ PaymenthistorydjPage = __decorate([
 
 /***/ }),
 
-/***/ 142:
+/***/ 145:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2021,12 +2395,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var RequesthistorydjPage = (function () {
-    function RequesthistorydjPage(navCtrl, navParams, http, appsetting, loadingCtrl) {
+    function RequesthistorydjPage(navCtrl, navParams, http, appsetting, alertCtrl, loadingCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.http = http;
         this.appsetting = appsetting;
+        this.alertCtrl = alertCtrl;
         this.loadingCtrl = loadingCtrl;
+        this.Loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
         this.pastevntid = navParams.get("eventid");
         this.getreqhistory(this.pastevntid);
     }
@@ -2037,7 +2416,8 @@ var RequesthistorydjPage = (function () {
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
         var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
         var Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         Loader.present().then(function () {
             var data = {
@@ -2066,6 +2446,20 @@ var RequesthistorydjPage = (function () {
             result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
         return result.join("&");
     };
+    RequesthistorydjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loader.dismiss();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 3500);
+        }
+    };
     RequesthistorydjPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad RequesthistorydjPage');
     };
@@ -2080,6 +2474,7 @@ RequesthistorydjPage = __decorate([
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
         __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]])
 ], RequesthistorydjPage);
 
@@ -2087,7 +2482,7 @@ RequesthistorydjPage = __decorate([
 
 /***/ }),
 
-/***/ 143:
+/***/ 146:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2096,8 +2491,8 @@ RequesthistorydjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__manageeventsdj_manageeventsdj__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__nameofeventsdj_nameofeventsdj__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__manageeventsdj_manageeventsdj__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__nameofeventsdj_nameofeventsdj__ = __webpack_require__(74);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2128,7 +2523,8 @@ var OmniaclubeventdjPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.buttonColor = '#b00101';
         this.upevntid = navParams.get("evntid");
@@ -2179,6 +2575,7 @@ var OmniaclubeventdjPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
             setTimeout(function () { return alert_1.dismiss(); }, 1500);
@@ -2242,7 +2639,8 @@ var OmniaclubeventdjPage = (function () {
                     _this.buttonColor = "#328000";
                     var alert_4 = _this.alertCtrl.create({
                         title: 'Manage event',
-                        subTitle: data.msg
+                        subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alert_4.present();
                     setTimeout(function () { return alert_4.dismiss(); }, 2500);
@@ -2253,7 +2651,8 @@ var OmniaclubeventdjPage = (function () {
                 else {
                     var alert_5 = _this.alertCtrl.create({
                         title: 'Manage event',
-                        subTitle: data.msg
+                        subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alert_5.present();
                     setTimeout(function () { return alert_5.dismiss(); }, 2500);
@@ -2283,7 +2682,7 @@ OmniaclubeventdjPage = __decorate([
 
 /***/ }),
 
-/***/ 144:
+/***/ 147:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2321,7 +2720,8 @@ var PlaynowlistdjPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.eventid = navParams.get("eventid");
         this.eventname = navParams.get("eventname");
@@ -2386,9 +2786,10 @@ var PlaynowlistdjPage = (function () {
                     var alertr_1 = _this.alertCtrl.create({
                         title: 'Requests',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alertr_1.present();
-                    setTimeout(function () { return alertr_1.dismiss(); }, 1500);
+                    setTimeout(function () { return alertr_1.dismiss(); }, 3500);
                     _this.playnowreq = data.data;
                     //this.navCtrl.push(EventsdjPage);
                 }
@@ -2423,9 +2824,10 @@ var PlaynowlistdjPage = (function () {
                     var alertr_2 = _this.alertCtrl.create({
                         title: 'Requests',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alertr_2.present();
-                    setTimeout(function () { return alertr_2.dismiss(); }, 1500);
+                    setTimeout(function () { return alertr_2.dismiss(); }, 3500);
                     _this.playnowreq = data.data;
                     //this.navCtrl.push(EventsdjPage);
                 }
@@ -2438,13 +2840,14 @@ var PlaynowlistdjPage = (function () {
         if (window.navigator.onLine == true) {
         }
         else {
-            this.Loader.dismiss();
+            this.Loader.dismissAll();
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     PlaynowlistdjPage.prototype.serializeObj = function (obj) {
@@ -2475,7 +2878,7 @@ PlaynowlistdjPage = __decorate([
 
 /***/ }),
 
-/***/ 145:
+/***/ 148:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2511,6 +2914,10 @@ var TopqueuedjPage = (function () {
         this.appsetting = appsetting;
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
+        this.Loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
         this.eventid = navParams.get("eventid");
         this.eventname = navParams.get("eventname");
         if (this.eventname == undefined) {
@@ -2525,7 +2932,8 @@ var TopqueuedjPage = (function () {
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
         var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
         var Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         Loader.present().then(function () {
             var data = {
@@ -2548,7 +2956,6 @@ var TopqueuedjPage = (function () {
     };
     TopqueuedjPage.prototype.playimg = function (id, idd) {
         var _this = this;
-        alert(id + " " + idd);
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
@@ -2563,7 +2970,7 @@ var TopqueuedjPage = (function () {
                 id: Userid
             };
             var serialized = _this.serializeObj(data);
-            _this.http.post(_this.appsetting.myGlobalVar + 'events/topquereq', serialized, options)
+            _this.http.post(_this.appsetting.myGlobalVar + 'events/topquereqdj', serialized, options)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 Loader.dismiss();
@@ -2572,9 +2979,10 @@ var TopqueuedjPage = (function () {
                     var alertr_1 = _this.alertCtrl.create({
                         title: 'Requests',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alertr_1.present();
-                    setTimeout(function () { return alertr_1.dismiss(); }, 1500);
+                    setTimeout(function () { return alertr_1.dismiss(); }, 3500);
                     _this.playtopreq = data.data;
                     //this.navCtrl.push(EventsdjPage);
                 }
@@ -2599,7 +3007,7 @@ var TopqueuedjPage = (function () {
                 id: Userid
             };
             var serialized = _this.serializeObj(data);
-            _this.http.post(_this.appsetting.myGlobalVar + 'events/requesttopstatus', serialized, options)
+            _this.http.post(_this.appsetting.myGlobalVar + 'events/toprequeststatus', serialized, options)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 Loader.dismiss();
@@ -2608,9 +3016,10 @@ var TopqueuedjPage = (function () {
                     var alertr_2 = _this.alertCtrl.create({
                         title: 'Requests',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alertr_2.present();
-                    setTimeout(function () { return alertr_2.dismiss(); }, 1500);
+                    setTimeout(function () { return alertr_2.dismiss(); }, 3500);
                     _this.playtopreq = data.data;
                     //this.navCtrl.push(EventsdjPage);
                 }
@@ -2625,6 +3034,20 @@ var TopqueuedjPage = (function () {
             result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
         return result.join("&");
     };
+    TopqueuedjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loader.dismissAll();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
+        }
+    };
     TopqueuedjPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad PlaynowlistdjPage');
     };
@@ -2633,7 +3056,7 @@ var TopqueuedjPage = (function () {
 TopqueuedjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-topqueuedj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/topqueuedj/topqueuedj.html"*/'<!--\n  Generated template for the PlaynowlistdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <ion-title>{{eventname}}</ion-title>\n    <div class="logo">\n    	<img src="assets/img/rlogo.png">\n    </div>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n	<div class="past">\n	<ion-list>\n      <ion-item *ngFor="let play of playtopreq; let i = index">\n        	<div class="img-sec">\n        		<img src="assets/img/headphn.png">\n        	</div>\n        	<h3>{{play?.ClubgoerRequest.songname}} </h3>\n        	<p>{{play?.ClubgoerRequest.artist_name}}</p>\n        	<div class="img-right">\n        		<div class="imgmain">\n        			<img src="assets/img/playnow.png" *ngIf="play?.ClubgoerRequest.topque">\n					 <img src="assets/img/playnow.png" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque"> -->\n					 <img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)">\n        		</div>\n        	</div>\n	  </ion-item> \n	   <div class="unshow" *ngIf="playtopreq?.length == 0">\n		<h3>No request available</h3>\n		</div>\n   	  \n      <!-- <ion-item>\n        	<div class="img-sec">\n        		<img src="assets/img/headphn.png">\n        	</div>\n        	<h3> Kanzee Ft Emzzy E </h3>\n        	<p>artist name</p>\n        	<div class="img-right">\n        		<div class="imgmain">\n        		<img src="assets/img/playimg.png">\n        		<img src="assets/img/cross.png">\n        	</div>\n        	</div>\n			</ion-item>\n			<ion-item>\n				<div class="img-sec">\n					<img src="assets/img/headphn.png">\n				</div>\n				<h3> Kanzee Ft Emzzy E </h3>\n				<p>artist name</p>\n				<div class="img-right">\n					<div class="imgmain">\n					<img src="assets/img/playimg.png">\n					<img src="assets/img/cross.png">\n				</div>\n				</div>\n		</ion-item>\n		<ion-item>\n			<div class="img-sec">\n				<img src="assets/img/headphn.png">\n			</div>\n			<h3> Kanzee Ft Emzzy E </h3>\n			<p>artist name</p>\n			<div class="img-right">\n				<div class="imgmain">\n				<img src="assets/img/playimg.png">\n				<img src="assets/img/cross.png">\n			</div>\n			</div>\n	</ion-item>\n	<ion-item>\n		<div class="img-sec">\n			<img src="assets/img/headphn.png">\n		</div>\n		<h3> Kanzee Ft Emzzy E </h3>\n		<p>artist name</p>\n		<div class="img-right">\n			<div class="imgmain">\n			<img src="assets/img/playimg.png">\n			<img src="assets/img/cross.png">\n		</div>\n		</div>\n</ion-item>\n<ion-item>\n	<div class="img-sec">\n		<img src="assets/img/headphn.png">\n	</div>\n	<h3> Kanzee Ft Emzzy E </h3>\n	<p>artist name</p>\n	<div class="img-right">\n		<div class="imgmain">\n		<img src="assets/img/playimg.png">\n		<img src="assets/img/cross.png">\n	</div>\n	</div>\n</ion-item> -->\n  </ion-list>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/topqueuedj/topqueuedj.html"*/,
+        selector: 'page-topqueuedj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/topqueuedj/topqueuedj.html"*/'<!--\n  Generated template for the PlaynowlistdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <ion-title>{{eventname}}</ion-title>\n    <div class="logo">\n    	<img src="assets/img/rlogo.png">\n    </div>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n	<div class="past">\n	<ion-list>\n      <ion-item *ngFor="let play of playtopreq; let i = index">\n        	<div class="img-sec">\n        		<img src="assets/img/headphn.png">\n        	</div>\n        	<h3>{{play?.ClubgoerRequest.songname}} </h3>\n        	<p>{{play?.ClubgoerRequest.artist_name}}</p>\n        	<div class="img-right">\n        		<div class="imgmain">\n        			<img src="assets/img/playnow.png" *ngIf="play?.ClubgoerRequest.topque">\n					 <img src="assets/img/playnow.png" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque">\n					 <img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)">\n        		</div>\n        	</div>\n	  </ion-item> \n	   <div class="unshow" *ngIf="playtopreq?.length == 0">\n		<h3>No request available</h3>\n		</div>\n   	  \n      <!-- <ion-item>\n        	<div class="img-sec">\n        		<img src="assets/img/headphn.png">\n        	</div>\n        	<h3> Kanzee Ft Emzzy E </h3>\n        	<p>artist name</p>\n        	<div class="img-right">\n        		<div class="imgmain">\n        		<img src="assets/img/playimg.png">\n        		<img src="assets/img/cross.png">\n        	</div>\n        	</div>\n			</ion-item>\n			<ion-item>\n				<div class="img-sec">\n					<img src="assets/img/headphn.png">\n				</div>\n				<h3> Kanzee Ft Emzzy E </h3>\n				<p>artist name</p>\n				<div class="img-right">\n					<div class="imgmain">\n					<img src="assets/img/playimg.png">\n					<img src="assets/img/cross.png">\n				</div>\n				</div>\n		</ion-item>\n		<ion-item>\n			<div class="img-sec">\n				<img src="assets/img/headphn.png">\n			</div>\n			<h3> Kanzee Ft Emzzy E </h3>\n			<p>artist name</p>\n			<div class="img-right">\n				<div class="imgmain">\n				<img src="assets/img/playimg.png">\n				<img src="assets/img/cross.png">\n			</div>\n			</div>\n	</ion-item>\n	<ion-item>\n		<div class="img-sec">\n			<img src="assets/img/headphn.png">\n		</div>\n		<h3> Kanzee Ft Emzzy E </h3>\n		<p>artist name</p>\n		<div class="img-right">\n			<div class="imgmain">\n			<img src="assets/img/playimg.png">\n			<img src="assets/img/cross.png">\n		</div>\n		</div>\n</ion-item>\n<ion-item>\n	<div class="img-sec">\n		<img src="assets/img/headphn.png">\n	</div>\n	<h3> Kanzee Ft Emzzy E </h3>\n	<p>artist name</p>\n	<div class="img-right">\n		<div class="imgmain">\n		<img src="assets/img/playimg.png">\n		<img src="assets/img/cross.png">\n	</div>\n	</div>\n</ion-item> -->\n  </ion-list>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/topqueuedj/topqueuedj.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -2647,7 +3070,7 @@ TopqueuedjPage = __decorate([
 
 /***/ }),
 
-/***/ 146:
+/***/ 149:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2684,7 +3107,8 @@ var GauranteedjPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.eventid = navParams.get("eventid");
         this.eventname = navParams.get("eventname");
@@ -2751,6 +3175,7 @@ var GauranteedjPage = (function () {
                     var alertr_1 = _this.alertCtrl.create({
                         title: 'Requests',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alertr_1.present();
                     setTimeout(function () { return alertr_1.dismiss(); }, 1500);
@@ -2770,6 +3195,7 @@ var GauranteedjPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
             setTimeout(function () { return alert_1.dismiss(); }, 1500);
@@ -2801,6 +3227,7 @@ var GauranteedjPage = (function () {
                     var alertr_2 = _this.alertCtrl.create({
                         title: 'Requests',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alertr_2.present();
                     setTimeout(function () { return alertr_2.dismiss(); }, 1500);
@@ -2840,7 +3267,7 @@ GauranteedjPage = __decorate([
 
 /***/ }),
 
-/***/ 147:
+/***/ 150:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2877,7 +3304,8 @@ var PossiblydjPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.eventid = navParams.get("eventid");
         this.eventname = navParams.get("eventname");
@@ -2943,9 +3371,10 @@ var PossiblydjPage = (function () {
                     var alertr_1 = _this.alertCtrl.create({
                         title: 'Requests',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alertr_1.present();
-                    setTimeout(function () { return alertr_1.dismiss(); }, 1500);
+                    setTimeout(function () { return alertr_1.dismiss(); }, 3500);
                     _this.playtopreq = data.data;
                     //this.navCtrl.push(EventsdjPage);
                 }
@@ -2980,9 +3409,10 @@ var PossiblydjPage = (function () {
                     var alertr_2 = _this.alertCtrl.create({
                         title: 'Requests',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alertr_2.present();
-                    setTimeout(function () { return alertr_2.dismiss(); }, 1500);
+                    setTimeout(function () { return alertr_2.dismiss(); }, 3500);
                     _this.playtopreq = data.data;
                     //this.navCtrl.push(EventsdjPage);
                 }
@@ -3005,9 +3435,10 @@ var PossiblydjPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     PossiblydjPage.prototype.ionViewDidLoad = function () {
@@ -3032,7 +3463,7 @@ PossiblydjPage = __decorate([
 
 /***/ }),
 
-/***/ 148:
+/***/ 151:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3041,8 +3472,8 @@ PossiblydjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventsdj_eventsdj__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__voteupdj_voteupdj__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventsdj_eventsdj__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__voteupdj_voteupdj__ = __webpack_require__(152);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3078,7 +3509,8 @@ var VotingPage = (function () {
         this.songs = [];
         this.songname = [];
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.eventid = navParams.get("eventid");
         this.eventname = navParams.get("eventname");
@@ -3131,6 +3563,7 @@ var VotingPage = (function () {
             var alertr_1 = this.alertCtrl.create({
                 title: 'Voteup request',
                 subTitle: 'There is no current event to add voteup request',
+                buttons: ['ok']
             });
             alertr_1.present();
             setTimeout(function () { return alertr_1.dismiss(); }, 3500);
@@ -3148,21 +3581,37 @@ var VotingPage = (function () {
                     var alertr_2 = _this.alertCtrl.create({
                         title: 'Voteup request',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alertr_2.present();
-                    setTimeout(function () { return alertr_2.dismiss(); }, 1500);
+                    setTimeout(function () { return alertr_2.dismiss(); }, 3500);
                     _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__eventsdj_eventsdj__["a" /* EventsdjPage */]);
                 }
                 else {
                     var alertr_3 = _this.alertCtrl.create({
                         title: 'Voteup request',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alertr_3.present();
-                    setTimeout(function () { return alertr_3.dismiss(); }, 1500);
+                    setTimeout(function () { return alertr_3.dismiss(); }, 3500);
                     _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__eventsdj_eventsdj__["a" /* EventsdjPage */]);
                 }
             });
+        }
+    };
+    VotingPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loader.dismissAll();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     VotingPage.prototype.ionViewDidLoad = function () {
@@ -3187,7 +3636,7 @@ VotingPage = __decorate([
 
 /***/ }),
 
-/***/ 149:
+/***/ 152:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3225,7 +3674,8 @@ var VoteupdjPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.eventid = navParams.get("eventrid");
         this.getvoteuprequest(this.eventid);
@@ -3252,9 +3702,10 @@ var VoteupdjPage = (function () {
                 var alertr_1 = _this.alertCtrl.create({
                     title: 'Voteup requests',
                     subTitle: data.msg,
+                    buttons: ['ok']
                 });
                 alertr_1.present();
-                setTimeout(function () { return alertr_1.dismiss(); }, 1500);
+                setTimeout(function () { return alertr_1.dismiss(); }, 3500);
             }
         });
     };
@@ -3289,9 +3740,10 @@ var VoteupdjPage = (function () {
                     var alertr_2 = _this.alertCtrl.create({
                         title: 'Requests',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alertr_2.present();
-                    setTimeout(function () { return alertr_2.dismiss(); }, 1500);
+                    setTimeout(function () { return alertr_2.dismiss(); }, 3500);
                     _this.playnowreq = data.data;
                     //this.navCtrl.push(EventsdjPage);
                 }
@@ -3325,9 +3777,10 @@ var VoteupdjPage = (function () {
                     var alertr_3 = _this.alertCtrl.create({
                         title: 'Requests',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alertr_3.present();
-                    setTimeout(function () { return alertr_3.dismiss(); }, 1500);
+                    setTimeout(function () { return alertr_3.dismiss(); }, 3500);
                     _this.playnowreq = data.data;
                     //this.navCtrl.push(EventsdjPage);
                 }
@@ -3342,6 +3795,20 @@ var VoteupdjPage = (function () {
             result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
         return result.join("&");
     };
+    VoteupdjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loader.dismissAll();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
+        }
+    };
     VoteupdjPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad PlaynowlistdjPage');
     };
@@ -3350,7 +3817,7 @@ var VoteupdjPage = (function () {
 VoteupdjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-voteupdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voteupdj/voteupdj.html"*/'<!--\n  Generated template for the PlaynowlistdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n	\n	  <ion-navbar color="black">\n		<ion-title>{{eventname}}</ion-title>\n		<div class="logo">\n			<img src="assets/img/rlogo.png">\n		</div>\n	  </ion-navbar>\n	\n	</ion-header>\n	\n	\n	<ion-content padding>\n		<div class="past">\n		<ion-list>\n		  <ion-item *ngFor="let play of playnowreq; let i = index">\n				<div class="img-sec">\n					<img src="assets/img/headphn.png">\n				</div>\n				<h3>Song name : {{play?.ClubgoerRequest.songname}} </h3>\n				<p>Artist name : {{play?.ClubgoerRequest.artist_name}}</p>\n				<div class="img-right">\n					<div class="imgmain">\n						<!-- <img src="assets/img/playimg.png" *ngIf="play?.ClubgoerRequest.topque">\n						<img src="assets/img/playnow.png" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque">\n						<img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)"> -->\n					</div>\n				</div>\n		  </ion-item>\n		   <div class="unshow" *ngIf="playnowreq?.length == 0">\n			  <h3> No request available</h3>\n		   </div>\n	  </ion-list>\n	</div>\n	</ion-content>\n	'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voteupdj/voteupdj.html"*/,
+        selector: 'page-voteupdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voteupdj/voteupdj.html"*/'<!--\n  Generated template for the PlaynowlistdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n	\n	  <ion-navbar color="black">\n		<ion-title>{{eventname}}</ion-title>\n		<div class="logo">\n			<img src="assets/img/rlogo.png">\n		</div>\n	  </ion-navbar>\n	\n	</ion-header>\n	\n	\n	<ion-content padding>\n		<div class="past">\n		<ion-list>\n		  <ion-item *ngFor="let play of playnowreq; let i = index">\n				<div class="img-sec">\n					<img src="assets/img/headphn.png">\n				</div>\n				<h3>Song name : {{play?.ClubgoerRequest.songname}} </h3>\n				<p>Artist name : {{play?.ClubgoerRequest.artist_name}}</p>\n				<p>Likes : {{play?.ClubgoerRequest.likes}}</p>\n				<div class="img-right">\n					<div class="imgmain">\n						<!-- <img src="assets/img/playimg.png" *ngIf="play?.ClubgoerRequest.topque">\n						<img src="assets/img/playnow.png" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque">\n						<img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)"> -->\n					</div>\n				</div>\n		  </ion-item>\n		   <div class="unshow" *ngIf="playnowreq?.length == 0">\n			  <h3> No request available</h3>\n		   </div>\n	  </ion-list>\n	</div>\n	</ion-content>\n	'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/voteupdj/voteupdj.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -3364,19 +3831,19 @@ VoteupdjPage = __decorate([
 
 /***/ }),
 
-/***/ 150:
+/***/ 153:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditeventPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3402,10 +3869,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var EditeventPage = (function () {
-    function EditeventPage(navCtrl, navParams, http, camera, actionSheetCtrl, loadingCtrl, toastCtrl, appsetting, alertCtrl) {
+    function EditeventPage(navCtrl, navParams, http, platform, camera, actionSheetCtrl, loadingCtrl, toastCtrl, appsetting, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.http = http;
+        this.platform = platform;
         this.camera = camera;
         this.actionSheetCtrl = actionSheetCtrl;
         this.loadingCtrl = loadingCtrl;
@@ -3415,7 +3883,8 @@ var EditeventPage = (function () {
         this.taggel = true;
         this.data = {};
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.editevnt = navParams.get("evntiid");
         this.getevent(this.editevnt);
@@ -3529,6 +3998,7 @@ var EditeventPage = (function () {
             this.Loader.present();
             // this.Loader.present();
             var data = {
+                userid: user_id,
                 event_id: this.editevnt,
                 venue_name: editeven.value.venuename,
                 venue_addr: editeven.value.venueaddress,
@@ -3543,10 +4013,8 @@ var EditeventPage = (function () {
                 image: imgsend,
                 role: 'dj'
             };
-            console.log(data);
             var Serialized = this.serializeObj(data);
             this.http.post(this.appsetting.myGlobalVar + 'events/editevent', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                console.log(response);
                 _this.Loader.dismiss();
                 if (response.status == 0) {
                     _this.Loader.dismiss();
@@ -3580,6 +4048,49 @@ var EditeventPage = (function () {
             result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
         return result.join("&");
     };
+    EditeventPage.prototype.takePicture = function (sourceType) {
+        //this.srcImage='';
+        var _this = this;
+        this.imgTosend = '';
+        var options = {
+            quality: 8,
+            sourceType: sourceType,
+            allowEdit: true,
+            targetWidth: 600,
+            targetHeight: 600,
+            correctOrientation: true,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE,
+            saveToPhotoAlbum: false
+        };
+        this.camera.getPicture(options).then(function (imageUri) {
+            //this.srcImage = 'data:image/jpeg;base64,' + imageUri;
+            _this.srcImage = '';
+            _this.imgTosend = imageUri;
+            var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
+            headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+            var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
+            var data = {
+                event_id: _this.editevnt,
+                img: imageUri
+            };
+            var Serialized = _this.serializeObj(data);
+            var Loading = _this.loadingCtrl.create({
+                content: 'Please wait...',
+            });
+            Loading.present().then(function () {
+                _this.http.post(_this.appsetting.myGlobalVar + 'events/saveimage', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                    Loading.dismiss();
+                    if (response.status == "true") {
+                        _this.srcImage = _this.appsetting.editGlobalevntimg + response.data;
+                    }
+                });
+            });
+        }, function (err) {
+            //alert(JSON.stringify(err));
+        });
+    };
     EditeventPage.prototype.CameraAction = function () {
         var _this = this;
         var actionsheet = this.actionSheetCtrl.create({
@@ -3587,46 +4098,13 @@ var EditeventPage = (function () {
             buttons: [{
                     text: 'Camera',
                     handler: function () {
-                        var options = {
-                            quality: 8,
-                            sourceType: 1,
-                            allowEdit: true,
-                            targetWidth: 600,
-                            targetHeight: 600,
-                            correctOrientation: true,
-                            destinationType: _this.camera.DestinationType.DATA_URL,
-                            encodingType: _this.camera.EncodingType.JPEG,
-                            mediaType: _this.camera.MediaType.PICTURE
-                        };
-                        _this.camera.getPicture(options).then(function (imageUri) {
-                            _this.srcImage = 'data:image/jpeg;base64,' + imageUri;
-                            _this.imgTosend = imageUri;
-                        }, function (err) {
-                            alert(JSON.stringify(err));
-                            console.log(err);
-                        });
+                        _this.takePicture(_this.camera.PictureSourceType.CAMERA);
                     }
                 },
                 {
                     text: 'Gallery',
                     handler: function () {
-                        var options = {
-                            quality: 8,
-                            sourceType: 0,
-                            allowEdit: true,
-                            targetWidth: 600,
-                            targetHeight: 600,
-                            correctOrientation: true,
-                            destinationType: _this.camera.DestinationType.DATA_URL,
-                            encodingType: _this.camera.EncodingType.JPEG,
-                            mediaType: _this.camera.MediaType.PICTURE
-                        };
-                        _this.camera.getPicture(options).then(function (imageData) {
-                            _this.srcImage = 'data:image/jpeg;base64,' + imageData;
-                            _this.imgTosend = imageData;
-                        }, function (err) {
-                            alert(JSON.stringify(err));
-                        });
+                        _this.takePicture(_this.camera.PictureSourceType.PHOTOLIBRARY);
                     }
                 },
                 {
@@ -3647,9 +4125,10 @@ var EditeventPage = (function () {
             var alert_7 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_7.present();
-            setTimeout(function () { return alert_7.dismiss(); }, 1500);
+            setTimeout(function () { return alert_7.dismiss(); }, 3500);
         }
     };
     EditeventPage.prototype.ionViewDidLoad = function () {
@@ -3660,11 +4139,12 @@ var EditeventPage = (function () {
 EditeventPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-editevent',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editevent/editevent.html"*/'<!--\n  Generated template for the EditeventPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="black">\n        <ion-title>Edit Event</ion-title>\n        <div class="logo">\n            <img src="assets/img/rlogo.png">\n        </div>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n    <div class="imgsec">\n        <img [src]="logo">\n    </div>\n    <div class="form-sec">\n        <ion-grid>\n            <ion-row>\n                <ion-col>\n                    <form #editeventForm="ngForm" class="event-form">\n                        <ion-col col-12>\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="text" placeholder="Venue name" [(ngModel)]="data.venuename" name="venuename" #venuename=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="venuename.errors && (venuename.dirty || venuename.touched)">\n                                            <div [hidden]="!venuename.errors.required">\n                                                Field is required\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12>\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="text" placeholder="Venue address" [(ngModel)]="data.venueaddress" name="venueaddress" #venueaddress=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="venueaddress.errors && (venueaddress.dirty || venueaddress.touched)">\n                                            <div [hidden]="!venueaddress.errors.required">\n                                                Field is required\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12>\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="text" placeholder="Event name" [(ngModel)]="data.eventname" name="eventname" #eventname=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="eventname.errors && (eventname.dirty || eventname.touched)">\n                                            <div [hidden]="!eventname.errors.required">\n                                                Field is required\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n                        <div class="colm">\n                            <ion-col col-12>\n                                <ion-row>\n                                    <ion-col col-6>\n                                        <ion-list>\n                                            <ion-item>\n\n                                                <ion-datetime min="{{minyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY" [(ngModel)]="data.eventstartdt" (ngModelChange)="updateDueDate($event)" name="eventstartdt" placeholder="Event start date" #eventstartdt=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventstartdt.errors && (eventstartdt.dirty || eventstartdt.touched)">\n                                                    <div [hidden]="!eventstartdt.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n\n                                    <ion-col col-6>\n                                        <ion-list>\n                                            <ion-item>\n                                                <ion-datetime min="{{maxyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY" placeholder="Event end date" [(ngModel)]="data.eventenddt" name="eventenddt" #eventenddt=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventenddt.errors && (eventenddt.dirty || eventenddt.touched)">\n                                                    <div [hidden]="!eventenddt.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n                                </ion-row>\n                            </ion-col>\n                        </div>\n                        <div class="colm>">\n                            <ion-col col-12>\n                                <ion-row>\n                                    <ion-col col-6 class="padding0lft">\n                                        <ion-list>\n                                            <ion-item>\n                                                <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event start time" [(ngModel)]="data.eventsarttm" name="eventsarttm" #eventsarttm=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventsarttm.errors && (eventsarttm.dirty || eventsarttm.touched)">\n                                                    <div [hidden]="!eventsarttm.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n                                    <ion-col col-6 class="padding0rgt">\n                                        <ion-list>\n                                            <ion-item>\n                                                <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event end time" [(ngModel)]="data.eventendtm" name="eventendtm" #eventendtm=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventendtm.errors && (eventendtm.dirty || eventendtm.touched)">\n                                                    <div [hidden]="!eventendtm.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n                                </ion-row>\n                            </ion-col>\n                        </div>\n                        <ion-col col-12>\n                            <ion-row>\n                                <div class="tip" (click)="toggleDetails(taggel)">\n                                    <h3>Setup Tip Amounts</h3>\n                                    <button class="abc" ion-button icon-right>\n									<ion-icon name="arrow-down"></ion-icon>\n								</button>\n                                </div>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12 *ngIf="taggel">\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="tel" placeholder="Minimum amount for Play Now" min="2" [(ngModel)]="data.minplay" name="minplay" #minplay=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="minplay.errors && (minplay.dirty || minplay.touched)">\n                                            <div [hidden]="!minplay.errors.required">\n                                                Field is required\n                                            </div>\n                                            <div [hidden]="!minplay.errors.min">\n                                                Minimum amount should be 2\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12 *ngIf="taggel">\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="tel" placeholder="Minimum amount for Guaranteed Play" min="2" [(ngModel)]="data.mingrnt" name="mingrnt" #mingrnt=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="mingrnt.errors && (mingrnt.dirty || mingrnt.touched)">\n                                            <div [hidden]="!mingrnt.errors.required">\n                                                Field is required\n                                            </div>\n                                            <div [hidden]="!mingrnt.errors.min">\n                                                Minimum amount should be 2\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12 *ngIf="taggel">\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="tel" placeholder="Minimum amount for Possibly Play" min="2" [(ngModel)]="data.minpossi" name="minpossi" #minpossi=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="minpossi.errors && (minpossi.dirty || minpossi.touched)">\n                                            <div [hidden]="!minpossi.errors.required">\n                                                Field is required\n                                            </div>\n                                            <div [hidden]="!minpossi.errors.min">\n                                                Minimum amount should be 2\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12>\n                            <ion-row>\n                                <div *ngIf="srcImage" class="upload_imgouter">\n                                    <img [src]="srcImage" [(ngModel)]="data.img" name="img" #img=\'ngModel\'>\n                                </div>\n                                <!-- <ion-label  class="alert alert-danger" color="danger">\n									<div *ngIf="img.errors && (img.dirty || img.touched)">\n										   <div [hidden]="!img.errors.required" >\n											 Field is required\n										</div>\n									</div>\n								</ion-label> -->\n                                <div class="file-upload">\n                                    <!-- <label for="upload" class="file-upload__label">Upload Image <span> <ion-icon name="camera"></ion-icon></span></label> -->\n                                    <!-- <button class="file-upload__input" ion-button full (click)="CameraAction()" style="background:none;"></button> -->\n                                    <label for="upload" class="file-upload__label">Upload Image <span> <ion-icon name="camera"></ion-icon></span></label>\n                                    <input id="upload" class="file-upload__input" (click)="CameraAction()" type="button" name="file-upload">\n                                </div>\n\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12>\n                            <ion-row>\n                                <div class="bottombtn">\n                                    <button ion-button type="submit" [disabled]="!editeventForm.form.valid" (click)="editeventnow(editeventForm)">Save</button>\n                                </div>\n                            </ion-row>\n                        </ion-col>\n                    </form>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editevent/editevent.html"*/,
+        selector: 'page-editevent',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editevent/editevent.html"*/'<!--\n  Generated template for the EditeventPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="black">\n        <ion-title>Edit Event</ion-title>\n        <div class="logo">\n            <img src="assets/img/rlogo.png">\n        </div>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n    <div class="imgsec">\n        <img [src]="logo">\n    </div>\n    <div class="form-sec">\n        <ion-grid>\n            <ion-row>\n                <ion-col>\n                    <form #editeventForm="ngForm" class="event-form">\n                        <ion-col col-12>\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="text" placeholder="Venue name" [(ngModel)]="data.venuename" name="venuename" #venuename=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="venuename.errors && (venuename.dirty || venuename.touched)">\n                                            <div [hidden]="!venuename.errors.required">\n                                                Field is required\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12>\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="text" placeholder="Venue address" [(ngModel)]="data.venueaddress" name="venueaddress" #venueaddress=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="venueaddress.errors && (venueaddress.dirty || venueaddress.touched)">\n                                            <div [hidden]="!venueaddress.errors.required">\n                                                Field is required\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12>\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="text" placeholder="Event name" [(ngModel)]="data.eventname" name="eventname" #eventname=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="eventname.errors && (eventname.dirty || eventname.touched)">\n                                            <div [hidden]="!eventname.errors.required">\n                                                Field is required\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n                        <div class="colm">\n                            <ion-col col-12>\n                                <ion-row>\n                                    <ion-col col-6>\n                                        <ion-list>\n                                            <ion-item>\n\n                                                <ion-datetime min="{{minyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY" [(ngModel)]="data.eventstartdt" (ngModelChange)="updateDueDate($event)" name="eventstartdt" placeholder="Event start date" #eventstartdt=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventstartdt.errors && (eventstartdt.dirty || eventstartdt.touched)">\n                                                    <div [hidden]="!eventstartdt.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n\n                                    <ion-col col-6>\n                                        <ion-list>\n                                            <ion-item>\n                                                <ion-datetime min="{{maxyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY" placeholder="Event end date" [(ngModel)]="data.eventenddt" name="eventenddt" #eventenddt=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventenddt.errors && (eventenddt.dirty || eventenddt.touched)">\n                                                    <div [hidden]="!eventenddt.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n                                </ion-row>\n                            </ion-col>\n                        </div>\n                        <div class="colm>">\n                            <ion-col col-12>\n                                <ion-row>\n                                    <ion-col col-6 class="padding0lft">\n                                        <ion-list>\n                                            <ion-item>\n                                                <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event start time" [(ngModel)]="data.eventsarttm" name="eventsarttm" #eventsarttm=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventsarttm.errors && (eventsarttm.dirty || eventsarttm.touched)">\n                                                    <div [hidden]="!eventsarttm.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n                                    <ion-col col-6 class="padding0rgt">\n                                        <ion-list>\n                                            <ion-item>\n                                                <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event end time" [(ngModel)]="data.eventendtm" name="eventendtm" #eventendtm=\'ngModel\' required></ion-datetime>\n                                            </ion-item>\n                                            <ion-label class="alert alert-danger" color="danger">\n                                                <div *ngIf="eventendtm.errors && (eventendtm.dirty || eventendtm.touched)">\n                                                    <div [hidden]="!eventendtm.errors.required">\n                                                        Field is required\n                                                    </div>\n                                                </div>\n                                            </ion-label>\n                                        </ion-list>\n                                    </ion-col>\n                                </ion-row>\n                            </ion-col>\n                        </div>\n                        <ion-col col-12>\n                            <ion-row>\n                                <div class="tip" (click)="toggleDetails(taggel)">\n                                    <h3>Setup Tip Amounts</h3>\n                                    <button class="abc" ion-button icon-right>\n									<ion-icon name="arrow-down"></ion-icon>\n								</button>\n                                </div>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12 *ngIf="taggel">\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="tel" placeholder="Minimum amount for Play Now" min="2" [(ngModel)]="data.minplay" name="minplay" #minplay=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="minplay.errors && (minplay.dirty || minplay.touched)">\n                                            <div [hidden]="!minplay.errors.required">\n                                                Field is required\n                                            </div>\n                                            <div [hidden]="!minplay.errors.min">\n                                                Minimum amount should be 2\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12 *ngIf="taggel">\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="tel" placeholder="Minimum amount for Guaranteed Play" min="2" [(ngModel)]="data.mingrnt" name="mingrnt" #mingrnt=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="mingrnt.errors && (mingrnt.dirty || mingrnt.touched)">\n                                            <div [hidden]="!mingrnt.errors.required">\n                                                Field is required\n                                            </div>\n                                            <div [hidden]="!mingrnt.errors.min">\n                                                Minimum amount should be 2\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12 *ngIf="taggel">\n                            <ion-row>\n                                <ion-list>\n                                    <ion-item>\n                                        <ion-input type="tel" placeholder="Minimum amount for Possibly Play" min="2" [(ngModel)]="data.minpossi" name="minpossi" #minpossi=\'ngModel\' required></ion-input>\n                                    </ion-item>\n                                    <ion-label class="alert alert-danger" color="danger">\n                                        <div *ngIf="minpossi.errors && (minpossi.dirty || minpossi.touched)">\n                                            <div [hidden]="!minpossi.errors.required">\n                                                Field is required\n                                            </div>\n                                            <div [hidden]="!minpossi.errors.min">\n                                                Minimum amount should be 2\n                                            </div>\n                                        </div>\n                                    </ion-label>\n                                </ion-list>\n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12>\n                            <ion-row>\n                                <div *ngIf="srcImage" class="upload_imgouter">\n                                    <img [src]="srcImage">\n                                </div>\n                                <!-- <ion-label  class="alert alert-danger" color="danger">\n									<div *ngIf="img.errors && (img.dirty || img.touched)">\n										   <div [hidden]="!img.errors.required" >\n											 Field is required\n										</div>\n									</div>\n								</ion-label> -->\n                                \n                                    <input (click)="CameraAction()" type="button">\n                                \n                            </ion-row>\n                        </ion-col>\n\n                        <ion-col col-12>\n                            <ion-row>\n                                <div class="bottombtn">\n                                    <button ion-button type="submit" [disabled]="!editeventForm.form.valid" (click)="editeventnow(editeventForm)">Save</button>\n                                </div>\n                            </ion-row>\n                        </ion-col>\n                    </form>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editevent/editevent.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Platform */],
         __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
@@ -3677,7 +4157,7 @@ EditeventPage = __decorate([
 
 /***/ }),
 
-/***/ 151:
+/***/ 154:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3686,9 +4166,9 @@ EditeventPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__termsdjsubs_termsdjsubs__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__termsdjsubs_termsdjsubs__ = __webpack_require__(76);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3724,6 +4204,10 @@ var SubscribedjupdatePage = (function () {
         this.payPal = payPal;
         this.alertCtrl = alertCtrl;
         this.data = {};
+        this.Loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
         this.events.publish('role', 'dj');
         this.data = {
             checkbx: true,
@@ -3832,6 +4316,20 @@ var SubscribedjupdatePage = (function () {
     SubscribedjupdatePage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SubscribedjPage');
     };
+    SubscribedjupdatePage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loading.dismissAll();
+            var alert_2 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_2.present();
+            setTimeout(function () { return alert_2.dismiss(); }, 2500);
+        }
+    };
     return SubscribedjupdatePage;
 }());
 SubscribedjupdatePage = __decorate([
@@ -3853,7 +4351,7 @@ SubscribedjupdatePage = __decorate([
 
 /***/ }),
 
-/***/ 152:
+/***/ 155:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3861,8 +4359,8 @@ SubscribedjupdatePage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_appsetting__ = __webpack_require__(6);
@@ -3900,7 +4398,8 @@ var ChangepasswordPage = (function () {
         this.alertCtrl = alertCtrl;
         this.data = '';
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
     }
     ChangepasswordPage.prototype.ionViewDidEnter = function () {
@@ -3911,9 +4410,10 @@ var ChangepasswordPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 3500);
         }
     };
     ChangepasswordPage.prototype.changepass = function (form) {
@@ -3927,9 +4427,10 @@ var ChangepasswordPage = (function () {
             var alert_2 = this.alertCtrl.create({
                 title: 'Change password',
                 subTitle: 'Space not allowed',
+                buttons: ['ok']
             });
             alert_2.present();
-            setTimeout(function () { return alert_2.dismiss(); }, 1500);
+            setTimeout(function () { return alert_2.dismiss(); }, 3500);
         }
         else if (form.value.newpassword == form.value.conpassword) {
             this.Loading.present();
@@ -3949,9 +4450,10 @@ var ChangepasswordPage = (function () {
                     var alert_3 = _this.alertCtrl.create({
                         title: 'Change password',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alert_3.present();
-                    setTimeout(function () { return alert_3.dismiss(); }, 1500);
+                    setTimeout(function () { return alert_3.dismiss(); }, 3500);
                     //localStorage.clear();
                     localStorage.removeItem("fblogin");
                     localStorage.removeItem("USER_DATA");
@@ -3965,9 +4467,10 @@ var ChangepasswordPage = (function () {
                     var alert_4 = _this.alertCtrl.create({
                         title: 'Change password',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alert_4.present();
-                    setTimeout(function () { return alert_4.dismiss(); }, 1500);
+                    setTimeout(function () { return alert_4.dismiss(); }, 3500);
                 }
             });
         }
@@ -3975,9 +4478,10 @@ var ChangepasswordPage = (function () {
             var alert_5 = this.alertCtrl.create({
                 title: 'Change password',
                 subTitle: 'Password do not match',
+                buttons: ['ok']
             });
             alert_5.present();
-            setTimeout(function () { return alert_5.dismiss(); }, 1500);
+            setTimeout(function () { return alert_5.dismiss(); }, 3500);
         }
     };
     ChangepasswordPage.prototype.serializeObj = function (obj) {
@@ -4009,7 +4513,7 @@ ChangepasswordPage = __decorate([
 
 /***/ }),
 
-/***/ 153:
+/***/ 156:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4038,12 +4542,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var TransactionhstrydjPage = (function () {
-    function TransactionhstrydjPage(navCtrl, navParams, http, appsetting, loadingCtrl) {
+    function TransactionhstrydjPage(navCtrl, navParams, http, appsetting, loadingCtrl, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.http = http;
         this.appsetting = appsetting;
         this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
+        this.Loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
         this.paidinfo();
     }
     TransactionhstrydjPage.prototype.paidinfo = function () {
@@ -4053,7 +4562,8 @@ var TransactionhstrydjPage = (function () {
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
         var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
         var Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         Loader.present().then(function () {
             var data = {
@@ -4081,6 +4591,20 @@ var TransactionhstrydjPage = (function () {
             result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
         return result.join("&");
     };
+    TransactionhstrydjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loader.dismissAll();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
+        }
+    };
     TransactionhstrydjPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad TransactionhstrydjPage');
     };
@@ -4089,20 +4613,21 @@ var TransactionhstrydjPage = (function () {
 TransactionhstrydjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-transactionhstrydj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/transactionhstrydj/transactionhstrydj.html"*/'<!--\n  Generated template for the TransactionhstrydjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		<ion-toolbar color="black">\n				<button ion-button menuToggle>\n				  <ion-icon style="color:#fff;" name="menu"></ion-icon>\n				</button>\n				<ion-title>Transaction History</ion-title>\n				<div class="logo">\n					<img src="assets/img/rlogo.png">\n				</div>\n			</ion-toolbar>\n  <!-- <ion-navbar color="theme-header">\n    <ion-title>Transaction History</ion-title>\n    <div class="logo">\n    	<img src="../assets/img/rlogo.png">\n    </div>\n  </ion-navbar> -->\n\n</ion-header>\n\n\n<ion-content padding>     	\n	<div class="content-sec" *ngFor="let thist of transachistdata; let i = index">\n		<div class="top-sec">\n			<h2>{{thist?.Clubgoer.complete_name}}</h2>\n			<h3>{{thist?.Event.event_name}}</h3>\n			<p>{{thist?.ClubgoerRequest.songname}} ,{{thist?.ClubgoerRequest.songname}}</p>\n			<div class="right">\n				<p>${{thist?.ClubgoerRequest.total}}</p>\n			</div>\n		</div>\n		<div class="bottom-sec">\n			<p>Total payment</p>\n			<h2>You Received</h2>\n			<div class="right">\n				<p>${{thist?.ClubgoerRequest.total}}</p>\n				<h2>${{thist?.ClubgoerRequest.djshare}}</h2>\n			</div>\n		</div>\n	</div>\n	<div class="unshow" *ngIf="transachistdata?.length == 0">\n		  <h3> No transaction available</h3>\n	</div>\n	\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/transactionhstrydj/transactionhstrydj.html"*/,
+        selector: 'page-transactionhstrydj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/transactionhstrydj/transactionhstrydj.html"*/'<!--\n  Generated template for the TransactionhstrydjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		<ion-toolbar color="black">\n				<button ion-button menuToggle>\n				  <ion-icon style="color:#fff;" name="menu"></ion-icon>\n				</button>\n				<ion-title>Transaction History</ion-title>\n				<div class="logo">\n					<img src="assets/img/rlogo.png">\n				</div>\n			</ion-toolbar>\n  <!-- <ion-navbar color="theme-header">\n    <ion-title>Transaction History</ion-title>\n    <div class="logo">\n    	<img src="../assets/img/rlogo.png">\n    </div>\n  </ion-navbar> -->\n\n</ion-header>\n\n\n<ion-content padding>     	\n	<div class="content-sec" *ngFor="let thist of transachistdata; let i = index">\n		<div class="top-sec">\n			<h2>{{thist?.Clubgoer.complete_name}}</h2>\n			<h3>{{thist?.Event.event_name}}</h3>\n			<h3 *ngIf="thist?.ClubgoerRequest.shoutout_name">Paid for shoutout</h3>\n			<h3 *ngIf="thist?.ClubgoerRequest.songname">Paid for song request</h3>\n			<p *ngIf="thist?.TipOption.name">{{thist?.TipOption.name}}</p>\n			<p *ngIf="thist?.ClubgoerRequest.songname">Songname : {{thist?.ClubgoerRequest.songname}}</p>\n			<p *ngIf="thist?.ClubgoerRequest.songname">Artistname : {{thist?.ClubgoerRequest.artist_name}}</p>\n			<p *ngIf="thist?.ClubgoerRequest.shoutout_name">Shoutout type : {{thist?.ClubgoerRequest.shoutout_type}}</p>\n			<p *ngIf="thist?.ClubgoerRequest.shoutout_name">Shoutout name : {{thist?.ClubgoerRequest.shoutout_name}}</p>\n			<div class="right">\n				<p>${{thist?.ClubgoerRequest.total}}</p>\n			</div>\n		</div>\n		<div class="bottom-sec">\n			<p>Total payment</p>\n			<h2>You Received</h2>\n			<div class="right">\n				<p>${{thist?.ClubgoerRequest.total}}</p>\n				<h2>${{thist?.ClubgoerRequest.djshare}}</h2>\n			</div>\n		</div>\n	</div>\n	<div class="unshow" *ngIf="transachistdata?.length == 0">\n		  <h3> No transaction available</h3>\n	</div>\n	\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/transactionhstrydj/transactionhstrydj.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
         __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]])
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
 ], TransactionhstrydjPage);
 
 //# sourceMappingURL=transactionhstrydj.js.map
 
 /***/ }),
 
-/***/ 154:
+/***/ 157:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4143,7 +4668,8 @@ var HelpdjPage = (function () {
         this.toastCtrl = toastCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.gethelp();
     }
@@ -4210,7 +4736,7 @@ HelpdjPage = __decorate([
 
 /***/ }),
 
-/***/ 155:
+/***/ 158:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4218,8 +4744,8 @@ HelpdjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logindj_logindj__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logindj_logindj__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_appsetting__ = __webpack_require__(6);
@@ -4257,7 +4783,8 @@ var ChangepassworddjPage = (function () {
         this.alertCtrl = alertCtrl;
         this.data = '';
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
     }
     ChangepassworddjPage.prototype.ionViewDidEnter = function () {
@@ -4268,9 +4795,10 @@ var ChangepassworddjPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 3500);
         }
     };
     ChangepassworddjPage.prototype.changepass = function (form) {
@@ -4284,9 +4812,10 @@ var ChangepassworddjPage = (function () {
             var alert_2 = this.alertCtrl.create({
                 title: 'Change password',
                 subTitle: 'Space not allowed',
+                buttons: ['ok']
             });
             alert_2.present();
-            setTimeout(function () { return alert_2.dismiss(); }, 1500);
+            setTimeout(function () { return alert_2.dismiss(); }, 3500);
         }
         else if (form.value.newpassword == form.value.conpassword) {
             this.Loading.present();
@@ -4306,9 +4835,10 @@ var ChangepassworddjPage = (function () {
                     var alert_3 = _this.alertCtrl.create({
                         title: 'Change password',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alert_3.present();
-                    setTimeout(function () { return alert_3.dismiss(); }, 1500);
+                    setTimeout(function () { return alert_3.dismiss(); }, 3500);
                     //localStorage.clear();
                     localStorage.removeItem("fblogin");
                     localStorage.removeItem("USER_DATA");
@@ -4322,9 +4852,10 @@ var ChangepassworddjPage = (function () {
                     var alert_4 = _this.alertCtrl.create({
                         title: 'Change password',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alert_4.present();
-                    setTimeout(function () { return alert_4.dismiss(); }, 1500);
+                    setTimeout(function () { return alert_4.dismiss(); }, 3500);
                 }
             });
         }
@@ -4332,9 +4863,10 @@ var ChangepassworddjPage = (function () {
             var alert_5 = this.alertCtrl.create({
                 title: 'Change password',
                 subTitle: 'Password do not match',
+                buttons: ['ok']
             });
             alert_5.present();
-            setTimeout(function () { return alert_5.dismiss(); }, 1500);
+            setTimeout(function () { return alert_5.dismiss(); }, 3500);
         }
     };
     ChangepassworddjPage.prototype.serializeObj = function (obj) {
@@ -4366,7 +4898,7 @@ ChangepassworddjPage = __decorate([
 
 /***/ }),
 
-/***/ 156:
+/***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4409,7 +4941,8 @@ var TermsdjPage = (function () {
         this.toastCtrl = toastCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.getterms();
     }
@@ -4450,10 +4983,11 @@ var TermsdjPage = (function () {
             this.Loader.dismiss();
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
-                subTitle: 'Something went wrong check your internet connection'
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     return TermsdjPage;
@@ -4477,7 +5011,191 @@ TermsdjPage = __decorate([
 
 /***/ }),
 
-/***/ 165:
+/***/ 160:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NotificationdjPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+//import { EventsdjPage } from '../eventsdj/eventsdj';
+/**
+ * Generated class for the PlaynowlistdjPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var NotificationdjPage = (function () {
+    function NotificationdjPage(navCtrl, navParams, http, appsetting, loadingCtrl, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.appsetting = appsetting;
+        this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
+        this.Loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+        this.notifreq();
+    }
+    NotificationdjPage.prototype.notifreq = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
+        var Loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+        Loader.present().then(function () {
+            var data = {
+                djid: Userid,
+            };
+            console.log(data);
+            console.log("vikki");
+            var serialized = _this.serializeObj(data);
+            _this.http.post(_this.appsetting.myGlobalVar + 'events/getnotifications', serialized, options)
+                .map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                Loader.dismiss();
+                if (data.isSucess == "true") {
+                    _this.shoutreq = data.data;
+                }
+                else {
+                    _this.shoutreq = [];
+                }
+            });
+        });
+    };
+    NotificationdjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loader.dismissAll();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
+        }
+    };
+    // playimg(id,idd){
+    //     let headers = new Headers();
+    //     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+    //     var options = new RequestOptions({ headers: headers });
+    //     var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
+    //     let Loader = this.loadingCtrl.create({
+    //       content: 'Please wait...'
+    //     });
+    //     Loader.present().then(() => {
+    //       var data = {
+    //         reqid: id,
+    //         eventid:idd,
+    //         id:Userid,
+    //         reqoption:3
+    //       }
+    //       var serialized = this.serializeObj(data);
+    //       this.http.post(this.appsetting.myGlobalVar + 'events/votetopquereq', serialized, options)
+    //         .map(res => res.json())
+    //         .subscribe(data => {
+    //           Loader.dismiss();
+    //           if (data.isSucess == "true") {
+    //             let alertr = this.alertCtrl.create({
+    //                 title: 'Requests',
+    //                 subTitle: data.msg,
+    //               });
+    //                 alertr.present();
+    //             setTimeout(()=>alertr.dismiss(),1500);
+    //             this.shoutreq=data.data;
+    //             //this.navCtrl.push(EventsdjPage);
+    //           } else {
+    //           }
+    //         })
+    //     });
+    // }
+    // cross(id,idd){
+    //     let headers = new Headers();
+    //     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+    //     var options = new RequestOptions({ headers: headers });
+    //     var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
+    //     let Loader = this.loadingCtrl.create({
+    //       content: 'Please wait...'
+    //     });
+    //     Loader.present().then(() => {
+    //       var data = {
+    //         reqid: id,
+    //         eventid:idd,
+    //         id:Userid,
+    //         reqopt:3
+    //             }
+    //       var serialized = this.serializeObj(data);
+    //       this.http.post(this.appsetting.myGlobalVar + 'events/shoutrequeststatus', serialized, options)
+    //         .map(res => res.json())
+    //         .subscribe(data => {
+    //           Loader.dismiss();
+    //           console.log(data);
+    //           if (data.isSucess == "true") {
+    //             let alertr = this.alertCtrl.create({
+    //                 title: 'Requests',
+    //                 subTitle: data.msg,
+    //               });
+    //                 alertr.present();
+    //             setTimeout(()=>alertr.dismiss(),1500);
+    //             this.shoutreq=data.data;
+    //             //this.navCtrl.push(EventsdjPage);
+    //           } else {
+    //           }
+    //         })
+    //     });
+    // }
+    NotificationdjPage.prototype.serializeObj = function (obj) {
+        var result = [];
+        for (var property in obj)
+            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
+        return result.join("&");
+    };
+    NotificationdjPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ShoutoutDjPage');
+    };
+    return NotificationdjPage;
+}());
+NotificationdjPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-notificationdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/notificationdj/notificationdj.html"*/'<!--\n  Generated template for the PlaynowlistdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n      <button ion-button menuToggle>\n            <ion-icon style="color:#fff;" name="menu"></ion-icon>\n      </button>\n    <ion-title>Notifications</ion-title>\n    <div class="logo">\n    	<img src="assets/img/rlogo.png">\n    </div>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<div class="past">\n	<ion-list>\n      <ion-item *ngFor="let shout of shoutreq; let i = index">\n        	<div class="img-sec">\n        		<img src="assets/img/headphn.png">\n        	</div>\n        	<h3>{{shout?.SendNotification.title}} </h3>\n        	<p>{{shout?.SendNotification.message}}</p>\n        	<div class="img-right">\n        		<div class="imgmain">\n        		<!--	<img src="assets/img/playimg.png" *ngIf="shout?.ClubgoerRequest.topque">\n					 <img src="assets/img/playnow.png" (click)="playimg(shout?.ClubgoerRequest.id,shout?.Event.id)" *ngIf="!shout?.ClubgoerRequest.topque">\n					<img src="assets/img/cross.png" (click)="cross(shout?.ClubgoerRequest.id,shout?.Event.id)">\n        	-->	</div> \n        	</div>\n	  </ion-item>\n	   <div class="unshow" *ngIf="shoutreq?.length == 0">\n		  <h3> No request available</h3>\n	   </div>\n  </ion-list>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/notificationdj/notificationdj.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+], NotificationdjPage);
+
+//# sourceMappingURL=notificationdj.js.map
+
+/***/ }),
+
+/***/ 169:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -4490,23 +5208,23 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 165;
+webpackEmptyAsyncContext.id = 169;
 
 /***/ }),
 
-/***/ 18:
+/***/ 17:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventsdjPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__addeventdj_addeventdj__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__manageeventsdj_manageeventsdj__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__addeventdjnew_addeventdjnew__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__manageeventsdj_manageeventsdj__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__membershipdetaildj_membershipdetaildj__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__membershipdetaildj_membershipdetaildj__ = __webpack_require__(75);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4540,7 +5258,8 @@ var EventsdjPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         if (localStorage.getItem("USER_DATA") != null) {
             this.profile = JSON.parse(localStorage.getItem("USER_DATA"));
@@ -4560,6 +5279,7 @@ var EventsdjPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
             setTimeout(function () { return alert_1.dismiss(); }, 1500);
@@ -4570,6 +5290,7 @@ var EventsdjPage = (function () {
     };
     EventsdjPage.prototype.addEvent = function () {
         var _this = this;
+        this.Loader.present();
         var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
         var options = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* RequestOptions */]({ headers: headers });
@@ -4578,28 +5299,34 @@ var EventsdjPage = (function () {
         };
         var Serialized = this.serializeObj(data);
         this.http.post(this.appsetting.myGlobalVar + 'users/getuserbyid', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-            console.log(response);
-            console.log(response.data.User.subscription_status);
-            if (response.data.User.paypal_email == undefined || response.data.User.paypal_email == null || response.data.User.paypal_email == "null" || response.data.User.paypal_email == "undefined") {
-                var alert_2 = _this.alertCtrl.create({
-                    title: 'PayPal Account ',
-                    subTitle: 'To add an event, please add your PayPal email address first',
-                    buttons: ['ok']
-                });
-                alert_2.present();
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__["a" /* EditprofiledjPage */]);
-            }
-            else if (response.data.User.subscription_status == 0 || response.data.User.subscription_status == "0") {
-                var alert_3 = _this.alertCtrl.create({
-                    title: 'Subscription plan',
-                    subTitle: 'To add an event, please buy Subscription plan',
-                    buttons: ['ok']
-                });
-                alert_3.present();
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__membershipdetaildj_membershipdetaildj__["a" /* MembershipdetaildjPage */]);
+            _this.Loader.dismiss();
+            if (response.isSucess == "true") {
+                if (response.data.User.paypal_email == undefined || response.data.User.paypal_email == null || response.data.User.paypal_email == "null" || response.data.User.paypal_email == "undefined") {
+                    var alert_2 = _this.alertCtrl.create({
+                        title: 'PayPal Account ',
+                        subTitle: 'To add an event, please add your PayPal email address first',
+                        buttons: ['ok']
+                    });
+                    alert_2.present();
+                    setTimeout(function () { return alert_2.dismiss(); }, 1500);
+                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__["a" /* EditprofiledjPage */]);
+                }
+                else if (response.data.User.subscription_status == 0 || response.data.User.subscription_status == "0") {
+                    var alert_3 = _this.alertCtrl.create({
+                        title: 'Subscription plan',
+                        subTitle: 'To add an event, please buy Subscription plan',
+                        buttons: ['ok']
+                    });
+                    alert_3.present();
+                    setTimeout(function () { return alert_3.dismiss(); }, 1500);
+                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__membershipdetaildj_membershipdetaildj__["a" /* MembershipdetaildjPage */]);
+                }
+                else {
+                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__addeventdjnew_addeventdjnew__["a" /* AddeventdjnewPage */]);
+                }
             }
             else {
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__addeventdj_addeventdj__["a" /* AddeventdjPage */]);
+                //this.navCtrl.push(AddeventdjnewPage);
             }
         });
     };
@@ -4619,7 +5346,12 @@ EventsdjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-eventsdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/eventsdj/eventsdj.html"*/'<!--\n  Generated template for the EventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#fff;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Event</ion-title>\n    <div class="logo">\n    	<img src="assets/img/rlogo.png">\n    </div>\n</ion-toolbar>\n</ion-header>\n\n<ion-content padding style="background-image: url(assets/img/loginbg.jpg); background-size: cover; background-position: center; top:0;">\n	<div class="content-sec">\n		<ion-grid>\n			<ion-row>\n				<div class="img-top">\n					<img src="assets/img/mainimg.png">\n				</div>\n			</ion-row>\n		</ion-grid>\n	</div>\n	<div class="btnsec">\n		<ion-grid>\n			<ion-row>\n				<div class="top-btn">\n					<button ion-button (click)="addEvent()">Add Event</button>\n				</div>\n				<div class="bottom-btn">\n					<button ion-button (click)="ManageEvent()">Manage Events</button>\n				</div>\n			</ion-row>\n		</ion-grid>\n	</div>\n\n</ion-content>\n\n\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/eventsdj/eventsdj.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_5__providers_appsetting__["a" /* Appsetting */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_5__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
+        __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
 ], EventsdjPage);
 
@@ -4627,204 +5359,212 @@ EventsdjPage = __decorate([
 
 /***/ }),
 
-/***/ 207:
+/***/ 211:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/addeventdj/addeventdj.module": [
-		459,
-		48
+		496,
+		50
+	],
+	"../pages/addeventdjnew/addeventdjnew.module": [
+		464,
+		49
 	],
 	"../pages/changepassword/changepassword.module": [
-		483,
-		47
+		488,
+		48
 	],
 	"../pages/changepassworddj/changepassworddj.module": [
-		486,
-		46
+		491,
+		47
 	],
 	"../pages/djsdetails/djsdetails.module": [
-		451,
-		45
+		456,
+		46
 	],
 	"../pages/djslist/djslist.module": [
-		452,
-		44
+		457,
+		45
 	],
 	"../pages/editevent/editevent.module": [
-		471,
-		43
+		476,
+		44
 	],
 	"../pages/editprofiledj/editprofiledj.module": [
-		458,
-		42
+		463,
+		43
 	],
 	"../pages/entercode/entercode.module": [
-		449,
-		41
+		454,
+		42
 	],
 	"../pages/eventsdj/eventsdj.module": [
-		476,
-		40
+		481,
+		41
 	],
 	"../pages/forgot/forgot.module": [
-		457,
-		39
+		462,
+		40
 	],
 	"../pages/gauranteedj/gauranteedj.module": [
-		465,
-		38
+		470,
+		39
 	],
 	"../pages/helpdj/helpdj.module": [
-		485,
-		37
+		490,
+		38
 	],
 	"../pages/historicalrequests/historicalrequests.module": [
-		450,
-		36
+		455,
+		37
 	],
 	"../pages/intro/intro.module": [
-		490,
+		497,
 		0
 	],
 	"../pages/login/login.module": [
-		482,
-		35
+		487,
+		36
 	],
 	"../pages/logindj/logindj.module": [
-		478,
-		34
+		483,
+		35
 	],
 	"../pages/manageeventsdj/manageeventsdj.module": [
-		472,
-		33
+		477,
+		34
 	],
 	"../pages/membershipdetaildj/membershipdetaildj.module": [
-		475,
-		32
+		480,
+		33
 	],
 	"../pages/nameofeventsdj/nameofeventsdj.module": [
-		469,
+		474,
+		32
+	],
+	"../pages/notificationdj/notificationdj.module": [
+		493,
 		31
 	],
 	"../pages/omniaclubeventdj/omniaclubeventdj.module": [
-		470,
+		475,
 		30
 	],
 	"../pages/pasteventdj/pasteventdj.module": [
-		462,
+		467,
 		29
 	],
 	"../pages/payinfo/payinfo.module": [
-		444,
+		449,
 		28
 	],
 	"../pages/paymenthistorydj/paymenthistorydj.module": [
-		460,
+		465,
 		27
 	],
 	"../pages/paymentinfo/paymentinfo.module": [
-		489,
+		495,
 		26
 	],
 	"../pages/playnowlistdj/playnowlistdj.module": [
-		463,
+		468,
 		25
 	],
 	"../pages/possiblydj/possiblydj.module": [
-		466,
+		471,
 		24
 	],
 	"../pages/privacy/privacy.module": [
-		454,
+		459,
 		23
 	],
 	"../pages/profile/profile.module": [
-		442,
+		447,
 		22
 	],
 	"../pages/profileedit/profileedit.module": [
-		443,
+		448,
 		21
 	],
 	"../pages/requesthistorydj/requesthistorydj.module": [
-		461,
+		466,
 		20
 	],
 	"../pages/requestsongplay/requestsongplay.module": [
-		445,
+		450,
 		19
 	],
 	"../pages/settings/settings.module": [
-		488,
+		494,
 		18
 	],
 	"../pages/shoutout/shoutout.module": [
-		447,
+		452,
 		17
 	],
 	"../pages/shoutoutdj/shoutoutdj.module": [
-		456,
+		461,
 		16
 	],
 	"../pages/signindj/signindj.module": [
-		480,
+		485,
 		15
 	],
 	"../pages/signup/signup.module": [
-		481,
+		486,
 		14
 	],
 	"../pages/signupdj/signupdj.module": [
-		479,
+		484,
 		13
 	],
 	"../pages/songrequests/songrequests.module": [
-		448,
+		453,
 		12
 	],
 	"../pages/subscribedj/subscribedj.module": [
-		477,
+		482,
 		11
 	],
 	"../pages/subscribedjupdate/subscribedjupdate.module": [
-		474,
+		479,
 		10
 	],
 	"../pages/terms/terms.module": [
-		453,
+		458,
 		9
 	],
 	"../pages/termsdj/termsdj.module": [
-		487,
+		492,
 		8
 	],
 	"../pages/termsdjsubs/termsdjsubs.module": [
-		473,
+		478,
 		7
 	],
 	"../pages/topqueuedj/topqueuedj.module": [
-		464,
+		469,
 		6
 	],
 	"../pages/transactionhstrydj/transactionhstrydj.module": [
-		484,
+		489,
 		5
 	],
 	"../pages/votelike/votelike.module": [
-		455,
+		460,
 		4
 	],
 	"../pages/voteup/voteup.module": [
-		446,
+		451,
 		3
 	],
 	"../pages/voteupdj/voteupdj.module": [
-		467,
+		472,
 		2
 	],
 	"../pages/voting/voting.module": [
-		468,
+		473,
 		1
 	]
 };
@@ -4839,12 +5579,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 207;
+webpackAsyncContext.id = 211;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 26:
+/***/ 27:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4852,9 +5592,9 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profileedit_profileedit__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entercode_entercode__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entercode_entercode__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__historicalrequests_historicalrequests__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(60);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4878,7 +5618,8 @@ var HomePage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.events = events;
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.events.publish('role', 'clubgoer');
     }
@@ -4890,9 +5631,10 @@ var HomePage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     HomePage.prototype.editprofile = function () {
@@ -4917,83 +5659,7 @@ HomePage = __decorate([
 
 /***/ }),
 
-/***/ 35:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignindjPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signupdj_signupdj__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(59);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-/**
- * Generated class for the SignindjPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var SignindjPage = (function () {
-    function SignindjPage(navCtrl, navParams, statusBar) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.statusBar = statusBar;
-        console.log(this.navParams.get('back'));
-        statusBar.hide();
-        this.statusBar.overlaysWebView(true);
-    }
-    SignindjPage.prototype.playVideo = function () {
-        //this.vid="http://priyank.crystalbiltech.com/dj/files/djjvideos.mp4";
-        this.vid = "assets/video/djjvideos.mp4";
-        this.video = document.getElementById("video-bg");
-        this.video.src = this.vid;
-        this.video.muted = true;
-        this.video.loop = true;
-        this.video.play();
-    };
-    SignindjPage.prototype.signup_dj = function () {
-        localStorage.setItem('role', 'dj');
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__signupdj_signupdj__["a" /* SignupdjPage */]);
-        this.video.pause();
-    };
-    SignindjPage.prototype.signup_clubgoer = function () {
-        localStorage.setItem('role', 'clubgoer');
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__signup_signup__["a" /* SignupPage */]);
-        this.video.pause();
-    };
-    SignindjPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SignindjPage');
-        this.playVideo();
-    };
-    return SignindjPage;
-}());
-SignindjPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-signindj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signindj/signindj.html"*/'<!--\n  Generated template for the SignindjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar color="theme-header">\n    <ion-title>Sign in</ion-title>\n    <div class="logo">\n    	<img src="assets/img/rlogo.png">\n    </div>\n  </ion-navbar>\n</ion-header> -->\n\n\n<ion-content swipeBackEnabled="false">\n	<div class="content-sec">\n			<div class="img-top">\n					<!-- <img src="assets/img/mainimg.png"> -->\n				</div>\n		<div class="btn-sec">\n				<button ion-button (click)="signup_clubgoer()">Get Started</button>\n				<h5>Ready to earn? <span (click)="signup_dj()">Sign up/in as a Dj</span></h5>\n		</div>\n	</div>\n\n			<video autoplay id="video-bg" poster="assets/img/videobg.jpg" webkit-playsinline playsinline loop>\n					<source src={{vid}} type="video/mp4">\n			</video>\n			\n	<!-- <div id="contentd">\n		<img src="http://priyank.crystalbiltech.com/dj/files/djlogin.gif">\n	</div> -->\n	 <!-- <div id="contentd" style="height:300px; width:100%;">\n			<video width="400" id="myVideo" class="video-js vjs-default-skin" webkit-playsinline playsinline>\n					<source src={{vid}} type="video/mp4">\n			</video>\n  </div> -->\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signindj/signindj.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */]])
-], SignindjPage);
-
-//# sourceMappingURL=signindj.js.map
-
-/***/ }),
-
-/***/ 36:
+/***/ 33:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5002,9 +5668,9 @@ SignindjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__termsdjsubs_termsdjsubs__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__termsdjsubs_termsdjsubs__ = __webpack_require__(76);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5040,6 +5706,10 @@ var SubscribedjPage = (function () {
         this.payPal = payPal;
         this.alertCtrl = alertCtrl;
         this.data = {};
+        this.Loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
         this.events.publish('role', 'dj');
         this.data = {
             checkbx: true,
@@ -5061,6 +5731,20 @@ var SubscribedjPage = (function () {
                 _this.subscriv = response.data;
             }
         });
+    };
+    SubscribedjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loading.dismissAll();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
+        }
     };
     SubscribedjPage.prototype.setBackButtonAction = function () {
         //Write here wherever you wanna do
@@ -5118,12 +5802,12 @@ var SubscribedjPage = (function () {
                                 _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__["a" /* EventsdjPage */]);
                             }
                             else {
-                                var alert_1 = _this.alertCtrl.create({
+                                var alert_2 = _this.alertCtrl.create({
                                     title: 'Subscribed',
                                     subTitle: response.msg,
                                     buttons: ['ok']
                                 });
-                                alert_1.present();
+                                alert_2.present();
                                 //setTimeout(()=>alert.dismiss(),4000);
                             }
                         });
@@ -5171,7 +5855,493 @@ SubscribedjPage = __decorate([
 
 /***/ }),
 
-/***/ 368:
+/***/ 36:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignindjPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signupdj_signupdj__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(60);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ * Generated class for the SignindjPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var SignindjPage = (function () {
+    function SignindjPage(navCtrl, navParams, statusBar, loadingCtrl, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.statusBar = statusBar;
+        this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
+        this.Loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+        console.log(this.navParams.get('back'));
+        statusBar.hide();
+        this.statusBar.overlaysWebView(true);
+    }
+    SignindjPage.prototype.playVideo = function () {
+        //this.vid="http://priyank.crystalbiltech.com/dj/files/djjvideos.mp4";
+        this.vid = "assets/video/djjvideos.mp4";
+        this.video = document.getElementById("video-bg");
+        this.video.src = this.vid;
+        this.video.muted = true;
+        this.video.loop = true;
+        this.video.play();
+    };
+    SignindjPage.prototype.signup_dj = function () {
+        localStorage.setItem('role', 'dj');
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__signupdj_signupdj__["a" /* SignupdjPage */]);
+        this.video.pause();
+    };
+    SignindjPage.prototype.signup_clubgoer = function () {
+        localStorage.setItem('role', 'clubgoer');
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__signup_signup__["a" /* SignupPage */]);
+        this.video.pause();
+    };
+    SignindjPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SignindjPage');
+        this.playVideo();
+    };
+    SignindjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loading.dismissAll();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
+        }
+    };
+    return SignindjPage;
+}());
+SignindjPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-signindj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signindj/signindj.html"*/'<!--\n  Generated template for the SignindjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!-- <ion-header>\n\n  <ion-navbar color="theme-header">\n    <ion-title>Sign in</ion-title>\n    <div class="logo">\n    	<img src="assets/img/rlogo.png">\n    </div>\n  </ion-navbar>\n</ion-header> -->\n\n\n<ion-content swipeBackEnabled="false">\n	<div class="content-sec">\n			<div class="img-top">\n					<!-- <img src="assets/img/mainimg.png"> -->\n				</div>\n		<div class="btn-sec">\n				<button ion-button (click)="signup_clubgoer()">Get Started</button>\n				<h5>Ready to earn? <span (click)="signup_dj()">Sign up/in as a Dj</span></h5>\n		</div>\n	</div>\n\n			<video autoplay id="video-bg" poster="assets/img/videobg.jpg" webkit-playsinline playsinline loop>\n					<source src={{vid}} type="video/mp4">\n			</video>\n			\n	<!-- <div id="contentd">\n		<img src="http://priyank.crystalbiltech.com/dj/files/djlogin.gif">\n	</div> -->\n	 <!-- <div id="contentd" style="height:300px; width:100%;">\n			<video width="400" id="myVideo" class="video-js vjs-default-skin" webkit-playsinline playsinline>\n					<source src={{vid}} type="video/mp4">\n			</video>\n  </div> -->\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signindj/signindj.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+], SignindjPage);
+
+//# sourceMappingURL=signindj.js.map
+
+/***/ }),
+
+/***/ 37:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditprofiledjPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(17);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the EditprofiledjPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var EditprofiledjPage = (function () {
+    function EditprofiledjPage(navCtrl, navParams, http, appsetting, loadingCtrl, alertCtrl, camera, actionSheetCtrl, events) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.appsetting = appsetting;
+        this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
+        this.camera = camera;
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.events = events;
+        this.data = {};
+        this.Loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+        this.getuser();
+    }
+    EditprofiledjPage.prototype.getuser = function () {
+        var _this = this;
+        this.Loading.present();
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var data = {
+            userid: JSON.parse(localStorage.getItem('USER_DATA')).id
+        };
+        var Serialized = this.serializeObj(data);
+        this.http.post(this.appsetting.myGlobalVar + 'users/getuserbyid', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+            _this.Loading.dismiss();
+            if (response.isSucess == "true") {
+                //this.data = response.data.User;
+                if (response.data.User.audiourl == "null") {
+                    response.data.User.audiourl = "";
+                }
+                if (response.data.User.djcode == "null") {
+                    response.data.User.djcode = "";
+                }
+                if (response.data.User.biography == "null") {
+                    response.data.User.biography = "";
+                }
+                if (response.data.User.paypal_email == "null" || response.data.User.paypal_email == "undefined") {
+                    response.data.User.paypal_email = "";
+                }
+                if (response.data.User.complete_name == "null") {
+                    response.data.User.complete_name = "";
+                }
+                if (response.data.User.email == "null") {
+                    response.data.User.email = "";
+                }
+                _this.data = {
+                    'audiourl': response.data.User.audiourl,
+                    'djcode': response.data.User.djcode,
+                    'biography': response.data.User.biography,
+                    'paypal_email': response.data.User.paypal_email,
+                    'complete_name': response.data.User.complete_name,
+                };
+                _this.profileImage = response.data.User.image;
+                _this.srcImage = response.data.User.logo;
+            }
+            else {
+                var alert_1 = _this.alertCtrl.create({
+                    title: 'Edit Profile',
+                    subTitle: response.msg,
+                    buttons: ['ok']
+                });
+                alert_1.present();
+                setTimeout(function () { return alert_1.dismiss(); }, 3500);
+            }
+        });
+    };
+    EditprofiledjPage.prototype.isReadonly = function () {
+        return this.isReadonly; //return true/false 
+    };
+    EditprofiledjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loading.dismiss();
+            var alert_2 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_2.present();
+            setTimeout(function () { return alert_2.dismiss(); }, 3500);
+        }
+    };
+    EditprofiledjPage.prototype.CameraAction = function () {
+        var _this = this;
+        var actionsheet = this.actionSheetCtrl.create({
+            title: "Choose Album",
+            buttons: [{
+                    text: 'Camera',
+                    handler: function () {
+                        var options = {
+                            quality: 8,
+                            sourceType: 1,
+                            allowEdit: true,
+                            targetWidth: 600,
+                            targetHeight: 600,
+                            correctOrientation: true,
+                            destinationType: _this.camera.DestinationType.DATA_URL,
+                            encodingType: _this.camera.EncodingType.JPEG,
+                            mediaType: _this.camera.MediaType.PICTURE
+                        };
+                        _this.camera.getPicture(options).then(function (imageUri) {
+                            _this.profileImage = '';
+                            _this.profileImage = 'data:image/jpeg;base64,' + imageUri;
+                            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+                            headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+                            var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+                            var data = {
+                                id: JSON.parse(localStorage.getItem('USER_DATA')).id,
+                                img: imageUri
+                            };
+                            var Serialized = _this.serializeObj(data);
+                            var Loading = _this.loadingCtrl.create({
+                                content: 'Please wait...',
+                            });
+                            Loading.present().then(function () {
+                                _this.http.post(_this.appsetting.myGlobalVar + 'users/saveimage', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                                    Loading.dismiss();
+                                    if (response.status == "true") {
+                                        _this.profileImage = response.data.User.image;
+                                    }
+                                });
+                            });
+                        }, function (err) {
+                            alert(JSON.stringify(err));
+                            console.log(err);
+                        });
+                    }
+                },
+                {
+                    text: 'Gallery',
+                    handler: function () {
+                        var options = {
+                            quality: 8,
+                            sourceType: 0,
+                            allowEdit: true,
+                            targetWidth: 600,
+                            targetHeight: 600,
+                            correctOrientation: true,
+                            destinationType: _this.camera.DestinationType.DATA_URL,
+                            encodingType: _this.camera.EncodingType.JPEG,
+                            mediaType: _this.camera.MediaType.PICTURE
+                        };
+                        _this.camera.getPicture(options).then(function (imageData) {
+                            _this.profileImage = '';
+                            _this.profileImage = 'data:image/jpeg;base64,' + imageData;
+                            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+                            headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+                            var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+                            var data = {
+                                id: JSON.parse(localStorage.getItem('USER_DATA')).id,
+                                img: imageData
+                            };
+                            var Serialized = _this.serializeObj(data);
+                            var Loading = _this.loadingCtrl.create({
+                                content: 'Please wait...',
+                            });
+                            Loading.present().then(function () {
+                                _this.http.post(_this.appsetting.myGlobalVar + 'users/saveimage', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                                    Loading.dismiss();
+                                    if (response.status == "true") {
+                                        localStorage.setItem('USER_DATA', JSON.stringify(response.data.User));
+                                        _this.events.publish('role', 'dj');
+                                        _this.profileImage = response.data.User.image;
+                                    }
+                                });
+                            });
+                        }, function (err) {
+                            alert(JSON.stringify(err));
+                        });
+                    }
+                },
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }]
+        });
+        actionsheet.present();
+    };
+    EditprofiledjPage.prototype.updateProfile = function (profile) {
+        var _this = this;
+        console.log(profile.value);
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var data = {
+            userid: JSON.parse(localStorage.getItem('USER_DATA')).id,
+            completename: profile.value.complete_name,
+            biography: profile.value.biography,
+            djcode: profile.value.djcode,
+            paypal_id: profile.value.paypal_email,
+            music_url: profile.value.audiourl,
+        };
+        var Serialized = this.serializeObj(data);
+        var Loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+        });
+        Loading.present().then(function () {
+            _this.http.post(_this.appsetting.myGlobalVar + 'users/edit_profile', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                Loading.dismiss();
+                console.log(response);
+                if (response.status == 0) {
+                    var alert_3 = _this.alertCtrl.create({
+                        title: 'Edit Profile',
+                        subTitle: response.msg,
+                        buttons: ['ok']
+                    });
+                    alert_3.present();
+                    localStorage.setItem('USER_DATA', JSON.stringify(response.user));
+                    _this.events.publish('role', 'dj');
+                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                    setTimeout(function () { return alert_3.dismiss(); }, 3500);
+                }
+                else {
+                    var alert_4 = _this.alertCtrl.create({
+                        title: 'Edit Profile',
+                        subTitle: response.msg,
+                        buttons: ['ok']
+                    });
+                    alert_4.present();
+                    setTimeout(function () { return alert_4.dismiss(); }, 3500);
+                }
+            });
+        });
+    };
+    EditprofiledjPage.prototype.uploadlogo = function () {
+        var _this = this;
+        var actionsheet = this.actionSheetCtrl.create({
+            title: "Choose Album",
+            buttons: [{
+                    text: 'Camera',
+                    handler: function () {
+                        var options = {
+                            quality: 8,
+                            sourceType: 1,
+                            allowEdit: true,
+                            targetWidth: 600,
+                            targetHeight: 600,
+                            correctOrientation: true,
+                            destinationType: _this.camera.DestinationType.DATA_URL,
+                            encodingType: _this.camera.EncodingType.JPEG,
+                            mediaType: _this.camera.MediaType.PICTURE
+                        };
+                        _this.camera.getPicture(options).then(function (imageUri) {
+                            _this.srcImage = '';
+                            _this.srcImage = 'data:image/jpeg;base64,' + imageUri;
+                            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+                            headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+                            var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+                            var data = {
+                                id: JSON.parse(localStorage.getItem('USER_DATA')).id,
+                                img: imageUri
+                            };
+                            var Serialized = _this.serializeObj(data);
+                            var Loading = _this.loadingCtrl.create({
+                                content: 'Please wait...',
+                            });
+                            Loading.present().then(function () {
+                                _this.http.post(_this.appsetting.myGlobalVar + 'users/uploadlogo', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                                    Loading.dismiss();
+                                    _this.srcImage = response.data.User.logo;
+                                });
+                            });
+                        }, function (err) {
+                            // alert(JSON.stringify(err));
+                            console.log(err);
+                        });
+                    }
+                },
+                {
+                    text: 'Gallery',
+                    handler: function () {
+                        var options = {
+                            quality: 20,
+                            sourceType: 0,
+                            allowEdit: true,
+                            targetWidth: 600,
+                            targetHeight: 600,
+                            correctOrientation: true,
+                            destinationType: _this.camera.DestinationType.DATA_URL,
+                            encodingType: _this.camera.EncodingType.JPEG,
+                            mediaType: _this.camera.MediaType.PICTURE
+                        };
+                        _this.camera.getPicture(options).then(function (imageData) {
+                            _this.srcImage = '';
+                            _this.srcImage = 'data:image/jpeg;base64,' + imageData;
+                            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+                            headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+                            var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+                            var data = {
+                                id: JSON.parse(localStorage.getItem('USER_DATA')).id,
+                                img: imageData
+                            };
+                            var Serialized = _this.serializeObj(data);
+                            var Loading = _this.loadingCtrl.create({
+                                content: 'Please wait...',
+                            });
+                            Loading.present().then(function () {
+                                _this.http.post(_this.appsetting.myGlobalVar + 'users/uploadlogo', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                                    Loading.dismiss();
+                                    _this.srcImage = response.data.User.logo;
+                                });
+                            });
+                        }, function (err) {
+                            // alert(JSON.stringify(err));
+                        });
+                    }
+                },
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }]
+        });
+        actionsheet.present();
+    };
+    EditprofiledjPage.prototype.serializeObj = function (obj) {
+        var result = [];
+        for (var property in obj)
+            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
+        return result.join("&");
+    };
+    EditprofiledjPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad EditprofiledjPage');
+    };
+    return EditprofiledjPage;
+}());
+EditprofiledjPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-editprofiledj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editprofiledj/editprofiledj.html"*/'<!--\n  Generated template for the EditprofiledjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#fff;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Edit Profile</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n   </ion-buttons>\n</ion-toolbar>\n\n\n</ion-header>\n\n\n<ion-content padding>\n	<div class="head-sec">\n		<div class="image" (click)="CameraAction()">\n			<img [src]="profileImage">\n		</div>\n		<div class="edit-image">\n				<ion-icon ios="md-create" md="md-create"></ion-icon>\n				\n		</div>\n	</div>\n	<div class="form-sec">			\n		<form #profileForm="ngForm" class="event-form">\n			<ion-col col-12>\n				<ion-row>\n					<ion-list>\n					  <ion-item>\n					    <ion-input type="text" placeholder="Username" [(ngModel)]="data.complete_name" name="complete_name" #complete_name="ngModel" required></ion-input>\n						</ion-item>\n						<ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="complete_name.errors && (complete_name.dirty || complete_name.touched)">\n								 <div [hidden]="!complete_name.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label>\n					  <ion-item>\n							  <button class="abc" ion-button full (click)="uploadlogo()" style="background:none;">Add logo</button>\n					  </ion-item>\n					  <ion-item>\n					    <div class="img-sec" *ngIf="srcImage">\n					    	<img [src]="srcImage">\n					    </div>\n							 <div class="img-sec" *ngIf="srcImage == null">\n					    	<img src="assets/img/djlogo.png">\n					    </div>\n					  </ion-item>\n					  <ion-item>\n					    <ion-input type="text" placeholder="Biography" [(ngModel)]="data.biography" name="biography" #biography="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="biography.errors && (biography.dirty || biography.touched)">\n								 <div [hidden]="!biography.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label> -->\n					  <ion-item>\n					    <ion-input type="text" placeholder="Dj code here" [(ngModel)]="data.djcode" name="djcode" #djcode="ngModel" [readonly]="isReadonly()"></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="djcode.errors && (djcode.dirty || djcode.touched)">\n								 <div [hidden]="!djcode.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label> -->\n					  <ion-item>\n					    <ion-input type="text" placeholder="Enter Music URL" [(ngModel)]="data.audiourl" name="audiourl" #audiourl="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="audiourl.errors && (audiourl.dirty || audiourl.touched)">\n								 <div [hidden]="!audiourl.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label> -->\n					  <!--<ion-item>\n					    <ion-input type="text" placeholder="Change Password"></ion-input>\n					  </ion-item>-->\n					  <ion-item>\n					    <ion-input type="text" placeholder="Enter your paypal id" pattern=\'^[a-zA-Z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$\' [(ngModel)]="data.paypal_email" name="paypal_email" #paypal_email="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="paypal_email.errors && (paypal_email.dirty || paypal_email.touched)">\n								 <div [hidden]="!paypal_email.errors.required" >\n									 			Field is required\n								</div>\n								<div [hidden]="!paypal_email.errors.pattern" >\n												Pattern not matched\n								</div>\n							</div>\n						</ion-label> -->\n					</ion-list>\n				</ion-row>\n		    </ion-col>\n					<div class="btn-sec"><button ion-button type="submit" [disabled]="!profileForm.form.valid"  (click)="updateProfile(profileForm)">Save</button></div>\n		</form>\n		</div>\n	\n	\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editprofiledj/editprofiledj.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */]])
+], EditprofiledjPage);
+
+//# sourceMappingURL=editprofiledj.js.map
+
+/***/ }),
+
+/***/ 372:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5217,7 +6387,7 @@ SettingsPage = __decorate([
 
 /***/ }),
 
-/***/ 369:
+/***/ 373:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5226,7 +6396,7 @@ SettingsPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5259,7 +6429,8 @@ var PaymentinfoPage = (function () {
         this.alertCtrl = alertCtrl;
         this.data = {};
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         var d = new Date();
         this.minyear = d.getFullYear();
@@ -5284,10 +6455,11 @@ var PaymentinfoPage = (function () {
         if (payinfo.value.relationship == undefined) {
             var alert_1 = this.alertCtrl.create({
                 title: 'Edit payment info',
-                subTitle: "Please select payment method"
+                subTitle: "Please select payment method",
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 3500);
             this.Loading.dismiss();
         }
         else {
@@ -5308,18 +6480,20 @@ var PaymentinfoPage = (function () {
                     var alert_2 = _this.alertCtrl.create({
                         title: 'Edit payment info',
                         subTitle: response.msg,
+                        buttons: ['ok']
                     });
                     alert_2.present();
-                    setTimeout(function () { return alert_2.dismiss(); }, 1500);
+                    setTimeout(function () { return alert_2.dismiss(); }, 3500);
                     _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
                 }
                 else {
                     var alert_3 = _this.alertCtrl.create({
                         title: 'Edit payment info',
                         subTitle: response.msg,
+                        buttons: ['ok']
                     });
                     alert_3.present();
-                    setTimeout(function () { return alert_3.dismiss(); }, 1500);
+                    setTimeout(function () { return alert_3.dismiss(); }, 3500);
                 }
             });
         }
@@ -5328,13 +6502,14 @@ var PaymentinfoPage = (function () {
         if (window.navigator.onLine == true) {
         }
         else {
-            this.Loading.dismiss();
+            this.Loading.dismissAll();
             var alert_4 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_4.present();
-            setTimeout(function () { return alert_4.dismiss(); }, 1500);
+            setTimeout(function () { return alert_4.dismiss(); }, 3500);
         }
     };
     PaymentinfoPage.prototype.serializeObj = function (obj) {
@@ -5363,14 +6538,393 @@ PaymentinfoPage = __decorate([
 
 /***/ }),
 
-/***/ 370:
+/***/ 374:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddeventdjPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_transfer__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_file_path__ = __webpack_require__(108);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+var AddeventdjPage = (function () {
+    function AddeventdjPage(navCtrl, navParams, platform, http, transfer, file, filePath, camera, actionSheetCtrl, loadingCtrl, toastCtrl, appsetting, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.platform = platform;
+        this.http = http;
+        this.transfer = transfer;
+        this.file = file;
+        this.filePath = filePath;
+        this.camera = camera;
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.toastCtrl = toastCtrl;
+        this.appsetting = appsetting;
+        this.alertCtrl = alertCtrl;
+        this.taggel = true;
+        this.data = {};
+        this.Loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+        var d = new Date();
+        var mm = ("0" + (d.getMonth() + 1)).slice(-2);
+        var day = ("0" + (d.getDate())).slice(-2);
+        //this.minyear = d.getFullYear()+"-"+mm+"-"+d.getDate();
+        this.minyear = d.getFullYear() + "-" + mm + "-" + day;
+        this.maxyear = d.getFullYear() + "-" + mm + "-" + day;
+        //this.logo = JSON.parse(localStorage.getItem("USER_DATA")).logo;
+        //if(this.logo==null){
+        this.logo = "assets/img/sbg.png";
+        //}
+        //  console.log(JSON.parse(localStorage.getItem("USER_DATA")).paypal_email);
+    }
+    AddeventdjPage.prototype.toggleDetails = function (taggel) {
+        if (taggel) {
+            this.taggel = false;
+        }
+        else {
+            this.taggel = true;
+        }
+    };
+    AddeventdjPage.prototype.uploadImage = function (url) {
+        var _this = this;
+        // Destination URL
+        var url = url;
+        // File for Upload  uploadeventimg
+        var targetPath = cordova.file.dataDirectory + this.newFileName;
+        // File name only
+        var filename = this.newFileName;
+        var options = {
+            fileKey: "file",
+            fileName: filename,
+            chunkedMode: false,
+            mimeType: "multipart/form-data",
+            params: { 'fileName': filename }
+        };
+        var fileTransfer = this.transfer.create();
+        this.Loader.present();
+        // Use the FileTransfer to upload the image
+        fileTransfer.upload(targetPath, url, options).then(function (data) {
+            if (url == _this.appsetting.myGlobalVar + 'events/uploadeventimgnow') {
+                //this.Loader.dismissAll();
+                _this.Loader.dismiss();
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                //this.presentToast('Image succesful uploaded.');
+            }
+            else {
+                _this.Loader.dismissAll();
+                _this.Loader.dismiss();
+                _this.srcImage = _this.appsetting.showGlobalurl + _this.newFileName;
+                _this.presentToast('Image succesful uploaded.');
+            }
+        }, function (err) {
+            _this.Loader.dismissAll();
+            _this.presentToast('Error while uploading file.');
+        });
+    };
+    AddeventdjPage.prototype.addeventnow = function (addevent) {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var user_id = JSON.parse(localStorage.getItem("USER_DATA")).id;
+        var imgsend = this.newFileName;
+        var paypl_emil = JSON.parse(localStorage.getItem("USER_DATA")).paypal_email;
+        var dj_code = JSON.parse(localStorage.getItem("USER_DATA")).djcode;
+        var subscribedj = JSON.parse(localStorage.getItem("USER_DATA")).subscription_status;
+        if (addevent.value.eventstartdt == addevent.value.eventenddt) {
+            if (addevent.value.eventsarttm > addevent.value.eventendtm) {
+                this.Loader.dismiss();
+                var alert_1 = this.alertCtrl.create({
+                    title: 'Time ',
+                    subTitle: 'Please enter appropriate time.',
+                    buttons: ['ok']
+                });
+                alert_1.present();
+                return false;
+            }
+        }
+        if (subscribedj == 0) {
+            var alert_2 = this.alertCtrl.create({
+                title: 'Add event',
+                subTitle: 'Please subscribe first',
+            });
+            alert_2.present();
+            setTimeout(function () { return alert_2.dismiss(); }, 3500);
+            this.Loader.dismiss();
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
+        }
+        else if (dj_code == null || dj_code == "" || dj_code == undefined) {
+            var alert_3 = this.alertCtrl.create({
+                title: 'PayPal Account',
+                subTitle: 'To add an event, please add your Djcode first.',
+                buttons: ['ok']
+            });
+            alert_3.present();
+            //setTimeout(()=>alert.dismiss(),3500);
+            this.Loader.dismiss();
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__["a" /* EditprofiledjPage */]);
+        }
+        else if (paypl_emil == null || paypl_emil == "" || paypl_emil == undefined) {
+            var alert_4 = this.alertCtrl.create({
+                title: 'PayPal Account',
+                subTitle: 'To add an event, please add your PayPal email address first.',
+                buttons: ['ok']
+            });
+            alert_4.present();
+            //setTimeout(()=>alert.dismiss(),3500);
+            this.Loader.dismiss();
+            this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__["a" /* EditprofiledjPage */]);
+        }
+        else if (imgsend == undefined) {
+            var alert_5 = this.alertCtrl.create({
+                title: 'Add event',
+                subTitle: 'Please select image first',
+            });
+            alert_5.present();
+            setTimeout(function () { return alert_5.dismiss(); }, 3500);
+            this.Loader.dismiss();
+        }
+        else if (addevent.value.minplay < 2 || addevent.value.mingrnt < 2 || addevent.value.minpossi < 2) {
+            var alert_6 = this.alertCtrl.create({
+                title: 'Add event',
+                subTitle: 'Please enter tip amount greater than 1',
+            });
+            alert_6.present();
+            setTimeout(function () { return alert_6.dismiss(); }, 3500);
+            this.Loader.dismiss();
+        }
+        else {
+            this.Loader.present();
+            var data = {
+                user_id: user_id,
+                venue_name: addevent.value.venuename,
+                venue_addr: addevent.value.venueaddress,
+                event_name: addevent.value.eventname,
+                event_start_date: addevent.value.eventstartdt,
+                event_end_date: addevent.value.eventenddt,
+                event_start_time: addevent.value.eventsarttm,
+                event_end_time: addevent.value.eventendtm,
+                play_now_amt: addevent.value.minplay,
+                guaranteed_play: addevent.value.mingrnt,
+                possibly_play: addevent.value.minpossi,
+                image: imgsend,
+                role: 'dj'
+            };
+            var Serialized = this.serializeObj(data);
+            this.http.post(this.appsetting.myGlobalVar + 'events/addevent', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                _this.Loader.dismiss();
+                if (response.status == 0) {
+                    var alert_7 = _this.alertCtrl.create({
+                        title: 'Add event',
+                        subTitle: response.msg,
+                    });
+                    alert_7.present();
+                    setTimeout(function () { return alert_7.dismiss(); }, 2500);
+                    _this.uploadImage(_this.appsetting.myGlobalVar + 'events/uploadeventimgnow');
+                }
+                else {
+                    _this.Loader.dismiss();
+                    var alert_8 = _this.alertCtrl.create({
+                        title: 'Add event',
+                        subTitle: response.msg,
+                    });
+                    alert_8.present();
+                    setTimeout(function () { return alert_8.dismiss(); }, 2500);
+                }
+            });
+        }
+    };
+    AddeventdjPage.prototype.updateDueDate = function (curdt) {
+        this.maxyear = curdt;
+        this.data['eventenddt'] = curdt;
+    };
+    AddeventdjPage.prototype.serializeObj = function (obj) {
+        var result = [];
+        for (var property in obj)
+            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
+        return result.join("&");
+    };
+    AddeventdjPage.prototype.takePicture = function (sourceType) {
+        var _this = this;
+        //this.srcImage='';
+        this.imgTosend = '';
+        var options = {
+            quality: 8,
+            sourceType: sourceType,
+            allowEdit: true,
+            targetWidth: 600,
+            targetHeight: 600,
+            correctOrientation: true,
+            destinationType: this.camera.DestinationType.FILE_URI,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE,
+            saveToPhotoAlbum: false
+        };
+        this.camera.getPicture(options).then(function (imageUri) {
+            //this.srcImage = 'data:image/jpeg;base64,' + imageUri;
+            _this.imgTosend = imageUri;
+            if (_this.platform.is('android') && sourceType === _this.camera.PictureSourceType.PHOTOLIBRARY) {
+                _this.filePath.resolveNativePath(imageUri)
+                    .then(function (filePath) {
+                    var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+                    var currentName = imageUri.substring(imageUri.lastIndexOf('/') + 1, imageUri.lastIndexOf('?'));
+                    _this.copyFileToLocalDir(correctPath, currentName, _this.createFileName());
+                });
+            }
+            else {
+                _this.currentName = imageUri.substr(imageUri.lastIndexOf('/') + 1);
+                var correctPath = imageUri.substr(0, imageUri.lastIndexOf('/') + 1);
+                console.log("currentName");
+                console.log(_this.currentName);
+                console.log("correctPath");
+                console.log(correctPath);
+                _this.copyFileToLocalDir(correctPath, _this.currentName, _this.createFileName());
+            }
+        }, function (err) {
+            //alert(JSON.stringify(err));
+        });
+    };
+    // Create a new name for the image
+    AddeventdjPage.prototype.createFileName = function () {
+        var d = new Date(), n = d.getTime();
+        this.newFileName = n + ".jpg";
+        return this.newFileName;
+    };
+    // Copy the image to a local folder
+    AddeventdjPage.prototype.copyFileToLocalDir = function (namePath, currentName, newFileName) {
+        var _this = this;
+        this.file.copyFile(namePath, currentName, cordova.file.dataDirectory, newFileName).then(function (success) {
+            //this.srcImage = newFileName;
+            _this.uploadImage(_this.appsetting.myGlobalVar + 'events/uploadeventimg');
+        }, function (error) {
+            _this.presentToast('Error while storing file.');
+        });
+    };
+    AddeventdjPage.prototype.presentToast = function (text) {
+        var toast = this.toastCtrl.create({
+            message: text,
+            duration: 3000,
+            position: 'top'
+        });
+        toast.present();
+    };
+    // Always get the accurate path to your apps folder
+    AddeventdjPage.prototype.pathForImage = function (img) {
+        if (img === null) {
+            return '';
+        }
+        else {
+            return cordova.file.dataDirectory + img;
+        }
+    };
+    AddeventdjPage.prototype.CameraActionadd = function () {
+        var _this = this;
+        var actionsheet = this.actionSheetCtrl.create({
+            title: "Choose Album",
+            buttons: [{
+                    text: 'Camera',
+                    handler: function () {
+                        _this.takePicture(_this.camera.PictureSourceType.CAMERA);
+                    }
+                },
+                {
+                    text: 'Gallery',
+                    handler: function () {
+                        _this.takePicture(_this.camera.PictureSourceType.PHOTOLIBRARY);
+                    }
+                },
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }]
+        });
+        actionsheet.present();
+    };
+    AddeventdjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loader.dismiss();
+            var alert_9 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_9.present();
+            setTimeout(function () { return alert_9.dismiss(); }, 1500);
+        }
+    };
+    AddeventdjPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AddeventdjPage');
+    };
+    return AddeventdjPage;
+}());
+AddeventdjPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-addeventdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/addeventdj/addeventdj.html"*/'<!--\n  Generated template for the AddeventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		<ion-navbar color="black">\n			<ion-title>Add Event</ion-title>\n	    	 <ion-buttons end class="rbutton">\n		        <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n		     </ion-buttons>\n		</ion-navbar>\n	</ion-header>\n	\n	\n	<ion-content>\n		<div class="imgsec">\n			<img [src]="logo">\n		</div>\n		<div class="form-sec">\n			<ion-grid>\n				<ion-row>\n					<ion-col>\n						\n						<form #addeventForm="ngForm" class="event-form">\n							<ion-col col-12>\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="text" placeholder="Venue name" [(ngModel)]="data.venuename" name="venuename" #venuename=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="venuename.errors && (venuename.dirty || venuename.touched)">\n											   <div [hidden]="!venuename.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n							</ion-col>\n								\n								<ion-col col-12>\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="text" placeholder="Venue address" [(ngModel)]="data.venueaddress" name="venueaddress" #venueaddress=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="venueaddress.errors && (venueaddress.dirty || venueaddress.touched)">\n											   <div [hidden]="!venueaddress.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n								<ion-col col-12>\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="text" placeholder="Event name" [(ngModel)]="data.eventname" name="eventname" #eventname=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventname.errors && (eventname.dirty || eventname.touched)">\n											   <div [hidden]="!eventname.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n								 <div class="colm">\n						<ion-col col-12>\n								<ion-row>\n							<ion-col col-6>\n									<ion-list>\n										<ion-item>\n												\n												<ion-datetime min="{{minyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY" [(ngModel)]="data.eventstartdt" (ngModelChange)="updateDueDate($event)" name="eventstartdt" placeholder="Event start date" #eventstartdt=\'ngModel\' required></ion-datetime>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventstartdt.errors && (eventstartdt.dirty || eventstartdt.touched)">\n											   <div [hidden]="!eventstartdt.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									 </ion-list>\n							</ion-col>\n	\n							<ion-col col-6>\n									<ion-list>\n										<ion-item>\n												<ion-datetime min="{{maxyear}}" pickerFormat="MM/DD/YYYY" displayFormat="MM/DD/YYYY"  placeholder="Event end date" [(ngModel)]="data.eventenddt" name="eventenddt" #eventenddt=\'ngModel\' required></ion-datetime>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventenddt.errors && (eventenddt.dirty || eventenddt.touched)">\n											   <div [hidden]="!eventenddt.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									 </ion-list>\n							</ion-col>\n							</ion-row>\n						</ion-col>\n					</div>\n						<div class="colm>">\n						<ion-col col-12>\n							<ion-row>\n							<ion-col col-6 class="padding0lft">\n									<ion-list>\n										<ion-item>\n												<ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event start time" [(ngModel)]="data.eventsarttm" name="eventsarttm" #eventsarttm=\'ngModel\' required></ion-datetime>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventsarttm.errors && (eventsarttm.dirty || eventsarttm.touched)">\n											   <div [hidden]="!eventsarttm.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									 </ion-list>\n							</ion-col>\n							<ion-col col-6 class="padding0rgt">\n									<ion-list>\n										<ion-item>\n												<ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" placeholder="Event end time" [(ngModel)]="data.eventendtm" name="eventendtm" #eventendtm=\'ngModel\' required></ion-datetime>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="eventendtm.errors && (eventendtm.dirty || eventendtm.touched)">\n											   <div [hidden]="!eventendtm.errors.required" >\n												 Field is required\n												</div>\n											</div>\n										</ion-label>\n									 </ion-list>\n							</ion-col>\n						</ion-row>\n						</ion-col>\n					</div>\n					<ion-col col-12>\n						<ion-row>\n							<div class="tip" (click)="toggleDetails(taggel)">\n								<h3>Setup Tip Amounts</h3>\n								<button class="abc" ion-button icon-right>\n									<ion-icon name="arrow-down"></ion-icon>\n								</button>\n							</div>\n						</ion-row>\n					</ion-col>\n					<ion-col col-12 *ngIf="taggel">\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="tel" placeholder="Minimum amount for Play Now" min="2" [(ngModel)]="data.minplay" name="minplay" #minplay=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="minplay.errors && (minplay.dirty || minplay.touched)">\n											   <div [hidden]="!minplay.errors.required" >\n													 Field is required\n											   </div>\n												<div [hidden]="!minplay.errors.min" >\n													Minimum amount should be 2 \n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n							 \n								<ion-col col-12 *ngIf="taggel">\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="tel" placeholder="Minimum amount for Guaranteed Play" min="2" [(ngModel)]="data.mingrnt" name="mingrnt" #mingrnt=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="mingrnt.errors && (mingrnt.dirty || mingrnt.touched)">\n											   <div [hidden]="!mingrnt.errors.required" >\n												 Field is required\n												</div>\n												<div [hidden]="!mingrnt.errors.min" >\n													Minimum amount should be 2 \n												</div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n								<ion-col col-12 *ngIf="taggel">\n								<ion-row>\n									<ion-list>\n										<ion-item>\n											<ion-input type="tel" placeholder="Minimum amount for Possibly Play" min="2" [(ngModel)]="data.minpossi" name="minpossi" #minpossi=\'ngModel\' required></ion-input>\n										</ion-item>\n										<ion-label  class="alert alert-danger" color="danger">\n											<div *ngIf="minpossi.errors && (minpossi.dirty || minpossi.touched)">\n											   <div [hidden]="!minpossi.errors.required" >\n													 Field is required\n											   </div>\n											   <div [hidden]="!minpossi.errors.min" >\n													Minimum amount should be 2 \n											   </div>\n											</div>\n										</ion-label>\n									</ion-list>\n								</ion-row>\n								</ion-col>\n							\n						<ion-col col-12>\n							<ion-row>\n								<div *ngIf="srcImage" class="upload_imgouter">\n									<img [src]="srcImage"/>\n								</div>  \n								<!-- <ion-label  class="alert alert-danger" color="danger">\n									<div *ngIf="img.errors && (img.dirty || img.touched)">\n										   <div [hidden]="!img.errors.required" >\n											 Field is required\n										</div>\n									</div>\n								</ion-label> -->\n								<div class="file-upload">\n										<!-- <label for="upload" class="file-upload__label">Upload Image <span> <ion-icon name="camera"></ion-icon></span></label> -->\n										<!-- <button class="file-upload__input" ion-button full (click)="CameraAction()" style="background:none;"></button> -->\n										<label for="upload" class="file-upload__label">Upload Image <span> <ion-icon name="camera"></ion-icon></span></label>\n										<input id="upload" class="file-upload__input" (click)="CameraActionadd()" type="button" name="file-upload">  \n								</div>\n								\n							</ion-row>\n						</ion-col>\n						\n						<ion-col col-12>\n							<ion-row>\n								<div class="bottombtn">\n									<button ion-button type="submit" [disabled]="!addeventForm.form.valid"  (click)="addeventnow(addeventForm)">Save</button>\n								</div>\n							</ion-row>\n						</ion-col>\n					</form>\n					</ion-col>\n				</ion-row>\n			</ion-grid>\n		</div>\n	\n	</ion-content>\n	\n	'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/addeventdj/addeventdj.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Platform */],
+        __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_9__ionic_native_transfer__["a" /* Transfer */],
+        __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__["a" /* File */],
+        __WEBPACK_IMPORTED_MODULE_10__ionic_native_file_path__["a" /* FilePath */],
+        __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
+        __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+], AddeventdjPage);
+
+//# sourceMappingURL=addeventdj.js.map
+
+/***/ }),
+
+/***/ 375:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(376);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_module__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_module__ = __webpack_require__(394);
 
 
 
@@ -5380,83 +6934,93 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 389:
+/***/ 394:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(439);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_djsdetails_djsdetails__ = __webpack_require__(134);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_votelike_votelike__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(444);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_djsdetails_djsdetails__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_votelike_votelike__ = __webpack_require__(140);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_list_list__ = __webpack_require__(440);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_signup_signup__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_forgot_forgot__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_changepassword_changepassword__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_profile_profile__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_profileedit_profileedit__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_streaming_media__ = __webpack_require__(441);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_entercode_entercode__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_historicalrequests_historicalrequests__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_requestsongplay_requestsongplay__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_shoutout_shoutout__ = __webpack_require__(133);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_settings_settings__ = __webpack_require__(368);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_voteup_voteup__ = __webpack_require__(132);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_terms_terms__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_privacy_privacy__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_paymentinfo_paymentinfo__ = __webpack_require__(369);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_payinfo_payinfo__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_djslist_djslist__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_songrequests_songrequests__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_in_app_browser__ = __webpack_require__(327);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_signupdj_signupdj__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_logindj_logindj__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_editprofiledj_editprofiledj__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_nameofeventsdj_nameofeventsdj__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_paymenthistorydj_paymenthistorydj__ = __webpack_require__(141);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_requesthistorydj_requesthistorydj__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_helpdj_helpdj__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_editevent_editevent__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_termsdj_termsdj__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_signindj_signindj__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_changepassworddj_changepassworddj__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_eventsdj_eventsdj__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_playnowlistdj_playnowlistdj__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_addeventdj_addeventdj__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_subscribedj_subscribedj__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_voting_voting__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_omniaclubeventdj_omniaclubeventdj__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_pasteventdj_pasteventdj__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_manageeventsdj_manageeventsdj__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_topqueuedj_topqueuedj__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_gauranteedj_gauranteedj__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_termsdjsubs_termsdjsubs__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_possiblydj_possiblydj__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_voteupdj_voteupdj__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_shoutoutdj_shoutoutdj__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_subscribedjupdate_subscribedjupdate__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_transactionhstrydj_transactionhstrydj__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__ionic_native_paypal__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__ionic_native_status_bar__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__ionic_native_splash_screen__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__ionic_native_camera__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__ionic_native_facebook__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__providers_variable_variable__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__providers_common_common__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__ionic_native_firebase__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_list_list__ = __webpack_require__(445);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_signup_signup__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_forgot_forgot__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_changepassword_changepassword__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_file__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_transfer__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_file_path__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_profile_profile__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_profileedit_profileedit__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_streaming_media__ = __webpack_require__(446);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_entercode_entercode__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_historicalrequests_historicalrequests__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_requestsongplay_requestsongplay__ = __webpack_require__(133);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_shoutout_shoutout__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_settings_settings__ = __webpack_require__(372);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_voteup_voteup__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_terms_terms__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_privacy_privacy__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_paymentinfo_paymentinfo__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_payinfo_payinfo__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_djslist_djslist__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_songrequests_songrequests__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ionic_native_in_app_browser__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_signupdj_signupdj__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_logindj_logindj__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_editprofiledj_editprofiledj__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_nameofeventsdj_nameofeventsdj__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_paymenthistorydj_paymenthistorydj__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_requesthistorydj_requesthistorydj__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_helpdj_helpdj__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_editevent_editevent__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_addeventdjnew_addeventdjnew__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_termsdj_termsdj__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_signindj_signindj__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_changepassworddj_changepassworddj__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_eventsdj_eventsdj__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_playnowlistdj_playnowlistdj__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_addeventdj_addeventdj__ = __webpack_require__(374);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_notificationdj_notificationdj__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_subscribedj_subscribedj__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_voting_voting__ = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_omniaclubeventdj_omniaclubeventdj__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_pasteventdj_pasteventdj__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_manageeventsdj_manageeventsdj__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_topqueuedj_topqueuedj__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_gauranteedj_gauranteedj__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_termsdjsubs_termsdjsubs__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_possiblydj_possiblydj__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_voteupdj_voteupdj__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_shoutoutdj_shoutoutdj__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__pages_subscribedjupdate_subscribedjupdate__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_transactionhstrydj_transactionhstrydj__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__ionic_native_paypal__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__ionic_native_status_bar__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__ionic_native_splash_screen__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__providers_appsetting__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__ionic_native_camera__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__ionic_native_facebook__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__providers_variable_variable__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__providers_common_common__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__ionic_native_firebase__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -5531,57 +7095,59 @@ var AppModule = (function () {
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_53__pages_shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */],
+            __WEBPACK_IMPORTED_MODULE_58__pages_shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */],
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
             __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
             __WEBPACK_IMPORTED_MODULE_8__pages_list_list__["a" /* ListPage */],
             __WEBPACK_IMPORTED_MODULE_9__pages_login_login__["a" /* LoginPage */],
             __WEBPACK_IMPORTED_MODULE_11__pages_forgot_forgot__["a" /* ForgotPage */],
             __WEBPACK_IMPORTED_MODULE_10__pages_signup_signup__["a" /* SignupPage */],
+            __WEBPACK_IMPORTED_MODULE_47__pages_notificationdj_notificationdj__["a" /* NotificationdjPage */],
             __WEBPACK_IMPORTED_MODULE_12__pages_changepassword_changepassword__["a" /* ChangepasswordPage */],
-            __WEBPACK_IMPORTED_MODULE_39__pages_changepassworddj_changepassworddj__["a" /* ChangepassworddjPage */],
-            __WEBPACK_IMPORTED_MODULE_13__pages_profile_profile__["a" /* ProfilePage */],
+            __WEBPACK_IMPORTED_MODULE_43__pages_changepassworddj_changepassworddj__["a" /* ChangepassworddjPage */],
+            __WEBPACK_IMPORTED_MODULE_16__pages_profile_profile__["a" /* ProfilePage */],
             __WEBPACK_IMPORTED_MODULE_5__pages_djsdetails_djsdetails__["a" /* DjsdetailsPage */],
-            __WEBPACK_IMPORTED_MODULE_14__pages_profileedit_profileedit__["a" /* ProfileeditPage */],
-            __WEBPACK_IMPORTED_MODULE_16__pages_entercode_entercode__["a" /* EntercodePage */],
-            __WEBPACK_IMPORTED_MODULE_25__pages_payinfo_payinfo__["a" /* PayinfoPage */],
+            __WEBPACK_IMPORTED_MODULE_17__pages_profileedit_profileedit__["a" /* ProfileeditPage */],
+            __WEBPACK_IMPORTED_MODULE_19__pages_entercode_entercode__["a" /* EntercodePage */],
+            __WEBPACK_IMPORTED_MODULE_28__pages_payinfo_payinfo__["a" /* PayinfoPage */],
             __WEBPACK_IMPORTED_MODULE_6__pages_votelike_votelike__["a" /* VotelikePage */],
-            __WEBPACK_IMPORTED_MODULE_44__pages_voting_voting__["a" /* VotingPage */],
-            __WEBPACK_IMPORTED_MODULE_49__pages_gauranteedj_gauranteedj__["a" /* GauranteedjPage */],
-            __WEBPACK_IMPORTED_MODULE_17__pages_historicalrequests_historicalrequests__["a" /* HistoricalrequestsPage */],
-            __WEBPACK_IMPORTED_MODULE_18__pages_requestsongplay_requestsongplay__["a" /* RequestsongplayPage */],
-            __WEBPACK_IMPORTED_MODULE_19__pages_shoutout_shoutout__["a" /* ShoutoutPage */],
-            __WEBPACK_IMPORTED_MODULE_21__pages_voteup_voteup__["a" /* VoteupPage */],
-            __WEBPACK_IMPORTED_MODULE_24__pages_paymentinfo_paymentinfo__["a" /* PaymentinfoPage */],
-            __WEBPACK_IMPORTED_MODULE_26__pages_djslist_djslist__["a" /* DjslistPage */],
-            __WEBPACK_IMPORTED_MODULE_20__pages_settings_settings__["a" /* SettingsPage */],
-            __WEBPACK_IMPORTED_MODULE_22__pages_terms_terms__["a" /* TermsPage */],
-            __WEBPACK_IMPORTED_MODULE_50__pages_termsdjsubs_termsdjsubs__["a" /* TermsdjsubsPage */],
-            __WEBPACK_IMPORTED_MODULE_23__pages_privacy_privacy__["a" /* PrivacyPage */],
-            __WEBPACK_IMPORTED_MODULE_51__pages_possiblydj_possiblydj__["a" /* PossiblydjPage */],
-            __WEBPACK_IMPORTED_MODULE_37__pages_termsdj_termsdj__["a" /* TermsdjPage */],
-            __WEBPACK_IMPORTED_MODULE_27__pages_songrequests_songrequests__["a" /* SongrequestsPage */],
-            __WEBPACK_IMPORTED_MODULE_38__pages_signindj_signindj__["a" /* SignindjPage */],
-            __WEBPACK_IMPORTED_MODULE_40__pages_eventsdj_eventsdj__["a" /* EventsdjPage */],
-            __WEBPACK_IMPORTED_MODULE_42__pages_addeventdj_addeventdj__["a" /* AddeventdjPage */],
-            __WEBPACK_IMPORTED_MODULE_48__pages_topqueuedj_topqueuedj__["a" /* TopqueuedjPage */],
-            __WEBPACK_IMPORTED_MODULE_43__pages_subscribedj_subscribedj__["a" /* SubscribedjPage */],
-            __WEBPACK_IMPORTED_MODULE_45__pages_omniaclubeventdj_omniaclubeventdj__["a" /* OmniaclubeventdjPage */],
-            __WEBPACK_IMPORTED_MODULE_46__pages_pasteventdj_pasteventdj__["a" /* PasteventdjPage */],
-            __WEBPACK_IMPORTED_MODULE_47__pages_manageeventsdj_manageeventsdj__["a" /* ManageeventsdjPage */],
-            __WEBPACK_IMPORTED_MODULE_29__pages_signupdj_signupdj__["a" /* SignupdjPage */],
-            __WEBPACK_IMPORTED_MODULE_30__pages_logindj_logindj__["a" /* LogindjPage */],
-            __WEBPACK_IMPORTED_MODULE_31__pages_editprofiledj_editprofiledj__["a" /* EditprofiledjPage */],
-            __WEBPACK_IMPORTED_MODULE_32__pages_nameofeventsdj_nameofeventsdj__["a" /* NameofeventsdjPage */],
-            __WEBPACK_IMPORTED_MODULE_55__pages_transactionhstrydj_transactionhstrydj__["a" /* TransactionhstrydjPage */],
-            __WEBPACK_IMPORTED_MODULE_41__pages_playnowlistdj_playnowlistdj__["a" /* PlaynowlistdjPage */],
-            __WEBPACK_IMPORTED_MODULE_35__pages_helpdj_helpdj__["a" /* HelpdjPage */],
-            __WEBPACK_IMPORTED_MODULE_54__pages_subscribedjupdate_subscribedjupdate__["a" /* SubscribedjupdatePage */],
-            __WEBPACK_IMPORTED_MODULE_34__pages_requesthistorydj_requesthistorydj__["a" /* RequesthistorydjPage */],
-            __WEBPACK_IMPORTED_MODULE_33__pages_paymenthistorydj_paymenthistorydj__["a" /* PaymenthistorydjPage */],
-            __WEBPACK_IMPORTED_MODULE_58__pages_membershipdetaildj_membershipdetaildj__["a" /* MembershipdetaildjPage */],
-            __WEBPACK_IMPORTED_MODULE_52__pages_voteupdj_voteupdj__["a" /* VoteupdjPage */],
-            __WEBPACK_IMPORTED_MODULE_36__pages_editevent_editevent__["a" /* EditeventPage */],
+            __WEBPACK_IMPORTED_MODULE_49__pages_voting_voting__["a" /* VotingPage */],
+            __WEBPACK_IMPORTED_MODULE_54__pages_gauranteedj_gauranteedj__["a" /* GauranteedjPage */],
+            __WEBPACK_IMPORTED_MODULE_20__pages_historicalrequests_historicalrequests__["a" /* HistoricalrequestsPage */],
+            __WEBPACK_IMPORTED_MODULE_21__pages_requestsongplay_requestsongplay__["a" /* RequestsongplayPage */],
+            __WEBPACK_IMPORTED_MODULE_22__pages_shoutout_shoutout__["a" /* ShoutoutPage */],
+            __WEBPACK_IMPORTED_MODULE_24__pages_voteup_voteup__["a" /* VoteupPage */],
+            __WEBPACK_IMPORTED_MODULE_27__pages_paymentinfo_paymentinfo__["a" /* PaymentinfoPage */],
+            __WEBPACK_IMPORTED_MODULE_29__pages_djslist_djslist__["a" /* DjslistPage */],
+            __WEBPACK_IMPORTED_MODULE_23__pages_settings_settings__["a" /* SettingsPage */],
+            __WEBPACK_IMPORTED_MODULE_25__pages_terms_terms__["a" /* TermsPage */],
+            __WEBPACK_IMPORTED_MODULE_40__pages_addeventdjnew_addeventdjnew__["a" /* AddeventdjnewPage */],
+            __WEBPACK_IMPORTED_MODULE_55__pages_termsdjsubs_termsdjsubs__["a" /* TermsdjsubsPage */],
+            __WEBPACK_IMPORTED_MODULE_26__pages_privacy_privacy__["a" /* PrivacyPage */],
+            __WEBPACK_IMPORTED_MODULE_56__pages_possiblydj_possiblydj__["a" /* PossiblydjPage */],
+            __WEBPACK_IMPORTED_MODULE_41__pages_termsdj_termsdj__["a" /* TermsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_30__pages_songrequests_songrequests__["a" /* SongrequestsPage */],
+            __WEBPACK_IMPORTED_MODULE_42__pages_signindj_signindj__["a" /* SignindjPage */],
+            __WEBPACK_IMPORTED_MODULE_44__pages_eventsdj_eventsdj__["a" /* EventsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_46__pages_addeventdj_addeventdj__["a" /* AddeventdjPage */],
+            __WEBPACK_IMPORTED_MODULE_53__pages_topqueuedj_topqueuedj__["a" /* TopqueuedjPage */],
+            __WEBPACK_IMPORTED_MODULE_48__pages_subscribedj_subscribedj__["a" /* SubscribedjPage */],
+            __WEBPACK_IMPORTED_MODULE_50__pages_omniaclubeventdj_omniaclubeventdj__["a" /* OmniaclubeventdjPage */],
+            __WEBPACK_IMPORTED_MODULE_51__pages_pasteventdj_pasteventdj__["a" /* PasteventdjPage */],
+            __WEBPACK_IMPORTED_MODULE_52__pages_manageeventsdj_manageeventsdj__["a" /* ManageeventsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_32__pages_signupdj_signupdj__["a" /* SignupdjPage */],
+            __WEBPACK_IMPORTED_MODULE_33__pages_logindj_logindj__["a" /* LogindjPage */],
+            __WEBPACK_IMPORTED_MODULE_34__pages_editprofiledj_editprofiledj__["a" /* EditprofiledjPage */],
+            __WEBPACK_IMPORTED_MODULE_35__pages_nameofeventsdj_nameofeventsdj__["a" /* NameofeventsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_60__pages_transactionhstrydj_transactionhstrydj__["a" /* TransactionhstrydjPage */],
+            __WEBPACK_IMPORTED_MODULE_45__pages_playnowlistdj_playnowlistdj__["a" /* PlaynowlistdjPage */],
+            __WEBPACK_IMPORTED_MODULE_38__pages_helpdj_helpdj__["a" /* HelpdjPage */],
+            __WEBPACK_IMPORTED_MODULE_59__pages_subscribedjupdate_subscribedjupdate__["a" /* SubscribedjupdatePage */],
+            __WEBPACK_IMPORTED_MODULE_37__pages_requesthistorydj_requesthistorydj__["a" /* RequesthistorydjPage */],
+            __WEBPACK_IMPORTED_MODULE_36__pages_paymenthistorydj_paymenthistorydj__["a" /* PaymenthistorydjPage */],
+            __WEBPACK_IMPORTED_MODULE_63__pages_membershipdetaildj_membershipdetaildj__["a" /* MembershipdetaildjPage */],
+            __WEBPACK_IMPORTED_MODULE_57__pages_voteupdj_voteupdj__["a" /* VoteupdjPage */],
+            __WEBPACK_IMPORTED_MODULE_39__pages_editevent_editevent__["a" /* EditeventPage */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -5605,7 +7171,7 @@ AppModule = __decorate([
                     { loadChildren: '../pages/shoutoutdj/shoutoutdj.module#ShoutoutdjPageModule', name: 'ShoutoutdjPage', segment: 'shoutoutdj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/forgot/forgot.module#ForgotPageModule', name: 'ForgotPage', segment: 'forgot', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/editprofiledj/editprofiledj.module#EditprofiledjPageModule', name: 'EditprofiledjPage', segment: 'editprofiledj', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/addeventdj/addeventdj.module#AddeventdjPageModule', name: 'AddeventdjPage', segment: 'addeventdj', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/addeventdjnew/addeventdjnew.module#AddeventdjnewPageModule', name: 'AddeventdjnewPage', segment: 'addeventdjnew', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/paymenthistorydj/paymenthistorydj.module#PaymenthistorydjPageModule', name: 'PaymenthistorydjPage', segment: 'paymenthistorydj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/requesthistorydj/requesthistorydj.module#RequesthistorydjPageModule', name: 'RequesthistorydjPage', segment: 'requesthistorydj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/pasteventdj/pasteventdj.module#PasteventdjPageModule', name: 'PasteventdjPage', segment: 'pasteventdj', priority: 'low', defaultHistory: [] },
@@ -5634,15 +7200,16 @@ AppModule = __decorate([
                     { loadChildren: '../pages/helpdj/helpdj.module#HelpdjPageModule', name: 'HelpdjPage', segment: 'helpdj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/changepassworddj/changepassworddj.module#ChangepassworddjPageModule', name: 'ChangepassworddjPage', segment: 'changepassworddj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/termsdj/termsdj.module#TermsdjPageModule', name: 'TermsdjPage', segment: 'termsdj', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/notificationdj/notificationdj.module#NotificationdjPageModule', name: 'NotificationdjPage', segment: 'notificationdj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/paymentinfo/paymentinfo.module#PaymentinfoPageModule', name: 'PaymentinfoPage', segment: 'paymentinfo', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/addeventdj/addeventdj.module#AddeventdjPageModule', name: 'AddeventdjPage', segment: 'addeventdj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/intro/intro.module#IntroPageModule', name: 'IntroPage', segment: 'intro', priority: 'low', defaultHistory: [] }
                 ]
             }),
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicApp */]],
         entryComponents: [
-            __WEBPACK_IMPORTED_MODULE_36__pages_editevent_editevent__["a" /* EditeventPage */],
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
             __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */],
             __WEBPACK_IMPORTED_MODULE_8__pages_list_list__["a" /* ListPage */],
@@ -5650,63 +7217,69 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_10__pages_signup_signup__["a" /* SignupPage */],
             __WEBPACK_IMPORTED_MODULE_11__pages_forgot_forgot__["a" /* ForgotPage */],
             __WEBPACK_IMPORTED_MODULE_12__pages_changepassword_changepassword__["a" /* ChangepasswordPage */],
-            __WEBPACK_IMPORTED_MODULE_39__pages_changepassworddj_changepassworddj__["a" /* ChangepassworddjPage */],
-            __WEBPACK_IMPORTED_MODULE_13__pages_profile_profile__["a" /* ProfilePage */],
-            __WEBPACK_IMPORTED_MODULE_25__pages_payinfo_payinfo__["a" /* PayinfoPage */],
+            __WEBPACK_IMPORTED_MODULE_43__pages_changepassworddj_changepassworddj__["a" /* ChangepassworddjPage */],
+            __WEBPACK_IMPORTED_MODULE_16__pages_profile_profile__["a" /* ProfilePage */],
+            __WEBPACK_IMPORTED_MODULE_39__pages_editevent_editevent__["a" /* EditeventPage */],
+            __WEBPACK_IMPORTED_MODULE_28__pages_payinfo_payinfo__["a" /* PayinfoPage */],
             __WEBPACK_IMPORTED_MODULE_5__pages_djsdetails_djsdetails__["a" /* DjsdetailsPage */],
-            __WEBPACK_IMPORTED_MODULE_14__pages_profileedit_profileedit__["a" /* ProfileeditPage */],
-            __WEBPACK_IMPORTED_MODULE_37__pages_termsdj_termsdj__["a" /* TermsdjPage */],
-            __WEBPACK_IMPORTED_MODULE_16__pages_entercode_entercode__["a" /* EntercodePage */],
+            __WEBPACK_IMPORTED_MODULE_17__pages_profileedit_profileedit__["a" /* ProfileeditPage */],
+            __WEBPACK_IMPORTED_MODULE_41__pages_termsdj_termsdj__["a" /* TermsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_19__pages_entercode_entercode__["a" /* EntercodePage */],
             __WEBPACK_IMPORTED_MODULE_6__pages_votelike_votelike__["a" /* VotelikePage */],
-            __WEBPACK_IMPORTED_MODULE_44__pages_voting_voting__["a" /* VotingPage */],
-            __WEBPACK_IMPORTED_MODULE_17__pages_historicalrequests_historicalrequests__["a" /* HistoricalrequestsPage */],
-            __WEBPACK_IMPORTED_MODULE_58__pages_membershipdetaildj_membershipdetaildj__["a" /* MembershipdetaildjPage */],
-            __WEBPACK_IMPORTED_MODULE_18__pages_requestsongplay_requestsongplay__["a" /* RequestsongplayPage */],
-            __WEBPACK_IMPORTED_MODULE_19__pages_shoutout_shoutout__["a" /* ShoutoutPage */],
-            __WEBPACK_IMPORTED_MODULE_20__pages_settings_settings__["a" /* SettingsPage */],
-            __WEBPACK_IMPORTED_MODULE_21__pages_voteup_voteup__["a" /* VoteupPage */],
-            __WEBPACK_IMPORTED_MODULE_51__pages_possiblydj_possiblydj__["a" /* PossiblydjPage */],
-            __WEBPACK_IMPORTED_MODULE_49__pages_gauranteedj_gauranteedj__["a" /* GauranteedjPage */],
-            __WEBPACK_IMPORTED_MODULE_22__pages_terms_terms__["a" /* TermsPage */],
-            __WEBPACK_IMPORTED_MODULE_24__pages_paymentinfo_paymentinfo__["a" /* PaymentinfoPage */],
-            __WEBPACK_IMPORTED_MODULE_23__pages_privacy_privacy__["a" /* PrivacyPage */],
-            __WEBPACK_IMPORTED_MODULE_48__pages_topqueuedj_topqueuedj__["a" /* TopqueuedjPage */],
-            __WEBPACK_IMPORTED_MODULE_26__pages_djslist_djslist__["a" /* DjslistPage */],
-            __WEBPACK_IMPORTED_MODULE_27__pages_songrequests_songrequests__["a" /* SongrequestsPage */],
-            __WEBPACK_IMPORTED_MODULE_38__pages_signindj_signindj__["a" /* SignindjPage */],
-            __WEBPACK_IMPORTED_MODULE_40__pages_eventsdj_eventsdj__["a" /* EventsdjPage */],
-            __WEBPACK_IMPORTED_MODULE_42__pages_addeventdj_addeventdj__["a" /* AddeventdjPage */],
-            __WEBPACK_IMPORTED_MODULE_43__pages_subscribedj_subscribedj__["a" /* SubscribedjPage */],
-            __WEBPACK_IMPORTED_MODULE_50__pages_termsdjsubs_termsdjsubs__["a" /* TermsdjsubsPage */],
-            __WEBPACK_IMPORTED_MODULE_45__pages_omniaclubeventdj_omniaclubeventdj__["a" /* OmniaclubeventdjPage */],
-            __WEBPACK_IMPORTED_MODULE_46__pages_pasteventdj_pasteventdj__["a" /* PasteventdjPage */],
-            __WEBPACK_IMPORTED_MODULE_47__pages_manageeventsdj_manageeventsdj__["a" /* ManageeventsdjPage */],
-            __WEBPACK_IMPORTED_MODULE_29__pages_signupdj_signupdj__["a" /* SignupdjPage */],
-            __WEBPACK_IMPORTED_MODULE_30__pages_logindj_logindj__["a" /* LogindjPage */],
-            __WEBPACK_IMPORTED_MODULE_54__pages_subscribedjupdate_subscribedjupdate__["a" /* SubscribedjupdatePage */],
-            __WEBPACK_IMPORTED_MODULE_31__pages_editprofiledj_editprofiledj__["a" /* EditprofiledjPage */],
-            __WEBPACK_IMPORTED_MODULE_32__pages_nameofeventsdj_nameofeventsdj__["a" /* NameofeventsdjPage */],
-            __WEBPACK_IMPORTED_MODULE_55__pages_transactionhstrydj_transactionhstrydj__["a" /* TransactionhstrydjPage */],
-            __WEBPACK_IMPORTED_MODULE_41__pages_playnowlistdj_playnowlistdj__["a" /* PlaynowlistdjPage */],
-            __WEBPACK_IMPORTED_MODULE_35__pages_helpdj_helpdj__["a" /* HelpdjPage */],
-            __WEBPACK_IMPORTED_MODULE_52__pages_voteupdj_voteupdj__["a" /* VoteupdjPage */],
-            __WEBPACK_IMPORTED_MODULE_53__pages_shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */],
-            __WEBPACK_IMPORTED_MODULE_34__pages_requesthistorydj_requesthistorydj__["a" /* RequesthistorydjPage */],
-            __WEBPACK_IMPORTED_MODULE_33__pages_paymenthistorydj_paymenthistorydj__["a" /* PaymenthistorydjPage */],
+            __WEBPACK_IMPORTED_MODULE_49__pages_voting_voting__["a" /* VotingPage */],
+            __WEBPACK_IMPORTED_MODULE_40__pages_addeventdjnew_addeventdjnew__["a" /* AddeventdjnewPage */],
+            __WEBPACK_IMPORTED_MODULE_47__pages_notificationdj_notificationdj__["a" /* NotificationdjPage */],
+            __WEBPACK_IMPORTED_MODULE_20__pages_historicalrequests_historicalrequests__["a" /* HistoricalrequestsPage */],
+            __WEBPACK_IMPORTED_MODULE_63__pages_membershipdetaildj_membershipdetaildj__["a" /* MembershipdetaildjPage */],
+            __WEBPACK_IMPORTED_MODULE_21__pages_requestsongplay_requestsongplay__["a" /* RequestsongplayPage */],
+            __WEBPACK_IMPORTED_MODULE_22__pages_shoutout_shoutout__["a" /* ShoutoutPage */],
+            __WEBPACK_IMPORTED_MODULE_23__pages_settings_settings__["a" /* SettingsPage */],
+            __WEBPACK_IMPORTED_MODULE_24__pages_voteup_voteup__["a" /* VoteupPage */],
+            __WEBPACK_IMPORTED_MODULE_56__pages_possiblydj_possiblydj__["a" /* PossiblydjPage */],
+            __WEBPACK_IMPORTED_MODULE_54__pages_gauranteedj_gauranteedj__["a" /* GauranteedjPage */],
+            __WEBPACK_IMPORTED_MODULE_25__pages_terms_terms__["a" /* TermsPage */],
+            __WEBPACK_IMPORTED_MODULE_27__pages_paymentinfo_paymentinfo__["a" /* PaymentinfoPage */],
+            __WEBPACK_IMPORTED_MODULE_26__pages_privacy_privacy__["a" /* PrivacyPage */],
+            __WEBPACK_IMPORTED_MODULE_53__pages_topqueuedj_topqueuedj__["a" /* TopqueuedjPage */],
+            __WEBPACK_IMPORTED_MODULE_29__pages_djslist_djslist__["a" /* DjslistPage */],
+            __WEBPACK_IMPORTED_MODULE_30__pages_songrequests_songrequests__["a" /* SongrequestsPage */],
+            __WEBPACK_IMPORTED_MODULE_42__pages_signindj_signindj__["a" /* SignindjPage */],
+            __WEBPACK_IMPORTED_MODULE_44__pages_eventsdj_eventsdj__["a" /* EventsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_46__pages_addeventdj_addeventdj__["a" /* AddeventdjPage */],
+            __WEBPACK_IMPORTED_MODULE_48__pages_subscribedj_subscribedj__["a" /* SubscribedjPage */],
+            __WEBPACK_IMPORTED_MODULE_55__pages_termsdjsubs_termsdjsubs__["a" /* TermsdjsubsPage */],
+            __WEBPACK_IMPORTED_MODULE_50__pages_omniaclubeventdj_omniaclubeventdj__["a" /* OmniaclubeventdjPage */],
+            __WEBPACK_IMPORTED_MODULE_51__pages_pasteventdj_pasteventdj__["a" /* PasteventdjPage */],
+            __WEBPACK_IMPORTED_MODULE_52__pages_manageeventsdj_manageeventsdj__["a" /* ManageeventsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_32__pages_signupdj_signupdj__["a" /* SignupdjPage */],
+            __WEBPACK_IMPORTED_MODULE_33__pages_logindj_logindj__["a" /* LogindjPage */],
+            __WEBPACK_IMPORTED_MODULE_59__pages_subscribedjupdate_subscribedjupdate__["a" /* SubscribedjupdatePage */],
+            __WEBPACK_IMPORTED_MODULE_34__pages_editprofiledj_editprofiledj__["a" /* EditprofiledjPage */],
+            __WEBPACK_IMPORTED_MODULE_35__pages_nameofeventsdj_nameofeventsdj__["a" /* NameofeventsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_60__pages_transactionhstrydj_transactionhstrydj__["a" /* TransactionhstrydjPage */],
+            __WEBPACK_IMPORTED_MODULE_45__pages_playnowlistdj_playnowlistdj__["a" /* PlaynowlistdjPage */],
+            __WEBPACK_IMPORTED_MODULE_38__pages_helpdj_helpdj__["a" /* HelpdjPage */],
+            __WEBPACK_IMPORTED_MODULE_57__pages_voteupdj_voteupdj__["a" /* VoteupdjPage */],
+            __WEBPACK_IMPORTED_MODULE_58__pages_shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */],
+            __WEBPACK_IMPORTED_MODULE_37__pages_requesthistorydj_requesthistorydj__["a" /* RequesthistorydjPage */],
+            __WEBPACK_IMPORTED_MODULE_36__pages_paymenthistorydj_paymenthistorydj__["a" /* PaymenthistorydjPage */],
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_65__ionic_native_firebase__["a" /* Firebase */],
-            __WEBPACK_IMPORTED_MODULE_60__providers_appsetting__["a" /* Appsetting */],
-            __WEBPACK_IMPORTED_MODULE_59__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_57__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_61__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_62__ionic_native_facebook__["a" /* Facebook */],
-            __WEBPACK_IMPORTED_MODULE_28__ionic_native_in_app_browser__["a" /* InAppBrowser */],
-            __WEBPACK_IMPORTED_MODULE_56__ionic_native_paypal__["a" /* PayPal */],
+            __WEBPACK_IMPORTED_MODULE_70__ionic_native_firebase__["a" /* Firebase */],
+            __WEBPACK_IMPORTED_MODULE_65__providers_appsetting__["a" /* Appsetting */],
+            __WEBPACK_IMPORTED_MODULE_64__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_62__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_66__ionic_native_camera__["a" /* Camera */],
+            __WEBPACK_IMPORTED_MODULE_67__ionic_native_facebook__["a" /* Facebook */],
+            __WEBPACK_IMPORTED_MODULE_13__ionic_native_file__["a" /* File */],
+            __WEBPACK_IMPORTED_MODULE_14__ionic_native_transfer__["a" /* Transfer */],
+            __WEBPACK_IMPORTED_MODULE_15__ionic_native_file_path__["a" /* FilePath */],
+            __WEBPACK_IMPORTED_MODULE_31__ionic_native_in_app_browser__["a" /* InAppBrowser */],
+            __WEBPACK_IMPORTED_MODULE_61__ionic_native_paypal__["a" /* PayPal */],
             { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicErrorHandler */] },
-            __WEBPACK_IMPORTED_MODULE_63__providers_variable_variable__["a" /* VariableProvider */],
-            __WEBPACK_IMPORTED_MODULE_64__providers_common_common__["a" /* CommonProvider */],
-            __WEBPACK_IMPORTED_MODULE_15__ionic_native_streaming_media__["a" /* StreamingMedia */]
+            __WEBPACK_IMPORTED_MODULE_68__providers_variable_variable__["a" /* VariableProvider */],
+            __WEBPACK_IMPORTED_MODULE_69__providers_common_common__["a" /* CommonProvider */],
+            __WEBPACK_IMPORTED_MODULE_18__ionic_native_streaming_media__["a" /* StreamingMedia */]
         ]
     })
 ], AppModule);
@@ -5715,24 +7288,284 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 40:
+/***/ 426:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": 213,
+	"./af.js": 213,
+	"./ar": 214,
+	"./ar-dz": 215,
+	"./ar-dz.js": 215,
+	"./ar-kw": 216,
+	"./ar-kw.js": 216,
+	"./ar-ly": 217,
+	"./ar-ly.js": 217,
+	"./ar-ma": 218,
+	"./ar-ma.js": 218,
+	"./ar-sa": 219,
+	"./ar-sa.js": 219,
+	"./ar-tn": 220,
+	"./ar-tn.js": 220,
+	"./ar.js": 214,
+	"./az": 221,
+	"./az.js": 221,
+	"./be": 222,
+	"./be.js": 222,
+	"./bg": 223,
+	"./bg.js": 223,
+	"./bm": 224,
+	"./bm.js": 224,
+	"./bn": 225,
+	"./bn.js": 225,
+	"./bo": 226,
+	"./bo.js": 226,
+	"./br": 227,
+	"./br.js": 227,
+	"./bs": 228,
+	"./bs.js": 228,
+	"./ca": 229,
+	"./ca.js": 229,
+	"./cs": 230,
+	"./cs.js": 230,
+	"./cv": 231,
+	"./cv.js": 231,
+	"./cy": 232,
+	"./cy.js": 232,
+	"./da": 233,
+	"./da.js": 233,
+	"./de": 234,
+	"./de-at": 235,
+	"./de-at.js": 235,
+	"./de-ch": 236,
+	"./de-ch.js": 236,
+	"./de.js": 234,
+	"./dv": 237,
+	"./dv.js": 237,
+	"./el": 238,
+	"./el.js": 238,
+	"./en-au": 239,
+	"./en-au.js": 239,
+	"./en-ca": 240,
+	"./en-ca.js": 240,
+	"./en-gb": 241,
+	"./en-gb.js": 241,
+	"./en-ie": 242,
+	"./en-ie.js": 242,
+	"./en-nz": 243,
+	"./en-nz.js": 243,
+	"./eo": 244,
+	"./eo.js": 244,
+	"./es": 245,
+	"./es-do": 246,
+	"./es-do.js": 246,
+	"./es-us": 247,
+	"./es-us.js": 247,
+	"./es.js": 245,
+	"./et": 248,
+	"./et.js": 248,
+	"./eu": 249,
+	"./eu.js": 249,
+	"./fa": 250,
+	"./fa.js": 250,
+	"./fi": 251,
+	"./fi.js": 251,
+	"./fo": 252,
+	"./fo.js": 252,
+	"./fr": 253,
+	"./fr-ca": 254,
+	"./fr-ca.js": 254,
+	"./fr-ch": 255,
+	"./fr-ch.js": 255,
+	"./fr.js": 253,
+	"./fy": 256,
+	"./fy.js": 256,
+	"./gd": 257,
+	"./gd.js": 257,
+	"./gl": 258,
+	"./gl.js": 258,
+	"./gom-latn": 259,
+	"./gom-latn.js": 259,
+	"./gu": 260,
+	"./gu.js": 260,
+	"./he": 261,
+	"./he.js": 261,
+	"./hi": 262,
+	"./hi.js": 262,
+	"./hr": 263,
+	"./hr.js": 263,
+	"./hu": 264,
+	"./hu.js": 264,
+	"./hy-am": 265,
+	"./hy-am.js": 265,
+	"./id": 266,
+	"./id.js": 266,
+	"./is": 267,
+	"./is.js": 267,
+	"./it": 268,
+	"./it.js": 268,
+	"./ja": 269,
+	"./ja.js": 269,
+	"./jv": 270,
+	"./jv.js": 270,
+	"./ka": 271,
+	"./ka.js": 271,
+	"./kk": 272,
+	"./kk.js": 272,
+	"./km": 273,
+	"./km.js": 273,
+	"./kn": 274,
+	"./kn.js": 274,
+	"./ko": 275,
+	"./ko.js": 275,
+	"./ky": 276,
+	"./ky.js": 276,
+	"./lb": 277,
+	"./lb.js": 277,
+	"./lo": 278,
+	"./lo.js": 278,
+	"./lt": 279,
+	"./lt.js": 279,
+	"./lv": 280,
+	"./lv.js": 280,
+	"./me": 281,
+	"./me.js": 281,
+	"./mi": 282,
+	"./mi.js": 282,
+	"./mk": 283,
+	"./mk.js": 283,
+	"./ml": 284,
+	"./ml.js": 284,
+	"./mr": 285,
+	"./mr.js": 285,
+	"./ms": 286,
+	"./ms-my": 287,
+	"./ms-my.js": 287,
+	"./ms.js": 286,
+	"./my": 288,
+	"./my.js": 288,
+	"./nb": 289,
+	"./nb.js": 289,
+	"./ne": 290,
+	"./ne.js": 290,
+	"./nl": 291,
+	"./nl-be": 292,
+	"./nl-be.js": 292,
+	"./nl.js": 291,
+	"./nn": 293,
+	"./nn.js": 293,
+	"./pa-in": 294,
+	"./pa-in.js": 294,
+	"./pl": 295,
+	"./pl.js": 295,
+	"./pt": 296,
+	"./pt-br": 297,
+	"./pt-br.js": 297,
+	"./pt.js": 296,
+	"./ro": 298,
+	"./ro.js": 298,
+	"./ru": 299,
+	"./ru.js": 299,
+	"./sd": 300,
+	"./sd.js": 300,
+	"./se": 301,
+	"./se.js": 301,
+	"./si": 302,
+	"./si.js": 302,
+	"./sk": 303,
+	"./sk.js": 303,
+	"./sl": 304,
+	"./sl.js": 304,
+	"./sq": 305,
+	"./sq.js": 305,
+	"./sr": 306,
+	"./sr-cyrl": 307,
+	"./sr-cyrl.js": 307,
+	"./sr.js": 306,
+	"./ss": 308,
+	"./ss.js": 308,
+	"./sv": 309,
+	"./sv.js": 309,
+	"./sw": 310,
+	"./sw.js": 310,
+	"./ta": 311,
+	"./ta.js": 311,
+	"./te": 312,
+	"./te.js": 312,
+	"./tet": 313,
+	"./tet.js": 313,
+	"./th": 314,
+	"./th.js": 314,
+	"./tl-ph": 315,
+	"./tl-ph.js": 315,
+	"./tlh": 316,
+	"./tlh.js": 316,
+	"./tr": 317,
+	"./tr.js": 317,
+	"./tzl": 318,
+	"./tzl.js": 318,
+	"./tzm": 319,
+	"./tzm-latn": 320,
+	"./tzm-latn.js": 320,
+	"./tzm.js": 319,
+	"./uk": 321,
+	"./uk.js": 321,
+	"./ur": 322,
+	"./ur.js": 322,
+	"./uz": 323,
+	"./uz-latn": 324,
+	"./uz-latn.js": 324,
+	"./uz.js": 323,
+	"./vi": 325,
+	"./vi.js": 325,
+	"./x-pseudo": 326,
+	"./x-pseudo.js": 326,
+	"./yo": 327,
+	"./yo.js": 327,
+	"./zh-cn": 328,
+	"./zh-cn.js": 328,
+	"./zh-hk": 329,
+	"./zh-hk.js": 329,
+	"./zh-tw": 330,
+	"./zh-tw.js": 330
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 426;
+
+/***/ }),
+
+/***/ 43:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup_signup__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__forgot_forgot__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__forgot_forgot__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_common_common__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_variable_variable__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__signindj_signindj__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_common_common__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_variable_variable__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__signindj_signindj__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_firebase__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5755,6 +7588,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the SigninPage page.
  *
@@ -5762,7 +7596,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var LoginPage = (function () {
-    function LoginPage(navCtrl, navParams, http, appsetting, loadingCtrl, toastCtrl, fb, Cmn, variable, alertCtrl, events, zone) {
+    function LoginPage(navCtrl, navParams, http, appsetting, loadingCtrl, toastCtrl, fb, Cmn, variable, alertCtrl, events, firebase, zone) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.http = http;
@@ -5774,11 +7608,13 @@ var LoginPage = (function () {
         this.variable = variable;
         this.alertCtrl = alertCtrl;
         this.events = events;
+        this.firebase = firebase;
         this.zone = zone;
         this.scrollAmount = 44;
         this.data = {};
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         if (localStorage.getItem("username") != null && localStorage.getItem("password") != null) {
             this.username = localStorage.getItem("username");
@@ -5805,9 +7641,10 @@ var LoginPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     LoginPage.prototype.login = function (form) {
@@ -5824,35 +7661,41 @@ var LoginPage = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
         var options = new __WEBPACK_IMPORTED_MODULE_6__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var data = {
-            email: form.value.email,
-            password: form.value.password,
-        };
-        var Serialized = this.serializeObj(data);
-        this.http.post(this.appsetting.myGlobalVar + 'users/login', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-            _this.Loading.dismiss();
-            if (response.status == true) {
-                var alert_2 = _this.alertCtrl.create({
-                    title: 'Logged in',
-                    subTitle: response.msg,
-                    cssClass: 'newpop'
-                });
-                alert_2.present();
-                setTimeout(function () { return alert_2.dismiss(); }, 1500);
-                localStorage.removeItem("fblogin");
-                localStorage.setItem("USER_DATA", JSON.stringify(response.user));
-                _this.appsetting.profile = response.user;
-                _this.events.publish('role', 'clubgoer');
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
-            }
-            else {
-                var alert_3 = _this.alertCtrl.create({
-                    title: 'Login',
-                    subTitle: response.msg
-                });
-                alert_3.present();
-                setTimeout(function () { return alert_3.dismiss(); }, 1500);
-            }
+        this.firebase.onTokenRefresh().subscribe(function (token) {
+            console.log("The new token is " + token);
+            _this.token = token;
+            var data = {
+                email: form.value.email,
+                password: form.value.password,
+                token: _this.token
+            };
+            var Serialized = _this.serializeObj(data);
+            _this.http.post(_this.appsetting.myGlobalVar + 'users/login', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                _this.Loading.dismiss();
+                if (response.status == true) {
+                    var alert_2 = _this.alertCtrl.create({
+                        title: 'Logged in',
+                        subTitle: response.msg,
+                        cssClass: 'newpop'
+                    });
+                    alert_2.present();
+                    setTimeout(function () { return alert_2.dismiss(); }, 1500);
+                    localStorage.removeItem("fblogin");
+                    localStorage.setItem("USER_DATA", JSON.stringify(response.user));
+                    _this.appsetting.profile = response.user;
+                    _this.events.publish('role', 'clubgoer');
+                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+                }
+                else {
+                    var alert_3 = _this.alertCtrl.create({
+                        title: 'Login',
+                        subTitle: response.msg,
+                        buttons: ['ok']
+                    });
+                    alert_3.present();
+                    setTimeout(function () { return alert_3.dismiss(); }, 3500);
+                }
+            });
         });
     };
     LoginPage.prototype.fblogin = function () {
@@ -5893,10 +7736,11 @@ var LoginPage = (function () {
                         _this.events.publish('role', 'clubgoer');
                         var alert_4 = _this.alertCtrl.create({
                             title: 'Logged in',
-                            subTitle: resolve.msg
+                            subTitle: resolve.msg,
+                            buttons: ['ok']
                         });
                         alert_4.present();
-                        setTimeout(function () { return alert_4.dismiss(); }, 1500);
+                        setTimeout(function () { return alert_4.dismiss(); }, 3500);
                         _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
                     }
                     else {
@@ -5905,9 +7749,10 @@ var LoginPage = (function () {
                         var alert_5 = _this.alertCtrl.create({
                             title: 'Login',
                             subTitle: resolve.msg,
+                            buttons: ['ok']
                         });
                         alert_5.present();
-                        setTimeout(function () { return alert_5.dismiss(); }, 1500);
+                        setTimeout(function () { return alert_5.dismiss(); }, 3500);
                         _this.Loading.dismiss();
                     }
                     // this.userinfo.profilepicture ='data:image/jpeg;base64,' + imageUri;;
@@ -5981,6 +7826,7 @@ LoginPage = __decorate([
         __WEBPACK_IMPORTED_MODULE_10__providers_variable_variable__["a" /* VariableProvider */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
+        __WEBPACK_IMPORTED_MODULE_12__ionic_native_firebase__["a" /* Firebase */],
         __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */]])
 ], LoginPage);
 
@@ -5988,26 +7834,26 @@ LoginPage = __decorate([
 
 /***/ }),
 
-/***/ 41:
+/***/ 44:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LogindjPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signupdj_signupdj__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signupdj_signupdj__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_facebook__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_facebook__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__forgot_forgot__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__forgot_forgot__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_common_common__ = __webpack_require__(60);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_variable_variable__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__signindj_signindj__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_firebase__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_common_common__ = __webpack_require__(61);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_variable_variable__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__signindj_signindj__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_firebase__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6056,7 +7902,8 @@ var LogindjPage = (function () {
         this.scrollAmount = 44;
         this.data = {};
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         if (localStorage.getItem("usernamedj") != null && localStorage.getItem("passworddj") != null) {
             this.username = localStorage.getItem("usernamedj");
@@ -6082,9 +7929,10 @@ var LogindjPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 3500);
         }
     };
     LogindjPage.prototype.scrollHandler = function (event) {
@@ -6117,69 +7965,67 @@ var LogindjPage = (function () {
         // .catch(error => {
         //   console.error('Error getting token', error)
         // });
-        // this.firebase.onTokenRefresh().subscribe(
-        //   token => {
-        //     console.log(`The new token is ${token}`);
-        //     this.token = token;
-        //     console.log('onTokenRefresh->', this.token);
-        if (form.value.checkbx == true) {
-            localStorage.setItem("usernamedj", form.value.email);
-            localStorage.setItem("passworddj", form.value.password);
-        }
-        else {
-            localStorage.removeItem("usernamedj");
-            localStorage.removeItem("passworddj");
-        }
-        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-        var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var data = {
-            email: form.value.email,
-            password: form.value.password,
-            token: this.token
-        };
-        console.log(data);
-        console.log("vikrant");
-        var Serialized = this.serializeObj(data);
-        var Loading = this.loadingCtrl.create({
-            content: 'Please wait...',
-        });
-        Loading.present().then(function () {
-            _this.http.post(_this.appsetting.myGlobalVar + 'users/logindj', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                Loading.dismiss();
-                alert(JSON.stringify(response));
-                if (response.status == true) {
-                    _this.Loading.dismiss();
-                    var alert_2 = _this.alertCtrl.create({
-                        title: 'Logged in',
-                        subTitle: response.msg,
-                        cssClass: 'newpop'
-                    });
-                    alert_2.present();
-                    setTimeout(function () { return alert_2.dismiss(); }, 1500);
-                    localStorage.removeItem("fblogin");
-                    localStorage.setItem("USER_DATA", JSON.stringify(response.user));
-                    _this.appsetting.profile = response.user;
-                    _this.events.publish('role', 'dj');
-                    if (response.user.subscription_status != 1) {
-                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
+        this.firebase.onTokenRefresh().subscribe(function (token) {
+            console.log("The new token is " + token);
+            _this.token = token;
+            if (form.value.checkbx == true) {
+                localStorage.setItem("usernamedj", form.value.email);
+                localStorage.setItem("passworddj", form.value.password);
+            }
+            else {
+                localStorage.removeItem("usernamedj");
+                localStorage.removeItem("passworddj");
+            }
+            var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]();
+            headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+            var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
+            var data = {
+                email: form.value.email,
+                password: form.value.password,
+                token: _this.token
+            };
+            console.log(data);
+            console.log("vikrant");
+            var Serialized = _this.serializeObj(data);
+            var Loading = _this.loadingCtrl.create({
+                content: 'Please wait...',
+            });
+            Loading.present().then(function () {
+                _this.http.post(_this.appsetting.myGlobalVar + 'users/logindj', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                    Loading.dismiss();
+                    if (response.status == true) {
+                        _this.Loading.dismiss();
+                        var alert_2 = _this.alertCtrl.create({
+                            title: 'Logged in',
+                            subTitle: response.msg,
+                            cssClass: 'newpop'
+                        });
+                        alert_2.present();
+                        setTimeout(function () { return alert_2.dismiss(); }, 1500);
+                        localStorage.removeItem("fblogin");
+                        localStorage.setItem("USER_DATA", JSON.stringify(response.user));
+                        _this.appsetting.profile = response.user;
+                        _this.events.publish('role', 'dj');
+                        if (response.user.subscription_status != 1) {
+                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
+                        }
+                        else {
+                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                        }
                     }
                     else {
-                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                        _this.Loading.dismiss();
+                        var alert_3 = _this.alertCtrl.create({
+                            title: 'Login',
+                            subTitle: response.msg,
+                            buttons: ['ok']
+                        });
+                        alert_3.present();
+                        setTimeout(function () { return alert_3.dismiss(); }, 3500);
                     }
-                }
-                else {
-                    _this.Loading.dismiss();
-                    var alert_3 = _this.alertCtrl.create({
-                        title: 'Login',
-                        subTitle: response.msg
-                    });
-                    alert_3.present();
-                    setTimeout(function () { return alert_3.dismiss(); }, 1500);
-                }
+                });
             });
         });
-        //})
     };
     LogindjPage.prototype.fblogin = function () {
         var _this = this;
@@ -6187,59 +8033,64 @@ var LogindjPage = (function () {
             .then(function (res) {
             _this.fb.api('me/?fields=id,email,last_name,first_name', ["public_profile", "email"])
                 .then(function (result) {
-                console.log("result");
-                console.log(result);
-                _this.profilepicface = "https://graph.facebook.com/" + result.id + "/picture?type=large";
-                localStorage.setItem('facebook_pic', _this.profilepicface);
-                localStorage.setItem('facebook_login', JSON.stringify(result));
-                _this.facebook_data = localStorage.getItem('facebook_login');
-                var url = _this.variable.baseUrl + 'users/Djfblogin';
-                var signindata = {
-                    email: result.email,
-                    fb_id: result.id,
-                    name: result.first_name + " " + result.last_name,
-                    img: _this.profilepicface,
-                    role: "dj"
-                };
-                var serialized_data = _this.Cmn.serializeObj(signindata);
-                var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' });
-                var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
-                var Loading = _this.loadingCtrl.create({
-                    content: 'Please wait...',
-                });
-                Loading.present().then(function () {
-                    _this.http.post(url, serialized_data, options)
-                        .map(function (res) { return res.json(); })
-                        .subscribe(function (resolve) {
-                        Loading.dismiss();
-                        _this.Loading.dismiss();
-                        if (resolve.isSucess == "true") {
-                            localStorage.setItem('userid', resolve.data.User.id);
-                            localStorage.setItem("USER_DATA", JSON.stringify(resolve.data.User));
-                            _this.appsetting.profile = resolve.data.User;
-                            localStorage.setItem('fblogin', 'fbloginfrm');
-                            var alert_4 = _this.alertCtrl.create({
-                                title: 'Logged in',
-                                subTitle: resolve.msg
-                            });
-                            alert_4.present();
-                            setTimeout(function () { return alert_4.dismiss(); }, 1500);
-                            _this.events.publish('role', 'dj');
-                            if (resolve.data.User.subscription_status != 1) {
-                                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
+                _this.firebase.onTokenRefresh().subscribe(function (token) {
+                    //console.log(`The new token is ${token}`);
+                    _this.token = token;
+                    _this.profilepicface = "https://graph.facebook.com/" + result.id + "/picture?type=large";
+                    localStorage.setItem('facebook_pic', _this.profilepicface);
+                    localStorage.setItem('facebook_login', JSON.stringify(result));
+                    _this.facebook_data = localStorage.getItem('facebook_login');
+                    var url = _this.variable.baseUrl + 'users/Djfblogin';
+                    var signindata = {
+                        email: result.email,
+                        fb_id: result.id,
+                        name: result.first_name + " " + result.last_name,
+                        img: _this.profilepicface,
+                        role: "dj",
+                        token: _this.token
+                    };
+                    var serialized_data = _this.Cmn.serializeObj(signindata);
+                    var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' });
+                    var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
+                    var Loading = _this.loadingCtrl.create({
+                        content: 'Please wait...',
+                    });
+                    Loading.present().then(function () {
+                        _this.http.post(url, serialized_data, options)
+                            .map(function (res) { return res.json(); })
+                            .subscribe(function (resolve) {
+                            Loading.dismiss();
+                            _this.Loading.dismiss();
+                            if (resolve.isSucess == "true") {
+                                localStorage.setItem('userid', resolve.data.User.id);
+                                localStorage.setItem("USER_DATA", JSON.stringify(resolve.data.User));
+                                _this.appsetting.profile = resolve.data.User;
+                                localStorage.setItem('fblogin', 'fbloginfrm');
+                                var alert_4 = _this.alertCtrl.create({
+                                    title: 'Logged in',
+                                    subTitle: resolve.msg,
+                                    buttons: ['ok']
+                                });
+                                alert_4.present();
+                                setTimeout(function () { return alert_4.dismiss(); }, 2500);
+                                _this.events.publish('role', 'dj');
+                                if (resolve.data.User.subscription_status != 1) {
+                                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
+                                }
+                                else {
+                                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                                }
                             }
                             else {
-                                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                                var alert_5 = _this.alertCtrl.create({
+                                    title: 'Login',
+                                    subTitle: resolve.msg,
+                                    buttons: ['ok']
+                                });
+                                alert_5.present();
+                                setTimeout(function () { return alert_5.dismiss(); }, 2500);
                             }
-                        }
-                        else {
-                            var alert_5 = _this.alertCtrl.create({
-                                title: 'Login',
-                                subTitle: resolve.msg,
-                            });
-                            alert_5.present();
-                            setTimeout(function () { return alert_5.dismiss(); }, 1500);
-                        }
+                        });
                     });
                 });
             }).catch(function (d) {
@@ -6299,643 +8150,7 @@ LogindjPage = __decorate([
 
 /***/ }),
 
-/***/ 42:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditprofiledjPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-/**
- * Generated class for the EditprofiledjPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var EditprofiledjPage = (function () {
-    function EditprofiledjPage(navCtrl, navParams, http, appsetting, loadingCtrl, alertCtrl, camera, actionSheetCtrl, events) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.http = http;
-        this.appsetting = appsetting;
-        this.loadingCtrl = loadingCtrl;
-        this.alertCtrl = alertCtrl;
-        this.camera = camera;
-        this.actionSheetCtrl = actionSheetCtrl;
-        this.events = events;
-        this.data = {};
-        this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
-        });
-        this.getuser();
-    }
-    EditprofiledjPage.prototype.getuser = function () {
-        var _this = this;
-        this.Loading.present();
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var data = {
-            userid: JSON.parse(localStorage.getItem('USER_DATA')).id
-        };
-        var Serialized = this.serializeObj(data);
-        this.http.post(this.appsetting.myGlobalVar + 'users/getuserbyid', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-            _this.Loading.dismiss();
-            console.log(response);
-            if (response.isSucess == "true") {
-                //this.data = response.data.User;
-                if (response.data.User.audiourl == "null") {
-                    response.data.User.audiourl = "";
-                }
-                if (response.data.User.djcode == "null") {
-                    response.data.User.djcode = "";
-                }
-                if (response.data.User.biography == "null") {
-                    response.data.User.biography = "";
-                }
-                if (response.data.User.paypal_email == "null" || response.data.User.paypal_email == "undefined") {
-                    response.data.User.paypal_email = "";
-                }
-                if (response.data.User.complete_name == "null") {
-                    response.data.User.complete_name = "";
-                }
-                if (response.data.User.email == "null") {
-                    response.data.User.email = "";
-                }
-                _this.data = {
-                    'audiourl': response.data.User.audiourl,
-                    'djcode': response.data.User.djcode,
-                    'biography': response.data.User.biography,
-                    'paypal_email': response.data.User.paypal_email,
-                    'complete_name': response.data.User.complete_name,
-                };
-                _this.profileImage = response.data.User.image;
-                _this.srcImage = response.data.User.logo;
-            }
-            else {
-                var alert_1 = _this.alertCtrl.create({
-                    title: 'Edit Profile',
-                    subTitle: response.msg,
-                });
-                alert_1.present();
-                setTimeout(function () { return alert_1.dismiss(); }, 1500);
-            }
-        });
-    };
-    EditprofiledjPage.prototype.ionViewDidEnter = function () {
-        if (window.navigator.onLine == true) {
-        }
-        else {
-            this.Loading.dismiss();
-            var alert_2 = this.alertCtrl.create({
-                title: 'Network connection',
-                subTitle: 'Something went wrong check your internet connection',
-            });
-            alert_2.present();
-            setTimeout(function () { return alert_2.dismiss(); }, 1500);
-        }
-    };
-    EditprofiledjPage.prototype.CameraAction = function () {
-        var _this = this;
-        var actionsheet = this.actionSheetCtrl.create({
-            title: "Choose Album",
-            buttons: [{
-                    text: 'Camera',
-                    handler: function () {
-                        var options = {
-                            quality: 8,
-                            sourceType: 1,
-                            allowEdit: true,
-                            targetWidth: 600,
-                            targetHeight: 600,
-                            correctOrientation: true,
-                            destinationType: _this.camera.DestinationType.DATA_URL,
-                            encodingType: _this.camera.EncodingType.JPEG,
-                            mediaType: _this.camera.MediaType.PICTURE
-                        };
-                        _this.camera.getPicture(options).then(function (imageUri) {
-                            _this.profileImage = 'data:image/jpeg;base64,' + imageUri;
-                            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-                            headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-                            var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
-                            var data = {
-                                id: JSON.parse(localStorage.getItem('USER_DATA')).id,
-                                img: imageUri
-                            };
-                            var Serialized = _this.serializeObj(data);
-                            var Loading = _this.loadingCtrl.create({
-                                content: 'Please wait...',
-                            });
-                            Loading.present().then(function () {
-                                _this.http.post(_this.appsetting.myGlobalVar + 'users/saveimage', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                                    Loading.dismiss();
-                                    if (response.status == "true") {
-                                        _this.profileImage = response.data.User.image;
-                                    }
-                                });
-                            });
-                        }, function (err) {
-                            alert(JSON.stringify(err));
-                            console.log(err);
-                        });
-                    }
-                },
-                {
-                    text: 'Gallery',
-                    handler: function () {
-                        var options = {
-                            quality: 8,
-                            sourceType: 0,
-                            allowEdit: true,
-                            targetWidth: 600,
-                            targetHeight: 600,
-                            correctOrientation: true,
-                            destinationType: _this.camera.DestinationType.DATA_URL,
-                            encodingType: _this.camera.EncodingType.JPEG,
-                            mediaType: _this.camera.MediaType.PICTURE
-                        };
-                        _this.camera.getPicture(options).then(function (imageData) {
-                            _this.profileImage = 'data:image/jpeg;base64,' + imageData;
-                            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-                            headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-                            var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
-                            var data = {
-                                id: JSON.parse(localStorage.getItem('USER_DATA')).id,
-                                img: imageData
-                            };
-                            var Serialized = _this.serializeObj(data);
-                            var Loading = _this.loadingCtrl.create({
-                                content: 'Please wait...',
-                            });
-                            Loading.present().then(function () {
-                                _this.http.post(_this.appsetting.myGlobalVar + 'users/saveimage', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                                    Loading.dismiss();
-                                    if (response.status == "true") {
-                                        localStorage.setItem('USER_DATA', JSON.stringify(response.data.User));
-                                        _this.events.publish('role', 'dj');
-                                        _this.profileImage = response.data.User.image;
-                                    }
-                                });
-                            });
-                        }, function (err) {
-                            alert(JSON.stringify(err));
-                        });
-                    }
-                },
-                {
-                    text: 'Cancel',
-                    role: 'cancel',
-                    handler: function () {
-                        console.log('Cancel clicked');
-                    }
-                }]
-        });
-        actionsheet.present();
-    };
-    EditprofiledjPage.prototype.updateProfile = function (profile) {
-        var _this = this;
-        console.log(profile.value);
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var data = {
-            userid: JSON.parse(localStorage.getItem('USER_DATA')).id,
-            completename: profile.value.complete_name,
-            biography: profile.value.biography,
-            djcode: profile.value.djcode,
-            paypal_id: profile.value.paypal_email,
-            music_url: profile.value.audiourl,
-        };
-        var Serialized = this.serializeObj(data);
-        var Loading = this.loadingCtrl.create({
-            content: 'Please wait...',
-        });
-        Loading.present().then(function () {
-            _this.http.post(_this.appsetting.myGlobalVar + 'users/edit_profile', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                Loading.dismiss();
-                console.log(response);
-                if (response.status == 0) {
-                    var alert_3 = _this.alertCtrl.create({
-                        title: 'Edit Profile',
-                        subTitle: response.msg,
-                    });
-                    alert_3.present();
-                    localStorage.setItem('USER_DATA', JSON.stringify(response.user));
-                    _this.events.publish('role', 'dj');
-                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__["a" /* EventsdjPage */]);
-                    setTimeout(function () { return alert_3.dismiss(); }, 1500);
-                }
-                else {
-                    var alert_4 = _this.alertCtrl.create({
-                        title: 'Edit Profile',
-                        subTitle: response.msg,
-                    });
-                    alert_4.present();
-                    setTimeout(function () { return alert_4.dismiss(); }, 1500);
-                }
-            });
-        });
-    };
-    EditprofiledjPage.prototype.uploadlogo = function () {
-        var _this = this;
-        var actionsheet = this.actionSheetCtrl.create({
-            title: "Choose Album",
-            buttons: [{
-                    text: 'Camera',
-                    handler: function () {
-                        var options = {
-                            quality: 8,
-                            sourceType: 1,
-                            allowEdit: true,
-                            targetWidth: 600,
-                            targetHeight: 600,
-                            correctOrientation: true,
-                            destinationType: _this.camera.DestinationType.DATA_URL,
-                            encodingType: _this.camera.EncodingType.JPEG,
-                            mediaType: _this.camera.MediaType.PICTURE
-                        };
-                        _this.camera.getPicture(options).then(function (imageUri) {
-                            _this.srcImage = 'data:image/jpeg;base64,' + imageUri;
-                            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-                            headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-                            var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
-                            var data = {
-                                id: JSON.parse(localStorage.getItem('USER_DATA')).id,
-                                img: imageUri
-                            };
-                            var Serialized = _this.serializeObj(data);
-                            var Loading = _this.loadingCtrl.create({
-                                content: 'Please wait...',
-                            });
-                            Loading.present().then(function () {
-                                _this.http.post(_this.appsetting.myGlobalVar + 'users/uploadlogo', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                                    Loading.dismiss();
-                                    _this.srcImage = response.data.User.logo;
-                                });
-                            });
-                        }, function (err) {
-                            // alert(JSON.stringify(err));
-                            console.log(err);
-                        });
-                    }
-                },
-                {
-                    text: 'Gallery',
-                    handler: function () {
-                        var options = {
-                            quality: 20,
-                            sourceType: 0,
-                            allowEdit: true,
-                            targetWidth: 600,
-                            targetHeight: 600,
-                            correctOrientation: true,
-                            destinationType: _this.camera.DestinationType.DATA_URL,
-                            encodingType: _this.camera.EncodingType.JPEG,
-                            mediaType: _this.camera.MediaType.PICTURE
-                        };
-                        _this.camera.getPicture(options).then(function (imageData) {
-                            _this.srcImage = 'data:image/jpeg;base64,' + imageData;
-                            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-                            headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-                            var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
-                            var data = {
-                                id: JSON.parse(localStorage.getItem('USER_DATA')).id,
-                                img: imageData
-                            };
-                            var Serialized = _this.serializeObj(data);
-                            var Loading = _this.loadingCtrl.create({
-                                content: 'Please wait...',
-                            });
-                            Loading.present().then(function () {
-                                _this.http.post(_this.appsetting.myGlobalVar + 'users/uploadlogo', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                                    Loading.dismiss();
-                                    _this.srcImage = response.data.User.logo;
-                                });
-                            });
-                        }, function (err) {
-                            // alert(JSON.stringify(err));
-                        });
-                    }
-                },
-                {
-                    text: 'Cancel',
-                    role: 'cancel',
-                    handler: function () {
-                        console.log('Cancel clicked');
-                    }
-                }]
-        });
-        actionsheet.present();
-    };
-    EditprofiledjPage.prototype.serializeObj = function (obj) {
-        var result = [];
-        for (var property in obj)
-            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
-        return result.join("&");
-    };
-    EditprofiledjPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad EditprofiledjPage');
-    };
-    return EditprofiledjPage;
-}());
-EditprofiledjPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-editprofiledj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editprofiledj/editprofiledj.html"*/'<!--\n  Generated template for the EditprofiledjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#fff;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Edit Profile</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n   </ion-buttons>\n</ion-toolbar>\n\n\n</ion-header>\n\n\n<ion-content padding>\n	<div class="head-sec">\n		<div class="image" (click)="CameraAction()">\n			<img [src]="profileImage">\n		</div>\n		<div class="edit-image">\n				<ion-icon ios="md-create" md="md-create"></ion-icon>\n				\n		</div>\n	</div>\n	<div class="form-sec">			\n		<form #profileForm="ngForm" class="event-form">\n			<ion-col col-12>\n				<ion-row>\n					<ion-list>\n					  <ion-item>\n					    <ion-input type="text" placeholder="Username" [(ngModel)]="data.complete_name" name="complete_name" #complete_name="ngModel" required></ion-input>\n						</ion-item>\n						<ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="complete_name.errors && (complete_name.dirty || complete_name.touched)">\n								 <div [hidden]="!complete_name.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label>\n					  <ion-item>\n							  <button class="abc" ion-button full (click)="uploadlogo()" style="background:none;">Add logo</button>\n					  </ion-item>\n					  <ion-item>\n					    <div class="img-sec" *ngIf="srcImage">\n					    	<img [src]="srcImage">\n					    </div>\n							 <div class="img-sec" *ngIf="srcImage == null">\n					    	<img src="assets/img/djlogo.png">\n					    </div>\n					  </ion-item>\n					  <ion-item>\n					    <ion-input type="text" placeholder="Biography" [(ngModel)]="data.biography" name="biography" #biography="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="biography.errors && (biography.dirty || biography.touched)">\n								 <div [hidden]="!biography.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label> -->\n					  <ion-item>\n					    <ion-input type="text" placeholder="Dj code here" [(ngModel)]="data.djcode" name="djcode" #djcode="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="djcode.errors && (djcode.dirty || djcode.touched)">\n								 <div [hidden]="!djcode.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label> -->\n					  <ion-item>\n					    <ion-input type="text" placeholder="Enter Music URL" [(ngModel)]="data.audiourl" name="audiourl" #audiourl="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="audiourl.errors && (audiourl.dirty || audiourl.touched)">\n								 <div [hidden]="!audiourl.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label> -->\n					  <!--<ion-item>\n					    <ion-input type="text" placeholder="Change Password"></ion-input>\n					  </ion-item>-->\n					  <ion-item>\n					    <ion-input type="text" placeholder="Enter your paypal id" pattern=\'^[a-zA-Z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$\' [(ngModel)]="data.paypal_email" name="paypal_email" #paypal_email="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="paypal_email.errors && (paypal_email.dirty || paypal_email.touched)">\n								 <div [hidden]="!paypal_email.errors.required" >\n									 			Field is required\n								</div>\n								<div [hidden]="!paypal_email.errors.pattern" >\n												Pattern not matched\n								</div>\n							</div>\n						</ion-label> -->\n					</ion-list>\n				</ion-row>\n		    </ion-col>\n					<div class="btn-sec"><button ion-button type="submit" [disabled]="!profileForm.form.valid"  (click)="updateProfile(profileForm)">Save</button></div>\n		</form>\n		</div>\n	\n	\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editprofiledj/editprofiledj.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */]])
-], EditprofiledjPage);
-
-//# sourceMappingURL=editprofiledj.js.map
-
-/***/ }),
-
-/***/ 421:
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./af": 209,
-	"./af.js": 209,
-	"./ar": 210,
-	"./ar-dz": 211,
-	"./ar-dz.js": 211,
-	"./ar-kw": 212,
-	"./ar-kw.js": 212,
-	"./ar-ly": 213,
-	"./ar-ly.js": 213,
-	"./ar-ma": 214,
-	"./ar-ma.js": 214,
-	"./ar-sa": 215,
-	"./ar-sa.js": 215,
-	"./ar-tn": 216,
-	"./ar-tn.js": 216,
-	"./ar.js": 210,
-	"./az": 217,
-	"./az.js": 217,
-	"./be": 218,
-	"./be.js": 218,
-	"./bg": 219,
-	"./bg.js": 219,
-	"./bm": 220,
-	"./bm.js": 220,
-	"./bn": 221,
-	"./bn.js": 221,
-	"./bo": 222,
-	"./bo.js": 222,
-	"./br": 223,
-	"./br.js": 223,
-	"./bs": 224,
-	"./bs.js": 224,
-	"./ca": 225,
-	"./ca.js": 225,
-	"./cs": 226,
-	"./cs.js": 226,
-	"./cv": 227,
-	"./cv.js": 227,
-	"./cy": 228,
-	"./cy.js": 228,
-	"./da": 229,
-	"./da.js": 229,
-	"./de": 230,
-	"./de-at": 231,
-	"./de-at.js": 231,
-	"./de-ch": 232,
-	"./de-ch.js": 232,
-	"./de.js": 230,
-	"./dv": 233,
-	"./dv.js": 233,
-	"./el": 234,
-	"./el.js": 234,
-	"./en-au": 235,
-	"./en-au.js": 235,
-	"./en-ca": 236,
-	"./en-ca.js": 236,
-	"./en-gb": 237,
-	"./en-gb.js": 237,
-	"./en-ie": 238,
-	"./en-ie.js": 238,
-	"./en-nz": 239,
-	"./en-nz.js": 239,
-	"./eo": 240,
-	"./eo.js": 240,
-	"./es": 241,
-	"./es-do": 242,
-	"./es-do.js": 242,
-	"./es-us": 243,
-	"./es-us.js": 243,
-	"./es.js": 241,
-	"./et": 244,
-	"./et.js": 244,
-	"./eu": 245,
-	"./eu.js": 245,
-	"./fa": 246,
-	"./fa.js": 246,
-	"./fi": 247,
-	"./fi.js": 247,
-	"./fo": 248,
-	"./fo.js": 248,
-	"./fr": 249,
-	"./fr-ca": 250,
-	"./fr-ca.js": 250,
-	"./fr-ch": 251,
-	"./fr-ch.js": 251,
-	"./fr.js": 249,
-	"./fy": 252,
-	"./fy.js": 252,
-	"./gd": 253,
-	"./gd.js": 253,
-	"./gl": 254,
-	"./gl.js": 254,
-	"./gom-latn": 255,
-	"./gom-latn.js": 255,
-	"./gu": 256,
-	"./gu.js": 256,
-	"./he": 257,
-	"./he.js": 257,
-	"./hi": 258,
-	"./hi.js": 258,
-	"./hr": 259,
-	"./hr.js": 259,
-	"./hu": 260,
-	"./hu.js": 260,
-	"./hy-am": 261,
-	"./hy-am.js": 261,
-	"./id": 262,
-	"./id.js": 262,
-	"./is": 263,
-	"./is.js": 263,
-	"./it": 264,
-	"./it.js": 264,
-	"./ja": 265,
-	"./ja.js": 265,
-	"./jv": 266,
-	"./jv.js": 266,
-	"./ka": 267,
-	"./ka.js": 267,
-	"./kk": 268,
-	"./kk.js": 268,
-	"./km": 269,
-	"./km.js": 269,
-	"./kn": 270,
-	"./kn.js": 270,
-	"./ko": 271,
-	"./ko.js": 271,
-	"./ky": 272,
-	"./ky.js": 272,
-	"./lb": 273,
-	"./lb.js": 273,
-	"./lo": 274,
-	"./lo.js": 274,
-	"./lt": 275,
-	"./lt.js": 275,
-	"./lv": 276,
-	"./lv.js": 276,
-	"./me": 277,
-	"./me.js": 277,
-	"./mi": 278,
-	"./mi.js": 278,
-	"./mk": 279,
-	"./mk.js": 279,
-	"./ml": 280,
-	"./ml.js": 280,
-	"./mr": 281,
-	"./mr.js": 281,
-	"./ms": 282,
-	"./ms-my": 283,
-	"./ms-my.js": 283,
-	"./ms.js": 282,
-	"./my": 284,
-	"./my.js": 284,
-	"./nb": 285,
-	"./nb.js": 285,
-	"./ne": 286,
-	"./ne.js": 286,
-	"./nl": 287,
-	"./nl-be": 288,
-	"./nl-be.js": 288,
-	"./nl.js": 287,
-	"./nn": 289,
-	"./nn.js": 289,
-	"./pa-in": 290,
-	"./pa-in.js": 290,
-	"./pl": 291,
-	"./pl.js": 291,
-	"./pt": 292,
-	"./pt-br": 293,
-	"./pt-br.js": 293,
-	"./pt.js": 292,
-	"./ro": 294,
-	"./ro.js": 294,
-	"./ru": 295,
-	"./ru.js": 295,
-	"./sd": 296,
-	"./sd.js": 296,
-	"./se": 297,
-	"./se.js": 297,
-	"./si": 298,
-	"./si.js": 298,
-	"./sk": 299,
-	"./sk.js": 299,
-	"./sl": 300,
-	"./sl.js": 300,
-	"./sq": 301,
-	"./sq.js": 301,
-	"./sr": 302,
-	"./sr-cyrl": 303,
-	"./sr-cyrl.js": 303,
-	"./sr.js": 302,
-	"./ss": 304,
-	"./ss.js": 304,
-	"./sv": 305,
-	"./sv.js": 305,
-	"./sw": 306,
-	"./sw.js": 306,
-	"./ta": 307,
-	"./ta.js": 307,
-	"./te": 308,
-	"./te.js": 308,
-	"./tet": 309,
-	"./tet.js": 309,
-	"./th": 310,
-	"./th.js": 310,
-	"./tl-ph": 311,
-	"./tl-ph.js": 311,
-	"./tlh": 312,
-	"./tlh.js": 312,
-	"./tr": 313,
-	"./tr.js": 313,
-	"./tzl": 314,
-	"./tzl.js": 314,
-	"./tzm": 315,
-	"./tzm-latn": 316,
-	"./tzm-latn.js": 316,
-	"./tzm.js": 315,
-	"./uk": 317,
-	"./uk.js": 317,
-	"./ur": 318,
-	"./ur.js": 318,
-	"./uz": 319,
-	"./uz-latn": 320,
-	"./uz-latn.js": 320,
-	"./uz.js": 319,
-	"./vi": 321,
-	"./vi.js": 321,
-	"./x-pseudo": 322,
-	"./x-pseudo.js": 322,
-	"./yo": 323,
-	"./yo.js": 323,
-	"./zh-cn": 324,
-	"./zh-cn.js": 324,
-	"./zh-hk": 325,
-	"./zh-hk.js": 325,
-	"./zh-tw": 326,
-	"./zh-tw.js": 326
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number or string
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 421;
-
-/***/ }),
-
-/***/ 439:
+/***/ 444:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6943,30 +8158,30 @@ webpackContext.id = 421;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_profile_profile__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_djslist_djslist__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_terms_terms__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_privacy_privacy__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_djslist_djslist__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_terms_terms__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_privacy_privacy__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_votelike_votelike__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_shoutoutdj_shoutoutdj__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_historicalrequests_historicalrequests__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_changepassword_changepassword__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_transactionhstrydj_transactionhstrydj__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_helpdj_helpdj__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_logindj_logindj__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_login_login__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(76);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_changepassworddj_changepassworddj__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_signindj_signindj__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_eventsdj_eventsdj__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_editprofiledj_editprofiledj__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_nameofeventsdj_nameofeventsdj__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_termsdj_termsdj__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_firebase__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_votelike_votelike__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_historicalrequests_historicalrequests__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_changepassword_changepassword__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_transactionhstrydj_transactionhstrydj__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_helpdj_helpdj__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_logindj_logindj__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_changepassworddj_changepassworddj__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_signindj_signindj__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_eventsdj_eventsdj__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_editprofiledj_editprofiledj__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_nameofeventsdj_nameofeventsdj__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_termsdj_termsdj__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_firebase__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_notificationdj_notificationdj__ = __webpack_require__(160);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7021,7 +8236,7 @@ var MyApp = (function () {
         this.toastCtrl = toastCtrl;
         this.events = events;
         this.menuCtrl = menuCtrl;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_20__pages_signindj_signindj__["a" /* SignindjPage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_19__pages_signindj_signindj__["a" /* SignindjPage */];
         platform.ready().then(function () {
             statusBar.overlaysWebView(true);
             statusBar.hide();
@@ -7058,10 +8273,10 @@ var MyApp = (function () {
                         { title: 'My Profile', component: __WEBPACK_IMPORTED_MODULE_5__pages_profile_profile__["a" /* ProfilePage */], icon: 'profile' },
                         { title: 'Voteup Request', component: __WEBPACK_IMPORTED_MODULE_10__pages_votelike_votelike__["a" /* VotelikePage */], icon: 'voteup' },
                         { title: 'Djs List', component: __WEBPACK_IMPORTED_MODULE_6__pages_djslist_djslist__["a" /* DjslistPage */], icon: 'djs' },
-                        { title: 'Historical Transactions', component: __WEBPACK_IMPORTED_MODULE_12__pages_historicalrequests_historicalrequests__["a" /* HistoricalrequestsPage */], icon: 'historical' },
+                        { title: 'Historical Transactions', component: __WEBPACK_IMPORTED_MODULE_11__pages_historicalrequests_historicalrequests__["a" /* HistoricalrequestsPage */], icon: 'historical' },
                         { title: 'Terms and Conditions', component: __WEBPACK_IMPORTED_MODULE_7__pages_terms_terms__["a" /* TermsPage */], icon: 'terms' },
                         { title: 'Privacy Policy', component: __WEBPACK_IMPORTED_MODULE_8__pages_privacy_privacy__["a" /* PrivacyPage */], icon: 'privacy' },
-                        { title: 'Change Password', component: __WEBPACK_IMPORTED_MODULE_13__pages_changepassword_changepassword__["a" /* ChangepasswordPage */], icon: 'historical' },
+                        { title: 'Change Password', component: __WEBPACK_IMPORTED_MODULE_12__pages_changepassword_changepassword__["a" /* ChangepasswordPage */], icon: 'historical' },
                         //{ title: 'Payment Info', component: PaymentinfoPage, icon: 'terms' },
                         { title: 'Sign Out', component: null, icon: 'logout' },
                     ];
@@ -7070,17 +8285,17 @@ var MyApp = (function () {
                 else {
                     _this.role = "dj";
                     _this.djmenu = [
-                        { title: 'Events', component: __WEBPACK_IMPORTED_MODULE_21__pages_eventsdj_eventsdj__["a" /* EventsdjPage */], icon: 'eve' },
-                        { title: 'Edit Profile', component: __WEBPACK_IMPORTED_MODULE_22__pages_editprofiledj_editprofiledj__["a" /* EditprofiledjPage */], icon: 'edi' },
-                        { title: 'Transaction History', component: __WEBPACK_IMPORTED_MODULE_14__pages_transactionhstrydj_transactionhstrydj__["a" /* TransactionhstrydjPage */], icon: 'tra' },
-                        { title: 'Requests', component: __WEBPACK_IMPORTED_MODULE_23__pages_nameofeventsdj_nameofeventsdj__["a" /* NameofeventsdjPage */], icon: 'req' },
-                        { title: 'Terms and Conditions', component: __WEBPACK_IMPORTED_MODULE_24__pages_termsdj_termsdj__["a" /* TermsdjPage */], icon: 'ter' },
-                        { title: 'Billing', component: __WEBPACK_IMPORTED_MODULE_18__pages_membershipdetaildj_membershipdetaildj__["a" /* MembershipdetaildjPage */], icon: 'logo-usd' },
-                        { title: 'Notifications', component: __WEBPACK_IMPORTED_MODULE_11__pages_shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */], icon: 'notifications' },
-                        { title: 'Help', component: __WEBPACK_IMPORTED_MODULE_15__pages_helpdj_helpdj__["a" /* HelpdjPage */], icon: 'hel' },
+                        { title: 'Events', component: __WEBPACK_IMPORTED_MODULE_20__pages_eventsdj_eventsdj__["a" /* EventsdjPage */], icon: 'eve' },
+                        { title: 'Edit Profile', component: __WEBPACK_IMPORTED_MODULE_21__pages_editprofiledj_editprofiledj__["a" /* EditprofiledjPage */], icon: 'edi' },
+                        { title: 'Transaction History', component: __WEBPACK_IMPORTED_MODULE_13__pages_transactionhstrydj_transactionhstrydj__["a" /* TransactionhstrydjPage */], icon: 'tra' },
+                        { title: 'Requests', component: __WEBPACK_IMPORTED_MODULE_22__pages_nameofeventsdj_nameofeventsdj__["a" /* NameofeventsdjPage */], icon: 'req' },
+                        { title: 'Terms and Conditions', component: __WEBPACK_IMPORTED_MODULE_23__pages_termsdj_termsdj__["a" /* TermsdjPage */], icon: 'ter' },
+                        { title: 'Billing', component: __WEBPACK_IMPORTED_MODULE_17__pages_membershipdetaildj_membershipdetaildj__["a" /* MembershipdetaildjPage */], icon: 'logo-usd' },
+                        { title: 'Notifications', component: __WEBPACK_IMPORTED_MODULE_25__pages_notificationdj_notificationdj__["a" /* NotificationdjPage */], icon: 'notifications' },
+                        { title: 'Help', component: __WEBPACK_IMPORTED_MODULE_14__pages_helpdj_helpdj__["a" /* HelpdjPage */], icon: 'hel' },
                     ];
                     if (localStorage.getItem("fblogin") == null) {
-                        _this.djmenu.push({ title: 'Change Password', component: __WEBPACK_IMPORTED_MODULE_19__pages_changepassworddj_changepassworddj__["a" /* ChangepassworddjPage */], icon: 'historical' });
+                        _this.djmenu.push({ title: 'Change Password', component: __WEBPACK_IMPORTED_MODULE_18__pages_changepassworddj_changepassworddj__["a" /* ChangepassworddjPage */], icon: 'historical' });
                     }
                     _this.djmenu.push({ title: 'Sign Out', component: null, icon: 'log' });
                     _this.menuCtrl.enable(true, 'dj');
@@ -7153,13 +8368,13 @@ var MyApp = (function () {
             if (notification.tap) {
                 // alert('Tapped');
                 _this.user = localStorage.getItem("USER_DATA");
-                alert(_this.user);
-                alert(JSON.stringify(_this.user));
+                // alert(this.user);
+                // alert(JSON.stringify(this.user));
                 if (_this.user == undefined || _this.user == null) {
-                    _this.nav.push(__WEBPACK_IMPORTED_MODULE_16__pages_logindj_logindj__["a" /* LogindjPage */]);
+                    _this.nav.push(__WEBPACK_IMPORTED_MODULE_15__pages_logindj_logindj__["a" /* LogindjPage */]);
                 }
                 else {
-                    _this.nav.push(__WEBPACK_IMPORTED_MODULE_11__pages_shoutoutdj_shoutoutdj__["a" /* ShoutoutdjPage */], { message: notification }); //this.nav.setRoot(this.pages2.SchedulePage);
+                    _this.nav.push(__WEBPACK_IMPORTED_MODULE_25__pages_notificationdj_notificationdj__["a" /* NotificationdjPage */], { message: notification }); //this.nav.setRoot(this.pages2.SchedulePage);
                 }
                 console.log("Received in background");
             }
@@ -7209,13 +8424,13 @@ var MyApp = (function () {
         this.platform.ready().then(function () {
             //  this.statusBar.styleDefault();
             _this.splashScreen.hide();
-            _this.rootPage = __WEBPACK_IMPORTED_MODULE_20__pages_signindj_signindj__["a" /* SignindjPage */];
+            _this.rootPage = __WEBPACK_IMPORTED_MODULE_19__pages_signindj_signindj__["a" /* SignindjPage */];
             if (localStorage.getItem('role') != null) {
                 if (localStorage.getItem('role') == 'clubgoer') {
-                    _this.rootPage = localStorage.getItem("USER_DATA") != null ? __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */] : __WEBPACK_IMPORTED_MODULE_20__pages_signindj_signindj__["a" /* SignindjPage */];
+                    _this.rootPage = localStorage.getItem("USER_DATA") != null ? __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */] : __WEBPACK_IMPORTED_MODULE_19__pages_signindj_signindj__["a" /* SignindjPage */];
                 }
                 else {
-                    _this.rootPage = localStorage.getItem("USER_DATA") != null ? __WEBPACK_IMPORTED_MODULE_21__pages_eventsdj_eventsdj__["a" /* EventsdjPage */] : __WEBPACK_IMPORTED_MODULE_20__pages_signindj_signindj__["a" /* SignindjPage */];
+                    _this.rootPage = localStorage.getItem("USER_DATA") != null ? __WEBPACK_IMPORTED_MODULE_20__pages_eventsdj_eventsdj__["a" /* EventsdjPage */] : __WEBPACK_IMPORTED_MODULE_19__pages_signindj_signindj__["a" /* SignindjPage */];
                     //this.rootPage = (JSON.parse(localStorage.getItem("USER_DATA")).subscription_status!=1) ? SubscribedjPage : localStorage.getItem("USER_DATA") != null ? EventsdjPage : SignindjPage;
                 }
             }
@@ -7253,10 +8468,10 @@ var MyApp = (function () {
             alert_1.present();
             setTimeout(function () { return alert_1.dismiss(); }, 1000);
             if (localStorage.getItem('role') == "dj") {
-                this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_16__pages_logindj_logindj__["a" /* LogindjPage */]);
+                this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_15__pages_logindj_logindj__["a" /* LogindjPage */]);
             }
             else {
-                this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_17__pages_login_login__["a" /* LoginPage */]);
+                this.nav.setRoot(__WEBPACK_IMPORTED_MODULE_16__pages_login_login__["a" /* LoginPage */]);
             }
         }
     };
@@ -7274,7 +8489,7 @@ MyApp = __decorate([
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Platform */],
         __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
-        __WEBPACK_IMPORTED_MODULE_25__ionic_native_firebase__["a" /* Firebase */],
+        __WEBPACK_IMPORTED_MODULE_24__ionic_native_firebase__["a" /* Firebase */],
         __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
         __WEBPACK_IMPORTED_MODULE_9__providers_appsetting__["a" /* Appsetting */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
@@ -7287,7 +8502,7 @@ MyApp = __decorate([
 
 /***/ }),
 
-/***/ 440:
+/***/ 445:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7331,6 +8546,7 @@ var ListPage = ListPage_1 = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
             setTimeout(function () { return alert_1.dismiss(); }, 1000);
@@ -7356,7 +8572,7 @@ var ListPage_1;
 
 /***/ }),
 
-/***/ 52:
+/***/ 53:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7364,12 +8580,13 @@ var ListPage_1;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__signindj_signindj__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__signindj_signindj__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_firebase__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7389,6 +8606,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the SignupPage page.
  *
@@ -7396,7 +8614,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var SignupPage = (function () {
-    function SignupPage(navCtrl, navParams, appsetting, http, loadingCtrl, toastCtrl, alertCtrl, events, zone) {
+    function SignupPage(navCtrl, navParams, appsetting, http, loadingCtrl, toastCtrl, alertCtrl, events, zone, firebase) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.appsetting = appsetting;
@@ -7406,10 +8624,12 @@ var SignupPage = (function () {
         this.alertCtrl = alertCtrl;
         this.events = events;
         this.zone = zone;
+        this.firebase = firebase;
         this.data = '';
         this.scrollAmount = 44;
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         if (localStorage.getItem("USER_DATA") != null) {
             this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
@@ -7423,9 +8643,10 @@ var SignupPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     SignupPage.prototype.setBackButtonAction = function () {
@@ -7459,69 +8680,78 @@ var SignupPage = (function () {
             var alert_2 = this.alertCtrl.create({
                 title: 'Signup',
                 subTitle: "Space not allowed",
+                buttons: ['ok']
             });
             alert_2.present();
-            setTimeout(function () { return alert_2.dismiss(); }, 1500);
+            setTimeout(function () { return alert_2.dismiss(); }, 2500);
         }
         else if (signup.value.name.replace(/ /g, '') == "") {
             var alert_3 = this.alertCtrl.create({
                 title: 'Signup',
                 subTitle: "Space not allowed in name",
+                buttons: ['ok']
             });
             alert_3.present();
-            setTimeout(function () { return alert_3.dismiss(); }, 1500);
+            setTimeout(function () { return alert_3.dismiss(); }, 2500);
         }
         else if (signup.value.name.indexOf(' ') == 0) {
             var alert_4 = this.alertCtrl.create({
                 title: 'Signup',
                 subTitle: "Space not allowed in name",
+                buttons: ['ok']
             });
             alert_4.present();
-            setTimeout(function () { return alert_4.dismiss(); }, 1500);
+            setTimeout(function () { return alert_4.dismiss(); }, 2500);
         }
         else if (signup.value.password == signup.value.cpassword) {
-            this.Loading.present();
-            var data = {
-                name: signup.value.name,
-                email: signup.value.email,
-                password: signup.value.password,
-                role: 'clubgoer'
-            };
-            var Serialized = this.serializeObj(data);
-            //console.log(data);
-            this.http.post(this.appsetting.myGlobalVar + 'users/registration', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                console.log(response);
-                _this.Loading.dismiss();
-                if (response.isSuccess == true) {
-                    _this.events.publish('role', 'clubgoer');
-                    localStorage.setItem("USER_DATA", JSON.stringify(response.user_data));
-                    var alert_5 = _this.alertCtrl.create({
-                        title: 'Sign Up',
-                        subTitle: response.msg,
-                        buttons: ['ok']
-                    });
-                    alert_5.present();
-                    //setTimeout(()=>alert.dismiss(),1500);
-                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
-                }
-                else {
-                    var alert_6 = _this.alertCtrl.create({
-                        title: 'Sign Up',
-                        subTitle: response.msg,
-                        buttons: ['ok']
-                    });
-                    alert_6.present();
-                    //setTimeout(()=>alert.dismiss(),1500);
-                }
+            this.firebase.onTokenRefresh().subscribe(function (token) {
+                console.log("The new token is " + token);
+                _this.token = token;
+                _this.Loading.present();
+                var data = {
+                    name: signup.value.name,
+                    email: signup.value.email,
+                    password: signup.value.password,
+                    role: 'clubgoer',
+                    token: _this.token
+                };
+                var Serialized = _this.serializeObj(data);
+                //console.log(data);
+                _this.http.post(_this.appsetting.myGlobalVar + 'users/registration', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                    console.log(response);
+                    _this.Loading.dismiss();
+                    if (response.isSuccess == true) {
+                        _this.events.publish('role', 'clubgoer');
+                        localStorage.setItem("USER_DATA", JSON.stringify(response.user_data));
+                        var alert_5 = _this.alertCtrl.create({
+                            title: 'Sign Up',
+                            subTitle: response.msg,
+                            buttons: ['ok']
+                        });
+                        alert_5.present();
+                        //setTimeout(()=>alert.dismiss(),1500);
+                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
+                    }
+                    else {
+                        var alert_6 = _this.alertCtrl.create({
+                            title: 'Sign Up',
+                            subTitle: response.msg,
+                            buttons: ['ok']
+                        });
+                        alert_6.present();
+                        //setTimeout(()=>alert.dismiss(),1500);
+                    }
+                });
             });
         }
         else {
             var alert_7 = this.alertCtrl.create({
                 title: 'Signup',
                 subTitle: 'Password did not match',
+                buttons: ['ok']
             });
             alert_7.present();
-            setTimeout(function () { return alert_7.dismiss(); }, 1500);
+            setTimeout(function () { return alert_7.dismiss(); }, 2500);
         }
     };
     SignupPage.prototype.serializeObj = function (obj) {
@@ -7551,7 +8781,8 @@ SignupPage = __decorate([
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */]])
+        __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */],
+        __WEBPACK_IMPORTED_MODULE_8__ionic_native_firebase__["a" /* Firebase */]])
 ], SignupPage);
 
 //# sourceMappingURL=signup.js.map
@@ -7592,6 +8823,8 @@ var Appsetting = (function () {
         this.http = http;
         this.toastCtrl = toastCtrl;
         this.myGlobalVar = 'http://vikrant.crystalbiltech.com/dj/api/'; //shop/shippingaddress
+        this.showGlobalurl = "http://vikrant.crystalbiltech.com/dj/img/eventdd/";
+        this.editGlobalevntimg = "http://vikrant.crystalbiltech.com/dj/img/editeventimg/";
         this.checknetwork();
     }
     Appsetting.prototype.checknetwork = function () {
@@ -7616,7 +8849,7 @@ Appsetting = __decorate([
 
 /***/ }),
 
-/***/ 60:
+/***/ 61:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7715,7 +8948,8 @@ var ProfilePage = (function () {
         this.toastCtrl = toastCtrl;
         this.alertCtrl = alertCtrl;
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.profilePage();
         //this.vid="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_30mb.mp4";
@@ -7731,9 +8965,10 @@ var ProfilePage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Play Audio',
                 subTitle: 'Please enter audio link in edit profile',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 3500);
         }
     };
     ProfilePage.prototype.playVideo = function () {
@@ -7750,9 +8985,10 @@ var ProfilePage = (function () {
             var alert_2 = this.alertCtrl.create({
                 title: 'Play Video',
                 subTitle: 'Please enter video link in edit profile',
+                buttons: ['ok']
             });
             alert_2.present();
-            setTimeout(function () { return alert_2.dismiss(); }, 1500);
+            setTimeout(function () { return alert_2.dismiss(); }, 3500);
         }
     };
     ProfilePage.prototype.profilePage = function () {
@@ -7794,9 +9030,10 @@ var ProfilePage = (function () {
             var alert_3 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_3.present();
-            setTimeout(function () { return alert_3.dismiss(); }, 1500);
+            setTimeout(function () { return alert_3.dismiss(); }, 2500);
         }
     };
     ProfilePage.prototype.serializeObj = function (obj) {
@@ -7844,7 +9081,7 @@ ProfilePage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profile_profile__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__ = __webpack_require__(41);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7869,7 +9106,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var ProfileeditPage = (function () {
-    function ProfileeditPage(navCtrl, navParams, http, appsetting, camera, actionSheetCtrl, loadingCtrl, toastCtrl, alertCtrl) {
+    function ProfileeditPage(navCtrl, navParams, http, appsetting, camera, actionSheetCtrl, loadingCtrl, events, toastCtrl, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.http = http;
@@ -7877,11 +9114,13 @@ var ProfileeditPage = (function () {
         this.camera = camera;
         this.actionSheetCtrl = actionSheetCtrl;
         this.loadingCtrl = loadingCtrl;
+        this.events = events;
         this.toastCtrl = toastCtrl;
         this.alertCtrl = alertCtrl;
         this.data = {};
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         // this.countrylist()
         this.getdata();
@@ -7985,18 +9224,20 @@ var ProfileeditPage = (function () {
                 var alert_1 = _this.alertCtrl.create({
                     title: 'Edit profile',
                     subTitle: data.msg,
+                    buttons: ['ok']
                 });
                 alert_1.present();
-                setTimeout(function () { return alert_1.dismiss(); }, 2500);
+                setTimeout(function () { return alert_1.dismiss(); }, 3500);
             }
             else {
                 _this.Loader.dismiss();
                 var alert_2 = _this.alertCtrl.create({
                     title: 'Edit profile',
-                    subTitle: data.msg
+                    subTitle: data.msg,
+                    buttons: ['ok']
                 });
                 alert_2.present();
-                setTimeout(function () { return alert_2.dismiss(); }, 2500);
+                setTimeout(function () { return alert_2.dismiss(); }, 3500);
             }
         });
     };
@@ -8025,7 +9266,9 @@ var ProfileeditPage = (function () {
                 if (data.isSucess == "true") {
                     // alert("Profile is updated")
                     _this.appsetting.profile = data.data.User;
+                    localStorage.removeItem('USER_DATA');
                     localStorage.setItem('USER_DATA', JSON.stringify(data.data.User));
+                    _this.events.publish('role', 'clubgoer');
                     // let alert = this.alertCtrl.create({
                     //   title: 'Edit profile',
                     //   subTitle: data.msg,
@@ -8038,9 +9281,10 @@ var ProfileeditPage = (function () {
                     var alert_3 = _this.alertCtrl.create({
                         title: 'Edit profile',
                         subTitle: data.msg,
+                        buttons: ['ok']
                     });
                     alert_3.present();
-                    setTimeout(function () { return alert_3.dismiss(); }, 1500);
+                    setTimeout(function () { return alert_3.dismiss(); }, 3500);
                 }
             });
         });
@@ -8053,9 +9297,10 @@ var ProfileeditPage = (function () {
             var alert_4 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_4.present();
-            setTimeout(function () { return alert_4.dismiss(); }, 1500);
+            setTimeout(function () { return alert_4.dismiss(); }, 3500);
         }
     };
     ProfileeditPage.prototype.serializeObj = function (obj) {
@@ -8078,6 +9323,7 @@ ProfileeditPage = __decorate([
         __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
 ], ProfileeditPage);
@@ -8095,9 +9341,9 @@ ProfileeditPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__ = __webpack_require__(327);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_common_common__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_common_common__ = __webpack_require__(61);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8134,7 +9380,8 @@ var PayinfoPage = (function () {
         this.iab = iab;
         this.data = {};
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         var d = new Date();
         this.minyear = d.getFullYear();
@@ -8200,9 +9447,9 @@ var PayinfoPage = (function () {
         var tmp = "";
         var tmpr = "";
         //var options = "location=no,hidden=no";
-        var browser = this.iab.create('http://priyank.crystalbiltech.com/paypal-adaptive/chained-payment/proccess.php?data=' + encodeURIComponent(JSON.stringify(this.pdata)), target, options);
+        var browser = this.iab.create('http://vikrant.crystalbiltech.com/paypal-adaptive/chained-payment/proccess.php?data=' + encodeURIComponent(JSON.stringify(this.pdata)), target, options);
         browser.on('loadstart').subscribe(function (e) {
-            alert(JSON.stringify(e));
+            //alert(JSON.stringify(e));
             //console.log(e);
             //let url = e.url;
             //console.log(url);
@@ -8224,7 +9471,7 @@ var PayinfoPage = (function () {
             }
             //  console.log(redirect_uri);
             //  alert(redirect_uri[0]);
-            if (redirect_uri[0] == 'https://priyank.crystalbiltech.com/?') {
+            if (redirect_uri[0] == 'https://vikrant.crystalbiltech.com/?') {
                 //  alert('code--->' + code);
                 browser.close();
                 _this.http.post(_this.appsetting.myGlobalVar + 'users/sendnotif', serialized_data, option).map(function (res) { return res.json(); }).subscribe(function (response) {
@@ -8233,19 +9480,21 @@ var PayinfoPage = (function () {
                         _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
                         var alert_1 = _this.alertCtrl.create({
                             title: 'Payment info',
-                            subTitle: "Payment done successfully"
+                            subTitle: "Payment done successfully",
+                            buttons: ['ok']
                         });
                         alert_1.present();
-                        setTimeout(function () { return alert_1.dismiss(); }, 1500);
+                        setTimeout(function () { return alert_1.dismiss(); }, 3500);
                     }
                     else {
                         _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
                         var alert_2 = _this.alertCtrl.create({
                             title: 'Payment info',
-                            subTitle: "Hello Something went wrong"
+                            subTitle: "Hello Something went wrong",
+                            buttons: ['ok']
                         });
                         alert_2.present();
-                        setTimeout(function () { return alert_2.dismiss(); }, 1500);
+                        setTimeout(function () { return alert_2.dismiss(); }, 3500);
                     }
                 });
             }
@@ -8254,10 +9503,11 @@ var PayinfoPage = (function () {
                 _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
                 var alert_3 = _this.alertCtrl.create({
                     title: 'Payment info',
-                    subTitle: "Payment unsuccessfull"
+                    subTitle: "Payment unsuccessfull",
+                    buttons: ['ok']
                 });
                 alert_3.present();
-                setTimeout(function () { return alert_3.dismiss(); }, 1500);
+                setTimeout(function () { return alert_3.dismiss(); }, 3500);
             }
             else if (redirect_url[0] == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/closewindow?') {
                 browser.close();
@@ -8267,19 +9517,21 @@ var PayinfoPage = (function () {
                         _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
                         var alert_4 = _this.alertCtrl.create({
                             title: 'Payment info',
-                            subTitle: "Payment done successfully"
+                            subTitle: "Payment done successfully",
+                            buttons: ['ok']
                         });
                         alert_4.present();
-                        setTimeout(function () { return alert_4.dismiss(); }, 1500);
+                        setTimeout(function () { return alert_4.dismiss(); }, 3500);
                     }
                     else {
                         _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
                         var alert_5 = _this.alertCtrl.create({
                             title: 'Payment info',
-                            subTitle: "something went wrong"
+                            subTitle: "something went wrong",
+                            buttons: ['ok']
                         });
                         alert_5.present();
-                        setTimeout(function () { return alert_5.dismiss(); }, 1500);
+                        setTimeout(function () { return alert_5.dismiss(); }, 3500);
                     }
                 });
             }
@@ -8288,10 +9540,11 @@ var PayinfoPage = (function () {
                 _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
                 var alert_6 = _this.alertCtrl.create({
                     title: 'Payment info',
-                    subTitle: "Payment unsuccessfull"
+                    subTitle: "Payment unsuccessfull",
+                    buttons: ['ok']
                 });
                 alert_6.present();
-                setTimeout(function () { return alert_6.dismiss(); }, 1500);
+                setTimeout(function () { return alert_6.dismiss(); }, 3500);
             }
         }, function (err) {
             //console.log("InAppBrowser loadstart Event Error: " + err);
@@ -8331,9 +9584,10 @@ var PayinfoPage = (function () {
             var alert_7 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_7.present();
-            setTimeout(function () { return alert_7.dismiss(); }, 1500);
+            setTimeout(function () { return alert_7.dismiss(); }, 2500);
         }
     };
     PayinfoPage.prototype.serializeObj = function (obj) {
@@ -8403,7 +9657,8 @@ var HistoricalrequestsPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.historicalrequest();
     }
@@ -8415,6 +9670,7 @@ var HistoricalrequestsPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
             setTimeout(function () { return alert_1.dismiss(); }, 1500);
@@ -8457,7 +9713,7 @@ var HistoricalrequestsPage = (function () {
 HistoricalrequestsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-historicalrequests',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/historicalrequests/historicalrequests.html"*/'<!--\n  Generated template for the HistoricalrequestsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Historical Requests</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><ion-icon><img width="15px" src="assets/img/rlogo.png"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n  \n  <ion-list-header class="listhader" style="margin-top:10px;">\n    <div class="left_items">Song Name</div>\n    <div class="right_items">Amount Paid</div>\n  </ion-list-header>\n</ion-header>\n\n\n<ion-content style="background: url(assets/img/loginbg.jpg); background-size:cover;">\n<ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n  </ion-refresher>\n<div class="historicalrequests">\n  <ion-list no-lines>\n    <ion-item color="black" *ngFor="let request of requests;">\n      <div class="list_head">\n        <h2>{{request.ClubgoerRequest.songname}}</h2>\n        <ion-note item-end="" class="note"> {{request.ClubgoerRequest.pay_paypal ? "Paid" : "Not paid"}} <span>${{request.ClubgoerRequest.tip_amount}}</span></ion-note>\n      </div>\n      <div class="itembottom">\n      <p>Requested Type <button class="playnow" clear>{{request.TipOption.name}}</button></p>\n      </div>\n    </ion-item>\n    \n  </ion-list>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/historicalrequests/historicalrequests.html"*/,
+        selector: 'page-historicalrequests',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/historicalrequests/historicalrequests.html"*/'<!--\n  Generated template for the HistoricalrequestsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Historical Requests</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><ion-icon><img width="15px" src="assets/img/rlogo.png"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n  \n  <ion-list-header class="listhader" style="margin-top:10px;">\n    <div class="left_items">Song Name</div>\n    <div class="right_items">Amount Paid</div>\n  </ion-list-header>\n</ion-header>\n\n\n<ion-content style="background: url(assets/img/loginbg.jpg); background-size:cover;">\n<ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n</ion-refresher>\n<div class="historicalrequests">\n  <ion-list no-lines>\n    <ion-item color="black" *ngFor="let request of requests;">\n      <div class="list_head">\n        <h2>{{request?.ClubgoerRequest.songname}}</h2>\n        <ion-note item-end="" class="note"> {{request?.ClubgoerRequest.pay_paypal ? "Paid" : "Not paid"}} <span>${{request.ClubgoerRequest.tip_amount}}</span></ion-note>\n      </div>\n      <div class="itembottom">\n      <p>Artist name <button class="playnow" clear>{{request?.ClubgoerRequest.artist_name}}</button></p>\n      <p>Requested Type <button class="playnow" clear>{{request?.TipOption.name}}</button></p>\n      </div>\n    </ion-item>\n    \n  </ion-list>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/historicalrequests/historicalrequests.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -8476,183 +9732,12 @@ HistoricalrequestsPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShoutoutdjPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-//import { EventsdjPage } from '../eventsdj/eventsdj';
-/**
- * Generated class for the PlaynowlistdjPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var ShoutoutdjPage = (function () {
-    function ShoutoutdjPage(navCtrl, navParams, http, appsetting, loadingCtrl, alertCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.http = http;
-        this.appsetting = appsetting;
-        this.loadingCtrl = loadingCtrl;
-        this.alertCtrl = alertCtrl;
-        this.eventid = navParams.get("eventid");
-        this.eventname = navParams.get("eventname");
-        if (this.eventname == undefined) {
-            this.eventname = "Dj Admin Event";
-        }
-        this.shoutoutreq();
-    }
-    ShoutoutdjPage.prototype.shoutoutreq = function () {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
-        var Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
-        });
-        Loader.present().then(function () {
-            var data = {
-                djid: Userid,
-                eventid: _this.eventid
-            };
-            var serialized = _this.serializeObj(data);
-            _this.http.post(_this.appsetting.myGlobalVar + 'events/getshoutouts', serialized, options)
-                .map(function (res) { return res.json(); })
-                .subscribe(function (data) {
-                Loader.dismiss();
-                if (data.isSucess == "true") {
-                    _this.playnowreq = data.data;
-                }
-                else {
-                    _this.playnowreq = [];
-                }
-            });
-        });
-    };
-    ShoutoutdjPage.prototype.playimg = function (id, idd) {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
-        var Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
-        });
-        Loader.present().then(function () {
-            var data = {
-                reqid: id,
-                eventid: idd,
-                id: Userid
-            };
-            var serialized = _this.serializeObj(data);
-            _this.http.post(_this.appsetting.myGlobalVar + 'events/Votetopquereq', serialized, options)
-                .map(function (res) { return res.json(); })
-                .subscribe(function (data) {
-                Loader.dismiss();
-                if (data.isSucess == "true") {
-                    var alertr_1 = _this.alertCtrl.create({
-                        title: 'Requests',
-                        subTitle: data.msg,
-                    });
-                    alertr_1.present();
-                    setTimeout(function () { return alertr_1.dismiss(); }, 1500);
-                    _this.playnowreq = data.data;
-                    //this.navCtrl.push(EventsdjPage);
-                }
-                else {
-                }
-            });
-        });
-    };
-    ShoutoutdjPage.prototype.cross = function (id, idd) {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
-        var Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
-        });
-        Loader.present().then(function () {
-            var data = {
-                reqid: id,
-                eventid: idd,
-                id: Userid
-            };
-            var serialized = _this.serializeObj(data);
-            _this.http.post(_this.appsetting.myGlobalVar + 'events/requeststatus', serialized, options)
-                .map(function (res) { return res.json(); })
-                .subscribe(function (data) {
-                Loader.dismiss();
-                console.log(data);
-                if (data.isSucess == "true") {
-                    var alertr_2 = _this.alertCtrl.create({
-                        title: 'Requests',
-                        subTitle: data.msg,
-                    });
-                    alertr_2.present();
-                    setTimeout(function () { return alertr_2.dismiss(); }, 1500);
-                    _this.playnowreq = data.data;
-                    //this.navCtrl.push(EventsdjPage);
-                }
-                else {
-                }
-            });
-        });
-    };
-    ShoutoutdjPage.prototype.serializeObj = function (obj) {
-        var result = [];
-        for (var property in obj)
-            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
-        return result.join("&");
-    };
-    ShoutoutdjPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ShoutoutDjPage');
-    };
-    return ShoutoutdjPage;
-}());
-ShoutoutdjPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-shoutoutdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/shoutoutdj/shoutoutdj.html"*/'<!--\n  Generated template for the PlaynowlistdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <ion-title>{{eventname}}</ion-title>\n    <div class="logo">\n    	<img src="assets/img/rlogo.png">\n    </div>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<div class="past">\n	<ion-list>\n      <ion-item *ngFor="let play of playnowreq; let i = index">\n        	<div class="img-sec">\n        		<img src="assets/img/headphn.png">\n        	</div>\n        	<h3>{{play?.ClubgoerRequest.songname}} </h3>\n        	<p>{{play?.ClubgoerRequest.artist_name}}</p>\n        	<div class="img-right">\n        		<div class="imgmain">\n        			<img src="assets/img/playimg.png" *ngIf="play?.ClubgoerRequest.topque">\n					<img src="assets/img/playnow.png" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque">\n					<img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)">\n        		</div>\n        	</div>\n	  </ion-item>\n	   <div class="unshow" *ngIf="playnowreq?.length == 0">\n		  <h3> No request available</h3>\n	   </div>\n  </ion-list>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/shoutoutdj/shoutoutdj.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
-], ShoutoutdjPage);
-
-//# sourceMappingURL=shoutoutdj.js.map
-
-/***/ }),
-
-/***/ 72:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ForgotPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logindj_logindj__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signup_signup__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logindj_logindj__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signup_signup__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(5);
@@ -8686,7 +9771,8 @@ var ForgotPage = (function () {
         this.alertCtrl = alertCtrl;
         this.data = '';
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
     }
     ForgotPage.prototype.ionViewDidEnter = function () {
@@ -8697,6 +9783,7 @@ var ForgotPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
             setTimeout(function () { return alert_1.dismiss(); }, 1500);
@@ -8718,6 +9805,7 @@ var ForgotPage = (function () {
                 var alert_2 = _this.alertCtrl.create({
                     title: 'Forget password',
                     subTitle: response.msg,
+                    buttons: ['ok']
                 });
                 alert_2.present();
                 setTimeout(function () { return alert_2.dismiss(); }, 1500);
@@ -8732,6 +9820,7 @@ var ForgotPage = (function () {
                 var alert_3 = _this.alertCtrl.create({
                     title: 'Forget password',
                     subTitle: response.msg,
+                    buttons: ['ok']
                 });
                 alert_3.present();
                 setTimeout(function () { return alert_3.dismiss(); }, 1500);
@@ -8773,7 +9862,7 @@ ForgotPage = __decorate([
 
 /***/ }),
 
-/***/ 73:
+/***/ 72:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8781,13 +9870,13 @@ ForgotPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logindj_logindj__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signindj_signindj__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logindj_logindj__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__signindj_signindj__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_firebase__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_firebase__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8797,7 +9886,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -8829,7 +9917,8 @@ var SignupdjPage = (function () {
         this.scrollAmount = 44;
         this.data = '';
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.ionViewDidEnter();
         if (localStorage.getItem("USER_DATA")) {
@@ -8840,13 +9929,14 @@ var SignupdjPage = (function () {
         if (window.navigator.onLine == true) {
         }
         else {
-            this.Loading.dismiss();
+            this.Loading.dismissAll();
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     SignupdjPage.prototype.scrollHandler = function (event) {
@@ -8880,6 +9970,7 @@ var SignupdjPage = (function () {
             var alert_2 = this.alertCtrl.create({
                 title: 'Sign Up',
                 subTitle: "Space not allowed",
+                buttons: ['ok']
             });
             alert_2.present();
             setTimeout(function () { return alert_2.dismiss(); }, 1500);
@@ -8890,15 +9981,16 @@ var SignupdjPage = (function () {
                 subTitle: "Space not allowed in name",
             });
             alert_3.present();
-            setTimeout(function () { return alert_3.dismiss(); }, 1500);
+            setTimeout(function () { return alert_3.dismiss(); }, 3500);
         }
         else if (signup.value.name.indexOf(' ') == 0) {
             var alert_4 = this.alertCtrl.create({
                 title: 'Signup',
                 subTitle: "Space not allowed in name",
+                buttons: ['ok']
             });
             alert_4.present();
-            setTimeout(function () { return alert_4.dismiss(); }, 1500);
+            setTimeout(function () { return alert_4.dismiss(); }, 3500);
         }
         else if (signup.value.password == signup.value.cpassword) {
             this.firebase.onTokenRefresh().subscribe(function (token) {
@@ -8952,6 +10044,7 @@ var SignupdjPage = (function () {
             var alert_7 = this.alertCtrl.create({
                 title: 'Signup',
                 subTitle: 'Password did not match',
+                buttons: ['ok']
             });
             alert_7.present();
             setTimeout(function () { return alert_7.dismiss(); }, 2500);
@@ -8992,18 +10085,18 @@ SignupdjPage = __decorate([
 
 /***/ }),
 
-/***/ 74:
+/***/ 73:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManageeventsdjPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pasteventdj_pasteventdj__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__omniaclubeventdj_omniaclubeventdj__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pasteventdj_pasteventdj__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__omniaclubeventdj_omniaclubeventdj__ = __webpack_require__(146);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editevent_editevent__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editevent_editevent__ = __webpack_require__(153);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9035,7 +10128,8 @@ var ManageeventsdjPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.manageevent();
         this.segments = "team";
@@ -9091,9 +10185,10 @@ var ManageeventsdjPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     ManageeventsdjPage.prototype.editEvent = function (eventid) {
@@ -9112,7 +10207,7 @@ var ManageeventsdjPage = (function () {
 ManageeventsdjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-manageeventsdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/manageeventsdj/manageeventsdj.html"*/'<!--\n  Generated template for the ManageeventsdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="black">\n        <ion-title>Manage Events</ion-title>\n        <div class="logo">\n            <img src="assets/img/rlogo.png">\n        </div>\n    </ion-navbar>\n    <ion-toolbar class="tabing">\n        <ion-segment style="padding:5px;" color="red" full [(ngModel)]="segments">\n\n            <ion-segment-button class="segment-button segment-activated" value="team" ng-reflect-value="sale" aria-pressed="true"> Upcoming Events </ion-segment-button>\n\n            <ion-segment-button value="reserve"> Past Events </ion-segment-button>\n\n        </ion-segment>\n    </ion-toolbar>\n</ion-header>\n\n\n<ion-content style="background: #f2f2f2;">\n    <div [ngSwitch]="segments">\n        <div class="past">\n            <ion-list *ngSwitchCase="\'team\'">\n                <ion-item *ngFor="let u of upevnt; let k = index">\n                    <div> <button ion-button (click)="editEvent(u?.Event.id)"> Edit </button></div>\n                    <div class="brdr" (click)="omniaclubevent(u?.Event.id,u?.Event.event_name)">\n                        <div class="date-sec blue">\n                            <h2>{{u?.Event.Day}}</h2>\n                            <h1>{{u?.Event.Month}}</h1>\n                        </div>\n                        <h3>{{u?.Event.event_name}}</h3>\n                        <p>{{u?.Event.venue_address}}</p>\n\n                    </div>\n\n                </ion-item>\n\n                <div class="unshow" *ngIf="upevnt?.length == 0">\n                    <h3>Upcoming events unavailable</h3>\n                </div>\n            </ion-list>\n        </div>\n\n        <div class="past">\n            <ion-list *ngSwitchCase="\'reserve\'">\n                <ion-item *ngFor="let p of pastevnt; let i = index" (click)="pastevent(p?.Event.id)">\n                    <div class="brdr">\n                        <div class="date-sec blue">\n                            <h2>{{p?.Event.Day}}</h2>\n                            <h1>{{p?.Event.Month}}</h1>\n                        </div>\n                        <h3>{{p?.Event.event_name}}</h3>\n                        <p>{{p?.Event.venue_address}}</p>\n                    </div>\n                </ion-item>\n                <div class="unshow" *ngIf="pastevnt?.length == 0">\n                    <h3>Past events unavailable</h3>\n                </div>\n\n                <!-- <ion-item (click)="pastevent()">\n      	<div class="brdr">\n        	<div class="date-sec pink">\n        		<h2>06</h2>\n        		<h1>Sep</h1>\n        	</div>\n        	<h3>Rage Against the machine</h3>\n        	<p>Event location</p>\n        </div>\n      </ion-item>\n      <ion-item (click)="pastevent()">\n      	<div class="brdr">\n        	<div class="date-sec blue">\n        		<h2>06</h2>\n        		<h1>Sep</h1>\n        	</div>\n        	<h3>Rage Against the machine</h3>\n        	<p>Event location</p>\n        </div>\n      </ion-item>\n      <ion-item (click)="pastevent()">\n      	<div class="brdr">\n        	<div class="date-sec pink">\n        		<h2>06</h2>\n        		<h1>Sep</h1>\n        	</div>\n        	<h3>Rage Against the machine</h3>\n        	<p>Event location</p>\n        </div>\n      </ion-item>\n      <ion-item (click)="pastevent()">\n      	<div class="brdr">\n        	<div class="date-sec blue">\n        		<h2>06</h2>\n        		<h1>Sep</h1>\n        	</div>\n        	<h3>Rage Against the machine</h3>\n        	<p>Event location</p>\n        </div>\n      </ion-item>\n      <ion-item (click)="pastevent()">\n      	<div class="brdr">\n        	<div class="date-sec pink">\n        		<h2>06</h2>\n        		<h1>Sep</h1>\n        	</div>\n        	<h3>Rage Against the machine</h3>\n        	<p>Event location</p>\n        </div>\n      </ion-item> -->\n            </ion-list>\n        </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/manageeventsdj/manageeventsdj.html"*/,
+        selector: 'page-manageeventsdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/manageeventsdj/manageeventsdj.html"*/'<!--\n  Generated template for the ManageeventsdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="black">\n        <ion-title>Manage Events</ion-title>\n        <div class="logo">\n            <img src="assets/img/rlogo.png">\n        </div>\n    </ion-navbar>\n    <ion-toolbar class="tabing">\n        <ion-segment style="padding:5px;" color="red" full [(ngModel)]="segments">\n\n            <ion-segment-button class="segment-button segment-activated" value="team" ng-reflect-value="sale" aria-pressed="true"> Upcoming Events </ion-segment-button>\n\n            <ion-segment-button value="reserve"> Past Events </ion-segment-button>\n\n        </ion-segment>\n    </ion-toolbar>\n</ion-header>\n\n\n<ion-content style="background: #f2f2f2;">\n    <div [ngSwitch]="segments">\n        <div class="past">\n            <ion-list *ngSwitchCase="\'team\'">\n                <ion-item *ngFor="let u of upevnt; let k = index">\n                    <div> <button ion-button (click)="editEvent(u?.Event.id)"> Edit </button></div>\n                    <div class="brdr" (click)="omniaclubevent(u?.Event.id,u?.Event.event_name)">\n                        <div class="date-sec blue">\n                            <h2>{{u?.Event.Day}}</h2>\n                            <h1>{{u?.Event.Month}}</h1>\n                        </div>\n                        <h3>{{u?.Event.event_name}}</h3>\n                        <p>{{u?.Event.venue_address}}</p>\n                        <p *ngIf="u?.Event.active!=1"> Start now</p>\n                    </div>\n\n                </ion-item>\n\n                <div class="unshow" *ngIf="upevnt?.length == 0">\n                    <h3>Upcoming events unavailable</h3>\n                </div>\n            </ion-list>\n        </div>\n\n        <div class="past">\n            <ion-list *ngSwitchCase="\'reserve\'">\n                <ion-item *ngFor="let p of pastevnt; let i = index" (click)="pastevent(p?.Event.id)">\n                    <div class="brdr">\n                        <div class="date-sec blue">\n                            <h2>{{p?.Event.Day}}</h2>\n                            <h1>{{p?.Event.Month}}</h1>\n                        </div>\n                        <h3>{{p?.Event.event_name}}</h3>\n                        <p>{{p?.Event.venue_address}}</p>\n                    </div>\n                </ion-item>\n                <div class="unshow" *ngIf="pastevnt?.length == 0">\n                    <h3>Past events unavailable</h3>\n                </div>\n            </ion-list>\n        </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/manageeventsdj/manageeventsdj.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -9126,21 +10221,21 @@ ManageeventsdjPage = __decorate([
 
 /***/ }),
 
-/***/ 75:
+/***/ 74:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NameofeventsdjPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__playnowlistdj_playnowlistdj__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__playnowlistdj_playnowlistdj__ = __webpack_require__(147);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topqueuedj_topqueuedj__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__gauranteedj_gauranteedj__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__possiblydj_possiblydj__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shoutoutdj_shoutoutdj__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__voting_voting__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__topqueuedj_topqueuedj__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__gauranteedj_gauranteedj__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__possiblydj_possiblydj__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shoutoutdj_shoutoutdj__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__voting_voting__ = __webpack_require__(151);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9176,22 +10271,22 @@ var NameofeventsdjPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
-        this.eventname = navParams.get("eventname");
-        if (this.eventname == undefined) {
-            this.eventname = "Dj's Event";
-            this.requestinfo();
-        }
-        else {
-            this.playnow = 0;
-            this.gauranteedplay = 0;
-            this.possiblyplay = 0;
-            this.topqueue = 0;
-            this.voteup = 0;
-            this.eventidd = 0;
-            this.shoutoutdj = 0;
-        }
+        // this.eventname = navParams.get("eventname");
+        // if (this.eventname == undefined) {
+        //   this.eventname = "Dj's Event";
+        this.requestinfo();
+        // } else {
+        //   this.playnow = 0;
+        //   this.gauranteedplay = 0;
+        //   this.possiblyplay = 0;
+        //   this.topqueue = 0;
+        //   this.voteup = 0;
+        //   this.eventidd = 0;
+        //   this.shoutoutdj = 0;
+        // }
     }
     NameofeventsdjPage.prototype.doRefresh = function (refresher) {
         console.log('Begin async operation', refresher);
@@ -9230,6 +10325,15 @@ var NameofeventsdjPage = (function () {
                     _this.voteup = data.voteup;
                     _this.eventidd = data.eventid;
                     _this.shoutoutdj = data.shoutout;
+                    _this.eventname = data.eventname;
+                    if (data.msg == "vikki") {
+                        var alert_1 = _this.alertCtrl.create({
+                            subTitle: data.msgg,
+                            buttons: ['ok']
+                        });
+                        alert_1.present();
+                        setTimeout(function () { return alert_1.dismiss(); }, 2500);
+                    }
                 }
                 else {
                 }
@@ -9334,12 +10438,12 @@ var NameofeventsdjPage = (function () {
         }
         else {
             this.Loading.dismiss();
-            var alert_1 = this.alertCtrl.create({
+            var alert_2 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
             });
-            alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            alert_2.present();
+            setTimeout(function () { return alert_2.dismiss(); }, 1500);
         }
     };
     return NameofeventsdjPage;
@@ -9361,7 +10465,7 @@ NameofeventsdjPage = __decorate([
 
 /***/ }),
 
-/***/ 76:
+/***/ 75:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9370,8 +10474,8 @@ NameofeventsdjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__subscribedjupdate_subscribedjupdate__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__subscribedjupdate_subscribedjupdate__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9402,9 +10506,10 @@ var MembershipdetaildjPage = (function () {
         this.loadingCtrl = loadingCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
-        this.getsubsdata();
+        // this.getsubsdata();
     }
     MembershipdetaildjPage.prototype.getsubsdata = function () {
         var _this = this;
@@ -9432,6 +10537,7 @@ var MembershipdetaildjPage = (function () {
                     var alertr_1 = _this.alertCtrl.create({
                         //title: 'Requests',
                         subTitle: 'Membership cancelled',
+                        buttons: ['ok']
                     });
                     alertr_1.present();
                     setTimeout(function () { return alertr_1.dismiss(); }, 3500);
@@ -9515,6 +10621,7 @@ var MembershipdetaildjPage = (function () {
     MembershipdetaildjPage.prototype.updatemembr = function () {
         var alertr = this.alertCtrl.create({
             subTitle: 'Your plan not yet expired !',
+            buttons: ['ok']
         });
         alertr.present();
         setTimeout(function () { return alertr.dismiss(); }, 3500);
@@ -9533,9 +10640,10 @@ var MembershipdetaildjPage = (function () {
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     MembershipdetaildjPage.prototype.ionViewDidLoad = function () {
@@ -9560,7 +10668,7 @@ MembershipdetaildjPage = __decorate([
 
 /***/ }),
 
-/***/ 77:
+/***/ 76:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9571,7 +10679,7 @@ MembershipdetaildjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__subscribedj_subscribedj__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__subscribedj_subscribedj__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -9605,7 +10713,8 @@ var TermsdjsubsPage = (function () {
         this.toastCtrl = toastCtrl;
         this.alertCtrl = alertCtrl;
         this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...'
+            content: 'Please wait...',
+            dismissOnPageChange: true
         });
         this.getterms();
     }
@@ -9650,10 +10759,11 @@ var TermsdjsubsPage = (function () {
             this.Loader.dismiss();
             var alert_1 = this.alertCtrl.create({
                 title: 'Network connection',
-                subTitle: 'Something went wrong check your internet connection'
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
             });
             alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
     };
     return TermsdjsubsPage;
@@ -9677,5 +10787,5 @@ TermsdjsubsPage = __decorate([
 
 /***/ })
 
-},[370]);
+},[375]);
 //# sourceMappingURL=main.js.map

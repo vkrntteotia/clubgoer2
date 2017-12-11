@@ -19,7 +19,8 @@ export class VoteupdjPage {
 
   public playnowreq;eventid;eventname;songs;
   public Loader=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
@@ -51,9 +52,10 @@ export class VoteupdjPage {
         let alertr = this.alertCtrl.create({
           title: 'Voteup requests',
           subTitle: data.msg,
+          buttons:['ok']
         });
           alertr.present();
-      setTimeout(()=>alertr.dismiss(),1500);
+      setTimeout(()=>alertr.dismiss(),3500);
        }
      })
   }
@@ -89,9 +91,10 @@ export class VoteupdjPage {
               let alertr = this.alertCtrl.create({
                   title: 'Requests',
                   subTitle: data.msg,
+                  buttons:['ok']
                 });
                   alertr.present();
-              setTimeout(()=>alertr.dismiss(),1500);
+              setTimeout(()=>alertr.dismiss(),3500);
               this.playnowreq=data.data;
               //this.navCtrl.push(EventsdjPage);
             } else {
@@ -125,9 +128,10 @@ export class VoteupdjPage {
               let alertr = this.alertCtrl.create({
                   title: 'Requests',
                   subTitle: data.msg,
+                  buttons:['ok']
                 });
                   alertr.present();
-              setTimeout(()=>alertr.dismiss(),1500);
+              setTimeout(()=>alertr.dismiss(),3500);
               this.playnowreq=data.data;
               //this.navCtrl.push(EventsdjPage);
             } else {
@@ -143,6 +147,20 @@ export class VoteupdjPage {
       result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
         return result.join("&");
   }
+
+  ionViewDidEnter() {
+    if (window.navigator.onLine == true) {
+    } else {
+      this.Loader.dismissAll();
+       let alert = this.alertCtrl.create({
+        title: 'Network connection',
+        subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
+        });
+       alert.present();
+       setTimeout(()=>alert.dismiss(),2500);
+      }
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PlaynowlistdjPage');

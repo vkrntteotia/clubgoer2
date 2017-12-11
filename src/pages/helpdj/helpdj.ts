@@ -29,7 +29,8 @@ export class HelpdjPage {
   }
 
   public Loader = this.loadingCtrl.create({
-		content: 'Please wait...'
+		content: 'Please wait...',
+    dismissOnPageChange: true
   });
   
     gethelp(){

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController,LoadingController } from 'ionic-angular';
 import { RequestsongplayPage } from '../requestsongplay/requestsongplay';
 import { VoteupPage } from '../voteup/voteup';
 import { ShoutoutPage } from '../shoutout/shoutout';
@@ -18,13 +18,33 @@ import { ShoutoutPage } from '../shoutout/shoutout';
 })
 export class SongrequestsPage {
   public djid;eventid;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public Loading = this.loadingCtrl.create({
+    content: 'Please wait...',
+    dismissOnPageChange: true
+  });
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public loadingCtrl: LoadingController,
+    private alertCtrl: AlertController) {
     this.djid = navParams.get("djid");
     this.eventid = navParams.get("eventid");
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SongrequestsPage');
+  }
+
+  ionViewDidEnter() {
+    if (window.navigator.onLine == true) {
+    } else {
+      this.Loading.dismiss();
+      let alert = this.alertCtrl.create({
+        title: 'Network connection',
+        subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
+      });
+      alert.present();
+      setTimeout(() => alert.dismiss(), 2500);
+    }
   }
 
   voteupPage(){

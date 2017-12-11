@@ -28,13 +28,11 @@ export class DjsdetailsPage {
     private alertCtrl: AlertController, private sanitizer: DomSanitizer) {
     this.djid = navParams.get("djid");
     this.showdjsdetail(this.djid);
-
-   
-
   }
 
 public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
 
 
@@ -60,13 +58,9 @@ public Loading=this.loadingCtrl.create({
       this.Loading.dismiss();
        if(data.isSucess == "true"){
       this.djs=data.data;
-       console.log(data);
-        //alert(JSON.stringify(data));
-      console.log("result");
       console.log(this.djs);
-         if (data.data.User.audiourl == null || data.data.User.audiourl == undefined) {
-       
-          
+         if (data.data.User.audiourl == null || data.data.User.audiourl == undefined || data.data.User.audiourl == "") {
+          this.videoUrl="";
           }
           else{
            this.utube = data.data.User.audiourl.replace("watch?v=", "embed/");
@@ -79,9 +73,10 @@ public Loading=this.loadingCtrl.create({
             let alert = this.alertCtrl.create({
                 title: 'Dj Details',
                 subTitle: data.msg,
+                buttons:['ok']
               });
                 alert.present();
-            setTimeout(()=>alert.dismiss(),1500);
+            setTimeout(()=>alert.dismiss(),3500);
         }
 		})
 	}
@@ -93,6 +88,7 @@ public Loading=this.loadingCtrl.create({
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
         setTimeout(()=>alert.dismiss(),1500);

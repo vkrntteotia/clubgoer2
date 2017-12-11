@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController,AlertController } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { SignupdjPage } from '../signupdj/signupdj';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,7 +18,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 export class SignindjPage {
   public vid;
   public video;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public statusBar: StatusBar) {
+  public Loading=this.loadingCtrl.create({
+    content: 'Please wait...',
+    dismissOnPageChange: true
+  });
+  constructor(public navCtrl: NavController, public navParams: NavParams,public statusBar: StatusBar,
+    public loadingCtrl: LoadingController,
+    private alertCtrl: AlertController) {
     console.log(this.navParams.get('back'));
     statusBar.hide();
     this.statusBar.overlaysWebView(true);
@@ -47,5 +53,17 @@ signup_clubgoer(){
     console.log('ionViewDidLoad SignindjPage');
     this.playVideo();
   }
-  
+  ionViewDidEnter() {
+    if (window.navigator.onLine == true) {
+    } else {
+      this.Loading.dismissAll();
+       let alert = this.alertCtrl.create({
+        title: 'Network connection',
+        subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
+        });
+       alert.present();
+       setTimeout(()=>alert.dismiss(),2500);
+      }
+    }
 }

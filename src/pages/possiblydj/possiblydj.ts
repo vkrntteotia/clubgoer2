@@ -19,7 +19,8 @@ export class PossiblydjPage {
 
   public playtopreq;eventid;eventname;
   public Loader=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
@@ -91,9 +92,10 @@ export class PossiblydjPage {
               let alertr = this.alertCtrl.create({
                   title: 'Requests',
                   subTitle: data.msg,
+                  buttons:['ok']
                 });
                   alertr.present();
-              setTimeout(()=>alertr.dismiss(),1500);
+              setTimeout(()=>alertr.dismiss(),3500);
               this.playtopreq=data.data;
               //this.navCtrl.push(EventsdjPage);
             } else {
@@ -128,9 +130,10 @@ export class PossiblydjPage {
               let alertr = this.alertCtrl.create({
                   title: 'Requests',
                   subTitle: data.msg,
+                  buttons:['ok']
                 });
                   alertr.present();
-              setTimeout(()=>alertr.dismiss(),1500);
+              setTimeout(()=>alertr.dismiss(),3500);
               this.playtopreq=data.data;
               //this.navCtrl.push(EventsdjPage);
             } else {
@@ -154,9 +157,10 @@ export class PossiblydjPage {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-        setTimeout(()=>alert.dismiss(),1500);
+        setTimeout(()=>alert.dismiss(),2500);
       }
     }
 

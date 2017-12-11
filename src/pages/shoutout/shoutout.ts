@@ -28,7 +28,8 @@ public djid;eventid;data:any={};
      this.eventid = navParams.get("eventid");
   }
 public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   serializeObj(obj) {
     var result = [];
@@ -57,9 +58,10 @@ public Loading=this.loadingCtrl.create({
       let alert = this.alertCtrl.create({
                 title: 'Shoutout',
                 subTitle: 'Please fill the tip amount',
+                buttons:['ok']
               });
                 alert.present();
-            setTimeout(()=>alert.dismiss(),1500);
+            setTimeout(()=>alert.dismiss(),3500);
     }else if(form.value.tipamt==0){
 
 		var serialized = this.serializeObj(postdata);
@@ -71,17 +73,19 @@ public Loading=this.loadingCtrl.create({
              let alert = this.alertCtrl.create({
                 title: 'Shoutout',
                 subTitle: data.msg,
+                buttons:['ok']
               });
                 alert.present();
-            setTimeout(()=>alert.dismiss(),1500);
+            setTimeout(()=>alert.dismiss(),3500);
             this.navCtrl.push(HomePage);
       }else{
             let alert = this.alertCtrl.create({
                 title: 'Shoutout',
                 subTitle: data.msg,
+                buttons:['ok']
               });
                 alert.present();
-            setTimeout(()=>alert.dismiss(),1500);
+            setTimeout(()=>alert.dismiss(),3500);
       }
 		})
     }
@@ -90,9 +94,10 @@ public Loading=this.loadingCtrl.create({
                 let alert = this.alertCtrl.create({
                   title: 'Shoutout',
                   subTitle: 'Tip amount should be greater than 1',
+                  buttons:['ok']
                 });
                   alert.present();
-              setTimeout(()=>alert.dismiss(),1500);
+              setTimeout(()=>alert.dismiss(),3500);
           }
     else{
       this.navCtrl.push(PayinfoPage, {
@@ -108,9 +113,10 @@ public Loading=this.loadingCtrl.create({
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-       setTimeout(()=>alert.dismiss(),1500);
+       setTimeout(()=>alert.dismiss(),2500);
       }
     }
 

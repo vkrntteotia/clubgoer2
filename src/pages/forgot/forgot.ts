@@ -17,7 +17,8 @@ export class ForgotPage {
 public data = '';
 
 public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor( public navCtrl: NavController,
     public navParams: NavParams,
@@ -35,6 +36,7 @@ ionViewDidEnter() {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
         setTimeout(()=>alert.dismiss(),1500);
@@ -55,6 +57,7 @@ forgot(form){
             let alert = this.alertCtrl.create({
             title: 'Forget password',
             subTitle: response.msg,
+            buttons:['ok']
         });
           alert.present();
            setTimeout(()=>alert.dismiss(),1500);
@@ -67,6 +70,7 @@ forgot(form){
             let alert = this.alertCtrl.create({
             title: 'Forget password',
             subTitle: response.msg,
+            buttons:['ok']
           });
           alert.present();
            setTimeout(()=>alert.dismiss(),1500);

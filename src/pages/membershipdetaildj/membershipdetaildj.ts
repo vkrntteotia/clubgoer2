@@ -20,7 +20,8 @@ import { EventsdjPage } from '../eventsdj/eventsdj';
 export class MembershipdetaildjPage {
   public subscrip;
   public Loader=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   
   constructor(public navCtrl: NavController,
@@ -29,7 +30,7 @@ export class MembershipdetaildjPage {
     public appsetting: Appsetting,
     public loadingCtrl: LoadingController,
     private alertCtrl: AlertController) {
-      this.getsubsdata();
+     // this.getsubsdata();
   }
 
   getsubsdata(){
@@ -56,6 +57,7 @@ export class MembershipdetaildjPage {
             let alertr = this.alertCtrl.create({
               //title: 'Requests',
               subTitle: 'Membership cancelled',
+              buttons:['ok']
             });
               alertr.present();
           setTimeout(()=>alertr.dismiss(),3500);
@@ -141,6 +143,7 @@ cancel1(){
   updatemembr() {
     let alertr = this.alertCtrl.create({
       subTitle: 'Your plan not yet expired !',
+      buttons:['ok']
     });
     alertr.present();
     setTimeout(() => alertr.dismiss(), 3500);
@@ -161,9 +164,10 @@ cancel1(){
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-        setTimeout(()=>alert.dismiss(),1500);
+        setTimeout(()=>alert.dismiss(),2500);
       }
     }
 

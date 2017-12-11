@@ -20,7 +20,8 @@ export class OmniaclubeventdjPage {
   public upevntid;
   public upevntdata;
   public Loader=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   buttonColor: string = '#b00101';
   constructor(public navCtrl: NavController,
@@ -31,7 +32,6 @@ export class OmniaclubeventdjPage {
     private alertCtrl: AlertController) {
     this.upevntid = navParams.get("evntid");
     this.upevent(this.upevntid);
-
   }
 
   upevent(eventidd){
@@ -82,6 +82,7 @@ export class OmniaclubeventdjPage {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
         setTimeout(()=>alert.dismiss(),1500);
@@ -144,7 +145,8 @@ export class OmniaclubeventdjPage {
             this.buttonColor="#328000";
             let alert = this.alertCtrl.create({
               title: 'Manage event',
-              subTitle: data.msg
+              subTitle: data.msg,
+              buttons:['ok']
             });
             alert.present();
             setTimeout(() => alert.dismiss(), 2500);
@@ -154,7 +156,8 @@ export class OmniaclubeventdjPage {
           } else {
             let alert = this.alertCtrl.create({
               title: 'Manage event',
-              subTitle: data.msg
+              subTitle: data.msg,
+              buttons:['ok']
             });
             alert.present();
             setTimeout(() => alert.dismiss(), 2500);

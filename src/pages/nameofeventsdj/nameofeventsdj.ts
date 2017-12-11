@@ -27,7 +27,8 @@ export class NameofeventsdjPage {
   public possiblyplay;
   public topqueue; voteup; eventidd; eventname; shoutoutdj;
   public Loading = this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -36,19 +37,19 @@ export class NameofeventsdjPage {
     public loadingCtrl: LoadingController,
     private alertCtrl: AlertController
   ) {
-    this.eventname = navParams.get("eventname");
-    if (this.eventname == undefined) {
-      this.eventname = "Dj's Event";
+    // this.eventname = navParams.get("eventname");
+    // if (this.eventname == undefined) {
+    //   this.eventname = "Dj's Event";
       this.requestinfo();
-    } else {
-      this.playnow = 0;
-      this.gauranteedplay = 0;
-      this.possiblyplay = 0;
-      this.topqueue = 0;
-      this.voteup = 0;
-      this.eventidd = 0;
-      this.shoutoutdj = 0;
-    }
+    // } else {
+    //   this.playnow = 0;
+    //   this.gauranteedplay = 0;
+    //   this.possiblyplay = 0;
+    //   this.topqueue = 0;
+    //   this.voteup = 0;
+    //   this.eventidd = 0;
+    //   this.shoutoutdj = 0;
+    // }
   }
 
   doRefresh(refresher) {
@@ -88,6 +89,15 @@ export class NameofeventsdjPage {
             this.voteup = data.voteup;
             this.eventidd = data.eventid;
             this.shoutoutdj = data.shoutout;
+            this.eventname = data.eventname;
+            if(data.msg=="vikki"){
+              let alert = this.alertCtrl.create({
+                subTitle: data.msgg,
+                buttons:['ok']
+              });
+              alert.present();
+              setTimeout(()=>alert.dismiss(),2500);
+            }
           } else {
 
           }

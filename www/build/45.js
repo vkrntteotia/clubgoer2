@@ -1,14 +1,14 @@
 webpackJsonp([45],{
 
-/***/ 451:
+/***/ 457:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DjsdetailsPageModule", function() { return DjsdetailsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DjslistPageModule", function() { return DjslistPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__djsdetails__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__djslist__ = __webpack_require__(137);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var DjsdetailsPageModule = (function () {
-    function DjsdetailsPageModule() {
+var DjslistPageModule = (function () {
+    function DjslistPageModule() {
     }
-    return DjsdetailsPageModule;
+    return DjslistPageModule;
 }());
-DjsdetailsPageModule = __decorate([
+DjslistPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__djsdetails__["a" /* DjsdetailsPage */],
+            __WEBPACK_IMPORTED_MODULE_2__djslist__["a" /* DjslistPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__djsdetails__["a" /* DjsdetailsPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__djslist__["a" /* DjslistPage */]),
         ],
     })
-], DjsdetailsPageModule);
+], DjslistPageModule);
 
-//# sourceMappingURL=djsdetails.module.js.map
+//# sourceMappingURL=djslist.module.js.map
 
 /***/ })
 

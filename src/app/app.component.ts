@@ -20,12 +20,11 @@ import { MembershipdetaildjPage } from '../pages/membershipdetaildj/membershipde
 import { ChangepassworddjPage } from '../pages/changepassworddj/changepassworddj';
 import { SignindjPage } from '../pages/signindj/signindj';
 import { EventsdjPage } from '../pages/eventsdj/eventsdj';
-import { SubscribedjPage } from '../pages/subscribedj/subscribedj';
 import { EditprofiledjPage } from '../pages/editprofiledj/editprofiledj';
 import { NameofeventsdjPage } from '../pages/nameofeventsdj/nameofeventsdj';
 import { TermsdjPage } from '../pages/termsdj/termsdj';
 import { Firebase } from '@ionic-native/firebase';
-
+import { NotificationdjPage } from '../pages/notificationdj/notificationdj';
 
 import * as moment from 'moment'
 // import {StatusBar} from '@ionic-native/status-bar';
@@ -116,7 +115,7 @@ export class MyApp {
           { title: 'Requests', component: NameofeventsdjPage, icon: 'req' },
           { title: 'Terms and Conditions', component: TermsdjPage, icon: 'ter' },
           { title: 'Billing', component: MembershipdetaildjPage, icon: 'logo-usd' },
-          { title: 'Notifications', component: ShoutoutdjPage, icon: 'notifications' },
+          { title: 'Notifications', component: NotificationdjPage, icon: 'notifications' },
           { title: 'Help', component: HelpdjPage, icon: 'hel' },];
           if(localStorage.getItem("fblogin")==null){
             this.djmenu.push({ title: 'Change Password', component: ChangepassworddjPage, icon: 'historical' });
@@ -197,12 +196,12 @@ export class MyApp {
                if(notification.tap){
                 // alert('Tapped');
                 this.user = localStorage.getItem("USER_DATA");
-                alert(this.user);
-                alert(JSON.stringify(this.user));
+                // alert(this.user);
+                // alert(JSON.stringify(this.user));
                 if (this.user == undefined || this.user == null) {
                   				this.nav.push(LogindjPage);
                   			} else {
-                  				this.nav.push(ShoutoutdjPage, { message: notification }); //this.nav.setRoot(this.pages2.SchedulePage);
+                  				this.nav.push(NotificationdjPage, { message: notification }); //this.nav.setRoot(this.pages2.SchedulePage);
                   			}
                 console.log("Received in background");
               } else {

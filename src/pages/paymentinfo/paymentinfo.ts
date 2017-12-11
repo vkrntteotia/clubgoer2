@@ -19,7 +19,8 @@ import {HomePage} from '../home/home';
 export class PaymentinfoPage {
   public data = {}; minyear;maxyear;setbit;pdata;
   public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(
    public navCtrl: NavController,
@@ -53,10 +54,11 @@ let options= new RequestOptions({ headers: headers });
 if(payinfo.value.relationship==undefined){
           let alert = this.alertCtrl.create({
                   title: 'Edit payment info',
-                  subTitle: "Please select payment method"
+                  subTitle: "Please select payment method",
+                  buttons:['ok']
                 });
                 alert.present();
-                setTimeout(()=>alert.dismiss(),1500);
+                setTimeout(()=>alert.dismiss(),3500);
           this.Loading.dismiss();
 } else{
 var data ={
@@ -77,30 +79,33 @@ var data ={
                 let alert = this.alertCtrl.create({
                   title: 'Edit payment info',
                   subTitle: response.msg,
+                  buttons:['ok']
                 });
                 alert.present();
-                setTimeout(()=>alert.dismiss(),1500);
+                setTimeout(()=>alert.dismiss(),3500);
                 this.navCtrl.push(HomePage);
               }else{
                   let alert = this.alertCtrl.create({
                   title: 'Edit payment info',
                   subTitle: response.msg,
+                  buttons:['ok']
                 });
                 alert.present();
-                setTimeout(()=>alert.dismiss(),1500);
+                setTimeout(()=>alert.dismiss(),3500);
               }
     }) }
 }
 ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {
-      this.Loading.dismiss();
+      this.Loading.dismissAll();
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-       setTimeout(()=>alert.dismiss(),1500);
+       setTimeout(()=>alert.dismiss(),3500);
       }
     }
 serializeObj(obj) {

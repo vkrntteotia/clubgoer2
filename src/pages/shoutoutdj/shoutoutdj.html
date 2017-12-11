@@ -18,21 +18,21 @@
 <ion-content padding>
 	<div class="past">
 	<ion-list>
-      <ion-item *ngFor="let play of playnowreq; let i = index">
+      <ion-item *ngFor="let shout of shoutreq; let i = index">
         	<div class="img-sec">
         		<img src="assets/img/headphn.png">
         	</div>
-        	<h3>{{play?.ClubgoerRequest.songname}} </h3>
-        	<p>{{play?.ClubgoerRequest.artist_name}}</p>
+        	<h3>{{shout?.ClubgoerRequest.shoutout_type}} </h3>
+        	<p>{{shout?.ClubgoerRequest.shoutout_name}}</p>
         	<div class="img-right">
         		<div class="imgmain">
-        			<img src="assets/img/playimg.png" *ngIf="play?.ClubgoerRequest.topque">
-					<img src="assets/img/playnow.png" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque">
-					<img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)">
+        			<img src="assets/img/playimg.png" *ngIf="shout?.ClubgoerRequest.topque">
+					<img src="assets/img/playnow.png" (click)="playimg(shout?.ClubgoerRequest.id,shout?.Event.id)" *ngIf="!shout?.ClubgoerRequest.topque">
+					<img src="assets/img/cross.png" (click)="cross(shout?.ClubgoerRequest.id,shout?.Event.id)">
         		</div>
         	</div>
 	  </ion-item>
-	   <div class="unshow" *ngIf="playnowreq?.length == 0">
+	   <div class="unshow" *ngIf="shoutreq?.length == 0">
 		  <h3> No request available</h3>
 	   </div>
   </ion-list>

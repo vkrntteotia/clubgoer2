@@ -33,6 +33,7 @@ export class ListPage {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
        setTimeout(()=>alert.dismiss(),1000);

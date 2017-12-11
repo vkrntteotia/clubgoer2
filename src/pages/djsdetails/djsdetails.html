@@ -27,7 +27,7 @@
         <p style="font-size: 17px;"><span>E-mail : </span>{{djs?.User.email}}</p>
         <p style="font-size: 17px;"><span>Dj Code : </span>{{djs?.User.djcode}}</p>
         <p style="font-size: 17px;" *ngIf="djs?.User.biography"><span>Dj Biography : </span>{{djs?.User.biography}}</p>
-
+{{videoUrl}}
         <iframe *ngIf="videoUrl" width="320" height="315" [src]="videoUrl" frameborder="0"></iframe>
     </div>
     <h4>Upcoming Events</h4>

@@ -29,8 +29,8 @@ export class DjslistPage {
      this.showdjslist();
   }
 public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
-    
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   
   doRefresh(refresher) {
@@ -61,9 +61,10 @@ public Loading=this.loadingCtrl.create({
               let alert = this.alertCtrl.create({
                 title: 'Dj List',
                 subTitle: data.msg,
+                buttons:['ok']
               });
                 alert.present();
-              setTimeout(()=>alert.dismiss(),1500);
+              setTimeout(()=>alert.dismiss(),3500);
     }
 		})
   }
@@ -88,9 +89,10 @@ public Loading=this.loadingCtrl.create({
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-        setTimeout(()=>alert.dismiss(),1500);
+        setTimeout(()=>alert.dismiss(),3500);
       }
     }
 

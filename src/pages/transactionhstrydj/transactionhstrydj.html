@@ -29,7 +29,13 @@
 		<div class="top-sec">
 			<h2>{{thist?.Clubgoer.complete_name}}</h2>
 			<h3>{{thist?.Event.event_name}}</h3>
-			<p>{{thist?.ClubgoerRequest.songname}} ,{{thist?.ClubgoerRequest.songname}}</p>
+			<h3 *ngIf="thist?.ClubgoerRequest.shoutout_name">Paid for shoutout</h3>
+			<h3 *ngIf="thist?.ClubgoerRequest.songname">Paid for song request</h3>
+			<p *ngIf="thist?.TipOption.name">{{thist?.TipOption.name}}</p>
+			<p *ngIf="thist?.ClubgoerRequest.songname">Songname : {{thist?.ClubgoerRequest.songname}}</p>
+			<p *ngIf="thist?.ClubgoerRequest.songname">Artistname : {{thist?.ClubgoerRequest.artist_name}}</p>
+			<p *ngIf="thist?.ClubgoerRequest.shoutout_name">Shoutout type : {{thist?.ClubgoerRequest.shoutout_type}}</p>
+			<p *ngIf="thist?.ClubgoerRequest.shoutout_name">Shoutout name : {{thist?.ClubgoerRequest.shoutout_name}}</p>
 			<div class="right">
 				<p>${{thist?.ClubgoerRequest.total}}</p>
 			</div>

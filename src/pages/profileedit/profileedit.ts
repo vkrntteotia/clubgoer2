@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ToastController,AlertController,LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController,AlertController,LoadingController,Events } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import { Appsetting } from '../../providers/appsetting';
@@ -29,6 +29,7 @@ export class ProfileeditPage {
    private camera: Camera,
    public actionSheetCtrl: ActionSheetController,
    public loadingCtrl: LoadingController,
+   public events: Events,
    public toastCtrl:ToastController,
    private alertCtrl: AlertController
    ) {
@@ -36,7 +37,8 @@ export class ProfileeditPage {
      this.getdata()
   }
   public Loader = this.loadingCtrl.create({
-		content: 'Please wait...'
+		content: 'Please wait...',
+    dismissOnPageChange: true
 	});
   getdata(){
     this.Loader.present();
@@ -138,17 +140,19 @@ export class ProfileeditPage {
         let alert = this.alertCtrl.create({
             title: 'Edit profile',
             subTitle: data.msg,
+            buttons:['ok']
         });
         alert.present();
-        setTimeout(()=>alert.dismiss(),2500);
+        setTimeout(()=>alert.dismiss(),3500);
       } else {
         this.Loader.dismiss();
          let alert = this.alertCtrl.create({
             title: 'Edit profile',
-            subTitle: data.msg
+            subTitle: data.msg,
+            buttons:['ok']
         });
         alert.present();
-        setTimeout(()=>alert.dismiss(),2500);
+        setTimeout(()=>alert.dismiss(),3500);
       }
 		})
 	}
@@ -178,7 +182,9 @@ export class ProfileeditPage {
           if (data.isSucess == "true") {
             // alert("Profile is updated")
             this.appsetting.profile = data.data.User;
+            localStorage.removeItem('USER_DATA');
             localStorage.setItem('USER_DATA',JSON.stringify(data.data.User));
+            this.events.publish('role', 'clubgoer');
             // let alert = this.alertCtrl.create({
             //   title: 'Edit profile',
             //   subTitle: data.msg,
@@ -190,9 +196,10 @@ export class ProfileeditPage {
             let alert = this.alertCtrl.create({
               title: 'Edit profile',
               subTitle: data.msg,
+              buttons:['ok']
             });
             alert.present();
-            setTimeout(()=>alert.dismiss(),1500);
+            setTimeout(()=>alert.dismiss(),3500);
           }
         })
     });
@@ -205,9 +212,10 @@ export class ProfileeditPage {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-       setTimeout(()=>alert.dismiss(),1500);
+       setTimeout(()=>alert.dismiss(),3500);
       }
   }
  serializeObj(obj) {

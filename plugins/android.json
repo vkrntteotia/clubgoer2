@@ -13,9 +13,6 @@
     "com.paypal.cordova.mobilesdk": {
       "PACKAGE_NAME": "io.djapp1234"
     },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "io.djapp1234"
-    },
     "cordova-plugin-console": {
       "PACKAGE_NAME": "io.djapp1234"
     },
@@ -47,10 +44,19 @@
     },
     "ionic-plugin-keyboard": {
       "PACKAGE_NAME": "io.djapp1234"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "io.djapp1234"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "io.djapp1234"
     }
   },
   "dependent_plugins": {
     "card.io.cordova.mobilesdk": {
+      "PACKAGE_NAME": "io.djapp1234"
+    },
+    "cordova-plugin-file": {
       "PACKAGE_NAME": "io.djapp1234"
     }
   }

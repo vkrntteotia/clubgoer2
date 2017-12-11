@@ -21,7 +21,10 @@ import { TermsdjsubsPage } from '../termsdjsubs/termsdjsubs';
 export class SubscribedjupdatePage {
   public subscriv;
   public data = {};
-  
+  public Loading = this.loadingCtrl.create({
+    content: 'Please wait...',
+    dismissOnPageChange: true
+  });
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -144,6 +147,19 @@ export class SubscribedjupdatePage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SubscribedjPage');
+  }
+  ionViewDidEnter() {
+    if (window.navigator.onLine == true) {
+    } else {
+      this.Loading.dismissAll();
+      let alert = this.alertCtrl.create({
+        title: 'Network connection',
+        subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
+      });
+      alert.present();
+      setTimeout(() => alert.dismiss(), 2500);
+    }
   }
 
 }

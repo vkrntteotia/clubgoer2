@@ -21,7 +21,8 @@ export class EditprofiledjPage {
   srcImage: any; imgTosend: any;
   profileImage: any; sendProfile: any;
   public Loading = this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public http: Http,
@@ -45,7 +46,6 @@ export class EditprofiledjPage {
     var Serialized = this.serializeObj(data);
     this.http.post(this.appsetting.myGlobalVar + 'users/getuserbyid', Serialized, options).map(res => res.json()).subscribe(response => {
       this.Loading.dismiss();
-      console.log(response)
       if (response.isSucess == "true") {
         //this.data = response.data.User;
         if(response.data.User.audiourl=="null"){
@@ -80,11 +80,15 @@ export class EditprofiledjPage {
         let alert = this.alertCtrl.create({
           title: 'Edit Profile',
           subTitle: response.msg,
+          buttons:['ok']
            });
         alert.present();
-        setTimeout(() => alert.dismiss(), 1500);
+        setTimeout(() => alert.dismiss(), 3500);
       }
     })
+  }
+  isReadonly() {
+    return this.isReadonly;   //return true/false 
   }
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {
@@ -93,9 +97,10 @@ export class EditprofiledjPage {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-        setTimeout(()=>alert.dismiss(),1500);
+        setTimeout(()=>alert.dismiss(),3500);
       }
     }
     
@@ -117,9 +122,8 @@ export class EditprofiledjPage {
             mediaType: this.camera.MediaType.PICTURE
           }
           this.camera.getPicture(options).then((imageUri) => {
-
+            this.profileImage='';
             this.profileImage = 'data:image/jpeg;base64,' + imageUri;
-
             let headers = new Headers();
             headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
             let options = new RequestOptions({ headers: headers });
@@ -134,6 +138,7 @@ export class EditprofiledjPage {
             Loading.present().then(() => {
               this.http.post(this.appsetting.myGlobalVar + 'users/saveimage', Serialized, options).map(res => res.json()).subscribe(response => {
                 Loading.dismiss();
+               
                 if (response.status == "true") {
                 this.profileImage = response.data.User.image;
                 }
@@ -160,6 +165,7 @@ export class EditprofiledjPage {
             mediaType: this.camera.MediaType.PICTURE
           }
           this.camera.getPicture(options).then((imageData) => {
+            this.profileImage='';
              this.profileImage = 'data:image/jpeg;base64,' + imageData;
             let headers = new Headers();
             headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
@@ -224,19 +230,21 @@ export class EditprofiledjPage {
           let alert = this.alertCtrl.create({
             title: 'Edit Profile',
             subTitle: response.msg,
+            buttons:['ok']
           });
           alert.present();
           localStorage.setItem('USER_DATA',JSON.stringify(response.user));
           this.events.publish('role', 'dj');
           this.navCtrl.push(EventsdjPage);
-          setTimeout(() => alert.dismiss(), 1500);
+          setTimeout(() => alert.dismiss(), 3500);
         } else {
           let alert = this.alertCtrl.create({
             title: 'Edit Profile',
             subTitle: response.msg,
+            buttons:['ok']
           });
           alert.present();
-          setTimeout(() => alert.dismiss(), 1500);
+          setTimeout(() => alert.dismiss(), 3500);
         }
       })
     });
@@ -260,7 +268,7 @@ export class EditprofiledjPage {
             mediaType: this.camera.MediaType.PICTURE
           }
           this.camera.getPicture(options).then((imageUri) => {
-
+            this.srcImage='';
             this.srcImage = 'data:image/jpeg;base64,' + imageUri;
             let headers = new Headers();
             headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
@@ -300,6 +308,7 @@ export class EditprofiledjPage {
             mediaType: this.camera.MediaType.PICTURE
           }
           this.camera.getPicture(options).then((imageData) => {
+            this.srcImage='';
              this.srcImage = 'data:image/jpeg;base64,' + imageData;
             let headers = new Headers();
             headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');

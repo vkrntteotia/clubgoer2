@@ -21,7 +21,8 @@ export class PasteventdjPage {
   public pastevntid;
   public pastevntdata;
   public Loader=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
@@ -80,9 +81,10 @@ export class PasteventdjPage {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-        setTimeout(()=>alert.dismiss(),1500);
+        setTimeout(()=>alert.dismiss(),2500);
       }
     }
 

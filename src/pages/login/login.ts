@@ -11,6 +11,7 @@ import { Appsetting } from '../../providers/appsetting';
 import { CommonProvider } from '../../providers/common/common';
 import { VariableProvider } from '../../providers/variable/variable';
 import { SignindjPage } from '../signindj/signindj';
+import { Firebase } from '@ionic-native/firebase';
 
 /**
  * Generated class for the SigninPage page.
@@ -25,12 +26,13 @@ import { SignindjPage } from '../signindj/signindj';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  public scrollAmount = 44;
+  public scrollAmount = 44;token;
   public data = {}; id; username;password;classval;
   public profilepicface:any;
   public facebook_data:any;
   public Loading = this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -43,6 +45,7 @@ export class LoginPage {
     public variable: VariableProvider,
     private alertCtrl: AlertController,
     public events: Events,
+    private firebase: Firebase,
     public zone: NgZone
   ) {
     if(localStorage.getItem("username")!=null && localStorage.getItem("password")!=null){
@@ -69,9 +72,10 @@ ionViewDidEnter() {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-       setTimeout(()=>alert.dismiss(),1500);
+       setTimeout(()=>alert.dismiss(),2500);
       }
     }
     
@@ -88,10 +92,14 @@ ionViewDidEnter() {
       let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
       let options = new RequestOptions({ headers: headers });
-    
+    this.firebase.onTokenRefresh().subscribe(
+    token => {
+      console.log(`The new token is ${token}`);
+      this.token = token;
       var data = {
         email: form.value.email,
         password: form.value.password,
+        token : this.token
       }
       var Serialized = this.serializeObj(data);
       
@@ -113,11 +121,13 @@ ionViewDidEnter() {
         } else {
             let alert = this.alertCtrl.create({
               title: 'Login',
-              subTitle: response.msg
+              subTitle: response.msg,
+              buttons:['ok']
          });
             alert.present();
-            setTimeout(()=>alert.dismiss(),1500);
+            setTimeout(()=>alert.dismiss(),3500);
       }
+    })
     })
   }
 
@@ -160,10 +170,11 @@ this.fb.api('me/?fields=id,email,last_name,first_name', ["public_profile", "emai
               this.events.publish('role', 'clubgoer');
                 let alert = this.alertCtrl.create({
                     title: 'Logged in',
-                    subTitle: resolve.msg
+                    subTitle: resolve.msg,
+                    buttons:['ok']
               });
               alert.present();
-              setTimeout(()=>alert.dismiss(),1500);
+              setTimeout(()=>alert.dismiss(),3500);
       this.navCtrl.push(HomePage);
    } else{
     // alert("error");
@@ -171,9 +182,10 @@ this.fb.api('me/?fields=id,email,last_name,first_name', ["public_profile", "emai
      let alert = this.alertCtrl.create({
           title: 'Login',
           subTitle: resolve.msg,
+          buttons:['ok']
       });
       alert.present();
-      setTimeout(()=>alert.dismiss(),1500);
+      setTimeout(()=>alert.dismiss(),3500);
      this.Loading.dismiss();
    }
    // this.userinfo.profilepicture ='data:image/jpeg;base64,' + imageUri;;

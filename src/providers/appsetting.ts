@@ -12,6 +12,8 @@ import {ToastController} from 'ionic-angular';
 @Injectable()
 export class Appsetting {
  myGlobalVar: string ='http://vikrant.crystalbiltech.com/dj/api/'; //shop/shippingaddress
+ showGlobalurl: string="http://vikrant.crystalbiltech.com/dj/img/eventdd/";
+ editGlobalevntimg: string="http://vikrant.crystalbiltech.com/dj/img/editeventimg/";
  profile: string;
   constructor(public http: Http,public toastCtrl:ToastController) {
     this.checknetwork();

@@ -22,8 +22,8 @@ export class ChangepasswordPage {
 public data = '';
 
 public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
-    
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(public navCtrl: NavController,
    public navParams: NavParams,
@@ -42,9 +42,10 @@ public Loading=this.loadingCtrl.create({
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-        setTimeout(()=>alert.dismiss(),1500);
+        setTimeout(()=>alert.dismiss(),3500);
       }
     }
 changepass(form){
@@ -58,9 +59,10 @@ var email = User.id;
     let alert = this.alertCtrl.create({
     title: 'Change password',
     subTitle: 'Space not allowed',
+    buttons:['ok']
   });
   alert.present();
-   setTimeout(()=>alert.dismiss(),1500);
+   setTimeout(()=>alert.dismiss(),3500);
  }else if (form.value.newpassword == form.value.conpassword) {
     this.Loading.present();
  var data = {
@@ -79,9 +81,10 @@ if(data.isSucess == "true"){
     let alert = this.alertCtrl.create({
     title: 'Change password',
     subTitle: data.msg,
+    buttons:['ok']
   });
   alert.present();
-   setTimeout(()=>alert.dismiss(),1500);
+   setTimeout(()=>alert.dismiss(),3500);
     //localStorage.clear();
     localStorage.removeItem("fblogin");
     localStorage.removeItem("USER_DATA");
@@ -95,18 +98,20 @@ if(data.isSucess == "true"){
     let alert = this.alertCtrl.create({
     title: 'Change password',
     subTitle: data.msg,
+    buttons:['ok']
   });
   alert.present();
-   setTimeout(()=>alert.dismiss(),1500);
+   setTimeout(()=>alert.dismiss(),3500);
 }
    })
 }else{
     let alert = this.alertCtrl.create({
     title: 'Change password',
     subTitle: 'Password do not match',
+    buttons:['ok']
   });
   alert.present();
-   setTimeout(()=>alert.dismiss(),1500);
+   setTimeout(()=>alert.dismiss(),3500);
 }
 }
 

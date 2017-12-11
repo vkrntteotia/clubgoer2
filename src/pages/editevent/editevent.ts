@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, AlertController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, Platform, AlertController, ActionSheetController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { LoadingController } from 'ionic-angular';
@@ -29,11 +29,13 @@ export class EditeventPage {
   public maxyear: any;
   public logo;
   public Loader = this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public http: Http,
+    public platform: Platform,
     private camera: Camera,
     public actionSheetCtrl: ActionSheetController,
     public loadingCtrl: LoadingController,
@@ -159,6 +161,7 @@ toggleDetails(taggel) {
       this.Loader.present()
       // this.Loader.present();
       var data = {
+        userid: user_id,
         event_id: this.editevnt,
         venue_name: editeven.value.venuename,
         venue_addr: editeven.value.venueaddress,
@@ -173,10 +176,10 @@ toggleDetails(taggel) {
         image: imgsend,
         role: 'dj'
       }
-      console.log(data);
+
       var Serialized = this.serializeObj(data);
       this.http.post(this.appsetting.myGlobalVar + 'events/editevent', Serialized, options).map(res => res.json()).subscribe(response => {
-        console.log(response);
+
         this.Loader.dismiss()
         if (response.status == 0) {
           this.Loader.dismiss();
@@ -212,54 +215,64 @@ toggleDetails(taggel) {
     return result.join("&");
 
   }
+ private takePicture(sourceType){
+    //this.srcImage='';
 
+    this.imgTosend='';
+    const options: CameraOptions = {
+      quality: 8,
+      sourceType: sourceType,
+      allowEdit: true,
+      targetWidth: 600,
+      targetHeight: 600,
+      correctOrientation: true,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      saveToPhotoAlbum: false
+    }
+    
+    this.camera.getPicture(options).then((imageUri) => {
+      //this.srcImage = 'data:image/jpeg;base64,' + imageUri;
+      this.srcImage = '';
+      this.imgTosend = imageUri;
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+      let options = new RequestOptions({ headers: headers });
+      var data = {
+        event_id: this.editevnt,
+        img: imageUri
+      }
+      var Serialized = this.serializeObj(data);
+      var Loading = this.loadingCtrl.create({
+        content: 'Please wait...',
+      });
+      Loading.present().then(() => {
+        this.http.post(this.appsetting.myGlobalVar + 'events/saveimage', Serialized, options).map(res => res.json()).subscribe(response => {
+          Loading.dismiss();
+         
+          if (response.status == "true") {
+          this.srcImage = this.appsetting.editGlobalevntimg + response.data;
+          }
+        })
+      })
+    }, (err) => {
+     //alert(JSON.stringify(err));
+    });
+  }
   CameraAction() {
     let actionsheet = this.actionSheetCtrl.create({
       title: "Choose Album",
       buttons: [{
         text: 'Camera',
         handler: () => {
-          const options: CameraOptions = {
-            quality: 8,
-            sourceType: 1,
-            allowEdit: true,
-            targetWidth: 600,
-            targetHeight: 600,
-            correctOrientation: true,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE
-          }
-          this.camera.getPicture(options).then((imageUri) => {
-            this.srcImage = 'data:image/jpeg;base64,' + imageUri;
-            this.imgTosend = imageUri;
-          }, (err) => {
-            alert(JSON.stringify(err));
-            console.log(err);
-          });
+              this.takePicture(this.camera.PictureSourceType.CAMERA);
         }
       },
       {
         text: 'Gallery',
         handler: () => {
-          const options: CameraOptions = {
-            quality: 8,
-            sourceType: 0,
-            allowEdit: true,
-            targetWidth: 600,
-            targetHeight: 600,
-            correctOrientation: true,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE
-          }
-          this.camera.getPicture(options).then((imageData) => {
-            this.srcImage = 'data:image/jpeg;base64,' + imageData;
-            this.imgTosend = imageData;
-
-          }, (err) => {
-            alert(JSON.stringify(err));
-          });
+              this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
         }
       },
       {
@@ -280,9 +293,10 @@ toggleDetails(taggel) {
       let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
       });
       alert.present();
-      setTimeout(() => alert.dismiss(), 1500);
+      setTimeout(() => alert.dismiss(), 3500);
     }
   }
 

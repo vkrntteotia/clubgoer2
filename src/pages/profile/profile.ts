@@ -21,7 +21,8 @@ import { ProfileeditPage } from '../profileedit/profileedit';
 export class ProfilePage {
 profile;srcImage;vid;video;audurl;audio;
  public Loading = this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   })
   constructor(public navCtrl: NavController,
   public navParams: NavParams, 
@@ -44,9 +45,10 @@ playAudio(){
       let alert = this.alertCtrl.create({
         title: 'Play Audio',
         subTitle: 'Please enter audio link in edit profile',
+        buttons:['ok']
         });
       alert.present();
-      setTimeout(()=>alert.dismiss(),1500);
+      setTimeout(()=>alert.dismiss(),3500);
   }
 }
 playVideo(){
@@ -62,9 +64,10 @@ playVideo(){
     let alert = this.alertCtrl.create({
         title: 'Play Video',
         subTitle: 'Please enter video link in edit profile',
+        buttons:['ok']
         });
       alert.present();
-      setTimeout(()=>alert.dismiss(),1500);
+      setTimeout(()=>alert.dismiss(),3500);
   }
 }
 
@@ -108,9 +111,10 @@ ionViewDidEnter() {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-       setTimeout(()=>alert.dismiss(),1500);
+       setTimeout(()=>alert.dismiss(),2500);
       }
     }
  

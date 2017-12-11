@@ -29,7 +29,8 @@ export class VoteupPage {
       this.userrequests();
   }
 public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
    serializeObj(obj) {
     var result = [];
@@ -61,9 +62,10 @@ public Loading=this.loadingCtrl.create({
             let alert = this.alertCtrl.create({
                 title: 'Dj Details',
                 subTitle: data.msg,
+                buttons:['ok']
               });
                 alert.present();
-            setTimeout(()=>alert.dismiss(),1500);
+            setTimeout(()=>alert.dismiss(),2500);
       }
 		})
 	}
@@ -96,29 +98,33 @@ public Loading=this.loadingCtrl.create({
             let alert = this.alertCtrl.create({
                 title: 'Voteup Request',
                 subTitle: data.msg,
+                buttons:['ok']
               });
                 alert.present();
-            setTimeout(()=>alert.dismiss(),1500);
+            setTimeout(()=>alert.dismiss(),3500);
       }else{
             let alert = this.alertCtrl.create({
                 title: 'Voteup Request',
                 subTitle: data.msg,
+                buttons:['ok']
               });
                 alert.present();
-            setTimeout(()=>alert.dismiss(),1500);
+            setTimeout(()=>alert.dismiss(),3500);
       }
 		})
   }
+  
 ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {
-      this.Loading.dismiss();
+      this.Loading.dismissAll();
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-       setTimeout(()=>alert.dismiss(),1500);
+       setTimeout(()=>alert.dismiss(),2500);
       }
     }
 }

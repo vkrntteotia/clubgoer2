@@ -34,6 +34,9 @@
         </ion-note>
         <ion-note item-end="" class="note time">${{request?.ClubgoerRequest.tip_amount}}</ion-note>
       </ion-item>
+      <div class="unshow" *ngIf="requests?.length == 0">
+          <h3>No request available</h3>
+      </div>
     </ion-list>
   </div>
 </ion-content>

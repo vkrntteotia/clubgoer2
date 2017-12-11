@@ -36,7 +36,8 @@ export class EntercodePage {
   
 }
   public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
  serializeObj(obj) {
     var result = [];
@@ -65,24 +66,24 @@ var date = d.getFullYear()+"-"+mm+"-"+day;
       	djcode: form.value.code,
         date: date
     }
-console.log(data);
-console.log("vikki");
 var Serialized = this.serializeObj(data);
 
 this.http.post(this.appsetting.myGlobalVar + 'events/entercode', Serialized, options).map(res=>res.json()).subscribe(data=>{
 this.Loading.dismiss();
 if(data.isSucess == "true"){
-  // console.log("vikrantDjcode");
-  // console.log(data);
-  // console.log("data Success");
-   this.showConfirm(data.data);
+  if(data.data.Event==undefined){
+    this.showConfirm(data.data[0]);
+  }else{
+    this.showConfirm(data.data);
+  }
 }else{
     let alert = this.alertCtrl.create({
     title: 'Dj Confirmation',
     subTitle: data.msg,
+    buttons:['ok']
   });
   alert.present();
-   setTimeout(()=>alert.dismiss(),1500);
+   setTimeout(()=>alert.dismiss(),3500);
 }
    })
 }
@@ -127,6 +128,7 @@ ionViewDidEnter() {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
         setTimeout(()=>alert.dismiss(),1500);

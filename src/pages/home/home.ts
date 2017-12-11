@@ -14,8 +14,8 @@ export class HomePage {
        this.events.publish('role', 'clubgoer');
   }
   public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
-    
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {
@@ -24,18 +24,19 @@ export class HomePage {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-        setTimeout(()=>alert.dismiss(),1500);
+        setTimeout(()=>alert.dismiss(),2500);
       }
     }
-editprofile(){
-    this.navCtrl.push(ProfileeditPage);
-}
-entercodePage(){
-  this.navCtrl.push(EntercodePage);
-}
-historicalrequestsPage(){
-  this.navCtrl.push(HistoricalrequestsPage);
-}
+    editprofile(){
+        this.navCtrl.push(ProfileeditPage);
+    }
+    entercodePage(){
+      this.navCtrl.push(EntercodePage);
+    }
+    historicalrequestsPage(){
+      this.navCtrl.push(HistoricalrequestsPage);
+    }
 }

@@ -34,7 +34,8 @@ export class RequestsongplayPage {
         this.showreqtype();
   }
   public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
 
 setflag(i){
@@ -103,9 +104,10 @@ requestsong(form){
       let alert = this.alertCtrl.create({
                 title: 'Request a song',
                 subTitle: 'Please select request option',
+                buttons:['ok']
               });
                 alert.present();
-              setTimeout(()=>alert.dismiss(),1500);
+              setTimeout(()=>alert.dismiss(),3500);
     }
     else{
                if(form.value.tipamt!=""){
@@ -113,9 +115,10 @@ requestsong(form){
                   let alert = this.alertCtrl.create({
                   title: 'Request a song',
                   subTitle: 'Tip amount should be greater than minimum tip',
+                  buttons:['ok']
                 });
                 alert.present();
-                setTimeout(()=>alert.dismiss(),1500);
+                setTimeout(()=>alert.dismiss(),3500);
                     return false;
                 }
             }
@@ -180,9 +183,10 @@ showreqtype() {
               let alert = this.alertCtrl.create({
                 title: 'Request a song',
                 subTitle: data.msg,
+                buttons:['ok']
               });
                 alert.present();
-              setTimeout(()=>alert.dismiss(),1500);
+              setTimeout(()=>alert.dismiss(),3500);
     }
 		})
 	}
@@ -192,10 +196,11 @@ ionViewDidEnter() {
        this.Loading.dismiss();
        let alert = this.alertCtrl.create({
         title: 'Network connection',
-        subTitle: 'Something went wrong check your internet connection'
+        subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-       setTimeout(()=>alert.dismiss(),1500);
+       setTimeout(()=>alert.dismiss(),3500);
       }
     }
   ionViewDidLoad() {

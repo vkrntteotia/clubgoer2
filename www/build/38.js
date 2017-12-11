@@ -1,14 +1,14 @@
 webpackJsonp([38],{
 
-/***/ 465:
+/***/ 490:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GauranteedjPageModule", function() { return GauranteedjPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpdjPageModule", function() { return HelpdjPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__gauranteedj__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpdj__ = __webpack_require__(157);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var GauranteedjPageModule = (function () {
-    function GauranteedjPageModule() {
+var HelpdjPageModule = (function () {
+    function HelpdjPageModule() {
     }
-    return GauranteedjPageModule;
+    return HelpdjPageModule;
 }());
-GauranteedjPageModule = __decorate([
+HelpdjPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__gauranteedj__["a" /* GauranteedjPage */],
+            __WEBPACK_IMPORTED_MODULE_2__helpdj__["a" /* HelpdjPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__gauranteedj__["a" /* GauranteedjPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__helpdj__["a" /* HelpdjPage */]),
         ],
     })
-], GauranteedjPageModule);
+], HelpdjPageModule);
 
-//# sourceMappingURL=gauranteedj.module.js.map
+//# sourceMappingURL=helpdj.module.js.map
 
 /***/ })
 

@@ -26,16 +26,17 @@
 <ion-content style="background: url(assets/img/loginbg.jpg); background-size:cover;">
 <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>
-  </ion-refresher>
+</ion-refresher>
 <div class="historicalrequests">
   <ion-list no-lines>
     <ion-item color="black" *ngFor="let request of requests;">
       <div class="list_head">
-        <h2>{{request.ClubgoerRequest.songname}}</h2>
-        <ion-note item-end="" class="note"> {{request.ClubgoerRequest.pay_paypal ? "Paid" : "Not paid"}} <span>${{request.ClubgoerRequest.tip_amount}}</span></ion-note>
+        <h2>{{request?.ClubgoerRequest.songname}}</h2>
+        <ion-note item-end="" class="note"> {{request?.ClubgoerRequest.pay_paypal ? "Paid" : "Not paid"}} <span>${{request.ClubgoerRequest.tip_amount}}</span></ion-note>
       </div>
       <div class="itembottom">
-      <p>Requested Type <button class="playnow" clear>{{request.TipOption.name}}</button></p>
+      <p>Artist name <button class="playnow" clear>{{request?.ClubgoerRequest.artist_name}}</button></p>
+      <p>Requested Type <button class="playnow" clear>{{request?.TipOption.name}}</button></p>
       </div>
     </ion-item>
     

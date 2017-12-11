@@ -16,7 +16,11 @@ import { Appsetting } from '../../providers/appsetting';
   templateUrl: 'shoutoutdj.html',
 })
 export class ShoutoutdjPage {
-  public playnowreq;eventid;eventname;
+  public playnowreq;eventid;eventname;shoutreq;
+  public Loading=this.loadingCtrl.create({
+    content: 'Please wait...',
+    dismissOnPageChange: true
+  });
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
     public http: Http,
@@ -37,7 +41,8 @@ export class ShoutoutdjPage {
     var options = new RequestOptions({ headers: headers });
     var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
     let Loader = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Please wait...',
+      dismissOnPageChange: true
     });
     Loader.present().then(() => {
       var data = {
@@ -50,9 +55,9 @@ export class ShoutoutdjPage {
         .subscribe(data => {
           Loader.dismiss();
           if (data.isSucess == "true") {
-            this.playnowreq=data.data;
+            this.shoutreq=data.data;
           } else {
-            this.playnowreq=[];
+            this.shoutreq=[];
           }
         })
     });
@@ -70,10 +75,11 @@ export class ShoutoutdjPage {
         var data = {
           reqid: id,
           eventid:idd,
-          id:Userid
+          id:Userid,
+          reqoption:3
         }
         var serialized = this.serializeObj(data);
-        this.http.post(this.appsetting.myGlobalVar + 'events/Votetopquereq', serialized, options)
+        this.http.post(this.appsetting.myGlobalVar + 'events/votetopquereq', serialized, options)
           .map(res => res.json())
           .subscribe(data => {
             Loader.dismiss();
@@ -81,10 +87,11 @@ export class ShoutoutdjPage {
               let alertr = this.alertCtrl.create({
                   title: 'Requests',
                   subTitle: data.msg,
+                  buttons:['ok']
                 });
                   alertr.present();
-              setTimeout(()=>alertr.dismiss(),1500);
-              this.playnowreq=data.data;
+              setTimeout(()=>alertr.dismiss(),3500);
+              this.shoutreq=data.data;
               //this.navCtrl.push(EventsdjPage);
             } else {
               
@@ -105,10 +112,11 @@ export class ShoutoutdjPage {
         var data = {
           reqid: id,
           eventid:idd,
-          id:Userid
+          id:Userid,
+          reqopt:3
               }
         var serialized = this.serializeObj(data);
-        this.http.post(this.appsetting.myGlobalVar + 'events/requeststatus', serialized, options)
+        this.http.post(this.appsetting.myGlobalVar + 'events/shoutrequeststatus', serialized, options)
           .map(res => res.json())
           .subscribe(data => {
             Loader.dismiss();
@@ -117,10 +125,11 @@ export class ShoutoutdjPage {
               let alertr = this.alertCtrl.create({
                   title: 'Requests',
                   subTitle: data.msg,
+                  buttons:['ok']
                 });
                   alertr.present();
-              setTimeout(()=>alertr.dismiss(),1500);
-              this.playnowreq=data.data;
+              setTimeout(()=>alertr.dismiss(),3500);
+              this.shoutreq=data.data;
               //this.navCtrl.push(EventsdjPage);
             } else {
               
@@ -135,7 +144,19 @@ export class ShoutoutdjPage {
       result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
         return result.join("&");
   }
-
+  ionViewDidEnter() {
+    if (window.navigator.onLine == true) {
+    } else {
+      this.Loading.dismissAll();
+       let alert = this.alertCtrl.create({
+        title: 'Network connection',
+        subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
+        });
+       alert.present();
+       setTimeout(()=>alert.dismiss(),2500);
+      }
+    }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShoutoutDjPage');
   }

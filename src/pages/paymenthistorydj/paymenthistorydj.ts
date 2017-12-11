@@ -20,6 +20,10 @@ export class PaymenthistorydjPage {
   public pastevntid;
   public payhistdata;
   public totalpay;
+  public Loader = this.loadingCtrl.create({
+    content: 'Please wait...',
+    dismissOnPageChange: true
+  });
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
     public http: Http,
@@ -37,7 +41,8 @@ export class PaymenthistorydjPage {
     var options = new RequestOptions({ headers: headers });
     var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
     let Loader = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Please wait...',
+      dismissOnPageChange: true
     });
     Loader.present().then(() => {
       var data = {
@@ -63,6 +68,21 @@ export class PaymenthistorydjPage {
         })
     });
   }
+
+  ionViewDidEnter() {
+    if (window.navigator.onLine == true) {
+    } else {
+      this.Loader.dismissAll();
+      let alert = this.alertCtrl.create({
+        title: 'Network connection',
+        subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
+      });
+      alert.present();
+      setTimeout(() => alert.dismiss(), 3500);
+    }
+  }
+
   refundnow(clubgoerqstid,money,song,artist,adminemail)
   {
       //alert(clubgoerqstid+" "+money+" "+song+" "+artist+" "+adminemail);
@@ -93,16 +113,18 @@ export class PaymenthistorydjPage {
               let alertr = this.alertCtrl.create({
                   title: 'Subscribed',
                   subTitle: response.msg,
+                  buttons:['ok']
                 });
                   alertr.present();
-              setTimeout(()=>alertr.dismiss(),1500);
+              setTimeout(()=>alertr.dismiss(),3500);
           }else{
               let alert = this.alertCtrl.create({
                   title: 'Subscribed',
                   subTitle: response.msg,
+                  buttons:['ok']
                 });
                   alert.present();
-              setTimeout(()=>alert.dismiss(),1500);
+              setTimeout(()=>alert.dismiss(),3500);
           }
       });
       }, () => {

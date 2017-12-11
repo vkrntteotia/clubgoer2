@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, AlertController,Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, AlertController,LoadingController,Events } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { LogindjPage } from '../logindj/logindj';
 import { SignindjPage } from '../signindj/signindj';
 import 'rxjs/add/operator/map';
 import { NgZone } from '@angular/core';
-import { LoadingController } from 'ionic-angular';
 import { Appsetting } from '../../providers/appsetting';
 import { SubscribedjPage } from '../subscribedj/subscribedj';
 import { Firebase } from '@ionic-native/firebase';
@@ -26,8 +25,8 @@ export class SignupdjPage {
   public scrollAmount = 44;classval;token;
   public data = ''; id;
   public Loading = this.loadingCtrl.create({
-    content: 'Please wait...'
-
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(
     public navCtrl: NavController,
@@ -51,13 +50,14 @@ export class SignupdjPage {
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {
-      this.Loading.dismiss();
+      this.Loading.dismissAll();
       let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
       });
       alert.present();
-      setTimeout(() => alert.dismiss(), 1500);
+      setTimeout(() => alert.dismiss(), 2500);
     }
   }
 
@@ -92,6 +92,7 @@ export class SignupdjPage {
       let alert = this.alertCtrl.create({
         title: 'Sign Up',
         subTitle: "Space not allowed",
+        buttons:['ok']
       });
       alert.present();
       setTimeout(() => alert.dismiss(), 1500);
@@ -102,14 +103,15 @@ export class SignupdjPage {
         subTitle: "Space not allowed in name",
       });
       alert.present();
-      setTimeout(()=>alert.dismiss(),1500);
+      setTimeout(()=>alert.dismiss(),3500);
     } else if(signup.value.name.indexOf(' ') == 0){
       let alert = this.alertCtrl.create({
        title: 'Signup',
         subTitle: "Space not allowed in name",
+        buttons:['ok']
       });
     alert.present();
-    setTimeout(()=>alert.dismiss(),1500);
+    setTimeout(()=>alert.dismiss(),3500);
     } 
    else if (signup.value.password == signup.value.cpassword) {
     this.firebase.onTokenRefresh().subscribe(
@@ -162,6 +164,7 @@ export class SignupdjPage {
       let alert = this.alertCtrl.create({
         title: 'Signup',
         subTitle: 'Password did not match',
+        buttons:['ok']
       });
       alert.present();
       setTimeout(() => alert.dismiss(), 2500);

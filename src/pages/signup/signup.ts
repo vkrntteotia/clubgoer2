@@ -8,6 +8,8 @@ import { NgZone } from '@angular/core';
 import {LoadingController} from 'ionic-angular';
 import { Appsetting } from '../../providers/appsetting';
 import { SignindjPage } from '../signindj/signindj';
+import { Firebase } from '@ionic-native/firebase';
+
 /**
  * Generated class for the SignupPage page.
  *
@@ -21,11 +23,11 @@ import { SignindjPage } from '../signindj/signindj';
   templateUrl: 'signup.html',
 })
 export class SignupPage {
-public data='';id;
+public data='';id;token;
 public scrollAmount = 44;classval;
 public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
-    
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   constructor(
    public navCtrl: NavController,
@@ -36,7 +38,8 @@ public Loading=this.loadingCtrl.create({
    public toastCtrl:ToastController,
    private alertCtrl: AlertController,
     public events: Events,
-    public zone: NgZone
+    public zone: NgZone,
+    private firebase: Firebase
    ) {
      
      if(localStorage.getItem("USER_DATA")!=null){
@@ -51,9 +54,10 @@ ionViewDidEnter() {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
-       setTimeout(()=>alert.dismiss(),1500);
+       setTimeout(()=>alert.dismiss(),2500);
       }
     }
     setBackButtonAction(){
@@ -89,30 +93,38 @@ let options= new RequestOptions({ headers: headers });
     let alert = this.alertCtrl.create({
             title: 'Signup',
             subTitle: "Space not allowed",
+            buttons:['ok']
       });
           alert.present();
-          setTimeout(()=>alert.dismiss(),1500);   
+          setTimeout(()=>alert.dismiss(),2500);   
   } else if(signup.value.name.replace(/ /g,'')==""){
       let alert = this.alertCtrl.create({
         title: 'Signup',
         subTitle: "Space not allowed in name",
+        buttons:['ok']
       });
     alert.present();
-    setTimeout(()=>alert.dismiss(),1500);
+    setTimeout(()=>alert.dismiss(),2500);
   } else if(signup.value.name.indexOf(' ') == 0){
     let alert = this.alertCtrl.create({
       title: 'Signup',
       subTitle: "Space not allowed in name",
+      buttons:['ok']
     });
   alert.present();
-  setTimeout(()=>alert.dismiss(),1500);
+  setTimeout(()=>alert.dismiss(),2500);
   } else if(signup.value.password == signup.value.cpassword){
+    this.firebase.onTokenRefresh().subscribe(
+      token => {
+        console.log(`The new token is ${token}`);
+        this.token = token;
        this.Loading.present();
     var data ={
       name:signup.value.name,
       email:signup.value.email,
       password:signup.value.password,
-      role:'clubgoer'
+      role:'clubgoer',
+      token:this.token
     }
     var Serialized = this.serializeObj(data);
       //console.log(data);
@@ -143,13 +155,15 @@ let options= new RequestOptions({ headers: headers });
           
 }
     })
+  })
   }else{
      let alert = this.alertCtrl.create({
             title: 'Signup',
             subTitle: 'Password did not match',
+            buttons:['ok']
       });
           alert.present();
-          setTimeout(()=>alert.dismiss(),1500);
+          setTimeout(()=>alert.dismiss(),2500);
     }
  }
    serializeObj(obj) {

@@ -14,6 +14,9 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ForgotPage } from '../pages/forgot/forgot';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
 
 import { ProfilePage } from '../pages/profile/profile';
 import { ProfileeditPage } from '../pages/profileedit/profileedit';
@@ -39,7 +42,7 @@ import { PaymenthistorydjPage } from '../pages/paymenthistorydj/paymenthistorydj
 import { RequesthistorydjPage } from '../pages/requesthistorydj/requesthistorydj';
 import { HelpdjPage } from '../pages/helpdj/helpdj';
 import { EditeventPage } from '../pages/editevent/editevent'; 
-
+import { AddeventdjnewPage } from '../pages/addeventdjnew/addeventdjnew'; 
 
 import { TermsdjPage } from '../pages/termsdj/termsdj';
 import { SignindjPage } from '../pages/signindj/signindj';
@@ -47,7 +50,7 @@ import { ChangepassworddjPage } from '../pages/changepassworddj/changepassworddj
 import { EventsdjPage } from '../pages/eventsdj/eventsdj';
 import { PlaynowlistdjPage } from '../pages/playnowlistdj/playnowlistdj';
 import { AddeventdjPage } from '../pages/addeventdj/addeventdj';
-
+import { NotificationdjPage } from '../pages/notificationdj/notificationdj';
 import { SubscribedjPage } from '../pages/subscribedj/subscribedj';
 import { VotingPage } from '../pages/voting/voting';
 import { OmniaclubeventdjPage } from '../pages/omniaclubeventdj/omniaclubeventdj';
@@ -80,6 +83,7 @@ import { Firebase } from '@ionic-native/firebase';
     LoginPage,
     ForgotPage,
     SignupPage,
+    NotificationdjPage,
     ChangepasswordPage,
     ChangepassworddjPage,
     ProfilePage,
@@ -98,6 +102,7 @@ import { Firebase } from '@ionic-native/firebase';
     DjslistPage,
     SettingsPage,
     TermsPage,
+    AddeventdjnewPage,
     TermsdjsubsPage,
     PrivacyPage,
     PossiblydjPage,
@@ -133,7 +138,6 @@ import { Firebase } from '@ionic-native/firebase';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    EditeventPage,
     MyApp,
     HomePage,
     ListPage,
@@ -143,6 +147,7 @@ import { Firebase } from '@ionic-native/firebase';
     ChangepasswordPage,
     ChangepassworddjPage,    
     ProfilePage,
+    EditeventPage,
     PayinfoPage,
     DjsdetailsPage,
     ProfileeditPage,
@@ -150,6 +155,8 @@ import { Firebase } from '@ionic-native/firebase';
     EntercodePage,
     VotelikePage,
     VotingPage,
+    AddeventdjnewPage,
+    NotificationdjPage,
     HistoricalrequestsPage,
     MembershipdetaildjPage,
     RequestsongplayPage,
@@ -193,6 +200,9 @@ import { Firebase } from '@ionic-native/firebase';
   StatusBar,
     Camera,
     Facebook,
+    File,
+    Transfer,
+    FilePath,
     InAppBrowser,
     PayPal,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

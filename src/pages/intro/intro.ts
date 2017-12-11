@@ -18,8 +18,8 @@ export class IntroPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,  private alertCtrl: AlertController,public loadingCtrl:LoadingController) {
   }
   public Loading=this.loadingCtrl.create({
-    content: 'Please wait...'
-    
+    content: 'Please wait...',
+    dismissOnPageChange: true
   });
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {
@@ -28,6 +28,7 @@ export class IntroPage {
        let alert = this.alertCtrl.create({
         title: 'Network connection',
         subTitle: 'Something went wrong check your internet connection',
+        buttons:['ok']
         });
        alert.present();
         setTimeout(()=>alert.dismiss(),1000);
