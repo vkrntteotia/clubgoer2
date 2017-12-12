@@ -96,6 +96,12 @@ page-editprofiledj {
 		color: #000;
 		
 	}
+
+	.text-input[disabled]{
+		color: #fff;
+		opacity: initial;
+	}
+	
 	.head-sec .edit-image .icon{
 		font-size: 16px;
 		width: 100%;

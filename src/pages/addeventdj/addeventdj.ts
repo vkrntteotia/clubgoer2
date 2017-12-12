@@ -99,7 +99,7 @@ export class AddeventdjPage {
           this.Loader.dismissAll();
           this.Loader.dismiss();
           this.srcImage = this.appsetting.showGlobalurl + this.newFileName;
-          this.presentToast('Image succesful uploaded.');
+          //this.presentToast('Image succesful uploaded.');
         }
       
     }, err => {
@@ -143,17 +143,17 @@ export class AddeventdjPage {
       this.Loader.dismiss();
       this.navCtrl.push(SubscribedjPage);
     }
-    else if(dj_code==null || dj_code=="" || dj_code==undefined){
-      let alert = this.alertCtrl.create({
-        title: 'PayPal Account',
-        subTitle: 'To add an event, please add your Djcode first.',
-        buttons:['ok']
-      });
-      alert.present();
-      //setTimeout(()=>alert.dismiss(),3500);
-      this.Loader.dismiss();
-      this.navCtrl.push(EditprofiledjPage);
-    }  
+    // else if(dj_code==null || dj_code=="" || dj_code==undefined){
+    //   let alert = this.alertCtrl.create({
+    //     title: 'PayPal Account',
+    //     subTitle: 'To add an event, please add your Djcode first.',
+    //     buttons:['ok']
+    //   });
+    //   alert.present();
+    //   //setTimeout(()=>alert.dismiss(),3500);
+    //   this.Loader.dismiss();
+    //   this.navCtrl.push(EditprofiledjPage);
+    // }  
    else if(paypl_emil==null || paypl_emil=="" || paypl_emil==undefined){
       let alert = this.alertCtrl.create({
         title: 'PayPal Account',

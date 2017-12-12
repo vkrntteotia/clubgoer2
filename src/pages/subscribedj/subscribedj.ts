@@ -7,6 +7,8 @@ import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal
 import { EventsdjPage } from '../eventsdj/eventsdj';
 import { TermsdjsubsPage } from '../termsdjsubs/termsdjsubs';
 // import { LogindjPage } from '../logindj/logindj';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { AddCardPage } from '../add-card/add-card';
 
 /**
  * Generated class for the SubscribedjPage page.
@@ -23,10 +25,7 @@ import { TermsdjsubsPage } from '../termsdjsubs/termsdjsubs';
 export class SubscribedjPage {
   public subscriv;
   public data = {};
-  public Loading = this.loadingCtrl.create({
-    content: 'Please wait...',
-    dismissOnPageChange: true
-  });
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -35,7 +34,8 @@ export class SubscribedjPage {
     public http: Http,
     public loadingCtrl: LoadingController,
     private payPal: PayPal,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    public iab: InAppBrowser
     ) {
      this.events.publish('role', 'dj');
      this.data = {
@@ -60,98 +60,18 @@ export class SubscribedjPage {
     });
   }
 
-  ionViewDidEnter() {
-    if (window.navigator.onLine == true) {
-    } else {
-      this.Loading.dismissAll();
-      let alert = this.alertCtrl.create({
-        title: 'Network connection',
-        subTitle: 'Something went wrong check your internet connection',
-        buttons:['ok']
-      });
-      alert.present();
-      setTimeout(() => alert.dismiss(), 2500);
-    }
-  }
-
-
   setBackButtonAction(){
     //Write here wherever you wanna do
     this.navCtrl.push(EventsdjPage);
   }
 
-  subscribe(chkbx){
-     let headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-    let options = new RequestOptions({ headers: headers });
-    var userdata = JSON.parse(localStorage.getItem("USER_DATA"));
-    var data = {
-        user_id : userdata.id,
-        sub_id : this.subscriv.id
-      }
-    var Serialized = this.serializeObj(data);
-    if(chkbx==false){
-      let alertr = this.alertCtrl.create({
-        title: '',
-        subTitle: "Please accept the terms & conditions",
-        buttons:['ok']
-         
-      });
-        alertr.present();
-    setTimeout(()=>alertr.dismiss(),3500);
-    }else{
-    this.payPal.init({
-      PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
-  PayPalEnvironmentSandbox: 'AUQH6SoDJmAlXBpqHMZYv-TJPr5CVCpCqfbMCkLqKsQZBUdL1DIyIDcTqqx5jC4Y6F9UEzcVhM_kAZWO'
-}).then(() => {
-  // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
-  this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
-    // Only needed if you get an "Internal Service Error" after PayPal login!
-    //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
-  })).then(() => {
-    let payment = new PayPalPayment(this.subscriv.monthly_rate, 'USD', 'Dj subscription', 'sale');
-    this.payPal.renderSinglePaymentUI(payment).then(() => {
-      this.http.post(this.appsetting.myGlobalVar + 'subscriptions/savesubscription', Serialized, options).map(res => res.json()).subscribe(response => {
-        if(response.isSucess=="true"){
-          // alert(JSON.stringify(response.data));
-          localStorage.removeItem('USER_DATA');
-          localStorage.setItem("USER_DATA", JSON.stringify(response.data.User));
-          console.log('role',response.data.User.role);
-          // alert(response.data.User.role);
+  subscribe(chkbx,amt){
+      console.log(amt);
+      if(chkbx == false){
           
-            let alertr = this.alertCtrl.create({
-                title: 'Subscribed',
-                subTitle: response.msg,
-                buttons:['ok']
-                }); 
-                alertr.present();
-            //setTimeout(()=>alertr.dismiss(),4000);
-            if(response.data.User.role == 'dj'){
-              this.events.publish('role', 'dj');
-            }else{
-              this.events.publish('role', 'clubgoer');
-            }
-            this.navCtrl.push(EventsdjPage);
-        }else{
-            let alert = this.alertCtrl.create({
-                title: 'Subscribed',
-                subTitle: response.msg,
-                buttons:['ok']
-              });
-                alert.present();
-            //setTimeout(()=>alert.dismiss(),4000);
-        }
-    });
-    }, () => {
-      // Error or render dialog closed without being successful
-    });
-  }, () => {
-    // Error in configuration
-  });
-}, () => {
-  // Error in initialization, maybe PayPal isn't supported or something else
-});
-  }
+      }else{
+      this.navCtrl.push(AddCardPage,{'amount':amt});
+      }
   }
 
   terms(){

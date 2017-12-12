@@ -51,10 +51,12 @@ public Loading=this.loadingCtrl.create({
     console.log(postdata);
 		var serialized = this.serializeObj(postdata);
 		this.http.post(this.appsetting.myGlobalVar + 'users/userrequestslike', serialized, options).map(res => res.json()).subscribe(data => {
-			this.Loading.dismiss();
+      this.Loading.dismiss();
+      console.log(data);
       if(data.isSucess == "true"){
             this.requests=data.data;
       }else{
+        this.requests=[];
             let alert = this.alertCtrl.create({
                 title: 'Dj Details',
                 subTitle: data.msg,

@@ -65,9 +65,11 @@
 								</div>
 							</div>
 						</ion-label> -->
-					  <ion-item>
-					    <ion-input type="text" placeholder="Dj code here" [(ngModel)]="data.djcode" name="djcode" #djcode="ngModel" [readonly]="isReadonly()"></ion-input>
+						<div class="djcode">
+					  <ion-item >
+					    <ion-input type="text" placeholder="Dj code here" [(ngModel)]="data.djcode" name="djcode" #djcode="ngModel" [readonly]="isReadonly()" disabled></ion-input>
 						</ion-item>
+					</div>
 						<!-- <ion-label  class="alert alert-danger" color="danger">
 								<div *ngIf="djcode.errors && (djcode.dirty || djcode.touched)">
 								 <div [hidden]="!djcode.errors.required" >

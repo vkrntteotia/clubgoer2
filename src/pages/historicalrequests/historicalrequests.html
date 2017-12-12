@@ -39,7 +39,9 @@
       <p>Requested Type <button class="playnow" clear>{{request?.TipOption.name}}</button></p>
       </div>
     </ion-item>
-    
+    <div class="unshow" *ngIf="requests?.length == 0">
+      <h3>No history available</h3>
+  </div>
   </ion-list>
 </div>
 

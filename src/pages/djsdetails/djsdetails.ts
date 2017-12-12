@@ -91,7 +91,7 @@ public Loading=this.loadingCtrl.create({
         buttons:['ok']
         });
        alert.present();
-        setTimeout(()=>alert.dismiss(),1500);
+        setTimeout(()=>alert.dismiss(),3500);
       }
     }
 

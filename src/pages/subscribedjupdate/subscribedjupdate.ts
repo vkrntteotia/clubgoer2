@@ -6,6 +6,7 @@ import { Appsetting } from '../../providers/appsetting';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
 import { EventsdjPage } from '../eventsdj/eventsdj';
 import { TermsdjsubsPage } from '../termsdjsubs/termsdjsubs';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 // import { LogindjPage } from '../logindj/logindj';
 /**
  * Generated class for the SubscribedjPage page.
@@ -33,7 +34,8 @@ export class SubscribedjupdatePage {
     public http: Http,
     public loadingCtrl: LoadingController,
     private payPal: PayPal,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    public iab: InAppBrowser
     ) {
      this.events.publish('role', 'dj');
      this.data = {
@@ -65,75 +67,125 @@ export class SubscribedjupdatePage {
   // }
 
   subscribe(chkbx){
-     let headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-    let options = new RequestOptions({ headers: headers });
-    var userdata = JSON.parse(localStorage.getItem("USER_DATA"));
-    var data = {
-        user_id : userdata.id,
-        sub_id : this.subscriv.id
-      }
-    var Serialized = this.serializeObj(data);
+
     if(chkbx==false){
       let alertr = this.alertCtrl.create({
         title: '',
         subTitle: "Please accept the terms & conditions",
+        buttons:['ok']        
       });
         alertr.present();
-    setTimeout(()=>alertr.dismiss(),2500);
-    }else{
-    this.payPal.init({
-      PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
-  PayPalEnvironmentSandbox: 'AUQH6SoDJmAlXBpqHMZYv-TJPr5CVCpCqfbMCkLqKsQZBUdL1DIyIDcTqqx5jC4Y6F9UEzcVhM_kAZWO'
-}).then(() => {
-  // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
-  this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
-    // Only needed if you get an "Internal Service Error" after PayPal login!
-    //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
-  })).then(() => {
-    let payment = new PayPalPayment(this.subscriv.monthly_rate, 'USD', 'Dj subscription', 'sale');
-    this.payPal.renderSinglePaymentUI(payment).then(() => {
-
-      this.http.post(this.appsetting.myGlobalVar + 'subscriptions/savesubscription', Serialized, options).map(res => res.json()).subscribe(response => {
-        if(response.isSucess=="true"){
-           
-          localStorage.removeItem('USER_DATA');
-          localStorage.setItem("USER_DATA", JSON.stringify(response.data.User));
-          // alert(response.data.User.role);
-            let alertr = this.alertCtrl.create({
-                title: 'Subscribed',
-                subTitle: response.msg,
-                buttons:['ok']
-              });
-             alertr.present();
-            //setTimeout(()=>alertr.dismiss(),4500);
-            if(response.data.User.role == 'dj'){
-              this.events.publish('role', 'dj');
-            }else{
-             this.events.publish('role', 'clubgoer');
-            }
-            this.navCtrl.push(EventsdjPage);
-        }else{
-            let alert = this.alertCtrl.create({
-                title: 'Subscribed',
-                subTitle: response.msg,
-                buttons:['ok']
-              });
-                alert.present();
-           // setTimeout(()=>alert.dismiss(),4500);
-        }
-    });
-    }, () => {
-      // Error or render dialog closed without being successful
-    });
-  }, () => {
-    // Error in configuration
-  });
-}, () => {
-  // Error in initialization, maybe PayPal isn't supported or something else
+    setTimeout(()=>alertr.dismiss(),3500);
+ } else {
+  var userdata = JSON.parse(localStorage.getItem("USER_DATA"));
+   var paydata={
+     'amount':this.subscriv.monthly_rate,
+     'userid':userdata.id
+   };
+ //console.log(amt);
+ var target = "_blank";    
+ var options = "location=no,hidden=no";
+ var browser = this.iab.create('http://vikrant.crystalbiltech.com/vikkitestrecurring/index.php?data='+encodeURIComponent(JSON.stringify(paydata)),target,options);
+ //browser.close();
+ browser.on('loadstart').subscribe((e) => {
+  var redirect_uri = e.url.split('success.php');
+  var redirect_cancel = e.url.split('cancel.php');
+  if (redirect_uri[0] == "https://vikrant.crystalbiltech.com/vikkitestrecurring/") {
+    browser.close();
+        let alertr = this.alertCtrl.create({
+                     title: 'Subscribed',
+                     subTitle: 'Successfully subscribed',
+                     buttons:['ok']
+                     }); 
+                     alertr.present();
+                 setTimeout(()=>alertr.dismiss(),3000);
+                 this.navCtrl.push(EventsdjPage);
+    }
+  else if(redirect_cancel[0] == 'https://vikrant.crystalbiltech.com/vikkitestrecurring/'){
+    browser.close();
+        let alertr = this.alertCtrl.create({
+                  title: 'Subscribed',
+                  subTitle: 'Subscription not alloted',
+                  buttons:['ok']
+                  }); 
+                  alertr.present();
+              setTimeout(()=>alertr.dismiss(),3000);
+  }
+}, err => {
+  //console.log("InAppBrowser loadstart Event Error: " + err);
+ // alert(err)
 });
+
+//      let headers = new Headers();
+//     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+//     let options = new RequestOptions({ headers: headers });
+//     var userdata = JSON.parse(localStorage.getItem("USER_DATA"));
+//     var data = {
+//         user_id : userdata.id,
+//         sub_id : this.subscriv.id
+//       }
+//     var Serialized = this.serializeObj(data);
+//     if(chkbx==false){
+//       let alertr = this.alertCtrl.create({
+//         title: '',
+//         subTitle: "Please accept the terms & conditions",
+//       });
+//         alertr.present();
+//     setTimeout(()=>alertr.dismiss(),2500);
+//     }else{
+//     this.payPal.init({
+//       PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
+//   PayPalEnvironmentSandbox: 'AUQH6SoDJmAlXBpqHMZYv-TJPr5CVCpCqfbMCkLqKsQZBUdL1DIyIDcTqqx5jC4Y6F9UEzcVhM_kAZWO'
+// }).then(() => {
+//   // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
+//   this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
+//     // Only needed if you get an "Internal Service Error" after PayPal login!
+//     //payPalShippingAddressOption: 2 // PayPalShippingAddressOptionPayPal
+//   })).then(() => {
+//     let payment = new PayPalPayment(this.subscriv.monthly_rate, 'USD', 'Dj subscription', 'sale');
+//     this.payPal.renderSinglePaymentUI(payment).then(() => {
+
+//       this.http.post(this.appsetting.myGlobalVar + 'subscriptions/savesubscription', Serialized, options).map(res => res.json()).subscribe(response => {
+//         if(response.isSucess=="true"){
+           
+//           localStorage.removeItem('USER_DATA');
+//           localStorage.setItem("USER_DATA", JSON.stringify(response.data.User));
+//           // alert(response.data.User.role);
+//             let alertr = this.alertCtrl.create({
+//                 title: 'Subscribed',
+//                 subTitle: response.msg,
+//                 buttons:['ok']
+//               });
+//              alertr.present();
+//             //setTimeout(()=>alertr.dismiss(),4500);
+//             if(response.data.User.role == 'dj'){
+//               this.events.publish('role', 'dj');
+//             }else{
+//              this.events.publish('role', 'clubgoer');
+//             }
+//             this.navCtrl.push(EventsdjPage);
+//         }else{
+//             let alert = this.alertCtrl.create({
+//                 title: 'Subscribed',
+//                 subTitle: response.msg,
+//                 buttons:['ok']
+//               });
+//                 alert.present();
+//            // setTimeout(()=>alert.dismiss(),4500);
+//         }
+//     });
+//     }, () => {
+//       // Error or render dialog closed without being successful
+//     });
+//   }, () => {
+//     // Error in configuration
+//   });
+// }, () => {
+//   // Error in initialization, maybe PayPal isn't supported or something else
+// });
+//   }
   }
-  }
+}
 
   terms(){
     this.navCtrl.push(TermsdjsubsPage);

@@ -74,6 +74,8 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { VariableProvider } from '../providers/variable/variable';
 import { CommonProvider } from '../providers/common/common';
 import { Firebase } from '@ionic-native/firebase'; 
+import { Stripe } from '@ionic-native/stripe';
+import { AddCardPage } from '../pages/add-card/add-card';
 @NgModule({
   declarations: [
     ShoutoutdjPage,
@@ -129,6 +131,7 @@ import { Firebase } from '@ionic-native/firebase';
     MembershipdetaildjPage,
     VoteupdjPage,
     EditeventPage,
+    AddCardPage
     
   ],
   imports: [
@@ -191,6 +194,7 @@ import { Firebase } from '@ionic-native/firebase';
     ShoutoutdjPage,
     RequesthistorydjPage,
     PaymenthistorydjPage,
+    AddCardPage
    
   ],
   providers: [
@@ -208,7 +212,8 @@ import { Firebase } from '@ionic-native/firebase';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     VariableProvider,
     CommonProvider,
-    StreamingMedia
+    StreamingMedia,
+    Stripe
   ]
 })
 export class AppModule {}

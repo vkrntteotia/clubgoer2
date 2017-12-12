@@ -1,14 +1,14 @@
 webpackJsonp([24],{
 
-/***/ 471:
+/***/ 461:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PossiblydjPageModule", function() { return PossiblydjPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrivacyPageModule", function() { return PrivacyPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__possiblydj__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__privacy__ = __webpack_require__(140);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PossiblydjPageModule = (function () {
-    function PossiblydjPageModule() {
+var PrivacyPageModule = (function () {
+    function PrivacyPageModule() {
     }
-    return PossiblydjPageModule;
+    return PrivacyPageModule;
 }());
-PossiblydjPageModule = __decorate([
+PrivacyPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__possiblydj__["a" /* PossiblydjPage */],
+            __WEBPACK_IMPORTED_MODULE_2__privacy__["a" /* PrivacyPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__possiblydj__["a" /* PossiblydjPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__privacy__["a" /* PrivacyPage */]),
         ],
     })
-], PossiblydjPageModule);
+], PrivacyPageModule);
 
-//# sourceMappingURL=possiblydj.module.js.map
+//# sourceMappingURL=privacy.module.js.map
 
 /***/ })
 

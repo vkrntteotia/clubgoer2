@@ -50,6 +50,9 @@
     },
     "cordova-plugin-file-transfer": {
       "PACKAGE_NAME": "io.djapp1234"
+    },
+    "cordova-plugin-stripe": {
+      "PACKAGE_NAME": "io.djapp1234"
     }
   },
   "dependent_plugins": {

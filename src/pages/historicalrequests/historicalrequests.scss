@@ -59,4 +59,22 @@ page-historicalrequests {
     .right_items {
         float: right;
     }
+    .unshow{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 30px;
+    }
+    .unshow h3{
+        color:#fff;
+        margin: 0;
+        font-size: 16px;
+        width: 100%;
+        float: left;
+        text-align: center;
+        font-weight: 700 !important;
+    }
 }

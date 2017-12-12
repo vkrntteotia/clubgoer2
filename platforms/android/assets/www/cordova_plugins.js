@@ -319,6 +319,14 @@ module.exports = [
     "clobbers": [
       "window.FileTransfer"
     ]
+  },
+  {
+    "id": "cordova-plugin-stripe.stripe",
+    "file": "plugins/cordova-plugin-stripe/www/CordovaStripe.js",
+    "pluginId": "cordova-plugin-stripe",
+    "clobbers": [
+      "cordova.plugins.stripe"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -339,7 +347,8 @@ module.exports.metadata =
   "ionic-plugin-keyboard": "2.2.1",
   "cordova-plugin-camera": "3.0.0",
   "cordova-plugin-file": "5.0.0",
-  "cordova-plugin-file-transfer": "1.7.0"
+  "cordova-plugin-file-transfer": "1.7.0",
+  "cordova-plugin-stripe": "1.5.3"
 };
 // BOTTOM OF METADATA
 });

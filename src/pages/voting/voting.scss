@@ -1,3 +1,39 @@
 page-voting {
+    .see{
+        border-radius: 4;
+        height: 2.8em;
+        font-size: 1.6rem;
+        color: #fff;
+        background-color: #b00101;
+        margin: 0.4rem 0.2rem;
+        padding: 0 1em;
 
+}
+
+.button {
+    border-radius: 4px;
+    height: 2.8em;
+    font-size: 1.6rem;
+    color: #fff;
+    background-color: #b00101;
+    margin: 0.4rem 0.2rem;
+    padding: 0 1em;
+}
+.plusbtn .fab {
+    color: #fff;
+    background-color: #b00101;
+}
+.content-text {
+    background-color: #b00101;
+text-align: center;
+height: auto;
+
+}
+
+.content-text  h1 {
+    font-size: 14px;
+    height: 30px;
+    padding-top: 7px;
+    color: #fff;
+}
 }

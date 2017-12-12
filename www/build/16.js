@@ -1,14 +1,14 @@
 webpackJsonp([16],{
 
-/***/ 461:
+/***/ 488:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShoutoutdjPageModule", function() { return ShoutoutdjPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignindjPageModule", function() { return SignindjPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shoutoutdj__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signindj__ = __webpack_require__(36);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ShoutoutdjPageModule = (function () {
-    function ShoutoutdjPageModule() {
+var SignindjPageModule = (function () {
+    function SignindjPageModule() {
     }
-    return ShoutoutdjPageModule;
+    return SignindjPageModule;
 }());
-ShoutoutdjPageModule = __decorate([
+SignindjPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__shoutoutdj__["a" /* ShoutoutdjPage */],
+            __WEBPACK_IMPORTED_MODULE_2__signindj__["a" /* SignindjPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__shoutoutdj__["a" /* ShoutoutdjPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__signindj__["a" /* SignindjPage */]),
         ],
     })
-], ShoutoutdjPageModule);
+], SignindjPageModule);
 
-//# sourceMappingURL=shoutoutdj.module.js.map
+//# sourceMappingURL=signindj.module.js.map
 
 /***/ })
 

@@ -27,10 +27,11 @@
         <p style="font-size: 17px;"><span>E-mail : </span>{{djs?.User.email}}</p>
         <p style="font-size: 17px;"><span>Dj Code : </span>{{djs?.User.djcode}}</p>
         <p style="font-size: 17px;" *ngIf="djs?.User.biography"><span>Dj Biography : </span>{{djs?.User.biography}}</p>
-{{videoUrl}}
-        <iframe *ngIf="videoUrl" width="320" height="315" [src]="videoUrl" frameborder="0"></iframe>
+        <iframe *ngIf="videoUrl" width="320" height="315" [src]="videoUrl" frameborder="0" align="middle"></iframe>
     </div>
-    <h4>Upcoming Events</h4>
+    <h4 style="    color: #fff;
+    text-align: center;
+    font-size: 19px;">Upcoming Events</h4>
     <div class="productscroll">
 
         <ion-scroll scrollX="true" *ngIf="djs?.Event">
@@ -42,11 +43,42 @@
                 <div class="imageboxed">
                     <img [src]="dj?.image">
                 </div>
-                <p style="font-size: 17px;">Venue name : {{dj?.venue_name}} <br>
-                    <!-- Event day : Sunday <br> -->
-                    Event time : &nbsp;&nbsp;&nbsp;&nbsp; {{dj?.event_date+" "+dj?.event_time | date:'MM-dd-yyyy HH:mm a'}} <br>&nbsp;&nbsp;&nbsp;&nbsp;to <br>{{dj?.start_event+" "+dj?.scheduled_start_time | date:'MM-dd-yyyy HH:mm a'}}</p>
-            </div>
+             
+
+                <ion-item>
+                            <ion-label>
+                                    Venue name :
+                            </ion-label>
+                            <div item-content>
+                                    {{dj?.venue_name}}
+                            </div>
+                          </ion-item>
+            
+                          <ion-item>
+                                <ion-label>
+                                        Event time :
+                                </ion-label>
+                                <div item-content>
+                                        {{dj?.event_date+" "+dj?.event_time}}
+                                </div>
+                              </ion-item>
+            
+            
+                          <ion-item>
+                                <ion-label>
+                                        TO
+                                </ion-label>
+                                <div item-content>
+                                        {{dj?.start_event+" "+dj?.scheduled_start_time}}
+                                </div>
+                              </ion-item>
+                </div>
         </ion-scroll>
+       
+    
+    
+
+
 
     </div>
 </ion-content>

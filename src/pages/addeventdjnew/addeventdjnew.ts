@@ -101,7 +101,7 @@ export class AddeventdjnewPage {
           this.Loader.dismissAll();
           this.Loader.dismiss();
           this.srcImage = this.appsetting.showGlobalurl + this.newFileName;
-          this.presentToast('Image succesful uploaded.');
+          //this.presentToast('Image succesful uploaded.');
         }
       
     }, err => {

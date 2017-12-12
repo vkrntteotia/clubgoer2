@@ -30,7 +30,7 @@ export class MembershipdetaildjPage {
     public appsetting: Appsetting,
     public loadingCtrl: LoadingController,
     private alertCtrl: AlertController) {
-     // this.getsubsdata();
+      this.getsubsdata();
   }
 
   getsubsdata(){
@@ -49,7 +49,7 @@ export class MembershipdetaildjPage {
       this.http.post(this.appsetting.myGlobalVar + 'users/getsubscription', serialized, options)
         .map(res => res.json())
         .subscribe(data => {
-          console.log(data);
+          //console.log(data);
           Loader.dismiss();
           if (data.isSucess == "true") {
             this.subscrip=data.data;

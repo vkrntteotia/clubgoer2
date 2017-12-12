@@ -136,7 +136,7 @@ export class SignupdjPage {
          Loading.dismiss();
          console.log(response);
         if (response.isSuccess == true) {
-          this.Loading.dismiss();
+         // this.Loading.dismiss();
           this.events.publish('role', 'dj');
           localStorage.setItem("USER_DATA", JSON.stringify(response.user_data));
           let alert = this.alertCtrl.create({

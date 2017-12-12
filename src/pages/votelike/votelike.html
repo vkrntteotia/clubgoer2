@@ -5,7 +5,6 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar color="black">
     <button ion-button menuToggle>
       <ion-icon style="color:#ffae00;" name="menu"></ion-icon>
@@ -15,7 +14,6 @@
       <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
@@ -32,10 +30,10 @@
             <ion-icon *ngIf="request?.ClubgoerRequest.like==0" color="yellow" style="font-size:13px; padding-left:8px;" name="thumbs-down"></ion-icon>
           </button> 
         </ion-note>
-        <ion-note item-end="" class="note time">${{request?.ClubgoerRequest.tip_amount}}</ion-note>
+        <ion-note item-end="" class="note time">{{request?.ClubgoerRequest.tip_amount}}</ion-note>
       </ion-item>
       <div class="unshow" *ngIf="requests?.length == 0">
-          <h3>No request available</h3>
+          <h3 style="color:white;">No request available</h3>
       </div>
     </ion-list>
   </div>

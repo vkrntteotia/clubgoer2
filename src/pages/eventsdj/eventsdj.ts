@@ -43,6 +43,8 @@ export class EventsdjPage {
     }
   }
 
+  
+
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {
@@ -79,7 +81,7 @@ export class EventsdjPage {
         buttons:['ok']
       });
       alert.present();
-      setTimeout(()=>alert.dismiss(),1500);
+      setTimeout(()=>alert.dismiss(),3500);
       this.navCtrl.push(EditprofiledjPage);
     }
     else if(response.data.User.subscription_status==0||response.data.User.subscription_status=="0"){
@@ -90,7 +92,7 @@ export class EventsdjPage {
         buttons:['ok']
       });
       alert.present();
-      setTimeout(()=>alert.dismiss(),1500);
+      setTimeout(()=>alert.dismiss(),3500);
       this.navCtrl.push(MembershipdetaildjPage);
     }
     else{
