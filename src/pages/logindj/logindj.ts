@@ -99,25 +99,10 @@ export class LogindjPage {
   }
 
   login(form) {
-    // this.firebase.getToken().then(token => {
-    //   console.log(`The token is ${token}`)
-     
-    //    alert(token);
-
-    //   this.token = token
-    //   console.log('onToken->', this.token);
-    // }) 
-
-    // // save the token server-side and use it to push notifications to this device //
-
-    // .catch(error => {
-    //   console.error('Error getting token', error)
-    // });
-
-  // this.firebase.onTokenRefresh().subscribe(
-  //   token => {
-  //     console.log(`The new token is ${token}`);
-  //     this.token = token;
+  this.firebase.onTokenRefresh().subscribe(
+    token => {
+      console.log(`The new token is ${token}`);
+      this.token = token;
  if (form.value.checkbx == true) {
       localStorage.setItem("usernamedj", form.value.email);
       localStorage.setItem("passworddj", form.value.password);
@@ -133,7 +118,7 @@ export class LogindjPage {
     var data = {
       email: form.value.email,
       password: form.value.password,
-      //token : this.token
+      token : this.token
     }
     console.log(data);
     console.log("vikrant");
@@ -175,7 +160,7 @@ export class LogindjPage {
       }
     })
       })
-    //})
+    })
   }
 
   fblogin() {

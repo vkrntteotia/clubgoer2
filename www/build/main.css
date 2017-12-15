@@ -33174,6 +33174,32 @@ ion-navbar.toolbar.toolbar-ios.toolbar-ios-dark.statusbar-padding {
   position: absolute;
 }
 
+video {
+  -o-object-fit: fill;
+  object-fit: fill;
+  width: 100%;
+  max-width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 0px;
+  -ms-flex: 1 1 0px;
+  flex: 1 1 0px;
+  top: 0;
+  left: -50%;
+  right: -50%;
+  bottom: 0;
+  margin: auto;
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+#video-bg {
+  position: fixed !important;
+  bottom: 0 !important;
+  z-index: -1 !important;
+}
+
 page-add-card a {
   color: #9f9fa3;
   cursor: pointer;
@@ -34191,6 +34217,26 @@ page-djslist .imagebox img {
   width: 100%;
 }
 
+page-djslist .unshow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 30px;
+}
+
+page-djslist .unshow h3 {
+  margin: 0;
+  color: white;
+  font-size: 16px;
+  width: 100%;
+  float: left;
+  text-align: center;
+  font-weight: 700 !important;
+}
+
 page-editevent .header {
   background-color: #0e1629;
 }
@@ -34525,6 +34571,15 @@ page-editprofiledj .head-sec .edit-image {
   background-color: #fff;
   text-align: center;
   color: #000;
+}
+
+page-editprofiledj page-editprofiledj .btn-sec button {
+  background-color: #b00101 !important;
+  width: 65%;
+}
+
+page-editprofiledj .button-md.activated {
+  background-color: #b00101 !important;
 }
 
 page-editprofiledj .text-input[disabled] {
@@ -35220,6 +35275,10 @@ page-login .form_sec {
   padding-top: 10vh;
 }
 
+page-login .fbbutton.activated {
+  background-color: transparent !important;
+}
+
 page-logindj .back-button {
   display: none !important;
 }
@@ -35354,7 +35413,7 @@ page-logindj .checkbox-checked .checkbox-inner {
   overflow-y: hidden;
 }
 
-.button-ios.activated {
+.fbbutton.activated {
   background-color: transparent !important;
 }
 
@@ -36231,6 +36290,12 @@ page-payinfo h4.selettitle {
   margin-top: 0;
 }
 
+page-payinfo h4.selettitle figure {
+  margin: 0px;
+  width: 100%;
+  text-align: center;
+}
+
 page-payinfo .selectpayment .item {
   background: none;
   color: #fff;
@@ -36439,6 +36504,25 @@ page-paymenthistorydj .total h3 {
   top: 0;
   right: 0;
   font-size: 18px;
+  font-weight: 700 !important;
+}
+
+page-paymenthistorydj .unshow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 30px;
+}
+
+page-paymenthistorydj .unshow h3 {
+  margin: 0;
+  font-size: 16px;
+  width: 100%;
+  float: left;
+  text-align: center;
   font-weight: 700 !important;
 }
 
@@ -37492,6 +37576,10 @@ page-signindj .content {
   background-position: center;
 }
 
+page-signindj .hme .scroll-content {
+  padding: 0 !important;
+}
+
 page-signindj .content-sec {
   width: 100%;
   float: left;
@@ -37537,26 +37625,6 @@ page-signindj .content-sec .btn-sec h5 span {
   text-decoration: underline;
 }
 
-page-signindj video {
-  -o-object-fit: fill;
-  object-fit: fill;
-  height: 100%;
-  width: 100%;
-  max-width: 100%;
-  top: 0;
-  left: -50%;
-  right: -50%;
-  bottom: 0;
-  margin: auto;
-}
-
-page-signindj #video-bg {
-  top: -190px;
-  bottom: 0;
-  left: -600px;
-  z-index: -1;
-}
-
 page-signindj .scroll-content {
   overflow: hidden !important;
 }
@@ -37591,6 +37659,18 @@ page-signindj .img-top {
 
 page-signindj .img-top img {
   width: 100px;
+}
+
+page-signindj .videoimage {
+  width: 100%;
+  float: left;
+  height: 100%;
+}
+
+page-signindj .videoimage img {
+  width: 100%;
+  float: left;
+  height: 100%;
 }
 
 page-signup .toolbar-title {
@@ -37828,129 +37908,6 @@ page-songrequests .gredient .button-inner {
   -webkit-justify-content: left;
   -ms-flex-pack: left;
   justify-content: left;
-}
-
-page-subscribedj .header {
-  background-color: #0e1629;
-}
-
-page-subscribedj .logo {
-  width: 40%;
-  float: right;
-  text-align: right;
-  position: absolute;
-  right: 18px;
-  top: 35px;
-}
-
-page-subscribedj .logo img {
-  width: 12%;
-  margin-top: 19px;
-}
-
-page-subscribedj .content {
-  background-image: url(../assets/img/sbackground.png);
-  width: 100%;
-  float: left;
-  background-size: cover;
-}
-
-page-subscribedj .remember .item-inner {
-  border: none !important;
-}
-
-page-subscribedj .content-sec {
-  width: calc(100% - 30px);
-  float: none;
-  margin: auto;
-  background-color: #fff;
-  -webkit-box-shadow: 0px 0px 28px #656565;
-  box-shadow: 0px 0px 28px #656565;
-  border-radius: 20px;
-  margin: auto;
-  padding: 8px 0;
-  height: -webkit-min-content;
-  height: -moz-min-content;
-  height: min-content;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-page-subscribedj .top-sec h4 {
-  width: 100%;
-  float: left;
-  text-align: center;
-  color: #0a0f26;
-  margin-top: 0px;
-}
-
-page-subscribedj .top-sec p {
-  width: 100%;
-  text-align: center;
-  color: #686868;
-  border-bottom: 1px solid #cbcbcb;
-  padding-bottom: 20px;
-}
-
-page-subscribedj .bottom-sec {
-  width: 100%;
-  float: left;
-  text-align: center;
-}
-
-page-subscribedj .bottom-sec h1 {
-  font-size: 50px;
-  text-align: center;
-  color: #b00101;
-  margin-top: 5px;
-}
-
-page-subscribedj .bottom-sec p {
-  width: 100%;
-  text-align: center;
-  color: #0a0f26;
-}
-
-page-subscribedj .bottom-sec .button {
-  width: 70%;
-  background-color: #b00101;
-  margin: 10px auto;
-  text-align: center;
-  float: none;
-}
-
-page-subscribedj .bottom-sec .button:hover {
-  background-color: #b00101;
-}
-
-page-subscribedj .bottom-sec .button.activated {
-  background-color: #b00101;
-}
-
-page-subscribedj .term {
-  font-size: 15px !important;
-  color: #656565 !important;
-  margin: 0 !important;
-}
-
-page-subscribedj .back-button {
-  display: none !important;
-}
-
-page-subscribedj .term .item-cover {
-  display: none !important;
-}
-
-page-subscribedj .term .checkbox-checked {
-  border-color: #b00101;
-  background-color: #b00101;
-}
-
-page-subscribedj .checkbox {
-  vertical-align: middle;
 }
 
 page-subscribedj .header {
@@ -38786,6 +38743,18 @@ page-voteupdj .unshow h3 {
   font-weight: 700 !important;
 }
 
+page-voteupdj .input-wrapper h3 {
+  width: 100%;
+  float: left;
+  padding: 0;
+}
+
+page-voteupdj .input-wrapper h3 p {
+  width: 100%;
+  float: left;
+  padding: 0;
+}
+
 page-voting .see {
   border-radius: 4;
   height: 2.8em;
@@ -38812,14 +38781,14 @@ page-voting .plusbtn .fab {
 }
 
 page-voting .content-text {
-  background-color: #b00101;
   text-align: center;
   height: auto;
 }
 
 page-voting .content-text h1 {
   font-size: 14px;
+  font-weight: 500;
   height: 30px;
   padding-top: 7px;
-  color: #fff;
+  color: #000;
 }

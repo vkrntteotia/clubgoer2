@@ -90,10 +90,14 @@ page-login {
     .form_sec {
         padding-top: 10vh;
     }
+    
     // .scroll-content {
     //     overflow: hidden !important;
     // }
 
+    .fbbutton.activated{
+        background-color:transparent !important;
+    }
 }
 
 

@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, AlertController, Events} from 'ion
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { LoadingController } from 'ionic-angular';
 import { Appsetting } from '../../providers/appsetting';
-import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
 import { EventsdjPage } from '../eventsdj/eventsdj';
 import { TermsdjsubsPage } from '../termsdjsubs/termsdjsubs';
 // import { LogindjPage } from '../logindj/logindj';
@@ -33,7 +32,6 @@ export class SubscribedjPage {
     public appsetting: Appsetting,
     public http: Http,
     public loadingCtrl: LoadingController,
-    private payPal: PayPal,
     private alertCtrl: AlertController,
     public iab: InAppBrowser
     ) {
@@ -66,11 +64,16 @@ export class SubscribedjPage {
   }
 
   subscribe(chkbx,amt){
-      console.log(amt);
-      if(chkbx == false){
-          
+            if(chkbx == false){
+              let alertr = this.alertCtrl.create({
+                title: '',
+                subTitle: "Please accept the terms & conditions",
+                buttons:['ok']        
+              });
+                alertr.present();
+            setTimeout(()=>alertr.dismiss(),3500);
       }else{
-      this.navCtrl.push(AddCardPage,{'amount':amt});
+            this.navCtrl.push(AddCardPage,{'amount':amt});
       }
   }
 

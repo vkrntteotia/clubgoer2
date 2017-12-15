@@ -4,6 +4,9 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { Appsetting } from '../../providers/appsetting';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { EventsdjPage } from '../eventsdj/eventsdj';
+import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
+
 /**
  * Generated class for the EditprofiledjPage page.
  *
@@ -33,8 +36,9 @@ export class EditprofiledjPage {
     public actionSheetCtrl: ActionSheetController,
      public events: Events
   ) {
-    this.getuser();
+    
   }
+
   getuser() {
     this.Loading.present();
     let headers = new Headers();
@@ -210,22 +214,26 @@ export class EditprofiledjPage {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
     let options = new RequestOptions({ headers: headers });
+    
     var data = {
       userid: JSON.parse(localStorage.getItem('USER_DATA')).id,
       completename: profile.value.complete_name,
       biography: profile.value.biography,
-      djcode: profile.value.djcode,
       paypal_id: profile.value.paypal_email,
       music_url: profile.value.audiourl,
     }
     var Serialized = this.serializeObj(data);
+    console.log(Serialized);
     var Loading = this.loadingCtrl.create({
       content: 'Please wait...',
     });
-    Loading.present().then(() => {
-      this.http.post(this.appsetting.myGlobalVar + 'users/edit_profile', Serialized, options).map(res => res.json()).subscribe(response => {
-        Loading.dismiss();
+    // Loading.present().then(() => {
+      this.http.post(this.appsetting.myGlobalVar + 'users/edit_profile', Serialized, options)
+      .map(res => res.json())
+      .subscribe(response => {
         console.log(response);
+        
+        Loading.dismiss();
         if (response.status == 0) {
           let alert = this.alertCtrl.create({
             title: 'Edit Profile',
@@ -247,7 +255,7 @@ export class EditprofiledjPage {
           setTimeout(() => alert.dismiss(), 3500);
         }
       })
-    });
+    //});
   }
 
   uploadlogo() {
@@ -345,6 +353,9 @@ export class EditprofiledjPage {
     actionsheet.present();
   }
 
+  ionViewCanEnter(){
+    this.getuser();
+  }
 
   serializeObj(obj) {
     var result = [];
@@ -353,6 +364,7 @@ export class EditprofiledjPage {
 
     return result.join("&");
   }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditprofiledjPage');
   }

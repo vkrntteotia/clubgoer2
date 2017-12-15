@@ -14,28 +14,15 @@
   </ion-navbar>
 </ion-header> -->
 
-
-<ion-content swipeBackEnabled="false">
+<ion-content swipeBackEnabled="false" class="hme">
 	<div class="content-sec">
-			<div class="img-top">
-					<!-- <img src="assets/img/mainimg.png"> -->
-				</div>
 		<div class="btn-sec">
 				<button ion-button (click)="signup_clubgoer()">Get Started</button>
 				<h5>Ready to earn? <span (click)="signup_dj()">Sign up/in as a Dj</span></h5>
 		</div>
 	</div>
-
-			<video autoplay id="video-bg" poster="assets/img/videobg.jpg" webkit-playsinline playsinline loop>
-					<source src={{vid}} type="video/mp4">
-			</video>
+	<div class="videoimage">
+		<img src="assets/video/djvideos.gif" />
+	</div>
 			
-	<!-- <div id="contentd">
-		<img src="http://priyank.crystalbiltech.com/dj/files/djlogin.gif">
-	</div> -->
-	 <!-- <div id="contentd" style="height:300px; width:100%;">
-			<video width="400" id="myVideo" class="video-js vjs-default-skin" webkit-playsinline playsinline>
-					<source src={{vid}} type="video/mp4">
-			</video>
-  </div> -->
 </ion-content>

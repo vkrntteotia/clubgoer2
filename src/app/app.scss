@@ -288,4 +288,29 @@ ion-navbar.toolbar.toolbar-ios.toolbar-ios-dark.statusbar-padding {
     position: absolute;
 }
 
+video {
+    -o-object-fit: fill;
+    object-fit: fill;
+    //height: 100%;
+    width: 100%;
+    max-width: 100%;
+    //position: absolute;
+    flex: 1 1 0px;
+    top: 0;
+    left: -50%;
+    right: -50%;
+    bottom: 0;
+    margin: auto;
+}
+video::-webkit-media-controls-enclosure {
+    display:none !important;
+  }
 
+#video-bg {
+    position: fixed !important;
+    //top:-190px;
+    bottom : 0 !important;
+    //left:-600px;
+    //z-index: 2147483647;
+    z-index:-1 !important;
+}

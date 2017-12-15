@@ -28,31 +28,20 @@ public card:any = [];
   }
   
   private add_card(formdata){
+    var user_id = JSON.parse(localStorage.getItem("USER_DATA")).id;
       console.log(formdata.value);
        let headers = new Headers();
   headers.append('Content-Type',  'application/x-www-form-urlencoded;charset=utf-8');
   let options= new RequestOptions({ headers: headers });
   var email = JSON.parse(localStorage.getItem("USER_DATA")).email;
   this.stripe.setPublishableKey('pk_test_gGw0nKJtPn2n9zGD1JuR7iV6');
-var cardno;
-if(formdata.value.mmyy && formdata.value.cardnumber){
-    var a = formdata.value.mmyy.split('/');
-    console.log(a);
-    var b = formdata.value.cardnumber.split('-');
-    console.log(b);
-    cardno = b[0]+b[1]+b[2]+b[3];
-    console.log(cardno);
-}
+
+
 let card = {
- number: cardno,
- expMonth: parseInt(a[0]),
- expYear: parseInt(a[1]),
+ number: formdata.value.cardnumber,
+ expMonth: formdata.value.month,
+ expYear: formdata.value.year,
  cvc: formdata.value.cvc,
- name:formdata.value.name,
- address_line1:formdata.value.address,
- address_city:formdata.value.city,
- address_state:formdata.value.state,
- postal_code:formdata.value.zip
 };
 console.log(card);
 this.stripe.createCardToken(card)
@@ -61,9 +50,10 @@ this.stripe.createCardToken(card)
   //  alert('success');
   //  alert(token.id);
     var data ={
-   email:email,
-   price:this.navParams.get('amount'),
-   token:token.id
+   email: email,
+   price: this.navParams.get('amount'),
+   token: token.id,
+   userid: user_id
    }
  var Serialized = this.serializeObj(data);
  var Loading = this.loadingCtrl.create({
@@ -84,6 +74,8 @@ Loading.present().then(() => {
       alert.present();
       setTimeout(() => alert.dismiss(), 2500);
       this.navCtrl.push(EventsdjPage);
+      localStorage.removeItem("USER_DATA");
+      localStorage.setItem("USER_DATA", JSON.stringify(response.data));
     }else{
       //alert('Something went wrong!');
       let alert = this.alertCtrl.create({
@@ -103,15 +95,12 @@ Loading.present().then(() => {
    alert(JSON.stringify(error));
    
    });
-   
-   
-   
-
   }
 
   
   
    cardFormat(number) {
+   console.log('hero');
     console.log(number);
     if (number.length == 4) {
       this.card.cardnumber = number + '-';
@@ -122,6 +111,7 @@ Loading.present().then(() => {
       this.card.cardnumber = number + '-';
     }
   }
+  
   dateFormat(date){
   console.log(date);
   if(date.length == 2){

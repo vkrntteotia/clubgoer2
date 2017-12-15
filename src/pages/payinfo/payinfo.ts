@@ -100,7 +100,7 @@ var target = "_blank";
 var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height=' + height + ', location=0, status=0, toolbar=0, menubar=0, resizable=0, scrollbars=1';
 
     //this.setbit=bitnow;
-    var target = "_blank";    
+    //var target = "_blank";    
     var tmp="";
     var tmpr="";
     //var options = "location=no,hidden=no";

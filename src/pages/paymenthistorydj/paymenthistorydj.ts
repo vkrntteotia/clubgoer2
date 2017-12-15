@@ -63,6 +63,7 @@ export class PaymenthistorydjPage {
                 this.totalpay = parseInt(this.totalpay)+parseInt(dat.ClubgoerRequest.djshare);
             }
           } else {
+            this.payhistdata = [];
             this.totalpay=0;
           }
         })
@@ -98,7 +99,7 @@ export class PaymenthistorydjPage {
       var Serialized = this.serializeObj(data);
       this.payPal.init({
         PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
-    PayPalEnvironmentSandbox: 'AUQH6SoDJmAlXBpqHMZYv-TJPr5CVCpCqfbMCkLqKsQZBUdL1DIyIDcTqqx5jC4Y6FAUQH6SoDJmAlXBpqHMZYv-TJPr5CVCpCqfbMCkLqKsQZBUdL1DIyIDcTqqx5jC4Y9UEzcVhM_kAZWO'
+    PayPalEnvironmentSandbox: 'AFcWxV21C7fd0v3bYYYRCpSSRl31A5gXXq3jDhmdlyQxH0Ztp-tlLquA'
   }).then(() => {
     // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
     this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({

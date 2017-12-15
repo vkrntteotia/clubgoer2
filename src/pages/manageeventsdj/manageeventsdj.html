@@ -29,7 +29,7 @@
         <div class="past">
             <ion-list *ngSwitchCase="'team'">
                 <ion-item *ngFor="let u of upevnt; let k = index">
-                    <div class="edit"> <button ion-button (click)="editEvent(u?.Event.id)"> Edit </button></div>
+                    <div class="edit"> <button ion-button (click)="editEvent(u?.Event.id)" style="background: #b00101;"> Edit </button></div>
                     <div class="brdr" (click)="omniaclubevent(u?.Event.id,u?.Event.event_name)">
                         <div class="date-sec blue">
                             <h2>{{u?.Event.Day}}</h2>

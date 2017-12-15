@@ -79,9 +79,10 @@ export class ShoutoutdjPage {
           reqoption:3
         }
         var serialized = this.serializeObj(data);
-        this.http.post(this.appsetting.myGlobalVar + 'events/votetopquereq', serialized, options)
+        this.http.post(this.appsetting.myGlobalVar + 'events/shouttopquereq', serialized, options)
           .map(res => res.json())
           .subscribe(data => {
+            console.log(data);
             Loader.dismiss();
             if (data.isSucess == "true") {
               let alertr = this.alertCtrl.create({

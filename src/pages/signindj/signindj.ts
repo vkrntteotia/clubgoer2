@@ -29,32 +29,21 @@ export class SignindjPage {
     statusBar.hide();
     this.statusBar.overlaysWebView(true);
   }
-
-playVideo(){
-  //this.vid="http://priyank.crystalbiltech.com/dj/files/djjvideos.mp4";
-  this.vid="assets/video/djjvideos.mp4";
-       this.video = document.getElementById("video-bg");
-       this.video.src = this.vid; 
-       this.video.muted = true; 
-       this.video.loop = true;
-       this.video.play();    
-}
 signup_dj(){
   localStorage.setItem('role','dj');
   this.navCtrl.push(SignupdjPage);
-  this.video.pause();
+  //this.video.pause();
 }
+
 signup_clubgoer(){
     localStorage.setItem('role','clubgoer');
     this.navCtrl.push(SignupPage);
-    this.video.pause();
+    //this.video.pause();
 }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignindjPage');
-    this.playVideo();
-  }
+
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {
+      
     } else {
       this.Loading.dismissAll();
        let alert = this.alertCtrl.create({

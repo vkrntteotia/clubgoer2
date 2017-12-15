@@ -31,7 +31,6 @@ export class RequestsongplayPage {
         this.flag=false;
         this.djid = navParams.get("djid");
         this.eventid = navParams.get("eventid");
-        this.showreqtype();
   }
   public Loading=this.loadingCtrl.create({
     content: 'Please wait...',
@@ -189,7 +188,12 @@ showreqtype() {
               setTimeout(()=>alert.dismiss(),3500);
     }
 		})
-	}
+  }
+
+  ionViewCanEnter(){
+    this.showreqtype();
+  }
+
 ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {

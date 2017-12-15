@@ -1,14 +1,14 @@
 webpackJsonp([16],{
 
-/***/ 488:
+/***/ 775:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignindjPageModule", function() { return SignindjPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShoutoutdjPageModule", function() { return ShoutoutdjPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signindj__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shoutoutdj__ = __webpack_require__(180);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SignindjPageModule = (function () {
-    function SignindjPageModule() {
+var ShoutoutdjPageModule = (function () {
+    function ShoutoutdjPageModule() {
     }
-    return SignindjPageModule;
+    return ShoutoutdjPageModule;
 }());
-SignindjPageModule = __decorate([
+ShoutoutdjPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__signindj__["a" /* SignindjPage */],
+            __WEBPACK_IMPORTED_MODULE_2__shoutoutdj__["a" /* ShoutoutdjPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__signindj__["a" /* SignindjPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__shoutoutdj__["a" /* ShoutoutdjPage */]),
         ],
     })
-], SignindjPageModule);
+], ShoutoutdjPageModule);
 
-//# sourceMappingURL=signindj.module.js.map
+//# sourceMappingURL=shoutoutdj.module.js.map
 
 /***/ })
 

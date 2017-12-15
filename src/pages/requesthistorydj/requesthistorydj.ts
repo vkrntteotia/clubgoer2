@@ -51,12 +51,13 @@ export class RequesthistorydjPage {
         .map(res => res.json())
         .subscribe(data => {
           Loader.dismiss();
+          console.log(data);
           if (data.isSucess == "true") {
             this.reqhistdata = data.data;
             console.log(data);
             console.log("pastevent");
           } else {
-            
+            this.reqhistdata = [];
           }
         })
     });

@@ -32,7 +32,7 @@ export class ManageeventsdjPage {
     public loadingCtrl: LoadingController,
     private alertCtrl: AlertController
             ) {
-              this.manageevent();
+              
               this.segments = "team";
   }
 
@@ -82,7 +82,10 @@ export class ManageeventsdjPage {
       eventid : eventid
     });
   }
-
+  
+  ionViewCanEnter(){
+    this.manageevent();
+  }
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {

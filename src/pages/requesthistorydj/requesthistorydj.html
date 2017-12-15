@@ -28,7 +28,7 @@
         	<p>{{req?.ClubgoerRequest.artist_name}}</p>
         	<p>Requested By : {{req?.Clubgoer.complete_name}}</p>
       </ion-item>
-      <div class="unshow" *ngIf="reqhistdata?.ClubgoerRequest?.length == 0">
+      <div class="unshow" *ngIf="reqhistdata?.length == 0">
         <h3>No data available</h3>
       </div>
     </ion-list>

@@ -17,6 +17,11 @@ page-payinfo {
         color: #b00101;
         text-transform: uppercase;
         margin-top: 0;
+        figure{
+            margin:0px;
+            width: 100%;
+            text-align: center;
+        }
     }
     .selectpayment .item{
         background: none;

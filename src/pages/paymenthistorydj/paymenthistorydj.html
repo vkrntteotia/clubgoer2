@@ -30,8 +30,14 @@
 	      </ion-item>
 	  </ion-list>
 	</div>
-	<div class="total" ng-if="'totalpay>0'">
+
+	<div class="total" *ngIf="totalpay>0">
 		<h2>Total Received</h2>
 		<h3>${{totalpay}}</h3>
 	</div>
+
+	<div class="unshow" *ngIf="payhistdata?.length == 0">
+		<h3> No payment available</h3>
+	</div>
+
 </ion-content>

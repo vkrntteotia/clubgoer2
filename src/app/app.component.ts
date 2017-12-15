@@ -9,7 +9,7 @@ import { TermsPage } from '../pages/terms/terms';
 import { PrivacyPage } from '../pages/privacy/privacy';
 import { Appsetting } from '../providers/appsetting';
 import { VotelikePage } from '../pages/votelike/votelike';
-import { ShoutoutdjPage } from '../pages/shoutoutdj/shoutoutdj';
+//import { ShoutoutdjPage } from '../pages/shoutoutdj/shoutoutdj';
 import { HistoricalrequestsPage } from '../pages/historicalrequests/historicalrequests';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
 import { TransactionhstrydjPage } from '../pages/transactionhstrydj/transactionhstrydj';
@@ -45,6 +45,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = SignindjPage;
   activePage: any; user;
+  public video;datav;
   role;profile;
   pages: Array<{ title: string, component: any, icon: any }>;
   djmenu: Array<{ title: string, component: any, icon: any }>;
@@ -62,6 +63,7 @@ export class MyApp {
   ) {
     
     platform.ready().then(() => {
+    
       statusBar.overlaysWebView(true);
       
       statusBar.hide();
@@ -83,7 +85,6 @@ export class MyApp {
 			}
 });
 
-  
     this.initializeApp();
     this.events.subscribe('role', data => {
       //console.log(data);
@@ -263,7 +264,7 @@ export class MyApp {
           //this.rootPage = (JSON.parse(localStorage.getItem("USER_DATA")).subscription_status!=1) ? SubscribedjPage : localStorage.getItem("USER_DATA") != null ? EventsdjPage : SignindjPage;
         } 
       }
-  if (localStorage.getItem("USER_DATA") != null) {
+  if(localStorage.getItem("USER_DATA") != null) {
         this.profile = JSON.parse(localStorage.getItem("USER_DATA"));
       }
     });
@@ -308,5 +309,6 @@ export class MyApp {
   public checkActivePage(page): boolean {
     return page === this.activePage;
   }
+  
  
 }

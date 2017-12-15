@@ -27,9 +27,12 @@
         	<p>{{play?.ClubgoerRequest.artist_name}}</p>
         	<div class="img-right">
         		<div class="imgmain">
-        			<img src="assets/img/playnow.png" *ngIf="play?.ClubgoerRequest.topque">
-					 <img src="assets/img/playnow.png" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque"> 
-					<img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)">
+        			<img src="assets/img/playnow.png" style="height: 30px;
+					width: 26px;" *ngIf="play?.ClubgoerRequest.topque">
+					 <img src="assets/img/playnow.png" style="height: 30px;
+					 width: 26px;" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque"> 
+					<img src="assets/img/cross.png" style="height: 30px;
+					width: 26px;" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)">
         		</div>
         	</div>
 	  </ion-item>

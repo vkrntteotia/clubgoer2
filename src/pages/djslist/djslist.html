@@ -31,5 +31,8 @@
       <h3>{{dj.User.complete_name}}</h3>
       </span>
     </div>
+    <div class="unshow" *ngIf="djs?.length == 0">
+      <h3> No Dj's available</h3>
+     </div>
   </div>
 </ion-content>

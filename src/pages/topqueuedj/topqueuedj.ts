@@ -32,7 +32,11 @@ public Loader = this.loadingCtrl.create({
       if(this.eventname==undefined){
           this.eventname = "Dj Admin Event";
       }
-      this.playnowlist();
+      
+  }
+
+  ionViewCanEnter(){
+    this.playnowlist();
   }
 
   playnowlist(){

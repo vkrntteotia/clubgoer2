@@ -1,14 +1,14 @@
 webpackJsonp([33],{
 
-/***/ 476:
+/***/ 785:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NameofeventsdjPageModule", function() { return NameofeventsdjPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MembershipdetaildjPageModule", function() { return MembershipdetaildjPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nameofeventsdj__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__membershipdetaildj__ = __webpack_require__(101);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var NameofeventsdjPageModule = (function () {
-    function NameofeventsdjPageModule() {
+var MembershipdetaildjPageModule = (function () {
+    function MembershipdetaildjPageModule() {
     }
-    return NameofeventsdjPageModule;
+    return MembershipdetaildjPageModule;
 }());
-NameofeventsdjPageModule = __decorate([
+MembershipdetaildjPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__nameofeventsdj__["a" /* NameofeventsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_2__membershipdetaildj__["a" /* MembershipdetaildjPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__nameofeventsdj__["a" /* NameofeventsdjPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__membershipdetaildj__["a" /* MembershipdetaildjPage */]),
         ],
     })
-], NameofeventsdjPageModule);
+], MembershipdetaildjPageModule);
 
-//# sourceMappingURL=nameofeventsdj.module.js.map
+//# sourceMappingURL=membershipdetaildj.module.js.map
 
 /***/ })
 

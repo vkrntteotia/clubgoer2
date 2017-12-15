@@ -33,8 +33,11 @@ export class PossiblydjPage {
       if(this.eventname==undefined){
             this.eventname = "Dj Admin Event";
       }
-      this.playnowlist();
   }
+
+    ionViewCanEnter(){
+      this.playnowlist();
+    }
 
   playnowlist(){
     let headers = new Headers();

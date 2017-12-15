@@ -25,7 +25,7 @@ export class TransactionhstrydjPage {
     public appsetting: Appsetting,
     public loadingCtrl: LoadingController,
     private alertCtrl: AlertController) {
-      this.paidinfo();
+      
   }
 
   paidinfo(){
@@ -62,6 +62,10 @@ export class TransactionhstrydjPage {
     for (var property in obj)
       result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
         return result.join("&");
+  }
+
+  ionViewCanEnter(){
+    this.paidinfo();
   }
 
   ionViewDidEnter() {

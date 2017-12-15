@@ -27,7 +27,7 @@ export class NotificationdjPage {
     public appsetting: Appsetting,
     public loadingCtrl: LoadingController,
     private alertCtrl: AlertController) {
-      this.notifreq();
+      
   }
 
   notifreq(){
@@ -144,7 +144,9 @@ export class NotificationdjPage {
   //         })
   //     });
   // }
-
+  ionViewCanEnter(){
+    this.notifreq();
+  }
   serializeObj(obj) {
     var result = [];
     for (var property in obj)

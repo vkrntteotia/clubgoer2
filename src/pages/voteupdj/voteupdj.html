@@ -7,7 +7,7 @@
 <ion-header>
 	
 	  <ion-navbar color="black">
-		<ion-title>{{eventname}}</ion-title>
+		<ion-title>Voting requests</ion-title>
 		<div class="logo">
 			<img src="assets/img/rlogo.png">
 		</div>
@@ -23,16 +23,20 @@
 				<div class="img-sec">
 					<img src="assets/img/headphn.png">
 				</div>
-				<h3>Song name : {{play?.ClubgoerRequest.songname}} </h3>
+				<h3 style="
+				width:  100%;
+				float:  left;
+				padding: 0;
+		">Song name : {{play?.ClubgoerRequest.songname}} </h3>
 				<p>Artist name : {{play?.ClubgoerRequest.artist_name}}</p>
 				<p>Votes : {{play?.ClubgoerRequest.likes}}</p>
-				<div class="img-right">
-					<div class="imgmain">
+				<!-- <div class="img-right">
+					<div class="imgmain"> -->
 						<!-- <img src="assets/img/playimg.png" *ngIf="play?.ClubgoerRequest.topque">
 						<img src="assets/img/playnow.png" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque">
 						<img src="assets/img/cross.png" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)"> -->
-					</div>
-				</div>
+					<!-- </div>
+				</div> -->
 		  </ion-item>
 		   <div class="unshow" *ngIf="playnowreq?.length == 0">
 			  <h3> No request available</h3>

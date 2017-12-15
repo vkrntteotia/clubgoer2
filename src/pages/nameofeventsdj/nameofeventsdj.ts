@@ -40,7 +40,7 @@ export class NameofeventsdjPage {
     // this.eventname = navParams.get("eventname");
     // if (this.eventname == undefined) {
     //   this.eventname = "Dj's Event";
-      this.requestinfo();
+      
     // } else {
     //   this.playnow = 0;
     //   this.gauranteedplay = 0;
@@ -203,7 +203,9 @@ export class NameofeventsdjPage {
   }
 
 
-
+  ionViewCanEnter(){
+    this.requestinfo();
+  }
 
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {

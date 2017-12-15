@@ -1,14 +1,14 @@
 webpackJsonp([12],{
 
-/***/ 485:
+/***/ 757:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SubscribedjPageModule", function() { return SubscribedjPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SongrequestsPageModule", function() { return SongrequestsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__subscribedj__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__songrequests__ = __webpack_require__(162);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SubscribedjPageModule = (function () {
-    function SubscribedjPageModule() {
+var SongrequestsPageModule = (function () {
+    function SongrequestsPageModule() {
     }
-    return SubscribedjPageModule;
+    return SongrequestsPageModule;
 }());
-SubscribedjPageModule = __decorate([
+SongrequestsPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__subscribedj__["a" /* SubscribedjPage */],
+            __WEBPACK_IMPORTED_MODULE_2__songrequests__["a" /* SongrequestsPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__subscribedj__["a" /* SubscribedjPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__songrequests__["a" /* SongrequestsPage */]),
         ],
     })
-], SubscribedjPageModule);
+], SongrequestsPageModule);
 
-//# sourceMappingURL=subscribedj.module.js.map
+//# sourceMappingURL=songrequests.module.js.map
 
 /***/ })
 

@@ -40,6 +40,7 @@ page-signindj {
 		background-size: cover;
 		background-position: center;
 	}
+	.hme .scroll-content { padding:0 !important; }
 	.content-sec{
 		width: 100%;
 		float: left;
@@ -80,26 +81,6 @@ page-signindj {
 		 color: #fff;
 		 text-decoration: underline;
 	}
-video {
-		-o-object-fit: fill;
-		object-fit: fill;
-		height: 100%;
-		width: 100%;
-		max-width: 100%;
-		//position: absolute;
-		top: 0;
-		left: -50%;
-		right: -50%;
-		bottom: 0;
-		margin: auto;
-	}
-#video-bg {
-		//position: fixed;
-		top:-190px;
-		bottom : 0;
-		left:-600px;
-		z-index:-1;
-}
 	.scroll-content {
 		overflow: hidden !important;
 	}
@@ -126,6 +107,14 @@ video {
 		.img-top img{
 			width: 100px;
 		}
-
-
+		.videoimage{
+			width: 100%;
+			float: left;
+			height: 100%;
+		}
+		.videoimage img{
+			width:100%;
+			float: left;
+			height: 100%;
+		}
 }

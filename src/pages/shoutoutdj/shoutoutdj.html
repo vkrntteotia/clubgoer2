@@ -26,9 +26,12 @@
         	<p>{{shout?.ClubgoerRequest.shoutout_name}}</p>
         	<div class="img-right">
         		<div class="imgmain">
-        			<img src="assets/img/playimg.png" *ngIf="shout?.ClubgoerRequest.topque">
-					<img src="assets/img/playnow.png" (click)="playimg(shout?.ClubgoerRequest.id,shout?.Event.id)" *ngIf="!shout?.ClubgoerRequest.topque">
-					<img src="assets/img/cross.png" (click)="cross(shout?.ClubgoerRequest.id,shout?.Event.id)">
+        			<img src="assets/img/playimg.png" style="height: 30px;
+							width: 26px;" *ngIf="shout?.ClubgoerRequest.topque">
+					<img src="assets/img/playnow.png" style="height: 30px;
+					width: 26px;" (click)="playimg(shout?.ClubgoerRequest.id,shout?.Event.id)" *ngIf="!shout?.ClubgoerRequest.topque">
+					<img src="assets/img/cross.png" style="height: 30px;
+					width: 26px;" (click)="cross(shout?.ClubgoerRequest.id,shout?.Event.id)">
         		</div>
         	</div>
 	  </ion-item>

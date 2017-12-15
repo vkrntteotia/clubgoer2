@@ -92,10 +92,10 @@ ionViewDidEnter() {
       let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
       let options = new RequestOptions({ headers: headers });
-    // this.firebase.onTokenRefresh().subscribe(
-    // token => {
-    //   console.log(`The new token is ${token}`);
-    //   this.token = token;
+    this.firebase.onTokenRefresh().subscribe(
+    token => {
+      console.log(`The new token is ${token}`);
+      this.token = token;
       var data = {
         email: form.value.email,
         password: form.value.password,
@@ -128,7 +128,7 @@ ionViewDidEnter() {
             setTimeout(()=>alert.dismiss(),3500);
       }
     })
-  //})
+  })
   }
 
 fblogin(){
@@ -246,6 +246,7 @@ this.fb.api('me/?fields=id,email,last_name,first_name', ["public_profile", "emai
   setBackButtonAction(){
     //Write here wherever you wanna do
     this.navCtrl.push(SignindjPage);
+    
   }
 }
 

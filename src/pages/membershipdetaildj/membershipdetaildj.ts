@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController,AlertController } from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Appsetting } from '../../providers/appsetting';
-import { LogindjPage } from '../logindj/logindj';
+//import { LogindjPage } from '../logindj/logindj';
 import { SubscribedjupdatePage } from '../subscribedjupdate/subscribedjupdate';
 import { EventsdjPage } from '../eventsdj/eventsdj';
 /**
@@ -30,7 +30,7 @@ export class MembershipdetaildjPage {
     public appsetting: Appsetting,
     public loadingCtrl: LoadingController,
     private alertCtrl: AlertController) {
-      this.getsubsdata();
+      
   }
 
   getsubsdata(){
@@ -77,8 +77,10 @@ export class MembershipdetaildjPage {
           {
             text: 'Yes',
             handler: () => {
-              this.cancel1();
-              return true;
+              confirm.dismiss();
+              return false;
+              // this.cancel1();
+              // return true;
             }
           },
           {
@@ -156,7 +158,9 @@ cancel1(){
       result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
         return result.join("&");
   }
-
+  ionViewCanEnter(){
+    this.getsubsdata();
+  }
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {

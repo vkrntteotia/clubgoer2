@@ -42,7 +42,7 @@ seerequests(eventtid){
 }
 
 addsong(data) {
-    var jj = this;
+    //var jj = this;
     this.extra.push(this.extra.length + 1);
     // var bd ={
     //   'songname':data.value['songname'+this.gg],
