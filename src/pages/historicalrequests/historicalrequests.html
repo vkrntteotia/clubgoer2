@@ -35,8 +35,8 @@
         <ion-note item-end="" class="note"> {{request?.ClubgoerRequest.pay_paypal ? "Paid" : "Not paid"}} <span>${{request.ClubgoerRequest.tip_amount}}</span></ion-note>
       </div>
       <div class="itembottom">
-      <p>Artist name <button class="playnow" clear>{{request?.ClubgoerRequest.artist_name}}</button></p>
-      <p>Requested Type <button class="playnow" clear>{{request?.TipOption.name}}</button></p>
+        <p>Artist name <button class="playnow" clear>{{request?.ClubgoerRequest.artist_name}}</button></p>
+        <p>Requested Type <button class="playnow" clear>{{request?.TipOption.name}}</button></p>
       </div>
     </ion-item>
     <div class="unshow" *ngIf="requests?.length == 0">

@@ -28,8 +28,8 @@ import { Firebase } from '@ionic-native/firebase';
 })
 export class LogindjPage {
   public scrollAmount = 44;
-  token;
-  public data = {}; id; username; password;classval;
+  public token;
+  public data = {}; id; username; password; classval;
   public profilepicface: any;
   public facebook_data: any;
   public Loading = this.loadingCtrl.create({
@@ -64,6 +64,7 @@ export class LogindjPage {
         checkbx: true
       }
     }
+        this.classval = 'headerbg';
   }
 
   ionViewDidEnter() {
@@ -120,8 +121,7 @@ export class LogindjPage {
       password: form.value.password,
       token : this.token
     }
-    console.log(data);
-    console.log("vikrant");
+
     var Serialized = this.serializeObj(data);
     var Loading = this.loadingCtrl.create({
         content: 'Please wait...',
@@ -215,7 +215,7 @@ export class LogindjPage {
                   if(resolve.data.User.subscription_status!=1){
                     this.navCtrl.push(SubscribedjPage);
                 } else {
-                  this.navCtrl.push(EventsdjPage);
+                    this.navCtrl.push(EventsdjPage);
                 }
                 } else {
                   let alert = this.alertCtrl.create({

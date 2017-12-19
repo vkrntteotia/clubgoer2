@@ -21,7 +21,7 @@
 	      <ion-item *ngFor="let pay of payhistdata; let i = index">
 	        	<div class="right-sec">
 	        		<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" *ngIf="pay?.ClubgoerRequest.buttoncol" ion-button (click)="refundnow(pay?.ClubgoerRequest.id,pay?.ClubgoerRequest.djshare,pay?.ClubgoerRequest.songname,pay?.ClubgoerRequest.artist_name,pay?.ClubgoerRequest.adminemail)">Refund</button> 
-							<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" ion-button *ngIf="!pay?.ClubgoerRequest.buttoncol">Refund</button> 
+							<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" ion-button *ngIf="!pay?.ClubgoerRequest.buttoncol">Refunded</button> 
 							<p>${{pay?.ClubgoerRequest.djshare}}</p>
 	        	</div>
 	        	<h2>{{pay?.Clubgoer.complete_name}}</h2>

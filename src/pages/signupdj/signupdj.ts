@@ -22,7 +22,7 @@ import { Firebase } from '@ionic-native/firebase';
   templateUrl: 'signupdj.html',
 })
 export class SignupdjPage {
-  public scrollAmount = 44;classval;token;
+  public scrollAmount = 44; classval; token;
   public data = ''; id;
   public Loading = this.loadingCtrl.create({
     content: 'Please wait...',
@@ -41,6 +41,7 @@ export class SignupdjPage {
     private firebase: Firebase
   ) {
     this.ionViewDidEnter();
+    this.classval = 'headerbg';
         if (localStorage.getItem("USER_DATA")) {
           this.navCtrl.push(SubscribedjPage);
     }

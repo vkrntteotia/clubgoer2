@@ -79,7 +79,7 @@ export class ManageeventsdjPage {
 
   pastevent(eventid) {
     this.navCtrl.push(PasteventdjPage, {
-      eventid : eventid
+      eventird : eventid
     });
   }
   

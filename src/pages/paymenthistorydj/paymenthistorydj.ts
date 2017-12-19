@@ -60,8 +60,10 @@ export class PaymenthistorydjPage {
             this.payhistdata = data.data;
             this.totalpay=0;
             for(let dat of this.payhistdata) {
-                this.totalpay = parseInt(this.totalpay)+parseInt(dat.ClubgoerRequest.djshare);
-            }
+              if(dat.ClubgoerRequest.refund_status==0){
+                  this.totalpay = parseInt(this.totalpay)+parseInt(dat.ClubgoerRequest.djshare);
+                }
+              }
           } else {
             this.payhistdata = [];
             this.totalpay=0;
@@ -86,7 +88,6 @@ export class PaymenthistorydjPage {
 
   refundnow(clubgoerqstid,money,song,artist,adminemail)
   {
-      //alert(clubgoerqstid+" "+money+" "+song+" "+artist+" "+adminemail);
       let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
       let options = new RequestOptions({ headers: headers });
@@ -99,7 +100,7 @@ export class PaymenthistorydjPage {
       var Serialized = this.serializeObj(data);
       this.payPal.init({
         PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
-    PayPalEnvironmentSandbox: 'AFcWxV21C7fd0v3bYYYRCpSSRl31A5gXXq3jDhmdlyQxH0Ztp-tlLquA'
+        PayPalEnvironmentSandbox: 'Af3HzSUz5a2jlbLEK1bJqLYRekJEGam9p0kdR7Pqn5WdPqvHWQ2D5BOkdbnjX7RS6AOF5KkxOMm_Kv9k'
   }).then(() => {
     // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
     this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
@@ -110,7 +111,13 @@ export class PaymenthistorydjPage {
       this.payPal.renderSinglePaymentUI(payment).then(() => {
         this.http.post(this.appsetting.myGlobalVar + 'subscriptions/refund', Serialized, options).map(res => res.json()).subscribe(response => {
           if(response.isSucess=="true"){
-            this.navCtrl.push(EventsdjPage);
+            this.payhistdata = response.data;
+            this.totalpay=0;
+            for(let dat of this.payhistdata) {
+              if(dat.ClubgoerRequest.refund_status==0){
+                  this.totalpay = parseInt(this.totalpay)+parseInt(dat.ClubgoerRequest.djshare);
+                }
+              }
               let alertr = this.alertCtrl.create({
                   title: 'Subscribed',
                   subTitle: response.msg,
@@ -118,7 +125,7 @@ export class PaymenthistorydjPage {
                 });
                   alertr.present();
               setTimeout(()=>alertr.dismiss(),3500);
-          }else{
+          } else {
               let alert = this.alertCtrl.create({
                   title: 'Subscribed',
                   subTitle: response.msg,
@@ -138,6 +145,7 @@ export class PaymenthistorydjPage {
     // Error in initialization, maybe PayPal isn't supported or something else
   });
   }
+  
   serializeObj(obj) {
     var result = [];
     for (var property in obj)

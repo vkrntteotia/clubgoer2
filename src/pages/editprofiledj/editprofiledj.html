@@ -22,7 +22,7 @@
 <ion-content padding>
 	<div class="head-sec">
 		<div class="image" (click)="CameraAction()">
-			<img [src]="profileImage">
+			<img  *ngIf="profileImage" [src]="profileImage">
 		</div>
 		<div class="edit-image">
 				<ion-icon ios="md-create" md="md-create"></ion-icon>

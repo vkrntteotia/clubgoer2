@@ -148,7 +148,7 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
               this.navCtrl.push(HomePage);
               let alert = this.alertCtrl.create({
                 title: 'Payment info',
-                subTitle: "Hello Something went wrong",
+                subTitle: "Something went wrong",
                 buttons:['ok']
                 });
                 alert.present();
@@ -157,7 +157,6 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
           })
         } 
         else if(tmp == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/corepay?' && tmpr == "https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/"){
-          
                   browser.close();
                   this.navCtrl.push(HomePage);
                   let alert = this.alertCtrl.create({
@@ -167,7 +166,6 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
                     });
                     alert.present();
                     setTimeout(()=>alert.dismiss(),3500);
-            
           }
         else if(redirect_url[0] == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/closewindow?'){
             browser.close();

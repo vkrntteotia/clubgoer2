@@ -13,81 +13,152 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <!-- <ion-list style="margin-bottom:0px;" class="list_cnt">
-    <ion-item>
-      <span class="addresstitle">ADD PAYMENT</span>
-    </ion-item>
-  </ion-list> -->
 
-    <ion-list style="margin-bottom:0px;" class="list_cnt">
+  <ion-list style="margin-bottom:0px;" class="list_cnt">
     <ion-item>
         <h5 style="padding: 0 0 0 5px;" class="addpaytitle">Card Details (powered by Stripe):</h5>
     </ion-item>
   </ion-list>
 
-
   <ion-list class="custom_accordion" style="margin-bottom:5px;">
     <ion-grid>
     <form #cardForm="ngForm" >
       <ion-row class="process">
+
+        <ion-col col-12>
+              <ion-item>
+                <ion-input type="text" placeholder="Name" [(ngModel)]='card.username' pattern="[a-zA-Z][a-zA-Z ]+" required name="username" #username='ngModel'></ion-input>
+              </ion-item>
+           
+            <div *ngIf="username.errors && (username.dirty || username.touched)" class="alert alert-danger leftpadding">
+              <div [hidden]="!username.errors.required" class="alert alert-danger">
+                Name is required
+              </div>
+              <div [hidden]="!username.errors.pattern" class="alert alert-danger">
+                Invalid name
+              </div>
+            </div>       
+        </ion-col>
+
         <ion-col col-12>
           <ion-item>
             <ion-input type="tel" [(ngModel)]='card.cardnumber' name='cardnumber' minlength='16' maxlength='16' required #cardnumber='ngModel' placeholder="Enter card number"></ion-input>
           </ion-item>
-        
          <div *ngIf="cardnumber.errors && (cardnumber.dirty || cardnumber.touched)" class="alert alert-danger leftpadding">
             <div [hidden]="!cardnumber.errors.required" class="alert alert-danger">
-              Card number is required
+                  Card number is required
             </div>
             <div [hidden]="!cardnumber.errors.minlength" class="alert alert-danger">
                   16 digits required
             </div>
-           
-        </div>
-          </ion-col>
+         </div>
+        </ion-col>
 
         <ion-col col-6>
           <ion-item>
              <!-- <ion-label>Date</ion-label> -->
-            <ion-input type="tel" [(ngModel)]='card.month' placeholder="Expiry month" required name='month' #month='ngModel'></ion-input>
+            <ion-input type="tel" [(ngModel)]='card.month' placeholder="Expiry month" maxlength='12' required name='month' #month='ngModel'></ion-input>
           </ion-item>
         
-         <div *ngIf="month.errors && (month.dirty || month.touched)" class="alert alert-danger leftpadding">
+          <div *ngIf="month.errors && (month.dirty || month.touched)" class="alert alert-danger leftpadding">
             <div [hidden]="!month.errors.required" class="alert alert-danger">
               This field is required
             </div>
-            
-        </div>
-          </ion-col>
-          <ion-col col-6>
+            <div [hidden]="!month.errors.maxlength" class="alert alert-danger">
+                This field is required
+            </div>
+          </div>
+        </ion-col>
+        <ion-col col-6>
             <ion-item>
                <!-- <ion-label>Date</ion-label> -->
               <ion-input type="tel" [(ngModel)]='card.year' placeholder="Expiry year" required name='year' #year='ngModel'></ion-input>
             </ion-item>
           
-           <div *ngIf="year.errors && (year.dirty || year.touched)" class="alert alert-danger leftpadding">
+            <div *ngIf="year.errors && (year.dirty || year.touched)" class="alert alert-danger leftpadding">
               <div [hidden]="!year.errors.required" class="alert alert-danger">
                 This field is required
               </div>
-              
-          </div>
-            </ion-col>
+            </div>
+        </ion-col>
 
-         <ion-col col-12>
+        <ion-col col-12>
           <ion-item>
             <ion-input type="tel" [(ngModel)]='card.cvc' minlength="3" maxlength="3" placeholder="CVC" pattern='[(0-9)]+' required name='cvc' #cvc='ngModel'></ion-input>
           </ion-item>
         </ion-col>
-         <div *ngIf="cvc.errors && (cvc.dirty || cvc.touched)" class="alert alert-danger">
+        <div *ngIf="cvc.errors && (cvc.dirty || cvc.touched)" class="alert alert-danger">
             <div [hidden]="!cvc.errors.required" class="alert alert-danger">
               CVC is required
             </div>
             <div [hidden]="!cvc.errors.pattern" class="alert alert-danger">
                Invalid CVC
             </div>
-        </div>        
-
+        </div>
       </ion-row>
+      <ion-row>
+          <ion-col col-12>
+            <ion-item>
+              <h5 class="addpaytitle">Billing Address:</h5>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+         <ion-row class="process">
+         
+          <ion-col col-12>
+            <ion-item>
+              <ion-input type="text" placeholder="Address" [(ngModel)]='card.address' required name="address" #address='ngModel'></ion-input>
+            </ion-item>
+          
+          <div *ngIf="address.errors && (address.dirty || address.touched)" class="alert alert-danger leftpadding">
+              <div [hidden]="!address.errors.required" class="alert alert-danger">
+                Address is required
+              </div>
+          </div>
+            </ion-col>
+    
+          <ion-col col-6>
+                  <ion-item>
+                    <ion-input type="text" placeholder="City" [(ngModel)]='card.city' required name="city" #city='ngModel'></ion-input>
+                  </ion-item>
+                  <div *ngIf="city.errors && (city.dirty || city.touched)" class="alert alert-danger">
+                      <div [hidden]="!city.errors.required" class="alert alert-danger">
+                        City is required
+                      </div>
+                  </div>
+          </ion-col>
+    
+          <ion-col col-6 >
+            <ion-item>
+              <ion-input type="text" placeholder="State" [(ngModel)]='card.state' required name="state" #state='ngModel'></ion-input>
+            </ion-item>
+          
+              <div *ngIf="state.errors && (state.dirty || state.touched)" class="alert alert-danger leftpadding">
+                  <div [hidden]="!state.errors.required" class="alert alert-danger">
+                    State is required
+                  </div>
+              </div>
+          </ion-col>
+    
+           <ion-col col-6>
+              <ion-item>
+                <ion-input type="number" placeholder="Zip Code" [(ngModel)]='card.zip' maxlength="6" required pattern='[0-9]+' name="zip" #zip='ngModel'></ion-input>
+              </ion-item>
+            
+            <div *ngIf="zip.errors && (zip.dirty || zip.touched)" class="alert alert-danger">
+              <div [hidden]="!zip.errors.required" class="alert alert-danger">
+                Zip is required
+              </div>
+              <div [hidden]="!zip.errors.pattern" class="alert alert-danger">
+                Invalid zipcode
+              </div>
+                <div [hidden]="!zip.errors.maxlength" class="alert alert-danger">
+                    Only 6 digit valid
+                </div>
+            </div>
+            </ion-col>
+    
+        </ion-row>
        <ion-item>
           <button class="custom_btn" color="red" type="submit" [disabled]='!cardForm.valid' ion-button full round (click)="add_card(cardForm);">MAKE PAYMENT</button>
               <!-- <button class="btn_globle" color="red" style="height: 49px; width: 100%; margin: 0px auto; float:none;" type="submit" [disabled]='!cardForm.valid' (click)="add_card(cardForm);">MAKE PAYMENT</button> -->

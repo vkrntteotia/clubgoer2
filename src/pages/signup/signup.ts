@@ -41,7 +41,7 @@ public Loading=this.loadingCtrl.create({
     public zone: NgZone,
     private firebase: Firebase
    ) {
-     
+    this.classval = 'headerbg';
      if(localStorage.getItem("USER_DATA")!=null){
          this.navCtrl.push(HomePage);
     }

@@ -37732,8 +37732,20 @@ page-signup .remember .item-inner {
 }
 
 page-signup .centerbutton {
-  margin: 10px;
   text-align: center;
+  color: #fff;
+  display: block;
+  margin: 8px auto 0;
+}
+
+page-signup .account {
+  width: 50%;
+}
+
+page-signup .signin {
+  text-transform: uppercase;
+  text-decoration: underline;
+  width: 30%;
 }
 
 page-signup .text-input::-webkit-input-placeholder {

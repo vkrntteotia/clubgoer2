@@ -234,10 +234,14 @@ NameofeventsdjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-nameofeventsdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/nameofeventsdj/nameofeventsdj.html"*/'<!--\n  Generated template for the NameofeventsdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="black">\n        <button ion-button menuToggle>\n					<ion-icon style="color:#fff;" name="menu"></ion-icon>\n			</button>\n        <ion-title>{{eventname}}</ion-title>\n        <div class="logo">\n            <img src="assets/img/rlogo.png">\n        </div>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n    </ion-refresher>\n    <ion-grid>\n        <ion-row>\n            <ion-col col-6>\n                <div class="colm" (click)="play(eventidd)">\n                    <img src="assets/img/playbg.png">\n                    <h6>Play Now</h6>\n                    <div class="cricle">\n                        <p>{{playnow}}</p>\n                    </div>\n                </div>\n            </ion-col>\n            <ion-col col-6>\n                <div class="colm" (click)="topque(eventidd)">\n                    <img src="assets/img/topbg.png">\n                    <h6 class="">Top Queue </h6>\n                    <div class="cricle">\n                        <p>{{topqueue}}</p>\n                    </div>\n                </div>\n            </ion-col>\n            <ion-col col-6 (click)="grntply(eventidd)">\n                <div class="colm">\n                    <img src="assets/img/guarbg.png">\n                    <h6 class="">GUARANTEED PLAY</h6>\n                    <div class="cricle">\n                        <p>{{gauranteedplay}}</p>\n                    </div>\n                </div>\n            </ion-col>\n\n            <ion-col col-6 (click)="possply(eventidd)">\n                <div class="colm">\n                    <img src="assets/img/possbg.png">\n                    <h6 class="">Possibly Play</h6>\n                    <div class="cricle">\n                        <p>{{possiblyplay}}</p>\n                    </div>\n                </div>\n            </ion-col>\n\n            <ion-col col-12 (click)="voteupnow(eventidd)">\n                <div class="colm">\n                    <img src="assets/img/votbg.png">\n                    <h6 class="">Voteup Requests</h6>\n                    <div class="cricle">\n                        <p>{{voteup}}</p>\n                    </div>\n                </div>\n            </ion-col>\n            \n            <ion-col col-12 (click)="shoutout(eventidd)">\n                <div class="colm">\n                    <img src="assets/img/votbg.png">\n                    <h6 class="">Shoutouts Requests</h6>\n                    <div class="cricle">\n                        <p>{{shoutoutdj}}</p>\n                    </div>\n                </div>\n            </ion-col>\n\n        </ion-row>\n    </ion-grid>\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/nameofeventsdj/nameofeventsdj.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__["a" /* Appsetting */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__["a" /* Appsetting */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
 ], NameofeventsdjPage);
 
-var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=nameofeventsdj.js.map
 
 /***/ }),
@@ -252,7 +256,7 @@ var _a, _b, _c, _d, _e, _f;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__subscribedjupdate_subscribedjupdate__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -326,6 +330,7 @@ var MembershipdetaildjPage = (function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__subscribedjupdate_subscribedjupdate__["a" /* SubscribedjupdatePage */]);
     };
     MembershipdetaildjPage.prototype.cancelmembr = function () {
+        var _this = this;
         var confirm = this.alertCtrl.create({
             title: "Please confirm",
             subTitle: 'Do you want cancel your Membership?',
@@ -333,10 +338,8 @@ var MembershipdetaildjPage = (function () {
                 {
                     text: 'Yes',
                     handler: function () {
-                        confirm.dismiss();
-                        return false;
-                        // this.cancel1();
-                        // return true;
+                        _this.cancel1();
+                        return true;
                     }
                 },
                 {
@@ -355,44 +358,43 @@ var MembershipdetaildjPage = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        console.log(JSON.parse(localStorage.getItem("USER_DATA")));
         var userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
+        var subscription_id = JSON.parse(localStorage.getItem("USER_DATA")).subscription_id;
         var Loader = this.loadingCtrl.create({
             content: 'Please wait...'
         });
         Loader.present().then(function () {
             var data = {
                 userid: userid,
+                subscriptionid: subscription_id
             };
-            console.log(data);
             var serialized = _this.serializeObj(data);
-            _this.http.post(_this.appsetting.myGlobalVar + 'users/cancelmembership', serialized, options)
+            _this.http.post(_this.appsetting.myGlobalVar + 'subscriptions/stripecancel', serialized, options)
                 .map(function (res) { return res.json(); })
-                .subscribe(function (data) {
+                .subscribe(function (response) {
                 Loader.dismiss();
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__["a" /* EventsdjPage */]);
-                //     console.log(data.response);
-                // if (data.isSucess == "true") {
-                //   localStorage.removeItem("fblogin");
-                //   localStorage.removeItem("USER_DATA");
-                //   localStorage.removeItem("facebook_pic");
-                //   localStorage.removeItem("facebook_login");
-                //   localStorage.removeItem("userid");
-                //   localStorage.removeItem("fblogin");
-                //   let alertr = this.alertCtrl.create({
-                //     //title: 'Requests',
-                //     subTitle: data.msg,
-                //   });
-                //     alertr.present();
-                // setTimeout(()=>alertr.dismiss(),3500);
-                // this.navCtrl.push(LogindjPage);
-                // } else {
-                //   let alertr = this.alertCtrl.create({
-                //     //title: 'Requests',
-                //     subTitle: data.msg,
-                //   });
-                //     alertr.present();
-                // setTimeout(()=>alertr.dismiss(),3500);
-                // }
+                if (response.isSuccess == "true") {
+                    localStorage.removeItem("USER_DATA");
+                    localStorage.setItem("USER_DATA", JSON.stringify(response.data));
+                    var alert_1 = _this.alertCtrl.create({
+                        title: 'Subscription',
+                        subTitle: response.msg,
+                        buttons: ['ok']
+                    });
+                    alert_1.present();
+                    setTimeout(function () { return alert_1.dismiss(); }, 3500);
+                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                }
+                else {
+                    var alertr_2 = _this.alertCtrl.create({
+                        title: 'Subscription',
+                        subTitle: response.msg,
+                        buttons: ['ok']
+                    });
+                    alertr_2.present();
+                    setTimeout(function () { return alertr_2.dismiss(); }, 3500);
+                }
             });
         });
     };
@@ -418,13 +420,13 @@ var MembershipdetaildjPage = (function () {
         }
         else {
             this.Loader.dismiss();
-            var alert_1 = this.alertCtrl.create({
+            var alert_2 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
                 buttons: ['ok']
             });
-            alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 2500);
+            alert_2.present();
+            setTimeout(function () { return alert_2.dismiss(); }, 2500);
         }
     };
     MembershipdetaildjPage.prototype.ionViewDidLoad = function () {
@@ -435,16 +437,12 @@ var MembershipdetaildjPage = (function () {
 MembershipdetaildjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-membershipdetaildj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/membershipdetaildj/membershipdetaildj.html"*/'<!--\n  Generated template for the MembershipdetaildjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-toolbar color="black">\n        <button ion-button menuToggle>\n				  <ion-icon style="color:#fff;" name="menu"></ion-icon>\n				</button>\n        <ion-title>Membership Detail</ion-title>\n        <div class="logo">\n            <img src="assets/img/rlogo.png">\n        </div>\n    </ion-toolbar>\n</ion-header>\n\n\n<ion-content padding style="background: #f2f2f2;">\n    <!-- <div class="content-sec card"> -->\n    <ion-card class="card_sec">\n\n        <ion-card-header>\n            <h1 *ngIf="subscrip?.User?.subscription_status==1">Amount Paid</h1>\n        </ion-card-header>\n        <ion-card-content class="cardbody">\n            <div class="pay">\n                <span *ngIf="subscrip?.User?.subscription_rate">${{subscrip?.User?.subscription_rate}}</span>\n                <span *ngIf="!subscrip?.User?.subscription_rate">$30</span>\n            </div>\n\n            <h2>Subscription</h2>\n            <h3 style="border-right:1px solid #ccc;" *ngIf="subscrip?.User?.subscription_start_date">Start Date : {{subscrip?.User?.subscription_start_date | date:\'MM-dd-yyyy \'}}</h3>\n            <h3 *ngIf="subscrip?.User?.subscription_end_date">End Date : {{subscrip?.User?.subscription_end_date | date:\'MM-dd-yyyy\'}}</h3>\n            <h3 *ngIf="!subscrip?.User?.subscription_start_date">Not started yet</h3>\n            <p class="valid">Valid for <span>One Month (Recurring)</span></p>\n\n        </ion-card-content>\n        <div class="btnsec">\n            <button ion-button color="dark" (click)="updatemembr()" *ngIf="subscrip?.User?.subscription_status==1">Update Billing Information</button>\n            <button ion-button color="red" (click)="updatememb()" *ngIf="subscrip?.User?.subscription_status==0">Buy Membership</button>\n            <button ion-button color="red" (click)="cancelmembr()" *ngIf="subscrip?.User?.subscription_status==1">Cancel membership</button>\n        </div>\n    </ion-card>\n    <!-- </div> -->\n\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/membershipdetaildj/membershipdetaildj.html"*/,
+        selector: 'page-membershipdetaildj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/membershipdetaildj/membershipdetaildj.html"*/'<!--\n  Generated template for the MembershipdetaildjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-toolbar color="black">\n        <button ion-button menuToggle>\n				  <ion-icon style="color:#fff;" name="menu"></ion-icon>\n				</button>\n        <ion-title>Membership Detail</ion-title>\n        <div class="logo">\n            <img src="assets/img/rlogo.png">\n        </div>\n    </ion-toolbar>\n</ion-header>\n\n\n<ion-content padding style="background: #f2f2f2;">\n    <!-- <div class="content-sec card"> -->\n    <ion-card class="card_sec">\n\n        <ion-card-header>\n            <h1 *ngIf="subscrip?.User?.subscription_status==1">Amount Paid</h1>\n        </ion-card-header>\n        <ion-card-content class="cardbody">\n            <div class="pay">\n                <span *ngIf="subscrip?.User?.subscription_rate">${{subscrip?.User?.subscription_rate}}</span>\n                <span *ngIf="!subscrip?.User?.subscription_rate">$30</span>\n            </div>\n\n            <h2>Subscription</h2>\n            <h3 style="border-right:1px solid #ccc;" *ngIf="subscrip?.User?.subscription_start_date">Start Date : {{subscrip?.User?.subscription_start_date | date:\'MM-dd-yyyy \'}}</h3>\n            <h3 *ngIf="subscrip?.User?.subscription_end_date">End Date : {{subscrip?.User?.subscription_end_date | date:\'MM-dd-yyyy\'}}</h3>\n            <h3 *ngIf="!subscrip?.User?.subscription_start_date">Not started yet</h3>\n            <p class="valid">Valid for <span>One Month (Recurring)</span></p>\n\n        </ion-card-content>\n        <div class="btnsec">\n            <!-- <button ion-button color="dark" (click)="updatemembr()" *ngIf="subscrip?.User?.subscription_status==1">Update Billing Information</button> -->\n            <button ion-button color="red" (click)="updatememb()" *ngIf="subscrip?.User?.subscription_status==0">Buy Membership</button>\n            <button ion-button color="red" (click)="cancelmembr()" *ngIf="subscrip?.User?.subscription_status==1">Cancel membership</button>\n        </div>\n    </ion-card>\n    <!-- </div> -->\n\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/membershipdetaildj/membershipdetaildj.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _f || Object])
 ], MembershipdetaildjPage);
 
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=membershipdetaildj.js.map
 
 /***/ }),
@@ -578,7 +576,7 @@ TermsdjsubsPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_stripe__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(28);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -625,11 +623,16 @@ var AddCardPage = (function () {
             expMonth: formdata.value.month,
             expYear: formdata.value.year,
             cvc: formdata.value.cvc,
+            name: formdata.value.username,
+            address_line1: formdata.value.address,
+            address_city: formdata.value.city,
+            address_state: formdata.value.state,
+            postal_code: formdata.value.zip
         };
         console.log(card);
         this.stripe.createCardToken(card)
             .then(function (token) {
-            console.log(token.id);
+            //  console.log(token.id);
             //  alert('success');
             //  alert(token.id);
             var data = {
@@ -643,32 +646,34 @@ var AddCardPage = (function () {
                 content: 'Please wait...',
             });
             Loading.present().then(function () {
-                _this.http.post(_this.appsetting.myGlobalVar + 'subscriptions/stripe', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                    console.log(response);
+                _this.http.post(_this.appsetting.myGlobalVar + 'subscriptions/stripe', Serialized, options)
+                    .map(function (res) { return res.json(); })
+                    .subscribe(function (response) {
+                    // console.log(response);
                     Loading.dismiss();
                     //alert(JSON.stringify(response));
                     if (response.isSuccess == 'true') {
                         //alert('Subscribed thank you! Enjoy your features');
-                        var alert_1 = _this.alertCtrl.create({
+                        localStorage.removeItem("USER_DATA");
+                        localStorage.setItem("USER_DATA", JSON.stringify(response.data));
+                        var alertr_1 = _this.alertCtrl.create({
                             title: 'Subscription',
                             subTitle: 'Subscribed Successfully! Enjoy your features',
                             buttons: ['ok']
                         });
-                        alert_1.present();
-                        setTimeout(function () { return alert_1.dismiss(); }, 2500);
+                        alertr_1.present();
+                        setTimeout(function () { return alertr_1.dismiss(); }, 2500);
                         _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__["a" /* EventsdjPage */]);
-                        localStorage.removeItem("USER_DATA");
-                        localStorage.setItem("USER_DATA", JSON.stringify(response.data));
                     }
                     else {
                         //alert('Something went wrong!');
-                        var alert_2 = _this.alertCtrl.create({
+                        var alert_1 = _this.alertCtrl.create({
                             title: 'Subscription',
                             subTitle: 'Something went wrong',
                             buttons: ['ok']
                         });
-                        alert_2.present();
-                        setTimeout(function () { return alert_2.dismiss(); }, 2500);
+                        alert_1.present();
+                        setTimeout(function () { return alert_1.dismiss(); }, 2500);
                     }
                 });
             });
@@ -720,13 +725,12 @@ var AddCardPage = (function () {
 AddCardPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-add-card',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/add-card/add-card.html"*/'<!--\n  Generated template for the AddCardPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="black">\n    <ion-title>Add Card</ion-title>\n       <ion-buttons end class="rbutton">\n          <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n       </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <!-- <ion-list style="margin-bottom:0px;" class="list_cnt">\n    <ion-item>\n      <span class="addresstitle">ADD PAYMENT</span>\n    </ion-item>\n  </ion-list> -->\n\n    <ion-list style="margin-bottom:0px;" class="list_cnt">\n    <ion-item>\n        <h5 style="padding: 0 0 0 5px;" class="addpaytitle">Card Details (powered by Stripe):</h5>\n    </ion-item>\n  </ion-list>\n\n\n  <ion-list class="custom_accordion" style="margin-bottom:5px;">\n    <ion-grid>\n    <form #cardForm="ngForm" >\n      <ion-row class="process">\n        <ion-col col-12>\n          <ion-item>\n            <ion-input type="tel" [(ngModel)]=\'card.cardnumber\' name=\'cardnumber\' minlength=\'16\' maxlength=\'16\' required #cardnumber=\'ngModel\' placeholder="Enter card number"></ion-input>\n          </ion-item>\n        \n         <div *ngIf="cardnumber.errors && (cardnumber.dirty || cardnumber.touched)" class="alert alert-danger leftpadding">\n            <div [hidden]="!cardnumber.errors.required" class="alert alert-danger">\n              Card number is required\n            </div>\n            <div [hidden]="!cardnumber.errors.minlength" class="alert alert-danger">\n                  16 digits required\n            </div>\n           \n        </div>\n          </ion-col>\n\n        <ion-col col-6>\n          <ion-item>\n             <!-- <ion-label>Date</ion-label> -->\n            <ion-input type="tel" [(ngModel)]=\'card.month\' placeholder="Expiry month" required name=\'month\' #month=\'ngModel\'></ion-input>\n          </ion-item>\n        \n         <div *ngIf="month.errors && (month.dirty || month.touched)" class="alert alert-danger leftpadding">\n            <div [hidden]="!month.errors.required" class="alert alert-danger">\n              This field is required\n            </div>\n            \n        </div>\n          </ion-col>\n          <ion-col col-6>\n            <ion-item>\n               <!-- <ion-label>Date</ion-label> -->\n              <ion-input type="tel" [(ngModel)]=\'card.year\' placeholder="Expiry year" required name=\'year\' #year=\'ngModel\'></ion-input>\n            </ion-item>\n          \n           <div *ngIf="year.errors && (year.dirty || year.touched)" class="alert alert-danger leftpadding">\n              <div [hidden]="!year.errors.required" class="alert alert-danger">\n                This field is required\n              </div>\n              \n          </div>\n            </ion-col>\n\n         <ion-col col-12>\n          <ion-item>\n            <ion-input type="tel" [(ngModel)]=\'card.cvc\' minlength="3" maxlength="3" placeholder="CVC" pattern=\'[(0-9)]+\' required name=\'cvc\' #cvc=\'ngModel\'></ion-input>\n          </ion-item>\n        </ion-col>\n         <div *ngIf="cvc.errors && (cvc.dirty || cvc.touched)" class="alert alert-danger">\n            <div [hidden]="!cvc.errors.required" class="alert alert-danger">\n              CVC is required\n            </div>\n            <div [hidden]="!cvc.errors.pattern" class="alert alert-danger">\n               Invalid CVC\n            </div>\n        </div>        \n\n      </ion-row>\n       <ion-item>\n          <button class="custom_btn" color="red" type="submit" [disabled]=\'!cardForm.valid\' ion-button full round (click)="add_card(cardForm);">MAKE PAYMENT</button>\n              <!-- <button class="btn_globle" color="red" style="height: 49px; width: 100%; margin: 0px auto; float:none;" type="submit" [disabled]=\'!cardForm.valid\' (click)="add_card(cardForm);">MAKE PAYMENT</button> -->\n       </ion-item>\n        </form>\n        </ion-grid>\n  </ion-list>\n\n<!-- <ion-item class="radio_item">\n    <ion-label class="set">Set as default payment method</ion-label>\n    <ion-checkbox color="dark"  [(ngModel)]="default" value=\'default\' default (ionChange)="setDefault(default)"></ion-checkbox>\n  </ion-item> -->\n</ion-content>\n\n<!--<ion-footer class="send">\n  <a ion-button full (click)="cardPage();">SAVE</a>\n</ion-footer>-->\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/add-card/add-card.html"*/,
+        selector: 'page-add-card',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/add-card/add-card.html"*/'<!--\n  Generated template for the AddCardPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="black">\n    <ion-title>Add Card</ion-title>\n       <ion-buttons end class="rbutton">\n          <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n       </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n\n  <ion-list style="margin-bottom:0px;" class="list_cnt">\n    <ion-item>\n        <h5 style="padding: 0 0 0 5px;" class="addpaytitle">Card Details (powered by Stripe):</h5>\n    </ion-item>\n  </ion-list>\n\n  <ion-list class="custom_accordion" style="margin-bottom:5px;">\n    <ion-grid>\n    <form #cardForm="ngForm" >\n      <ion-row class="process">\n\n        <ion-col col-12>\n              <ion-item>\n                <ion-input type="text" placeholder="Name" [(ngModel)]=\'card.username\' pattern="[a-zA-Z][a-zA-Z ]+" required name="username" #username=\'ngModel\'></ion-input>\n              </ion-item>\n           \n            <div *ngIf="username.errors && (username.dirty || username.touched)" class="alert alert-danger leftpadding">\n              <div [hidden]="!username.errors.required" class="alert alert-danger">\n                Name is required\n              </div>\n              <div [hidden]="!username.errors.pattern" class="alert alert-danger">\n                Invalid name\n              </div>\n            </div>       \n        </ion-col>\n\n        <ion-col col-12>\n          <ion-item>\n            <ion-input type="tel" [(ngModel)]=\'card.cardnumber\' name=\'cardnumber\' minlength=\'16\' maxlength=\'16\' required #cardnumber=\'ngModel\' placeholder="Enter card number"></ion-input>\n          </ion-item>\n         <div *ngIf="cardnumber.errors && (cardnumber.dirty || cardnumber.touched)" class="alert alert-danger leftpadding">\n            <div [hidden]="!cardnumber.errors.required" class="alert alert-danger">\n                  Card number is required\n            </div>\n            <div [hidden]="!cardnumber.errors.minlength" class="alert alert-danger">\n                  16 digits required\n            </div>\n         </div>\n        </ion-col>\n\n        <ion-col col-6>\n          <ion-item>\n             <!-- <ion-label>Date</ion-label> -->\n            <ion-input type="tel" [(ngModel)]=\'card.month\' placeholder="Expiry month" maxlength=\'12\' required name=\'month\' #month=\'ngModel\'></ion-input>\n          </ion-item>\n        \n          <div *ngIf="month.errors && (month.dirty || month.touched)" class="alert alert-danger leftpadding">\n            <div [hidden]="!month.errors.required" class="alert alert-danger">\n              This field is required\n            </div>\n            <div [hidden]="!month.errors.maxlength" class="alert alert-danger">\n                This field is required\n            </div>\n          </div>\n        </ion-col>\n        <ion-col col-6>\n            <ion-item>\n               <!-- <ion-label>Date</ion-label> -->\n              <ion-input type="tel" [(ngModel)]=\'card.year\' placeholder="Expiry year" required name=\'year\' #year=\'ngModel\'></ion-input>\n            </ion-item>\n          \n            <div *ngIf="year.errors && (year.dirty || year.touched)" class="alert alert-danger leftpadding">\n              <div [hidden]="!year.errors.required" class="alert alert-danger">\n                This field is required\n              </div>\n            </div>\n        </ion-col>\n\n        <ion-col col-12>\n          <ion-item>\n            <ion-input type="tel" [(ngModel)]=\'card.cvc\' minlength="3" maxlength="3" placeholder="CVC" pattern=\'[(0-9)]+\' required name=\'cvc\' #cvc=\'ngModel\'></ion-input>\n          </ion-item>\n        </ion-col>\n        <div *ngIf="cvc.errors && (cvc.dirty || cvc.touched)" class="alert alert-danger">\n            <div [hidden]="!cvc.errors.required" class="alert alert-danger">\n              CVC is required\n            </div>\n            <div [hidden]="!cvc.errors.pattern" class="alert alert-danger">\n               Invalid CVC\n            </div>\n        </div>\n      </ion-row>\n      <ion-row>\n          <ion-col col-12>\n            <ion-item>\n              <h5 class="addpaytitle">Billing Address:</h5>\n            </ion-item>\n          </ion-col>\n        </ion-row>\n         <ion-row class="process">\n         \n          <ion-col col-12>\n            <ion-item>\n              <ion-input type="text" placeholder="Address" [(ngModel)]=\'card.address\' required name="address" #address=\'ngModel\'></ion-input>\n            </ion-item>\n          \n          <div *ngIf="address.errors && (address.dirty || address.touched)" class="alert alert-danger leftpadding">\n              <div [hidden]="!address.errors.required" class="alert alert-danger">\n                Address is required\n              </div>\n          </div>\n            </ion-col>\n    \n          <ion-col col-6>\n                  <ion-item>\n                    <ion-input type="text" placeholder="City" [(ngModel)]=\'card.city\' required name="city" #city=\'ngModel\'></ion-input>\n                  </ion-item>\n                  <div *ngIf="city.errors && (city.dirty || city.touched)" class="alert alert-danger">\n                      <div [hidden]="!city.errors.required" class="alert alert-danger">\n                        City is required\n                      </div>\n                  </div>\n          </ion-col>\n    \n          <ion-col col-6 >\n            <ion-item>\n              <ion-input type="text" placeholder="State" [(ngModel)]=\'card.state\' required name="state" #state=\'ngModel\'></ion-input>\n            </ion-item>\n          \n              <div *ngIf="state.errors && (state.dirty || state.touched)" class="alert alert-danger leftpadding">\n                  <div [hidden]="!state.errors.required" class="alert alert-danger">\n                    State is required\n                  </div>\n              </div>\n          </ion-col>\n    \n           <ion-col col-6>\n              <ion-item>\n                <ion-input type="number" placeholder="Zip Code" [(ngModel)]=\'card.zip\' maxlength="6" required pattern=\'[0-9]+\' name="zip" #zip=\'ngModel\'></ion-input>\n              </ion-item>\n            \n            <div *ngIf="zip.errors && (zip.dirty || zip.touched)" class="alert alert-danger">\n              <div [hidden]="!zip.errors.required" class="alert alert-danger">\n                Zip is required\n              </div>\n              <div [hidden]="!zip.errors.pattern" class="alert alert-danger">\n                Invalid zipcode\n              </div>\n                <div [hidden]="!zip.errors.maxlength" class="alert alert-danger">\n                    Only 6 digit valid\n                </div>\n            </div>\n            </ion-col>\n    \n        </ion-row>\n       <ion-item>\n          <button class="custom_btn" color="red" type="submit" [disabled]=\'!cardForm.valid\' ion-button full round (click)="add_card(cardForm);">MAKE PAYMENT</button>\n              <!-- <button class="btn_globle" color="red" style="height: 49px; width: 100%; margin: 0px auto; float:none;" type="submit" [disabled]=\'!cardForm.valid\' (click)="add_card(cardForm);">MAKE PAYMENT</button> -->\n       </ion-item>\n        </form>\n        </ion-grid>\n  </ion-list>\n\n<!-- <ion-item class="radio_item">\n    <ion-label class="set">Set as default payment method</ion-label>\n    <ion-checkbox color="dark"  [(ngModel)]="default" value=\'default\' default (ionChange)="setDefault(default)"></ion-checkbox>\n  </ion-item> -->\n</ion-content>\n\n<!--<ion-footer class="send">\n  <a ion-button full (click)="cardPage();">SAVE</a>\n</ion-footer>-->\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/add-card/add-card.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_stripe__["a" /* Stripe */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_stripe__["a" /* Stripe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_stripe__["a" /* Stripe */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]) === "function" && _g || Object])
 ], AddCardPage);
 
+var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=add-card.js.map
 
 /***/ }),
@@ -1117,28 +1121,28 @@ var RequestsongplayPage = (function () {
     };
     RequestsongplayPage.prototype.setAlert = function (i) {
         if (i == 0) {
-            var alert = this.alertCtrl.create({
+            var alert_1 = this.alertCtrl.create({
                 title: 'Play Now Info.',
                 subTitle: 'Lorem ipsum dolor sit amet.',
                 buttons: ['ok']
             });
-            alert.present();
+            alert_1.present();
         }
         if (i == 1) {
-            var alert = this.alertCtrl.create({
+            var alert_2 = this.alertCtrl.create({
                 title: 'Guaranteed Info.',
                 subTitle: 'Lorem ipsum dolor sit amet.',
                 buttons: ['ok']
             });
-            alert.present();
+            alert_2.present();
         }
         if (i == 2) {
-            var alert = this.alertCtrl.create({
+            var alert_3 = this.alertCtrl.create({
                 title: 'Possibly Play Info.',
                 subTitle: 'Lorem ipsum dolor sit amet.',
                 buttons: ['ok']
             });
-            alert.present();
+            alert_3.present();
         }
         //setTimeout(()=>alert.dismiss(),3500);
     };
@@ -1147,24 +1151,24 @@ var RequestsongplayPage = (function () {
         // console.log("Hello");
         // console.log(this.minprice);
         if (form.value.requeststype == undefined) {
-            var alert_1 = this.alertCtrl.create({
+            var alert_4 = this.alertCtrl.create({
                 title: 'Request a song',
                 subTitle: 'Please select request option',
                 buttons: ['ok']
             });
-            alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 3500);
+            alert_4.present();
+            setTimeout(function () { return alert_4.dismiss(); }, 3500);
         }
         else {
             if (form.value.tipamt != "") {
                 if (parseInt(form.value.tipamt) < this.minprice) {
-                    var alert_2 = this.alertCtrl.create({
+                    var alert_5 = this.alertCtrl.create({
                         title: 'Request a song',
                         subTitle: 'Tip amount should be greater than minimum tip',
                         buttons: ['ok']
                     });
-                    alert_2.present();
-                    setTimeout(function () { return alert_2.dismiss(); }, 3500);
+                    alert_5.present();
+                    setTimeout(function () { return alert_5.dismiss(); }, 3500);
                     return false;
                 }
             }
@@ -1227,13 +1231,13 @@ var RequestsongplayPage = (function () {
                 }
             }
             else {
-                var alert_3 = _this.alertCtrl.create({
+                var alert_6 = _this.alertCtrl.create({
                     title: 'Request a song',
                     subTitle: data.msg,
                     buttons: ['ok']
                 });
-                alert_3.present();
-                setTimeout(function () { return alert_3.dismiss(); }, 3500);
+                alert_6.present();
+                setTimeout(function () { return alert_6.dismiss(); }, 3500);
             }
         });
     };
@@ -1245,13 +1249,13 @@ var RequestsongplayPage = (function () {
         }
         else {
             this.Loading.dismiss();
-            var alert_4 = this.alertCtrl.create({
+            var alert_7 = this.alertCtrl.create({
                 title: 'Network connection',
                 subTitle: 'Something went wrong check your internet connection',
                 buttons: ['ok']
             });
-            alert_4.present();
-            setTimeout(function () { return alert_4.dismiss(); }, 3500);
+            alert_7.present();
+            setTimeout(function () { return alert_7.dismiss(); }, 3500);
         }
     };
     RequestsongplayPage.prototype.ionViewDidLoad = function () {
@@ -1264,10 +1268,14 @@ RequestsongplayPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-requestsongplay',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/requestsongplay/requestsongplay.html"*/'<!--\n  Generated template for the RequestsongplayPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Requests a Song</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n  \n</ion-header>\n\n\n<ion-content style="background:#242424;">\n  <h4 class="reqsong_title">Request a Song!</h4>\n  <form #requestsongForm="ngForm" novalidate > \n  <div class="req_song">\n    <ion-list>\n      <ion-item>\n        <ion-input placeholder="Enter Song Name" [(ngModel)]="data.name" name="name" #name=\'ngModel\' required></ion-input>\n      </ion-item>\n      <ion-label  class="alert alert-danger" color="danger">\n        <div *ngIf="name.errors && (name.dirty || name.touched)">\n          <div [hidden]="!name.errors.required" >\n              Field is required\n          </div>\n        </div>\n      </ion-label>\n      <ion-item>\n      <ion-input placeholder="Enter Artist Name" [(ngModel)]="data.artistname" name="artistname" #artistname=\'ngModel\' required></ion-input>\n      </ion-item>\n      <ion-label  class="alert alert-danger" color="danger">\n        <div *ngIf="artistname.errors && (artistname.dirty || artistname.touched)">\n          <div [hidden]="!artistname.errors.required">\n              Field is required\n          </div>\n        </div>\n      </ion-label>\n    </ion-list>\n  </div>\n\n <div class="select_radio">\n    <ion-list no-lines radio-group [(ngModel)]="requeststype" name="requeststype">\n      <ion-item *ngFor="let req of request; let i = index">\n        <ion-label>{{req?.TipOption.name}}</ion-label>\n        <ion-radio item-left value="{{req?.TipOption.id}}" (click)="setflag(i)"></ion-radio>\n          <ion-icon ios="ios-alert" md="ios-alert" class="alertbullet" color="black" item-right name="information-circle" (click)="setAlert(i)"></ion-icon>\n      </ion-item>\n    </ion-list>\n    <ion-item style="background:#000;" [hidden]="!flag">\n        <ion-input style="padding-left:58px;" type="tel" pattern="[0-9]+" placeholder="Enter Tip Amount" [(ngModel)]="data.tipamt" name="tipamt" #tipamt=\'ngModel\'></ion-input>\n        <ion-label class="minprice" >(Min ${{minprice}})</ion-label>\n    </ion-item>\n    <ion-label  class="alert alert-danger" color="danger">\n        <div *ngIf="tipamt.errors && (tipamt.dirty || tipamt.touched)">\n          <div [hidden]="!tipamt.errors.pattern" >\n              Only number allowed\n          </div>\n        </div>\n      </ion-label>\n    <div class="centerbutton2">\n      <button class="custom_btn" (click)="requestsong(requestsongForm)" [disabled]="!requestsongForm.form.valid"  color="yellow" type="submit" style="text-transform: uppercase;" ion-button round>REQUEST AND TIP NOW</button>\n    </div>\n  </div>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/requestsongplay/requestsongplay.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
 ], RequestsongplayPage);
 
-var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=requestsongplay.js.map
 
 /***/ }),
@@ -2226,7 +2234,7 @@ VotelikePage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__ = __webpack_require__(136);
@@ -2645,7 +2653,7 @@ var PasteventdjPage = (function () {
             content: 'Please wait...',
             dismissOnPageChange: true
         });
-        this.pastevntid = navParams.get("eventid");
+        this.pastevntid = navParams.get("eventird");
         this.pastevent(this.pastevntid);
     }
     PasteventdjPage.prototype.ionViewDidLoad = function () {
@@ -2711,7 +2719,7 @@ var PasteventdjPage = (function () {
 PasteventdjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-pasteventdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/pasteventdj/pasteventdj.html"*/'<!--\n  Generated template for the PasteventdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		\n			<ion-navbar color="black">\n				<ion-title>{{pastevntdata?.Event.event_name}}</ion-title>\n				<div class="logo">\n						\n					<img src="assets/img/rlogo.png">\n				</div>\n			</ion-navbar>\n		\n		</ion-header>\n		\n		\n		<ion-content>\n			<div class="imgsec">\n					<img [src]="pastevntdata?.Event.image">\n				<!-- <img src="assets/img/sbg.png"> -->\n			</div>\n			<div class="content-sec" padding>\n				<h1>{{pastevntdata?.Event.venue_name}}</h1>\n				<div class="content-text">\n					<h3>{{pastevntdata?.Event.event_name}}</h3>\n					<p>{{pastevntdata?.Event.event_date | date:\'MM-dd-yyyy\' }} to {{pastevntdata?.Event.start_event | date:\'MM-dd-yyyy\' }}</p>\n					<p>{{pastevntdata?.Event.event_time}} to {{pastevntdata?.Event.scheduled_start_time}}</p>\n				</div>\n				<div class="content-text">\n					<h3>Tip Amounts</h3>\n					<p>Play Now ${{pastevntdata?.TipOptionPrice.playnow}}</p>\n					<p>Guaranteed Play  ${{pastevntdata?.TipOptionPrice.guareteedplay}}</p>\n					<p>Possibly Play  ${{pastevntdata?.TipOptionPrice.possiblyplay}}</p>\n				</div>\n				<div class="bottom-sec">\n					<h3>Address</h3>\n					<p>{{pastevntdata?.Event.venue_address}}</p>\n				</div>\n				<div class="btn-sec">\n					<div class="top-btn">\n						<h3>Request History</h3>\n						<button ion-button (click)="reqhs(pastevntdata?.Event.id)">View</button>\n					</div>\n		\n					<div class="bottom-btn">\n						<h3>Payment History</h3>\n						<button ion-button (click)="payhs(pastevntdata?.Event.id)">View</button>\n					</div>\n				</div>\n		\n			</div>\n				</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/pasteventdj/pasteventdj.html"*/,
+        selector: 'page-pasteventdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/pasteventdj/pasteventdj.html"*/'<!--\n  Generated template for the PasteventdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		\n			<ion-navbar color="black">\n				<ion-title>{{pastevntdata?.Event.event_name}}</ion-title>\n				<div class="logo">\n						\n					<img src="assets/img/rlogo.png">\n				</div>\n			</ion-navbar>\n		\n		</ion-header>\n		\n		\n		<ion-content>\n			<div class="imgsec">\n					<img *ngIf="pastevntdata?.Event.image" [src]="pastevntdata?.Event.image">\n				<!-- <img src="assets/img/sbg.png"> -->\n			</div>\n			<div class="content-sec" padding>\n				<h1>{{pastevntdata?.Event.venue_name}}</h1>\n				<div class="content-text">\n					<h3>{{pastevntdata?.Event.event_name}}</h3>\n					<p>{{pastevntdata?.Event.event_date | date:\'MM-dd-yyyy\' }} to {{pastevntdata?.Event.start_event | date:\'MM-dd-yyyy\' }}</p>\n					<p>{{pastevntdata?.Event.event_time}} to {{pastevntdata?.Event.scheduled_start_time}}</p>\n				</div>\n				<div class="content-text">\n					<h3>Tip Amounts</h3>\n					<p>Play Now ${{pastevntdata?.TipOptionPrice.playnow}}</p>\n					<p>Guaranteed Play  ${{pastevntdata?.TipOptionPrice.guareteedplay}}</p>\n					<p>Possibly Play  ${{pastevntdata?.TipOptionPrice.possiblyplay}}</p>\n				</div>\n				<div class="bottom-sec">\n					<h3>Address</h3>\n					<p>{{pastevntdata?.Event.venue_address}}</p>\n				</div>\n				<div class="btn-sec">\n					<div class="top-btn">\n						<h3>Request History</h3>\n						<button ion-button (click)="reqhs(pastevntdata?.Event.id)">View</button>\n					</div>\n		\n					<div class="bottom-btn">\n						<h3>Payment History</h3>\n						<button ion-button (click)="payhs(pastevntdata?.Event.id)">View</button>\n					</div>\n				</div>\n		\n			</div>\n				</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/pasteventdj/pasteventdj.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -2735,7 +2743,6 @@ PasteventdjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__ = __webpack_require__(388);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(26);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2745,7 +2752,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -2800,7 +2806,9 @@ var PaymenthistorydjPage = (function () {
                     _this.totalpay = 0;
                     for (var _i = 0, _a = _this.payhistdata; _i < _a.length; _i++) {
                         var dat = _a[_i];
-                        _this.totalpay = parseInt(_this.totalpay) + parseInt(dat.ClubgoerRequest.djshare);
+                        if (dat.ClubgoerRequest.refund_status == 0) {
+                            _this.totalpay = parseInt(_this.totalpay) + parseInt(dat.ClubgoerRequest.djshare);
+                        }
                     }
                 }
                 else {
@@ -2826,7 +2834,6 @@ var PaymenthistorydjPage = (function () {
     };
     PaymenthistorydjPage.prototype.refundnow = function (clubgoerqstid, money, song, artist, adminemail) {
         var _this = this;
-        //alert(clubgoerqstid+" "+money+" "+song+" "+artist+" "+adminemail);
         var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
         var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
@@ -2838,7 +2845,7 @@ var PaymenthistorydjPage = (function () {
         var Serialized = this.serializeObj(data);
         this.payPal.init({
             PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
-            PayPalEnvironmentSandbox: 'AFcWxV21C7fd0v3bYYYRCpSSRl31A5gXXq3jDhmdlyQxH0Ztp-tlLquA'
+            PayPalEnvironmentSandbox: 'Af3HzSUz5a2jlbLEK1bJqLYRekJEGam9p0kdR7Pqn5WdPqvHWQ2D5BOkdbnjX7RS6AOF5KkxOMm_Kv9k'
         }).then(function () {
             // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
             _this.payPal.prepareToRender('PayPalEnvironmentSandbox', new __WEBPACK_IMPORTED_MODULE_4__ionic_native_paypal__["b" /* PayPalConfiguration */]({})).then(function () {
@@ -2846,7 +2853,14 @@ var PaymenthistorydjPage = (function () {
                 _this.payPal.renderSinglePaymentUI(payment).then(function () {
                     _this.http.post(_this.appsetting.myGlobalVar + 'subscriptions/refund', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
                         if (response.isSucess == "true") {
-                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                            _this.payhistdata = response.data;
+                            _this.totalpay = 0;
+                            for (var _i = 0, _a = _this.payhistdata; _i < _a.length; _i++) {
+                                var dat = _a[_i];
+                                if (dat.ClubgoerRequest.refund_status == 0) {
+                                    _this.totalpay = parseInt(_this.totalpay) + parseInt(dat.ClubgoerRequest.djshare);
+                                }
+                            }
                             var alertr_1 = _this.alertCtrl.create({
                                 title: 'Subscribed',
                                 subTitle: response.msg,
@@ -2889,7 +2903,7 @@ var PaymenthistorydjPage = (function () {
 PaymenthistorydjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-paymenthistorydj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/paymenthistorydj/paymenthistorydj.html"*/'<!--\n  Generated template for the PaymenthistorydjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <ion-title>Payment History</ion-title>\n    <div class="logo">\n    	<img src="assets/img/rlogo.png">\n    </div>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n	<div class="past">\n		<ion-list>\n	      <ion-item *ngFor="let pay of payhistdata; let i = index">\n	        	<div class="right-sec">\n	        		<button [ngStyle]="{\'background-color\': pay?.ClubgoerRequest.buttoncolor}" *ngIf="pay?.ClubgoerRequest.buttoncol" ion-button (click)="refundnow(pay?.ClubgoerRequest.id,pay?.ClubgoerRequest.djshare,pay?.ClubgoerRequest.songname,pay?.ClubgoerRequest.artist_name,pay?.ClubgoerRequest.adminemail)">Refund</button> \n							<button [ngStyle]="{\'background-color\': pay?.ClubgoerRequest.buttoncolor}" ion-button *ngIf="!pay?.ClubgoerRequest.buttoncol">Refund</button> \n							<p>${{pay?.ClubgoerRequest.djshare}}</p>\n	        	</div>\n	        	<h2>{{pay?.Clubgoer.complete_name}}</h2>\n	        	<h3>{{pay?.Event.event_name}}</h3>\n	        	<p>{{pay?.ClubgoerRequest.songname}} ,{{pay?.ClubgoerRequest.artist_name}} </p>\n	      </ion-item>\n	  </ion-list>\n	</div>\n\n	<div class="total" *ngIf="totalpay>0">\n		<h2>Total Received</h2>\n		<h3>${{totalpay}}</h3>\n	</div>\n\n	<div class="unshow" *ngIf="payhistdata?.length == 0">\n		<h3> No payment available</h3>\n	</div>\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/paymenthistorydj/paymenthistorydj.html"*/,
+        selector: 'page-paymenthistorydj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/paymenthistorydj/paymenthistorydj.html"*/'<!--\n  Generated template for the PaymenthistorydjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <ion-title>Payment History</ion-title>\n    <div class="logo">\n    	<img src="assets/img/rlogo.png">\n    </div>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n	<div class="past">\n		<ion-list>\n	      <ion-item *ngFor="let pay of payhistdata; let i = index">\n	        	<div class="right-sec">\n	        		<button [ngStyle]="{\'background-color\': pay?.ClubgoerRequest.buttoncolor}" *ngIf="pay?.ClubgoerRequest.buttoncol" ion-button (click)="refundnow(pay?.ClubgoerRequest.id,pay?.ClubgoerRequest.djshare,pay?.ClubgoerRequest.songname,pay?.ClubgoerRequest.artist_name,pay?.ClubgoerRequest.adminemail)">Refund</button> \n							<button [ngStyle]="{\'background-color\': pay?.ClubgoerRequest.buttoncolor}" ion-button *ngIf="!pay?.ClubgoerRequest.buttoncol">Refunded</button> \n							<p>${{pay?.ClubgoerRequest.djshare}}</p>\n	        	</div>\n	        	<h2>{{pay?.Clubgoer.complete_name}}</h2>\n	        	<h3>{{pay?.Event.event_name}}</h3>\n	        	<p>{{pay?.ClubgoerRequest.songname}} ,{{pay?.ClubgoerRequest.artist_name}} </p>\n	      </ion-item>\n	  </ion-list>\n	</div>\n\n	<div class="total" *ngIf="totalpay>0">\n		<h2>Total Received</h2>\n		<h3>${{totalpay}}</h3>\n	</div>\n\n	<div class="unshow" *ngIf="payhistdata?.length == 0">\n		<h3> No payment available</h3>\n	</div>\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/paymenthistorydj/paymenthistorydj.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -4213,7 +4227,7 @@ ShoutoutdjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventsdj_eventsdj__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventsdj_eventsdj__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__voteupdj_voteupdj__ = __webpack_require__(182);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4582,7 +4596,7 @@ VoteupdjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(46);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -6135,7 +6149,7 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 26:
+/***/ 28:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6564,7 +6578,7 @@ PaymentinfoPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__editprofiledj_editprofiledj__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__ = __webpack_require__(136);
@@ -6988,7 +7002,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_termsdj_termsdj__ = __webpack_require__(189);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_signindj_signindj__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_changepassworddj_changepassworddj__ = __webpack_require__(188);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_eventsdj_eventsdj__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_eventsdj_eventsdj__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_playnowlistdj_playnowlistdj__ = __webpack_require__(176);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_addeventdj_addeventdj__ = __webpack_require__(432);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_notificationdj_notificationdj__ = __webpack_require__(190);
@@ -7310,7 +7324,7 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventsdj_eventsdj__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__eventsdj_eventsdj__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__termsdjsubs_termsdjsubs__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_in_app_browser__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__add_card_add_card__ = __webpack_require__(103);
@@ -7407,7 +7421,7 @@ var SubscribedjPage = (function () {
 SubscribedjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-subscribedj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/subscribedj/subscribedj.html"*/'<!--\n  Generated template for the SubscribedjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="black">\n		<ion-title>Subscription Plan</ion-title>\n		<button (click)="setBackButtonAction()"ion-button="bar-button">\n        <span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" aria-label="arrow back"></ion-icon>\n        <span class="back-button-text back-button-text-ios" style="transform: translateX(0px);"></span></span>\n        <div class="button-effect"></div>\n    </button>\n    <div class="logo">\n    	<img src="assets/img/rlogo.png">\n    </div>\n</ion-navbar>\n</ion-header>\n<ion-content padding>\n		<div class="content-sec">\n			<ion-grid>\n				<ion-row>\n					<ion-col>\n						<div class="top-sec">\n							<h4>{{subscriv?.plan_name}}</h4>\n							<p>{{subscriv?.description}}</p>\n						</div>\n						<div class="bottom-sec">\n							<h1>${{subscriv?.monthly_rate}}</h1>\n							<p>Recurring</p>\n							<h1 class="term">\n								<span>\n								<ion-checkbox color="dark" checked="true" [(ngModel)]="data.checkbx" name="checkbx" #checkbx=\'ngModel\'></ion-checkbox>\n							</span>\n							I accept the <a style="text-decoration: underline;" button (click)="terms()" clear item-right>terms and conditions.</a>\n							</h1>\n\n							<!-- <ion-item class="remember" style="border:none; width: 50%; float: left;">\n								<ion-label style="color:#000;">I accept the terms and conditions.</ion-label>\n								<ion-checkbox color="secondary" checked="true" [(ngModel)]="data.checkbx" name="checkbx" #checkbx=\'ngModel\'></ion-checkbox>\n							</ion-item> -->\n							<button ion-button (click)="subscribe(data.checkbx,subscriv?.monthly_rate)">Subscribe</button>\n						</div>\n					</ion-col>\n				</ion-row>\n			</ion-grid>\n		</div>\n	</ion-content>	\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/subscribedj/subscribedj.html"*/,
+        selector: 'page-subscribedj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/subscribedj/subscribedj.html"*/'<!--\n  Generated template for the SubscribedjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="black">\n		<ion-title>Subscription Plan</ion-title>\n		<button (click)="setBackButtonAction()"ion-button="bar-button">\n        <span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" aria-label="arrow back"></ion-icon>\n        <span class="back-button-text back-button-text-ios" style="transform: translateX(0px);"></span></span>\n        <div class="button-effect"></div>\n    </button>\n    <div class="logo">\n    	<img src="assets/img/rlogo.png">\n    </div>\n</ion-navbar>\n</ion-header>\n<ion-content padding>\n		<div class="content-sec">\n			<ion-grid>\n				<ion-row>\n					<ion-col>\n						<div class="top-sec">\n							<h4>{{subscriv?.plan_name}}</h4>\n							<p>{{subscriv?.description}}</p>\n						</div>\n						<div class="bottom-sec">\n							<h1>${{subscriv?.monthly_rate}}</h1>\n							<p>Recurring</p>\n							<h1 class="term">\n								<span>\n									<ion-checkbox color="dark" checked="true" [(ngModel)]="data.checkbx" name="checkbx" #checkbx=\'ngModel\'></ion-checkbox>\n								</span>\n							I accept the <a style="text-decoration: underline;" button (click)="terms()" clear item-right>terms and conditions.</a>\n							</h1>\n\n							<!-- <ion-item class="remember" style="border:none; width: 50%; float: left;">\n								<ion-label style="color:#000;">I accept the terms and conditions.</ion-label>\n								<ion-checkbox color="secondary" checked="true" [(ngModel)]="data.checkbx" name="checkbx" #checkbx=\'ngModel\'></ion-checkbox>\n							</ion-item> -->\n							<button ion-button (click)="subscribe(data.checkbx,subscriv?.monthly_rate)">Subscribe</button>\n						</div>\n					</ion-col>\n				</ion-row>\n			</ion-grid>\n		</div>\n	</ion-content>	\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/subscribedj/subscribedj.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -7777,7 +7791,7 @@ SignindjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__eventsdj_eventsdj__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_Rx__ = __webpack_require__(466);
@@ -8149,7 +8163,7 @@ var EditprofiledjPage = (function () {
 EditprofiledjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-editprofiledj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editprofiledj/editprofiledj.html"*/'<!--\n  Generated template for the EditprofiledjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#fff;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Edit Profile</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n   </ion-buttons>\n</ion-toolbar>\n\n\n</ion-header>\n\n\n<ion-content padding>\n	<div class="head-sec">\n		<div class="image" (click)="CameraAction()">\n			<img [src]="profileImage">\n		</div>\n		<div class="edit-image">\n				<ion-icon ios="md-create" md="md-create"></ion-icon>\n				\n		</div>\n	</div>\n	<div class="form-sec">			\n		<form #profileForm="ngForm" class="event-form">\n			<ion-col col-12>\n				<ion-row>\n					<ion-list>\n					  <ion-item>\n					    <ion-input type="text" placeholder="Username" [(ngModel)]="data.complete_name" name="complete_name" #complete_name="ngModel" required></ion-input>\n						</ion-item>\n						<ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="complete_name.errors && (complete_name.dirty || complete_name.touched)">\n								 <div [hidden]="!complete_name.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label>\n					  <ion-item>\n							  <button class="abc" ion-button full (click)="uploadlogo()" style="background:none;">Add logo</button>\n					  </ion-item>\n					  <ion-item>\n					    <div class="img-sec" *ngIf="srcImage">\n					    	<img [src]="srcImage">\n					    </div>\n							 <div class="img-sec" *ngIf="srcImage == null">\n					    	<img src="assets/img/djlogo.png">\n					    </div>\n					  </ion-item>\n					  <ion-item>\n					    <ion-input type="text" placeholder="Biography" [(ngModel)]="data.biography" name="biography" #biography="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="biography.errors && (biography.dirty || biography.touched)">\n								 <div [hidden]="!biography.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label> -->\n						<div class="djcode">\n					  <ion-item >\n					    <ion-input type="text" placeholder="Dj code here" [(ngModel)]="data.djcode" name="djcode" #djcode="ngModel" [readonly]="isReadonly()" disabled></ion-input>\n						</ion-item>\n					</div>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="djcode.errors && (djcode.dirty || djcode.touched)">\n								 <div [hidden]="!djcode.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label> -->\n					  <ion-item>\n					    <ion-input type="text" placeholder="Enter Music URL" [(ngModel)]="data.audiourl" name="audiourl" #audiourl="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="audiourl.errors && (audiourl.dirty || audiourl.touched)">\n								 <div [hidden]="!audiourl.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label> -->\n					  <!--<ion-item>\n					    <ion-input type="text" placeholder="Change Password"></ion-input>\n					  </ion-item>-->\n					  <ion-item>\n					    <ion-input type="text" placeholder="Enter your paypal id" pattern=\'^[a-zA-Z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$\' [(ngModel)]="data.paypal_email" name="paypal_email" #paypal_email="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="paypal_email.errors && (paypal_email.dirty || paypal_email.touched)">\n								 <div [hidden]="!paypal_email.errors.required" >\n									 			Field is required\n								</div>\n								<div [hidden]="!paypal_email.errors.pattern" >\n												Pattern not matched\n								</div>\n							</div>\n						</ion-label> -->\n					</ion-list>\n				</ion-row>\n		    </ion-col>\n					<div class="btn-sec"><button ion-button type="submit" [disabled]="!profileForm.form.valid"  (click)="updateProfile(profileForm)">Save</button></div>\n		</form>\n		</div>\n	\n	\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editprofiledj/editprofiledj.html"*/,
+        selector: 'page-editprofiledj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editprofiledj/editprofiledj.html"*/'<!--\n  Generated template for the EditprofiledjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#fff;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Edit Profile</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n   </ion-buttons>\n</ion-toolbar>\n\n\n</ion-header>\n\n\n<ion-content padding>\n	<div class="head-sec">\n		<div class="image" (click)="CameraAction()">\n			<img  *ngIf="profileImage" [src]="profileImage">\n		</div>\n		<div class="edit-image">\n				<ion-icon ios="md-create" md="md-create"></ion-icon>\n				\n		</div>\n	</div>\n	<div class="form-sec">			\n		<form #profileForm="ngForm" class="event-form">\n			<ion-col col-12>\n				<ion-row>\n					<ion-list>\n					  <ion-item>\n					    <ion-input type="text" placeholder="Username" [(ngModel)]="data.complete_name" name="complete_name" #complete_name="ngModel" required></ion-input>\n						</ion-item>\n						<ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="complete_name.errors && (complete_name.dirty || complete_name.touched)">\n								 <div [hidden]="!complete_name.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label>\n					  <ion-item>\n							  <button class="abc" ion-button full (click)="uploadlogo()" style="background:none;">Add logo</button>\n					  </ion-item>\n					  <ion-item>\n					    <div class="img-sec" *ngIf="srcImage">\n					    	<img [src]="srcImage">\n					    </div>\n							 <div class="img-sec" *ngIf="srcImage == null">\n					    	<img src="assets/img/djlogo.png">\n					    </div>\n					  </ion-item>\n					  <ion-item>\n					    <ion-input type="text" placeholder="Biography" [(ngModel)]="data.biography" name="biography" #biography="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="biography.errors && (biography.dirty || biography.touched)">\n								 <div [hidden]="!biography.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label> -->\n						<div class="djcode">\n					  <ion-item >\n					    <ion-input type="text" placeholder="Dj code here" [(ngModel)]="data.djcode" name="djcode" #djcode="ngModel" [readonly]="isReadonly()" disabled></ion-input>\n						</ion-item>\n					</div>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="djcode.errors && (djcode.dirty || djcode.touched)">\n								 <div [hidden]="!djcode.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label> -->\n					  <ion-item>\n					    <ion-input type="text" placeholder="Enter Music URL" [(ngModel)]="data.audiourl" name="audiourl" #audiourl="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="audiourl.errors && (audiourl.dirty || audiourl.touched)">\n								 <div [hidden]="!audiourl.errors.required" >\n								 Field is required\n								</div>\n							</div>\n						</ion-label> -->\n					  <!--<ion-item>\n					    <ion-input type="text" placeholder="Change Password"></ion-input>\n					  </ion-item>-->\n					  <ion-item>\n					    <ion-input type="text" placeholder="Enter your paypal id" pattern=\'^[a-zA-Z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$\' [(ngModel)]="data.paypal_email" name="paypal_email" #paypal_email="ngModel" ></ion-input>\n						</ion-item>\n						<!-- <ion-label  class="alert alert-danger" color="danger">\n								<div *ngIf="paypal_email.errors && (paypal_email.dirty || paypal_email.touched)">\n								 <div [hidden]="!paypal_email.errors.required" >\n									 			Field is required\n								</div>\n								<div [hidden]="!paypal_email.errors.pattern" >\n												Pattern not matched\n								</div>\n							</div>\n						</ion-label> -->\n					</ion-list>\n				</ion-row>\n		    </ion-col>\n					<div class="btn-sec"><button ion-button type="submit" [disabled]="!profileForm.form.valid"  (click)="updateProfile(profileForm)">Save</button></div>\n		</form>\n		</div>\n	\n	\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/editprofiledj/editprofiledj.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
@@ -8323,57 +8337,62 @@ var LoginPage = (function () {
             .then(function (res) {
             _this.fb.api('me/?fields=id,email,last_name,first_name', ["public_profile", "email"])
                 .then(function (result) {
-                _this.Loading.present();
-                _this.profilepicface = "https://graph.facebook.com/" + result.id + "/picture?type=large";
-                localStorage.setItem('facebook_pic', _this.profilepicface);
-                localStorage.setItem('facebook_login', JSON.stringify(result));
-                _this.facebook_data = localStorage.getItem('facebook_login');
-                var url = _this.variable.baseUrl + _this.variable.SIGNIN_API;
-                var signindata = {
-                    email: result.email,
-                    fb_id: result.id,
-                    name: result.first_name + " " + result.last_name,
-                    img: _this.profilepicface,
-                    role: "clubgoer"
-                };
-                // alert(JSON.stringify(signindata));
-                var serialized_data = _this.Cmn.serializeObj(signindata);
-                var headers = new __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' });
-                var options = new __WEBPACK_IMPORTED_MODULE_6__angular_http__["d" /* RequestOptions */]({ headers: headers });
-                _this.http.post(url, serialized_data, options)
-                    .map(function (res) { return res.json(); })
-                    .subscribe(function (resolve) {
-                    if (resolve.isSucess == "true") {
-                        _this.Loading.dismiss();
-                        // alert("vikki");
-                        // alert(JSON.stringify(resolve.data));
-                        localStorage.setItem('userid', resolve.data.User.id);
-                        localStorage.setItem("USER_DATA", JSON.stringify(resolve.data.User));
-                        _this.appsetting.profile = resolve.data.User;
-                        localStorage.setItem('fblogin', 'fbloginfrm');
-                        _this.events.publish('role', 'clubgoer');
-                        var alert_4 = _this.alertCtrl.create({
-                            title: 'Logged in',
-                            subTitle: resolve.msg,
-                            buttons: ['ok']
-                        });
-                        alert_4.present();
-                        setTimeout(function () { return alert_4.dismiss(); }, 3500);
-                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
-                    }
-                    else {
-                        // alert("error");
-                        // alert(JSON.stringify(resolve));
-                        var alert_5 = _this.alertCtrl.create({
-                            title: 'Login',
-                            subTitle: resolve.msg,
-                            buttons: ['ok']
-                        });
-                        alert_5.present();
-                        setTimeout(function () { return alert_5.dismiss(); }, 3500);
-                        _this.Loading.dismiss();
-                    }
-                    // this.userinfo.profilepicture ='data:image/jpeg;base64,' + imageUri;;
+                _this.firebase.onTokenRefresh().subscribe(function (token) {
+                    //console.log(`The new token is ${token}`);
+                    _this.token = token;
+                    _this.Loading.present();
+                    _this.profilepicface = "https://graph.facebook.com/" + result.id + "/picture?type=large";
+                    localStorage.setItem('facebook_pic', _this.profilepicface);
+                    localStorage.setItem('facebook_login', JSON.stringify(result));
+                    _this.facebook_data = localStorage.getItem('facebook_login');
+                    var url = _this.variable.baseUrl + _this.variable.SIGNIN_API;
+                    var signindata = {
+                        email: result.email,
+                        fb_id: result.id,
+                        name: result.first_name + " " + result.last_name,
+                        img: _this.profilepicface,
+                        role: "clubgoer",
+                        token: _this.token
+                    };
+                    // alert(JSON.stringify(signindata));
+                    var serialized_data = _this.Cmn.serializeObj(signindata);
+                    var headers = new __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' });
+                    var options = new __WEBPACK_IMPORTED_MODULE_6__angular_http__["d" /* RequestOptions */]({ headers: headers });
+                    _this.http.post(url, serialized_data, options)
+                        .map(function (res) { return res.json(); })
+                        .subscribe(function (resolve) {
+                        if (resolve.isSucess == "true") {
+                            _this.Loading.dismiss();
+                            // alert("vikki");
+                            // alert(JSON.stringify(resolve.data));
+                            localStorage.setItem('userid', resolve.data.User.id);
+                            localStorage.setItem("USER_DATA", JSON.stringify(resolve.data.User));
+                            _this.appsetting.profile = resolve.data.User;
+                            localStorage.setItem('fblogin', 'fbloginfrm');
+                            _this.events.publish('role', 'clubgoer');
+                            var alert_4 = _this.alertCtrl.create({
+                                title: 'Logged in',
+                                subTitle: resolve.msg,
+                                buttons: ['ok']
+                            });
+                            alert_4.present();
+                            setTimeout(function () { return alert_4.dismiss(); }, 3500);
+                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+                        }
+                        else {
+                            // alert("error");
+                            // alert(JSON.stringify(resolve));
+                            var alert_5 = _this.alertCtrl.create({
+                                title: 'Login',
+                                subTitle: resolve.msg,
+                                buttons: ['ok']
+                            });
+                            alert_5.present();
+                            setTimeout(function () { return alert_5.dismiss(); }, 3500);
+                            _this.Loading.dismiss();
+                        }
+                        // this.userinfo.profilepicture ='data:image/jpeg;base64,' + imageUri;;
+                    });
                 });
             }).catch(function (d) {
                 //  alert(JSON.stringify(d))
@@ -8433,21 +8452,10 @@ LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-login',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header class="{{classval}}">\n\n  <ion-navbar color="dark">\n    <ion-title>Sign In</ion-title>\n    <button (click)="setBackButtonAction()"ion-button="bar-button">\n      <span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" aria-label="arrow back"></ion-icon>\n      <span class="back-button-text back-button-text-ios" style="transform: translateX(0px);"></span></span>\n      <div class="button-effect"></div>\n    </button>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="margintop" padding style="background: url(assets/img/bgdrk.png); background-size:cover;"  (ionScroll)="scrollHandler($event)">\n<div class="login_outer">\n  <div class="logo"><img src="assets/img/logo.png"></div>\n<div class="form_sec">\n  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" novalidate>\n  <ion-list>\n  <ion-item>\n    <ion-input type="email" [(ngModel)]="data.email" name="email" placeholder="Email Address" #email=\'ngModel\' pattern=\'^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$\' required></ion-input>\n  </ion-item>\n  <ion-label class="alert alert-danger" color="danger">\n        <div *ngIf="email.errors && (email.dirty || email.touched)" >\n        <div [hidden]="!email.errors.required" >\n         Email is required\n        </div>\n        <div [hidden]="!email.errors.pattern" >\n         Invalid email\n        </div>\n        </div>\n  </ion-label>\n  <ion-item>\n    <ion-input type="password" placeholder="Password" [(ngModel)]="data.password" name="password" #password=\'ngModel\' required></ion-input>\n  </ion-item>\n  <ion-label class="alert alert-danger" color="danger">\n    <div *ngIf="password.errors && (password.dirty || password.touched)">\n       <div [hidden]="!password.errors.required" >\n         Password is required\n        </div>\n    </div>\n  </ion-label>\n  <ion-item class="remember" style="border:none; width: 50%; float: left;">\n      <ion-label style="color:#fff;">Remember</ion-label>\n      <ion-checkbox color="secondary" checked="true" [(ngModel)]="data.checkbx" name="checkbx" #checkbx=\'ngModel\'></ion-checkbox>\n  </ion-item>\n  <ion-item class="remember" style="border:none; width: 50%; float: left;">\n      <ion-label style="color:#fff; margin-right: 0; text-align: right;" (click)="forgotPage()">Forget Password ?</ion-label>\n  </ion-item>\n</ion-list>\n<div class="centerbutton">\n   <button class="custom_btn" color="yellow" type="submit" [disabled]="!loginForm.form.valid" style="text-transform: uppercase;" ion-button round>sign in</button>\n</div>\n  </form>\n\n<div class="centerbutton">\n  <h4 style="color:#fff;font-size: 14px;margin: 5px 0;">OR</h4>\n</div>\n<div class="centerbutton">\n   <button class="fbbutton" ion-button clear (click)="fblogin()"><img width="230px" src="assets/img/fb.png"></button>\n</div>\n<div class="centerbutton" style="color:#fff;">Don’t have an account?</div>\n<div (click)="signupPage()" class="centerbutton" style="color:#fff; text-transform:uppercase; text-decoration:underline; margin-top:8px;">Sign up</div>\n<!--<div class="centerbutton" style="color:#fff; margin-top: 10vh;">Skip</div>-->\n</div>\n</div>\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/login/login.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_8__providers_appsetting__["a" /* Appsetting */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
-        __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__["a" /* Facebook */],
-        __WEBPACK_IMPORTED_MODULE_9__providers_common_common__["a" /* CommonProvider */],
-        __WEBPACK_IMPORTED_MODULE_10__providers_variable_variable__["a" /* VariableProvider */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_12__ionic_native_firebase__["a" /* Firebase */],
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_8__providers_appsetting__["a" /* Appsetting */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__providers_appsetting__["a" /* Appsetting */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__["a" /* Facebook */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__["a" /* Facebook */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_9__providers_common_common__["a" /* CommonProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__providers_common_common__["a" /* CommonProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_10__providers_variable_variable__["a" /* VariableProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__providers_variable_variable__["a" /* VariableProvider */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_12__ionic_native_firebase__["a" /* Firebase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__ionic_native_firebase__["a" /* Firebase */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */]) === "function" && _o || Object])
 ], LoginPage);
 
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
 //# sourceMappingURL=login.js.map
 
 /***/ }),
@@ -8466,7 +8474,7 @@ LoginPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__forgot_forgot__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_appsetting__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_common_common__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_variable_variable__ = __webpack_require__(139);
@@ -8538,6 +8546,7 @@ var LogindjPage = (function () {
                 checkbx: true
             };
         }
+        this.classval = 'headerbg';
     }
     LogindjPage.prototype.ionViewDidEnter = function () {
         if (window.navigator.onLine == true) {
@@ -8592,8 +8601,6 @@ var LogindjPage = (function () {
                 password: form.value.password,
                 token: _this.token
             };
-            console.log(data);
-            console.log("vikrant");
             var Serialized = _this.serializeObj(data);
             var Loading = _this.loadingCtrl.create({
                 content: 'Please wait...',
@@ -8806,6 +8813,7 @@ var SignupPage = (function () {
             content: 'Please wait...',
             dismissOnPageChange: true
         });
+        this.classval = 'headerbg';
         if (localStorage.getItem("USER_DATA") != null) {
             this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
         }
@@ -8946,7 +8954,7 @@ var SignupPage = (function () {
 SignupPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-signup',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header class="{{classval}}">\n\n  <ion-navbar align-title="center" color="dark" style="background: none;">\n    <ion-title align-title="center">Sign Up</ion-title>\n    <button (click)="setBackButtonAction()"ion-button="bar-button">\n      <span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" aria-label="arrow back"></ion-icon>\n      <span class="back-button-text back-button-text-ios" style="transform: translateX(0px);"></span></span>\n      <div class="button-effect"></div>\n    </button>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="margintop" padding style="background: url(assets/img/loginbg.jpg); background-size:cover;" (ionScroll)="scrollHandler($event)">\n<div class="login_outer">\n  <div class="logo"><img src="assets/img/logo.png"></div>\n<div class="form_sec">\n  <form #signupForm="ngForm" novalidate > \n  <ion-list>\n\n  <ion-item>\n    <ion-input type="text" [(ngModel)]="data.name" name="name"  placeholder="Name" #name=\'ngModel\' pattern=\'[a-zA-Z ]+\' required></ion-input>\n  </ion-item>\n  <ion-label  class="alert alert-danger" color="danger">\n        <div *ngIf="name.errors && (name.dirty || name.touched)">\n       <div [hidden]="!name.errors.required" >\n         Field is required\n        </div>\n    </div>\n  </ion-label>\n      <ion-item>\n          <ion-input type="email" [(ngModel)]="data.email" name="email" placeholder="Email Address"   #email=\'ngModel\' required pattern=\'^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$\' required  ></ion-input>\n      </ion-item>\n      <ion-label  class="alert alert-danger" color="danger">\n            <div *ngIf="email.errors && (email.dirty || email.touched)" >\n              <div [hidden]="!email.errors.required" >\n                Email is required\n                </div>\n                <div [hidden]="!email.errors.pattern" >\n                Invalid email\n                </div>\n            </div>\n      </ion-label>\n\n<ion-item>\n          <ion-input type="password" minlength="5" [(ngModel)]="data.password" name="password" placeholder="Password" #password=\'ngModel\' required ></ion-input>\n        </ion-item>\n     <ion-label class="alert alert-danger" color="danger">\n        <div *ngIf="password.errors && (password.dirty || password.touched)">\n        <div [hidden]="!password.errors.required" >\n         Password is required\n        </div>\n    </div>\n     <div *ngIf="password.errors && (password.dirty || password.touched)" >\n       <div [hidden]="!password.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n   </ion-label>\n\n   <ion-item>\n          <ion-input type="password" minlength="5" [(ngModel)]="data.cpassword" name="cpassword" placeholder="Confirm Password" #cpassword=\'ngModel\' required></ion-input>\n        </ion-item>\n  <ion-label class="alert alert-danger" color="danger">\n    <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)" >\n       <div [hidden]="!cpassword.errors.required" >\n         Confirm password is required\n        </div>\n    </div>\n    <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)" >\n       <div [hidden]="!cpassword.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n    </ion-label>\n  \n</ion-list>\n<div class="centerbutton">\n   <button class="custom_btn" (click)="register(signupForm)" [disabled]="!signupForm.form.valid" color="yellow" style="text-transform: uppercase;" ion-button round>sign Up</button>\n</div>\n  </form>\n<div class="centerbutton" style="color:#fff;">Have an account?</div>\n<div class="centerbutton" style="color:#fff; text-transform:uppercase; text-decoration:underline; margin-top:8px;" (click)="signinPage()">Sign In</div>\n<!--<div class="centerbutton" style="color:#fff; margin-top: 10vh;">Skip</div>-->\n</div>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signup/signup.html"*/,
+        selector: 'page-signup',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header class="{{classval}}">\n\n  <ion-navbar align-title="center" color="dark" style="background: none;">\n    <ion-title align-title="center">Sign Up</ion-title>\n    <button (click)="setBackButtonAction()"ion-button="bar-button">\n      <span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" aria-label="arrow back"></ion-icon>\n      <span class="back-button-text back-button-text-ios" style="transform: translateX(0px);"></span></span>\n      <div class="button-effect"></div>\n    </button>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="margintop" padding style="background: url(assets/img/loginbg.jpg); background-size:cover;" (ionScroll)="scrollHandler($event)">\n<div class="login_outer">\n  <div class="logo"><img src="assets/img/logo.png"></div>\n<div class="form_sec">\n  <form #signupForm="ngForm" novalidate > \n  <ion-list>\n\n  <ion-item>\n    <ion-input type="text" [(ngModel)]="data.name" name="name"  placeholder="Name" #name=\'ngModel\' pattern=\'[a-zA-Z ]+\' required></ion-input>\n  </ion-item>\n  <ion-label  class="alert alert-danger" color="danger">\n        <div *ngIf="name.errors && (name.dirty || name.touched)">\n       <div [hidden]="!name.errors.required" >\n         Field is required\n        </div>\n    </div>\n  </ion-label>\n      <ion-item>\n          <ion-input type="email" [(ngModel)]="data.email" name="email" placeholder="Email Address"   #email=\'ngModel\' required pattern=\'^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$\' required  ></ion-input>\n      </ion-item>\n      <ion-label  class="alert alert-danger" color="danger">\n            <div *ngIf="email.errors && (email.dirty || email.touched)" >\n              <div [hidden]="!email.errors.required" >\n                Email is required\n                </div>\n                <div [hidden]="!email.errors.pattern" >\n                Invalid email\n                </div>\n            </div>\n      </ion-label>\n\n<ion-item>\n          <ion-input type="password" minlength="5" [(ngModel)]="data.password" name="password" placeholder="Password" #password=\'ngModel\' required ></ion-input>\n        </ion-item>\n     <ion-label class="alert alert-danger" color="danger">\n        <div *ngIf="password.errors && (password.dirty || password.touched)">\n        <div [hidden]="!password.errors.required" >\n         Password is required\n        </div>\n    </div>\n     <div *ngIf="password.errors && (password.dirty || password.touched)" >\n       <div [hidden]="!password.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n   </ion-label>\n\n   <ion-item>\n          <ion-input type="password" minlength="5" [(ngModel)]="data.cpassword" name="cpassword" placeholder="Confirm Password" #cpassword=\'ngModel\' required></ion-input>\n        </ion-item>\n  <ion-label class="alert alert-danger" color="danger">\n    <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)" >\n       <div [hidden]="!cpassword.errors.required" >\n         Confirm password is required\n        </div>\n    </div>\n    <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)" >\n       <div [hidden]="!cpassword.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n    </ion-label>\n  \n</ion-list>\n<div class="centerbutton">\n   <button class="custom_btn" (click)="register(signupForm)" [disabled]="!signupForm.form.valid" color="yellow" style="text-transform: uppercase;" ion-button round>sign Up</button>\n</div>\n  </form>\n<div class="centerbutton account">Have an account?</div>\n<div class="centerbutton signin" (click)="signinPage()">Sign In</div>\n<!--<div class="centerbutton" style="color:#fff; margin-top: 10vh;">Skip</div>-->\n</div>\n</div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signup/signup.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -8990,7 +8998,7 @@ SignupPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_changepassworddj_changepassworddj__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_signindj_signindj__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_eventsdj_eventsdj__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_eventsdj_eventsdj__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_editprofiledj_editprofiledj__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_nameofeventsdj_nameofeventsdj__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_termsdj_termsdj__ = __webpack_require__(189);
@@ -10088,7 +10096,7 @@ var PayinfoPage = (function () {
                         _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
                         var alert_2 = _this.alertCtrl.create({
                             title: 'Payment info',
-                            subTitle: "Hello Something went wrong",
+                            subTitle: "Something went wrong",
                             buttons: ['ok']
                         });
                         alert_2.present();
@@ -10201,17 +10209,10 @@ PayinfoPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-payinfo',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/payinfo/payinfo.html"*/'<!--\n  Generated template for the PaymentinfoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Payment Info</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content style="background:#f2f2f2;">\n  <div class="paymentinfo">\n    <form #payinfoForm="ngForm" novalidate >\n    <div class="selectpayment">\n      <h4 class="selettitle" (click)="setbitnow(2)"> \n        Payment Method\n        <figure><img width="150px" src="assets/img/paypal.png"></figure>\n        <span class="cardtitle">PayPal</span>\n      </h4>\n    </div>\n\n    <div class="creditcard" *ngIf="setbit">\n      <h4 class="selettitle">Credit Card Info</h4>\n      <ion-list>\n          <ion-item>\n            <ion-label stacked>name on card</ion-label>\n            <ion-input type="text" [(ngModel)]="data.name" name="name"  placeholder="Name" #name=\'ngModel\' pattern=\'[a-zA-Z]+\' placeholder="John Henry Doe"></ion-input>\n          </ion-item>\n          <ion-label  class="alert alert-danger" color="danger">\n          <div *ngIf="name.errors && (name.dirty || name.touched)">\n            <div [hidden]="!name.errors.required" >\n                Field is required\n            </div>\n          </div>\n        </ion-label>\n          <ion-item>\n            <ion-label stacked>card number</ion-label>\n            <ion-input type="number" placeholder="1234-5678-9012-3456" [(ngModel)]="data.cardnum" name="cardnum" #cardnum=\'ngModel\' required></ion-input>\n          </ion-item>\n          <ion-label  class="alert alert-danger" color="danger">\n        <div *ngIf="cardnum.errors && (cardnum.dirty || cardnum.touched)">\n          <div [hidden]="!cardnum.errors.required" >\n              Field is required\n          </div>\n        </div>\n          </ion-label>\n\n          <ion-item style="float:left; width:68%; margin-right:2%;">\n            <ion-label stacked>expiration Date</ion-label>\n            <ion-datetime style="color:#fff;" min="{{minyear}}" max="{{maxyear}}" displayFormat="MM/YYYY" placeholder="MM/YYYY"  [(ngModel)]="data.monyear" name="monyear"  #monyear=\'ngModel\' required></ion-datetime>\n          </ion-item>\n          <ion-label  class="alert alert-danger" color="danger">\n        <div *ngIf="monyear.errors && (monyear.dirty || monyear.touched)">\n       <div [hidden]="!monyear.errors.required" >\n         Field is required\n        </div>\n        </div>\n          </ion-label>\n          <ion-item style="float:left; width:30%; padding-left:0;">\n            <ion-label stacked>Cvv</ion-label>\n            <ion-input type="number" placeholder="xxx" [(ngModel)]="data.cvv" name="cvv" #cvv=\'ngModel\' required></ion-input>\n          </ion-item>\n          <ion-label  class="alert alert-danger" color="danger">\n              <div *ngIf="cvv.errors && (cvv.dirty || cvv.touched)">\n                <div [hidden]="!cvv.errors.required" >\n                      Field is required\n                </div>\n                <div [hidden]="!cvv.errors.pattern" >\n                      Invalid cvv\n                </div>\n              </div>\n          </ion-label>\n      </ion-list>\n      <div class="centerbutton">\n              <button class="custom_btn" (click)="paynow(payinfoForm)" [disabled]="!payinfoForm.form.valid" color="yellow" type="submit" style="text-transform: uppercase;" ion-button round>Submit</button>\n      </div>\n    </div>\n    </form>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/payinfo/payinfo.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
-        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_6__providers_common_common__["a" /* CommonProvider */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__["a" /* InAppBrowser */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__providers_common_common__["a" /* CommonProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_common_common__["a" /* CommonProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__["a" /* InAppBrowser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_in_app_browser__["a" /* InAppBrowser */]) === "function" && _j || Object])
 ], PayinfoPage);
 
+var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 //# sourceMappingURL=payinfo.js.map
 
 /***/ }),
@@ -10311,7 +10312,7 @@ var HistoricalrequestsPage = (function () {
 HistoricalrequestsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-historicalrequests',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/historicalrequests/historicalrequests.html"*/'<!--\n  Generated template for the HistoricalrequestsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Historical Requests</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><ion-icon><img width="15px" src="assets/img/rlogo.png"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n  \n  <ion-list-header class="listhader" style="margin-top:10px;">\n    <div class="left_items">Song Name</div>\n    <div class="right_items">Amount Paid</div>\n  </ion-list-header>\n</ion-header>\n\n\n<ion-content style="background: url(assets/img/loginbg.jpg); background-size:cover;">\n<ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n</ion-refresher>\n<div class="historicalrequests">\n  <ion-list no-lines>\n    <ion-item color="black" *ngFor="let request of requests;">\n      <div class="list_head">\n        <h2>{{request?.ClubgoerRequest.songname}}</h2>\n        <ion-note item-end="" class="note"> {{request?.ClubgoerRequest.pay_paypal ? "Paid" : "Not paid"}} <span>${{request.ClubgoerRequest.tip_amount}}</span></ion-note>\n      </div>\n      <div class="itembottom">\n      <p>Artist name <button class="playnow" clear>{{request?.ClubgoerRequest.artist_name}}</button></p>\n      <p>Requested Type <button class="playnow" clear>{{request?.TipOption.name}}</button></p>\n      </div>\n    </ion-item>\n    <div class="unshow" *ngIf="requests?.length == 0">\n      <h3>No history available</h3>\n  </div>\n  </ion-list>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/historicalrequests/historicalrequests.html"*/,
+        selector: 'page-historicalrequests',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/historicalrequests/historicalrequests.html"*/'<!--\n  Generated template for the HistoricalrequestsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Historical Requests</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><ion-icon><img width="15px" src="assets/img/rlogo.png"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n  \n  <ion-list-header class="listhader" style="margin-top:10px;">\n    <div class="left_items">Song Name</div>\n    <div class="right_items">Amount Paid</div>\n  </ion-list-header>\n</ion-header>\n\n\n<ion-content style="background: url(assets/img/loginbg.jpg); background-size:cover;">\n<ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n</ion-refresher>\n<div class="historicalrequests">\n  <ion-list no-lines>\n    <ion-item color="black" *ngFor="let request of requests;">\n      <div class="list_head">\n        <h2>{{request?.ClubgoerRequest.songname}}</h2>\n        <ion-note item-end="" class="note"> {{request?.ClubgoerRequest.pay_paypal ? "Paid" : "Not paid"}} <span>${{request.ClubgoerRequest.tip_amount}}</span></ion-note>\n      </div>\n      <div class="itembottom">\n        <p>Artist name <button class="playnow" clear>{{request?.ClubgoerRequest.artist_name}}</button></p>\n        <p>Requested Type <button class="playnow" clear>{{request?.TipOption.name}}</button></p>\n      </div>\n    </ion-item>\n    <div class="unshow" *ngIf="requests?.length == 0">\n      <h3>No history available</h3>\n  </div>\n  </ion-list>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/historicalrequests/historicalrequests.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -10519,6 +10520,7 @@ var SignupdjPage = (function () {
             dismissOnPageChange: true
         });
         this.ionViewDidEnter();
+        this.classval = 'headerbg';
         if (localStorage.getItem("USER_DATA")) {
             this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
         }
@@ -10615,23 +10617,23 @@ var SignupdjPage = (function () {
                             // this.Loading.dismiss();
                             _this.events.publish('role', 'dj');
                             localStorage.setItem("USER_DATA", JSON.stringify(response.user_data));
-                            var alert_5 = _this.alertCtrl.create({
+                            var alert = _this.alertCtrl.create({
                                 title: 'Sign Up',
                                 subTitle: response.msg,
                                 buttons: ['ok']
                             });
-                            alert_5.present();
+                            alert.present();
                             //  setTimeout(() => alert.dismiss(), 4500);
                             _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
                         }
                         else {
                             _this.Loading.dismiss();
-                            var alert_6 = _this.alertCtrl.create({
+                            var alert = _this.alertCtrl.create({
                                 title: 'Signup',
                                 subTitle: response.msg,
                                 buttons: ['ok']
                             });
-                            alert_6.present();
+                            alert.present();
                             //setTimeout(() => alert.dismiss(), 4500);
                         }
                     });
@@ -10639,13 +10641,13 @@ var SignupdjPage = (function () {
             });
         }
         else {
-            var alert_7 = this.alertCtrl.create({
+            var alert_5 = this.alertCtrl.create({
                 title: 'Signup',
                 subTitle: 'Password did not match',
                 buttons: ['ok']
             });
-            alert_7.present();
-            setTimeout(function () { return alert_7.dismiss(); }, 2500);
+            alert_5.present();
+            setTimeout(function () { return alert_5.dismiss(); }, 2500);
         }
     };
     SignupdjPage.prototype.serializeObj = function (obj) {
@@ -10667,18 +10669,10 @@ SignupdjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-signupdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signupdj/signupdj.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header class="{{classval}}">\n\n  <ion-navbar align-title="center" color="dark" style="background: none;">\n    <ion-title align-title="center">Sign Up Dj</ion-title>\n    <button (click)="setBackButtonAction()"ion-button="bar-button">\n        <span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" aria-label="arrow back"></ion-icon>\n        <span class="back-button-text back-button-text-ios" style="transform: translateX(0px);"></span></span>\n        <div class="button-effect"></div>\n      </button>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="margintop" padding style="background: url(assets/img/loginbg.jpg); background-size:cover;" (ionScroll)="scrollHandler($event)">\n  <div class="login_outer">\n    <div class="logo"><img src="assets/img/logo.png"></div>\n    <div class="form_sec">\n      <form #signupdjForm="ngForm" novalidate>\n        <ion-list>\n          <ion-item>\n            <ion-input type="text" [(ngModel)]="data.name" name="name" placeholder="Name" #name=\'ngModel\' required></ion-input>\n          </ion-item>\n          <ion-label class="alert alert-danger" color="danger">\n            <div *ngIf="name.errors && (name.dirty || name.touched)">\n              <div [hidden]="!name.errors.required">\n                Field is required\n              </div>\n            </div>\n          </ion-label>\n          <ion-item>\n            <ion-input type="email" [(ngModel)]="data.email" name="email" placeholder="Email Address" #email=\'ngModel\' required pattern=\'^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$\'\n              required></ion-input>\n          </ion-item>\n          <ion-label class="alert alert-danger" color="danger">\n            <div *ngIf="email.errors && (email.dirty || email.touched)">\n              <div [hidden]="!email.errors.required">\n                Email is required\n              </div>\n              <div [hidden]="!email.errors.pattern">\n                Invalid email\n              </div>\n            </div>\n          </ion-label>\n\n          <ion-item>\n            <ion-input type="password" minlength="5" [(ngModel)]="data.password" name="password" placeholder="Password" #password=\'ngModel\'\n              required></ion-input>\n          </ion-item>\n          <ion-label class="alert alert-danger" color="danger">\n            <div *ngIf="password.errors && (password.dirty || password.touched)">\n              <div [hidden]="!password.errors.required">\n                Password is required\n              </div>\n            </div>\n            <div *ngIf="password.errors && (password.dirty || password.touched)">\n              <div [hidden]="!password.errors.minlength">\n                Minimum length 5 character\n              </div>\n            </div>\n          </ion-label>\n          \n          <ion-item>\n            <ion-input type="password" minlength="5" [(ngModel)]="data.cpassword" name="cpassword" placeholder="Confirm Password" #cpassword=\'ngModel\'\n              required></ion-input>\n          </ion-item>\n          <ion-label class="alert alert-danger" color="danger">\n            <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)">\n              <div [hidden]="!cpassword.errors.required">\n                Confirm password is required\n              </div>\n            </div>\n            <div *ngIf="cpassword.errors && (cpassword.dirty || cpassword.touched)">\n              <div [hidden]="!cpassword.errors.minlength">\n                Minimum length 5 character\n              </div>\n            </div>\n          </ion-label>\n\n        </ion-list>\n        <div class="centerbutton">\n          <button class="custom_btn" (click)="register(signupdjForm)" [disabled]="!signupdjForm.form.valid" color="red" style="text-transform: uppercase;"\n            ion-button round>sign Up</button>\n        </div>\n      </form>\n      <div class="centerbutton" style="color:#fff;">Have an account?</div>\n      <div class="centerbutton" style="color:#fff; text-transform:uppercase; text-decoration:underline; margin-top:8px;" (click)="signinPage()">Sign In</div>\n\n      <!--<div class="centerbutton" style="color:#fff; margin-top: 10vh;">Skip</div>-->\n    </div>\n  </div>\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/signupdj/signupdj.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_6__providers_appsetting__["a" /* Appsetting */],
-        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */],
-        __WEBPACK_IMPORTED_MODULE_8__ionic_native_firebase__["a" /* Firebase */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__providers_appsetting__["a" /* Appsetting */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_appsetting__["a" /* Appsetting */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* NgZone */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_firebase__["a" /* Firebase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_firebase__["a" /* Firebase */]) === "function" && _k || Object])
 ], SignupdjPage);
 
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 //# sourceMappingURL=signupdj.js.map
 
 /***/ }),
@@ -10771,7 +10765,7 @@ var ManageeventsdjPage = (function () {
     };
     ManageeventsdjPage.prototype.pastevent = function (eventid) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__pasteventdj_pasteventdj__["a" /* PasteventdjPage */], {
-            eventid: eventid
+            eventird: eventid
         });
     };
     ManageeventsdjPage.prototype.ionViewCanEnter = function () {

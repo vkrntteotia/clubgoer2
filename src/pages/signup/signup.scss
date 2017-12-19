@@ -49,9 +49,22 @@ page-signup  {
         border: none !important;
     }
     .centerbutton{
-        margin: 10px;
         text-align: center;
+        color:#fff;
+        display: block;
+        margin: 8px auto 0;
     }
+
+    .account{
+        width: 50%;
+    }
+
+    .signin{
+        text-transform:uppercase; 
+        text-decoration:underline; 
+        width: 30%;
+    }
+
     .text-input::-webkit-input-placeholder {
     color:#fff !important;
     opacity: 0.5;

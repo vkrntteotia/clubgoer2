@@ -20,9 +20,13 @@ import { EventsdjPage } from '../eventsdj/eventsdj';
 export class AddCardPage {
 
 public card:any = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http,
-    public appsetting: Appsetting,private stripe: Stripe,public alertCtrl:AlertController,
-    public loadingCtrl: LoadingController,
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams, 
+     public http:Http,
+     public appsetting: Appsetting, 
+     private stripe: Stripe,
+     public alertCtrl:AlertController,
+     public loadingCtrl: LoadingController,
   ) {
      
   }
@@ -42,11 +46,16 @@ let card = {
  expMonth: formdata.value.month,
  expYear: formdata.value.year,
  cvc: formdata.value.cvc,
+ name:formdata.value.username,
+ address_line1:formdata.value.address,
+ address_city:formdata.value.city,
+ address_state:formdata.value.state,
+ postal_code:formdata.value.zip
 };
 console.log(card);
 this.stripe.createCardToken(card)
    .then(token => {
-   console.log(token.id);
+  //  console.log(token.id);
   //  alert('success');
   //  alert(token.id);
     var data ={
@@ -60,22 +69,25 @@ this.stripe.createCardToken(card)
   content: 'Please wait...',
 });
 Loading.present().then(() => {
- this.http.post(this.appsetting.myGlobalVar + 'subscriptions/stripe', Serialized, options).map(res=>res.json()).subscribe(response=>{
-    console.log(response);
+ this.http.post(this.appsetting.myGlobalVar + 'subscriptions/stripe', Serialized, options)
+ .map(res=>res.json())
+ .subscribe(response=>{
+    // console.log(response);
     Loading.dismiss();
     //alert(JSON.stringify(response));
     if(response.isSuccess == 'true'){
       //alert('Subscribed thank you! Enjoy your features');
-      let alert = this.alertCtrl.create({
+      localStorage.removeItem("USER_DATA");
+      localStorage.setItem("USER_DATA", JSON.stringify(response.data));
+      let alertr = this.alertCtrl.create({
         title: 'Subscription',
         subTitle: 'Subscribed Successfully! Enjoy your features',
         buttons:['ok']
       });
-      alert.present();
-      setTimeout(() => alert.dismiss(), 2500);
+      alertr.present();
+      setTimeout(() => alertr.dismiss(), 2500);
       this.navCtrl.push(EventsdjPage);
-      localStorage.removeItem("USER_DATA");
-      localStorage.setItem("USER_DATA", JSON.stringify(response.data));
+     
     }else{
       //alert('Something went wrong!');
       let alert = this.alertCtrl.create({

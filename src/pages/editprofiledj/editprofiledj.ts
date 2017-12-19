@@ -19,6 +19,7 @@ import 'rxjs/Rx';
   selector: 'page-editprofiledj',
   templateUrl: 'editprofiledj.html',
 })
+
 export class EditprofiledjPage {
   public data={};
   srcImage: any; imgTosend: any;
@@ -361,7 +362,6 @@ export class EditprofiledjPage {
     var result = [];
     for (var property in obj)
       result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
-
     return result.join("&");
   }
   

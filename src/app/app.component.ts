@@ -25,6 +25,7 @@ import { NameofeventsdjPage } from '../pages/nameofeventsdj/nameofeventsdj';
 import { TermsdjPage } from '../pages/termsdj/termsdj';
 import { Firebase } from '@ionic-native/firebase';
 import { NotificationdjPage } from '../pages/notificationdj/notificationdj';
+import { AddCardPage } from '../pages/add-card/add-card';
 
 import * as moment from 'moment'
 // import {StatusBar} from '@ionic-native/status-bar';
@@ -303,7 +304,6 @@ export class MyApp {
       } else {
         this.nav.setRoot(LoginPage);
       }
-      
     }
   }
   public checkActivePage(page): boolean {

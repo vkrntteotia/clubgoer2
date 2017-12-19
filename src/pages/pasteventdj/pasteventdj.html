@@ -19,7 +19,7 @@
 		
 		<ion-content>
 			<div class="imgsec">
-					<img [src]="pastevntdata?.Event.image">
+					<img *ngIf="pastevntdata?.Event.image" [src]="pastevntdata?.Event.image">
 				<!-- <img src="assets/img/sbg.png"> -->
 			</div>
 			<div class="content-sec" padding>

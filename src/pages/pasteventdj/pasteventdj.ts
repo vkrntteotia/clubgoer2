@@ -30,7 +30,7 @@ export class PasteventdjPage {
     public appsetting: Appsetting,
     public loadingCtrl: LoadingController,
     private alertCtrl: AlertController) {
-      this.pastevntid = navParams.get("eventid");
+      this.pastevntid = navParams.get("eventird");
       this.pastevent(this.pastevntid);
   }
 

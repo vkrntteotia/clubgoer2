@@ -101,6 +101,7 @@ ionViewDidEnter() {
         password: form.value.password,
         token : this.token
       }
+      
       var Serialized = this.serializeObj(data);
       
       this.http.post(this.appsetting.myGlobalVar + 'users/login', Serialized, options).map(res => res.json()).subscribe(response => {
@@ -138,6 +139,10 @@ this.fb.login(['public_profile', 'user_friends', 'email'])
 this.fb.api('me/?fields=id,email,last_name,first_name', ["public_profile", "email"])
 
 .then((result)=>{
+  this.firebase.onTokenRefresh().subscribe(
+    token => {
+      //console.log(`The new token is ${token}`);
+      this.token = token;
   this.Loading.present();
   this.profilepicface="https://graph.facebook.com/"+result.id+"/picture?type=large";
   localStorage.setItem('facebook_pic', this.profilepicface);
@@ -149,7 +154,8 @@ this.fb.api('me/?fields=id,email,last_name,first_name', ["public_profile", "emai
               fb_id:result.id,
               name:result.first_name+" "+result.last_name,
               img:this.profilepicface,
-              role:"clubgoer"
+              role:"clubgoer",
+              token:this.token
           }
    // alert(JSON.stringify(signindata));
       var serialized_data = this.Cmn.serializeObj(signindata);
@@ -190,6 +196,7 @@ this.fb.api('me/?fields=id,email,last_name,first_name', ["public_profile", "emai
    }
    // this.userinfo.profilepicture ='data:image/jpeg;base64,' + imageUri;;
  })
+})
 }).catch(d=>{
    //  alert(JSON.stringify(d))
     this.Loading.dismiss();

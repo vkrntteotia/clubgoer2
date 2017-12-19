@@ -69,6 +69,7 @@ export class MembershipdetaildjPage {
   updatememb(){
     this.navCtrl.push(SubscribedjupdatePage);     
   }
+
   cancelmembr(){
         let confirm = this.alertCtrl.create({
         title: "Please confirm",
@@ -77,10 +78,8 @@ export class MembershipdetaildjPage {
           {
             text: 'Yes',
             handler: () => {
-              confirm.dismiss();
-              return false;
-              // this.cancel1();
-              // return true;
+              this.cancel1();
+              return true;
             }
           },
           {
@@ -101,44 +100,44 @@ cancel1(){
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
     var options = new RequestOptions({ headers: headers });
+    console.log(JSON.parse(localStorage.getItem("USER_DATA")));
     var userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
+    var subscription_id = JSON.parse(localStorage.getItem("USER_DATA")).subscription_id;
     let Loader = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     Loader.present().then(() => {
       var data = {
         userid: userid,
+        subscriptionid:subscription_id
             }
-            console.log(data);
+            
       var serialized = this.serializeObj(data);
-      this.http.post(this.appsetting.myGlobalVar + 'users/cancelmembership', serialized, options)
+      this.http.post(this.appsetting.myGlobalVar + 'subscriptions/stripecancel', serialized, options)
         .map(res => res.json())
-        .subscribe(data => {
+        .subscribe(response => {
           Loader.dismiss();
-          this.navCtrl.push(EventsdjPage);
-     //     console.log(data.response);
-          // if (data.isSucess == "true") {
-          //   localStorage.removeItem("fblogin");
-          //   localStorage.removeItem("USER_DATA");
-          //   localStorage.removeItem("facebook_pic");
-          //   localStorage.removeItem("facebook_login");
-          //   localStorage.removeItem("userid");
-          //   localStorage.removeItem("fblogin");
-          //   let alertr = this.alertCtrl.create({
-          //     //title: 'Requests',
-          //     subTitle: data.msg,
-          //   });
-          //     alertr.present();
-          // setTimeout(()=>alertr.dismiss(),3500);
-          // this.navCtrl.push(LogindjPage);
-          // } else {
-          //   let alertr = this.alertCtrl.create({
-          //     //title: 'Requests',
-          //     subTitle: data.msg,
-          //   });
-          //     alertr.present();
-          // setTimeout(()=>alertr.dismiss(),3500);
-          // }
+          if (response.isSuccess == "true") {
+            localStorage.removeItem("USER_DATA");
+            localStorage.setItem("USER_DATA", JSON.stringify(response.data));
+                let alert = this.alertCtrl.create({
+                  title: 'Subscription',
+                  subTitle: response.msg,
+                  buttons:['ok']
+                });
+                alert.present();
+                
+                setTimeout(() => alert.dismiss(), 3500);
+                this.navCtrl.push(EventsdjPage);
+          } else {
+                let alertr = this.alertCtrl.create({
+                  title: 'Subscription',
+                  subTitle: response.msg,
+                  buttons:['ok']
+                });
+                alertr.present();
+                setTimeout(() => alertr.dismiss(), 3500);
+          }
         })
     });
   }
