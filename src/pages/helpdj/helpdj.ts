@@ -77,5 +77,7 @@ serializeObj(obj) {
        setTimeout(()=>alert.dismiss(),1500);
       }
   }
-
+  ionViewCanEnter(){
+    clearInterval(this.appsetting.interval);
+  }
 }

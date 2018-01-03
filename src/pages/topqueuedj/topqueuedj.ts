@@ -164,7 +164,8 @@ public Loader = this.loadingCtrl.create({
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PlaynowlistdjPage');
+    console.log('ionViewDidLoad TopqueuedjPage');
+    clearInterval(this.appsetting.interval);
   }
 
 }

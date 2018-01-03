@@ -161,5 +161,7 @@ export class ShoutoutdjPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShoutoutDjPage');
   }
-
+  ionViewCanEnter(){
+    clearInterval(this.appsetting.interval);
+  }
 }

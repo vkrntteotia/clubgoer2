@@ -145,7 +145,10 @@ export class EditprofiledjPage {
                 Loading.dismiss();
                
                 if (response.status == "true") {
-                this.profileImage = response.data.User.image;
+                  localStorage.setItem("USER_DATA", JSON.stringify(response.data.User));
+                  this.appsetting.profile = response.data.User;
+                  this.events.publish('role', 'dj');
+                  this.profileImage = response.data.User.image;
                 }
               })
             })
@@ -356,6 +359,7 @@ export class EditprofiledjPage {
 
   ionViewCanEnter(){
     this.getuser();
+    clearInterval(this.appsetting.interval);
   }
 
   serializeObj(obj) {

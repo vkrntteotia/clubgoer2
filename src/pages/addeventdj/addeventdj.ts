@@ -31,6 +31,7 @@ export class AddeventdjPage {
   public minyear:any;
   public maxyear:any;
   public logo;
+  public curdat;
   public Loader = this.loadingCtrl.create({
 		content: 'Please wait...',
     dismissOnPageChange: true
@@ -48,6 +49,7 @@ export class AddeventdjPage {
     public toastCtrl:ToastController,
     public appsetting: Appsetting,
     private alertCtrl: AlertController) {
+      
       var d = new Date(); 
       var mm = ("0" + (d.getMonth() + 1)).slice(-2);
       var day = ("0" + (d.getDate())).slice(-2);
@@ -71,13 +73,10 @@ export class AddeventdjPage {
    uploadImage(url) {
     // Destination URL
     var url = url;
-   
     // File for Upload  uploadeventimg
     var targetPath = cordova.file.dataDirectory + this.newFileName;
-    
     // File name only
     var filename = this.newFileName;
-
     var options = {
       fileKey: "file",
       fileName: filename,
@@ -112,10 +111,21 @@ export class AddeventdjPage {
     let headers = new Headers();
     headers.append('Content-Type',  'application/x-www-form-urlencoded;charset=utf-8');
     let options= new RequestOptions({ headers: headers });
+    
+    var dt = new Date(); 
+    var montn = ("0" + (dt.getMonth() + 1)).slice(-2);
+    var daynw = ("0" + (dt.getDate())).slice(-2);
+    this.curdat = dt.getFullYear()+"-"+montn+"-"+daynw;
+    var seconds = dt.getSeconds();
+    var minutes = dt.getMinutes();
+    var hour = dt.getHours();
+    
+    var timetocheck = dt.getFullYear()+"-"+montn+"-"+daynw+" "+hour+":"+minutes+":"+seconds;
+
     var user_id = JSON.parse(localStorage.getItem("USER_DATA")).id;
     var imgsend = this.newFileName;
     var paypl_emil = JSON.parse(localStorage.getItem("USER_DATA")).paypal_email;
-    var dj_code = JSON.parse(localStorage.getItem("USER_DATA")).djcode;
+    //var dj_code = JSON.parse(localStorage.getItem("USER_DATA")).djcode;
     var subscribedj = JSON.parse(localStorage.getItem("USER_DATA")).subscription_status;
 
     if (addevent.value.eventstartdt == addevent.value.eventenddt) {
@@ -197,9 +207,13 @@ export class AddeventdjPage {
         guaranteed_play : addevent.value.mingrnt,
         possibly_play : addevent.value.minpossi,      
         image : imgsend,
+        curdate:this.curdat,
+        checktime:timetocheck,
         role : 'dj'
       }
-    
+      alert("alert");
+      alert(JSON.stringify(data));
+      alert("vikki");
     var Serialized = this.serializeObj(data);
     this.http.post(this.appsetting.myGlobalVar + 'events/addevent', Serialized, options).map(res=>res.json()).subscribe(response=>{
       this.Loader.dismiss();

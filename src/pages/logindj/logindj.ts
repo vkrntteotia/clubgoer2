@@ -100,10 +100,10 @@ export class LogindjPage {
   }
 
   login(form) {
-  this.firebase.onTokenRefresh().subscribe(
-    token => {
-      console.log(`The new token is ${token}`);
-      this.token = token;
+   this.firebase.onTokenRefresh().subscribe(
+     token => {
+       console.log(`The new token is ${token}`);
+       this.token = token;
  if (form.value.checkbx == true) {
       localStorage.setItem("usernamedj", form.value.email);
       localStorage.setItem("passworddj", form.value.password);
@@ -142,7 +142,7 @@ export class LogindjPage {
         localStorage.setItem("USER_DATA", JSON.stringify(response.user));
         this.appsetting.profile = response.user;
         this.events.publish('role', 'dj');
-        if(response.user.subscription_status!=1){
+        if(response.user.subscription_paymant_status!=1){
             this.navCtrl.push(SubscribedjPage);
         } else {
           this.navCtrl.push(EventsdjPage);
@@ -164,6 +164,13 @@ export class LogindjPage {
   }
 
   fblogin() {
+    var d = new Date();
+    var mm = ("0" + (d.getMonth() + 1)).slice(-2);
+    var day = ("0" + (d.getDate())).slice(-2);
+    var minutes = d.getMinutes();
+    var hour = d.getHours();
+    var datime = d.getFullYear()+"-"+mm+"-"+day+" "+hour+":"+minutes+":00";
+
     this.fb.login(['public_profile', 'user_friends', 'email'])
       .then((res: FacebookLoginResponse) => {
         this.fb.api('me/?fields=id,email,last_name,first_name', ["public_profile", "email"])
@@ -183,7 +190,8 @@ export class LogindjPage {
               name: result.first_name + " " + result.last_name,
               img: this.profilepicface,
               role: "dj",
-              token:this.token
+              token:this.token,
+              datime:datime
             }
             var serialized_data = this.Cmn.serializeObj(signindata);
             let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' });
@@ -212,7 +220,7 @@ export class LogindjPage {
                   alert.present();
                   setTimeout(() => alert.dismiss(), 2500);
                   this.events.publish('role', 'dj');
-                  if(resolve.data.User.subscription_status!=1){
+                  if(resolve.data.User.subscription_paymant_status!=1){
                     this.navCtrl.push(SubscribedjPage);
                 } else {
                     this.navCtrl.push(EventsdjPage);

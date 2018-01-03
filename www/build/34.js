@@ -1,14 +1,14 @@
 webpackJsonp([34],{
 
-/***/ 781:
+/***/ 798:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManageeventsdjPageModule", function() { return ManageeventsdjPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationdjPageModule", function() { return NotificationdjPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__manageeventsdj__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__notificationdj__ = __webpack_require__(190);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ManageeventsdjPageModule = (function () {
-    function ManageeventsdjPageModule() {
+var NotificationdjPageModule = (function () {
+    function NotificationdjPageModule() {
     }
-    return ManageeventsdjPageModule;
+    return NotificationdjPageModule;
 }());
-ManageeventsdjPageModule = __decorate([
+NotificationdjPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__manageeventsdj__["a" /* ManageeventsdjPage */],
+            __WEBPACK_IMPORTED_MODULE_2__notificationdj__["a" /* NotificationdjPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__manageeventsdj__["a" /* ManageeventsdjPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__notificationdj__["a" /* NotificationdjPage */]),
         ],
     })
-], ManageeventsdjPageModule);
+], NotificationdjPageModule);
 
-//# sourceMappingURL=manageeventsdj.module.js.map
+//# sourceMappingURL=notificationdj.module.js.map
 
 /***/ })
 

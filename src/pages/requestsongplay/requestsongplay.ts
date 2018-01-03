@@ -168,11 +168,13 @@ showreqtype() {
 
 		var serialized = this.serializeObj(postdata);
 		this.http.post(this.appsetting.myGlobalVar + 'tipOptions/showreqtype', serialized, options).map(res => res.json()).subscribe(data => {
-			this.Loading.dismiss();
+      this.Loading.dismiss();
+      console.log(data.data);
       if(data.isSucess == "true"){
               this.request = data.data;
               if(data.data2.length!=undefined){
                 this.requestp = data.data;
+                
                 this.testn = true;
               }else{
                 this.requestp = data.data2;
@@ -208,7 +210,7 @@ ionViewDidEnter() {
       }
     }
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad RequestsongplayPage');
+     console.log('ionViewDidLoad RequestsongplayPage');
   }
 
 }

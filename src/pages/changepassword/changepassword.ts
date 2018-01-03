@@ -125,4 +125,7 @@ if(data.isSucess == "true"){
 homePage(){
   this.navCtrl.push(HomePage);
 }
+ionViewCanEnter(){
+  clearInterval(this.appsetting.interval);
+}
 }

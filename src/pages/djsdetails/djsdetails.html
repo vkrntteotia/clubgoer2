@@ -19,7 +19,7 @@
 <ion-content class="djs_bg">
     <div class="djdetails_sec">
         <div class="full_img">
-            <img [src]="djs?.User.image">
+            <img *ngIf="djs?.User.image" [src]="djs?.User.image">
         </div>
     </div>
     <div class="padding titletxt">
@@ -27,7 +27,7 @@
         <p style="font-size: 17px;"><span>E-mail : </span>{{djs?.User.email}}</p>
         <p style="font-size: 17px;"><span>Dj Code : </span>{{djs?.User.djcode}}</p>
         <p style="font-size: 17px;" *ngIf="djs?.User.biography"><span>Dj Biography : </span>{{djs?.User.biography}}</p>
-        <iframe *ngIf="videoUrl" width="320" height="315" [src]="videoUrl" frameborder="0" align="middle"></iframe>
+        <iframe *ngIf="videoUrl!=null" width="320" height="315" [src]="videoUrl" frameborder="0" align="middle"></iframe>
     </div>
     <h4 style="    color: #fff;
     text-align: center;

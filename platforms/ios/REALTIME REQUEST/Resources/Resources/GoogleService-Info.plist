@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>927891099719-fdm17h2j0ibiradcrbjl3gk0716orcra.apps.googleusercontent.com</string>
+	<string>803540735262-bjpt5gk1si188flb8hja6p54cfkap0q4.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.927891099719-fdm17h2j0ibiradcrbjl3gk0716orcra</string>
+	<string>com.googleusercontent.apps.803540735262-bjpt5gk1si188flb8hja6p54cfkap0q4</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAumLohH87AtrI3P5_RO1Uy9b2vfCzTxzQ</string>
+	<string>AIzaSyCPnW7gI-OjSEKh80z2kYGy6cMpCGAwUuc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>927891099719</string>
+	<string>803540735262</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>io.djapp1234</string>
 	<key>PROJECT_ID</key>
-	<string>realtimerequest</string>
+	<string>realtimerequest-6de76</string>
 	<key>STORAGE_BUCKET</key>
-	<string>realtimerequest.appspot.com</string>
+	<string>realtimerequest-6de76.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:927891099719:ios:f0b8d1024618b2c9</string>
+	<string>1:803540735262:ios:f0b8d1024618b2c9</string>
 	<key>DATABASE_URL</key>
-	<string>https://realtimerequest.firebaseio.com</string>
+	<string>https://realtimerequest-6de76.firebaseio.com</string>
 </dict>
 </plist>

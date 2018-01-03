@@ -28,9 +28,9 @@
         	<div class="img-right">
         		<div class="imgmain">
         			<img src="assets/img/playnow.png" style="height: 30px;
-					width: 26px;" *ngIf="play?.ClubgoerRequest.topque">
+					width: 26px;"  *ngIf="play?.ClubgoerRequest.topque == false">
 					 <img src="assets/img/playnow.png" style="height: 30px;
-					 width: 26px;" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="!play?.ClubgoerRequest.topque">
+					 width: 26px;" (click)="playimg(play?.ClubgoerRequest.id,play?.Event.id)" *ngIf="play?.ClubgoerRequest.topque == true">
 					 <img src="assets/img/cross.png" style="height: 30px;
 					 width: 26px;" (click)="cross(play?.ClubgoerRequest.id,play?.Event.id)">
         		</div>

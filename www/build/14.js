@@ -1,14 +1,14 @@
 webpackJsonp([14],{
 
-/***/ 791:
+/***/ 787:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignupPageModule", function() { return SignupPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SubscribedjPageModule", function() { return SubscribedjPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signup__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__subscribedj__ = __webpack_require__(46);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SignupPageModule = (function () {
-    function SignupPageModule() {
+var SubscribedjPageModule = (function () {
+    function SubscribedjPageModule() {
     }
-    return SignupPageModule;
+    return SubscribedjPageModule;
 }());
-SignupPageModule = __decorate([
+SubscribedjPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__signup__["a" /* SignupPage */],
+            __WEBPACK_IMPORTED_MODULE_2__subscribedj__["a" /* SubscribedjPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__signup__["a" /* SignupPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__subscribedj__["a" /* SubscribedjPage */]),
         ],
     })
-], SignupPageModule);
+], SubscribedjPageModule);
 
-//# sourceMappingURL=signup.module.js.map
+//# sourceMappingURL=subscribedj.module.js.map
 
 /***/ })
 

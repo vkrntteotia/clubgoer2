@@ -41,6 +41,16 @@ export class ManageeventsdjPage {
   }
 
   manageevent() {
+
+    var d = new Date();
+    var mm = ("0" + (d.getMonth() + 1)).slice(-2);
+    var day = ("0" + (d.getDate())).slice(-2);
+    var date = d.getFullYear()+"-"+mm+"-"+day;
+    var minutes = d.getMinutes();
+    var hour = d.getHours();
+    var datime = d.getFullYear()+"-"+mm+"-"+day+" "+hour+":"+minutes+":00";
+    var tmnow = hour+":"+minutes+":00";
+
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
     var options = new RequestOptions({ headers: headers });
@@ -51,6 +61,9 @@ export class ManageeventsdjPage {
     Loader.present().then(() => {
       var data = {
         userid: Userid,
+        date: date,
+        dattim:datime,
+        tmnow:tmnow
             }
 
       var serialized = this.serializeObj(data);
@@ -61,8 +74,6 @@ export class ManageeventsdjPage {
           if (data.status == true) {
             this.pastevnt = data.pastevent;
             this.upevnt = data.upevent;
-            console.log(data);
-            console.log("vikkki");
           } else {
             
           }

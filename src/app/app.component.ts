@@ -9,7 +9,7 @@ import { TermsPage } from '../pages/terms/terms';
 import { PrivacyPage } from '../pages/privacy/privacy';
 import { Appsetting } from '../providers/appsetting';
 import { VotelikePage } from '../pages/votelike/votelike';
-//import { ShoutoutdjPage } from '../pages/shoutoutdj/shoutoutdj';
+//import { ShoutoutdjPage } from '../pages/shoutoutdj/shoutoutdj';HistoricalshoutoutsPage
 import { HistoricalrequestsPage } from '../pages/historicalrequests/historicalrequests';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
 import { TransactionhstrydjPage } from '../pages/transactionhstrydj/transactionhstrydj';
@@ -98,9 +98,9 @@ export class MyApp {
         this.pages = [
           { title: 'Home', component: HomePage, icon: 'homecustom' },
           { title: 'My Profile', component: ProfilePage, icon: 'profile' },
-          { title: 'Voteup Request', component: VotelikePage, icon: 'voteup' },
+          //{ title: 'Voteup Request', component: VotelikePage, icon: 'voteup' },
           { title: 'Djs List', component: DjslistPage, icon: 'djs' },
-          { title: 'Historical Transactions', component: HistoricalrequestsPage, icon: 'historical' },
+          { title: 'Historical Requests', component: HistoricalrequestsPage, icon: 'historical' },
           { title: 'Terms and Conditions', component: TermsPage, icon: 'terms' },
           { title: 'Privacy Policy', component: PrivacyPage, icon: 'privacy' },
           { title: 'Change Password', component: ChangepasswordPage, icon: 'historical' },

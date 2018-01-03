@@ -33900,6 +33900,225 @@ page-addeventdjnew .upladbtn {
   background-color: #f5f5f5 !important;
 }
 
+page-addeventdjnew .header {
+  background-color: #0e1629;
+}
+
+page-addeventdjnew .content {
+  width: 100%;
+  float: left;
+  padding-bottom: 20px !important;
+  position: relative;
+}
+
+page-addeventdjnew .form-sec {
+  width: 85%;
+  float: none;
+  margin: auto;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 28px #656565;
+  box-shadow: 0px 0px 28px #656565;
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 130px;
+  margin-bottom: 10vh !important;
+}
+
+page-addeventdjnew .form-sec .col {
+  width: 100%;
+  float: left;
+}
+
+page-addeventdjnew .form-sec .colm .row .col:first-child {
+  padding: 0px 1px 0px 0px;
+}
+
+page-addeventdjnew .form-sec .colm .row .col:last-child {
+  padding: 0px 0px 0px 1px;
+}
+
+page-addeventdjnew .form-sec .event-form .item {
+  border: 1px solid #c8c7cc;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+}
+
+page-addeventdjnew .form-sec .event-form .list {
+  margin: 0px;
+  width: 100%;
+  float: left;
+}
+
+page-addeventdjnew .form-sec .topbtn {
+  width: 100%;
+  text-align: center;
+  float: left;
+}
+
+page-addeventdjnew .form-sec .topbtn .button {
+  width: 75%;
+  float: none;
+  background-color: #b00101;
+}
+
+page-addeventdjnew .form-sec .bottombtn {
+  width: 100%;
+  text-align: center;
+  float: left;
+}
+
+page-addeventdjnew .form-sec .bottombtn .button {
+  width: 75%;
+  float: none;
+  background-color: #b00101;
+}
+
+page-addeventdjnew .form-sec .input {
+  font-size: 11px;
+}
+
+page-addeventdjnew .datetime-ios {
+  font-size: 11px;
+  padding-left: 0px !important;
+}
+
+page-addeventdjnew .padding0lft {
+  padding: 0px 1px 0px 0px;
+}
+
+page-addeventdjnew .padding0rgt {
+  padding: 0px 0px 0px 1px;
+}
+
+page-addeventdjnew .file-upload {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  float: left;
+  border: 1px solid #c8c7cc;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+}
+
+page-addeventdjnew .file-upload__label {
+  display: block;
+  padding: 1em 2em;
+  color: #797979;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+  width: 100%;
+  font-size: 11px;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+page-addeventdjnew .file-upload__label span {
+  width: auto;
+  float: right;
+  position: absolute;
+  right: 18px;
+  top: 1px;
+  font-size: 25px;
+}
+
+page-addeventdjnew .file-upload__input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 1;
+  width: 0;
+  height: 100%;
+  opacity: 0;
+}
+
+page-addeventdjnew .item {
+  height: 37px;
+  min-height: 32px;
+}
+
+page-addeventdjnew .item .item-inner {
+  border: none !important;
+}
+
+page-addeventdjnew .tip {
+  width: 100%;
+  float: left;
+}
+
+page-addeventdjnew .tip h3 {
+  width: 70%;
+  float: left;
+  font-size: 12px;
+  margin-top: 8px;
+  padding-left: 2px;
+  font-weight: 500 !important;
+}
+
+page-addeventdjnew .tip button {
+  width: 20%;
+  float: right;
+  background-color: #fff;
+  height: 25px;
+  color: #656565;
+  padding-right: 0px;
+  margin-right: 0px;
+}
+
+page-addeventdjnew .abc.activated {
+  background: none !important;
+}
+
+page-addeventdjnew .abc {
+  webkit-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+page-addeventdjnew .abc .icon:before {
+  content: "\f3d0";
+}
+
+page-addeventdjnew .upload_imgouter {
+  height: 150px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+page-addeventdjnew .upload_imgouter img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+page-addeventdjnew ion-datetime {
+  font-size: 11px;
+  padding: 0px !important;
+}
+
+page-addeventdjnew .ion-md-camera:before {
+  content: "\f3f6";
+}
+
+page-addeventdjnew .upladbtn {
+  height: 37px !important;
+  min-height: 32px !important;
+  width: 100% !important;
+  float: left !important;
+  border-radius: 6px !important;
+  background-color: #f5f5f5 !important;
+}
+
 page-changepassword .login_outer {
   margin-top: 64px;
   display: block;
@@ -35802,6 +36021,212 @@ page-membershipdetaildj .cardbody h2::after {
   top: 9px;
 }
 
+page-membershipdetaildj .logo {
+  width: 40%;
+  float: right;
+  text-align: right;
+  position: absolute;
+  right: 18px;
+  top: 35px;
+}
+
+page-membershipdetaildj .logo img {
+  width: 12%;
+  margin-top: 19px;
+}
+
+page-membershipdetaildj .content-sec {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 218px;
+}
+
+page-membershipdetaildj .content-sec h1 {
+  font-size: 15px;
+  font-weight: 700 !important;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  float: left;
+  color: #222222;
+  margin-bottom: 2px;
+}
+
+page-membershipdetaildj .content-sec .pay {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+page-membershipdetaildj .content-sec .pay h4 {
+  margin: auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  text-align: center;
+  font-weight: 700 !important;
+  line-height: 80px;
+  border: 1px solid #afafaf;
+  font-size: 15px;
+  float: none;
+  color: #222222;
+}
+
+page-membershipdetaildj .content-sec p {
+  color: #222222;
+  font-size: 12px;
+  font-weight: 400 !important;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  float: left;
+  margin-top: 2px;
+}
+
+page-membershipdetaildj .content-sec p span {
+  font-weight: 700;
+}
+
+page-membershipdetaildj .content-sec h2 {
+  font-size: 15px;
+  font-weight: 500 !important;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  float: left;
+  color: #222222;
+  margin: 5px 0px 2px 0px;
+}
+
+page-membershipdetaildj .content-sec h3 {
+  font-size: 13px;
+  font-weight: 500 !important;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  float: left;
+  color: #222222;
+}
+
+page-membershipdetaildj .btnsec .button {
+  width: auto;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 2px;
+  white-space: normal;
+  font-weight: 600;
+}
+
+page-membershipdetaildj .btnsec {
+  width: 100%;
+  float: left;
+  padding: 9px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  word-wrap: break-word;
+  white-space: normal;
+  background: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+
+page-membershipdetaildj .cardbody {
+  padding: 20px 0 0 !important;
+  float: left;
+  width: 100%;
+}
+
+page-membershipdetaildj .pay {
+  margin: 0 auto;
+  width: 120px;
+  height: 120px;
+  background: #333;
+  border-radius: 50%;
+  text-align: center;
+  display: table;
+  vertical-align: middle;
+  font-size: 20px;
+  color: #fff;
+  padding-top: 15%;
+  border: 5px dashed #fff;
+  -webkit-box-shadow: 0 0 17px #ccc;
+  box-shadow: 0 0 17px #ccc;
+  font-weight: 500;
+}
+
+page-membershipdetaildj .card_sec {
+  border-radius: 15px;
+  text-align: center;
+}
+
+page-membershipdetaildj .card_sec .card-header h1 {
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 600 !important;
+}
+
+page-membershipdetaildj .card_sec .card-header {
+  background: #F9F9F9;
+  border-bottom: 1px solid #ddd;
+}
+
+page-membershipdetaildj .valid {
+  background: #f9f9f9;
+  width: 86%;
+  display: block;
+  color: #000;
+  font-weight: 600;
+  padding: 5px 15px;
+  margin: 15px;
+  border-top: 1px dashed #ccc;
+  border-bottom: 1px dashed #ccc;
+  float: left;
+}
+
+page-membershipdetaildj .cardbody h3 {
+  width: 50%;
+  display: inline-block;
+  float: left;
+  padding: 3px;
+  text-align: center;
+  font-size: 11px;
+}
+
+page-membershipdetaildj .cardbody h2 {
+  float: left;
+  width: 100%;
+  margin: 10px 0;
+  text-transform: uppercase;
+  font-weight: 600 !important;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+page-membershipdetaildj .cardbody h2::before {
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  width: 16%;
+  content: "";
+  left: 15px;
+  top: 9px;
+}
+
+page-membershipdetaildj .cardbody h2::after {
+  border-bottom: 1px solid #ccc;
+  position: absolute;
+  width: 16%;
+  content: "";
+  right: 15px;
+  top: 9px;
+}
+
 page-nameofeventsdj .header {
   background-color: #0e1629;
 }
@@ -36382,6 +36807,148 @@ page-payinfo .centerbutton {
 
 page-payinfo .datetime-md {
   padding-top: 9px !important;
+}
+
+page-paymenthistorydj .header {
+  background-color: #0e1629;
+}
+
+page-paymenthistorydj .logo {
+  width: 40%;
+  float: right;
+  text-align: right;
+  position: absolute;
+  right: 18px;
+  top: 35px;
+}
+
+page-paymenthistorydj .logo img {
+  width: 12%;
+}
+
+page-paymenthistorydj .past {
+  width: 100%;
+  float: left;
+}
+
+page-paymenthistorydj .past .list {
+  width: 100%;
+  float: left;
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+
+page-paymenthistorydj .past .item {
+  width: 100%;
+  float: left;
+  border-top: none !important;
+  position: relative;
+  margin-top: 5px;
+  margin: 5px 0px;
+  border-bottom: 0.55px solid #c8c7cc;
+  padding-right: 70px;
+  padding-left: 0px;
+}
+
+page-paymenthistorydj .past .item-inner {
+  border: none !important;
+}
+
+page-paymenthistorydj .past .item h3 {
+  width: 100%;
+  color: #222222;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 500 !important;
+  margin: 0px;
+}
+
+page-paymenthistorydj .past .item h2 {
+  width: 100%;
+  color: #222222;
+  font-size: 17px;
+  letter-spacing: 1px;
+  font-weight: 500 !important;
+  margin: 0px;
+}
+
+page-paymenthistorydj .past .item p {
+  width: 100%;
+  float: left;
+  color: #484848;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin: 0px;
+}
+
+page-paymenthistorydj .past .item .label {
+  margin: 0px 8px 15px 0;
+}
+
+page-paymenthistorydj .past .item .right-sec {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75px;
+  height: 48px;
+  text-align: right;
+  margin: 0px;
+}
+
+page-paymenthistorydj .past .item .right-sec button {
+  width: 74%;
+  float: right;
+  margin: 0;
+  background-color: #b00101;
+  font-size: 12px;
+}
+
+page-paymenthistorydj .past .item .right-sec p {
+  position: absolute;
+  top: 41px;
+}
+
+page-paymenthistorydj .total {
+  width: 100%;
+  float: left;
+  padding-right: 85px;
+  position: relative;
+}
+
+page-paymenthistorydj .total h2 {
+  width: 100%;
+  float: left;
+  text-align: right;
+  font-size: 18px;
+  font-weight: 500 !important;
+}
+
+page-paymenthistorydj .total h3 {
+  position: absolute;
+  text-align: right;
+  top: 0;
+  right: 0;
+  font-size: 18px;
+  font-weight: 700 !important;
+}
+
+page-paymenthistorydj .unshow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 30px;
+}
+
+page-paymenthistorydj .unshow h3 {
+  margin: 0;
+  font-size: 16px;
+  width: 100%;
+  float: left;
+  text-align: center;
+  font-weight: 700 !important;
 }
 
 page-paymenthistorydj .header {

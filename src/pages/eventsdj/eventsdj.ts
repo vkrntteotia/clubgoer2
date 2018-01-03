@@ -61,6 +61,7 @@ export class EventsdjPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EventsdjPage');
+    clearInterval(this.appsetting.interval);
   }
   addEvent(){
     this.Loader.present();
@@ -84,17 +85,17 @@ export class EventsdjPage {
       setTimeout(()=>alert.dismiss(),3500);
       this.navCtrl.push(EditprofiledjPage);
     }
-    else if(response.data.User.subscription_status==0||response.data.User.subscription_status=="0"){
+    // else if(response.data.User.subscription_status==0||response.data.User.subscription_status=="0"){
       
-      let alert = this.alertCtrl.create({
-        title: 'Subscription plan',
-        subTitle: 'To add an event, please buy Subscription plan',
-        buttons:['ok']
-      });
-      alert.present();
-      setTimeout(()=>alert.dismiss(),3500);
-      this.navCtrl.push(MembershipdetaildjPage);
-    }
+    //   let alert = this.alertCtrl.create({
+    //     title: 'Subscription plan',
+    //     subTitle: 'To add an event, please buy Subscription plan',
+    //     buttons:['ok']
+    //   });
+    //   alert.present();
+    //   setTimeout(()=>alert.dismiss(),3500);
+    //   this.navCtrl.push(MembershipdetaildjPage);
+    // }
     else{
       this.navCtrl.push(AddeventdjnewPage);
     }

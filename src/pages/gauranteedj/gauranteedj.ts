@@ -35,6 +35,7 @@ export class GauranteedjPage {
             this.eventname = "Dj Admin Event";
       }
     this.playnowlist();
+    clearInterval(this.appsetting.interval);
   }
 
   

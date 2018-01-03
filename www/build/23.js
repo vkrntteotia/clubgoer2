@@ -1,14 +1,14 @@
 webpackJsonp([23],{
 
-/***/ 763:
+/***/ 769:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrivacyPageModule", function() { return PrivacyPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RequesthistorydjPageModule", function() { return RequesthistorydjPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__privacy__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__requesthistorydj__ = __webpack_require__(174);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PrivacyPageModule = (function () {
-    function PrivacyPageModule() {
+var RequesthistorydjPageModule = (function () {
+    function RequesthistorydjPageModule() {
     }
-    return PrivacyPageModule;
+    return RequesthistorydjPageModule;
 }());
-PrivacyPageModule = __decorate([
+RequesthistorydjPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__privacy__["a" /* PrivacyPage */],
+            __WEBPACK_IMPORTED_MODULE_2__requesthistorydj__["a" /* RequesthistorydjPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__privacy__["a" /* PrivacyPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__requesthistorydj__["a" /* RequesthistorydjPage */]),
         ],
     })
-], PrivacyPageModule);
+], RequesthistorydjPageModule);
 
-//# sourceMappingURL=privacy.module.js.map
+//# sourceMappingURL=requesthistorydj.module.js.map
 
 /***/ })
 

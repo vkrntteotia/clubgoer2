@@ -1,14 +1,14 @@
 webpackJsonp([38],{
 
-/***/ 795:
+/***/ 788:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpdjPageModule", function() { return HelpdjPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogindjPageModule", function() { return LogindjPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpdj__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__logindj__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HelpdjPageModule = (function () {
-    function HelpdjPageModule() {
+var LogindjPageModule = (function () {
+    function LogindjPageModule() {
     }
-    return HelpdjPageModule;
+    return LogindjPageModule;
 }());
-HelpdjPageModule = __decorate([
+LogindjPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__helpdj__["a" /* HelpdjPage */],
+            __WEBPACK_IMPORTED_MODULE_2__logindj__["a" /* LogindjPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__helpdj__["a" /* HelpdjPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__logindj__["a" /* LogindjPage */]),
         ],
     })
-], HelpdjPageModule);
+], LogindjPageModule);
 
-//# sourceMappingURL=helpdj.module.js.map
+//# sourceMappingURL=logindj.module.js.map
 
 /***/ })
 

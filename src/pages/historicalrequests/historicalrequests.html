@@ -17,7 +17,7 @@
   </ion-navbar>
   
   <ion-list-header class="listhader" style="margin-top:10px;">
-    <div class="left_items">Song Name</div>
+    <div class="left_items">Request Name</div>
     <div class="right_items">Amount Paid</div>
   </ion-list-header>
 </ion-header>
@@ -30,13 +30,21 @@
 <div class="historicalrequests">
   <ion-list no-lines>
     <ion-item color="black" *ngFor="let request of requests;">
-      <div class="list_head">
+      <div class="list_head" *ngIf="request?.ClubgoerRequest?.request_type==1">
         <h2>{{request?.ClubgoerRequest.songname}}</h2>
         <ion-note item-end="" class="note"> {{request?.ClubgoerRequest.pay_paypal ? "Paid" : "Not paid"}} <span>${{request.ClubgoerRequest.tip_amount}}</span></ion-note>
       </div>
-      <div class="itembottom">
+      <div class="list_head" *ngIf="request?.ClubgoerRequest?.request_type==3">
+        <h2>{{request?.ClubgoerRequest.shoutout_name}}</h2>
+        <ion-note item-end="" class="note"> {{request?.ClubgoerRequest.pay_paypal ? "Paid" : "Not paid"}} <span>${{request.ClubgoerRequest.tip_amount}}</span></ion-note>
+      </div>
+      <div class="itembottom" *ngIf="request?.ClubgoerRequest?.request_type==1">
         <p>Artist name <button class="playnow" clear>{{request?.ClubgoerRequest.artist_name}}</button></p>
         <p>Requested Type <button class="playnow" clear>{{request?.TipOption.name}}</button></p>
+      </div>
+      <div class="itembottom" *ngIf="request?.ClubgoerRequest?.request_type==3">
+        <p>Shoutout name <button class="playnow" clear>{{request?.ClubgoerRequest?.shoutout_type}}</button></p>
+        <p>Requested Type <button class="playnow" clear>Shoutout</button></p>
       </div>
     </ion-item>
     <div class="unshow" *ngIf="requests?.length == 0">

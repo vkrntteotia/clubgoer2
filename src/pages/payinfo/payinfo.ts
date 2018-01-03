@@ -4,6 +4,7 @@ import {Http,RequestOptions,Headers} from '@angular/http';
 import { Appsetting } from '../../providers/appsetting';
 import {LoadingController} from 'ionic-angular';
 import {HomePage} from '../home/home';
+import {SongrequestsPage} from '../songrequests/songrequests';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { CommonProvider } from '../../providers/common/common';
 
@@ -77,7 +78,9 @@ export class PayinfoPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PayinfoPage');
   }
-
+  ionViewCanEnter(){
+    clearInterval(this.appsetting.interval);
+  }
   setbitnow(bitnow){ 
     var width = 400;
     var height = 550;
@@ -106,12 +109,6 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
     //var options = "location=no,hidden=no";
     var browser = this.iab.create('http://vikrant.crystalbiltech.com/paypal-adaptive/chained-payment/proccess.php?data='+encodeURIComponent(JSON.stringify(this.pdata)),target,options);
     browser.on('loadstart').subscribe((e) => {
-
-        //alert(JSON.stringify(e));
-              //console.log(e);
-        //let url = e.url;
-        //console.log(url);
-
         var redirect_uri = e.url.split('code=');
         var redirect_url = e.url.split('execution=e3s1');
         var redirect_rrl = e.url.split('execution=e4s1');
@@ -128,22 +125,29 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
           tmp = "";
           tmpr = "";
         }
-      //  console.log(redirect_uri);
-      //  alert(redirect_uri[0]);
         if (redirect_uri[0] == 'https://vikrant.crystalbiltech.com/?') {
         //  alert('code--->' + code);
           browser.close();
           this.http.post(this.appsetting.myGlobalVar + 'users/sendnotif', serialized_data, option).map(res => res.json()).subscribe(response => {
             this.Loading.dismiss();
             if (response.status == true) {
-              this.navCtrl.push(HomePage);
               let alert = this.alertCtrl.create({
-                title: 'Payment info',
-                subTitle: "Payment done successfully",
-                buttons:['ok']
+                title: 'Request',
+                subTitle: "Your Request has been submitted",
+                buttons:[{
+                  text: 'Ok',
+                  role: 'submit',
+                  handler: () => {
+                    console.log('Cancel clicked');
+                    this.navCtrl.push(SongrequestsPage, {
+                      eventid: this.pdata.eventid,
+                      djid:this.pdata.djid
+                    });
+                  }
+                }]
                 });
                 alert.present();
-                setTimeout(()=>alert.dismiss(),3500);
+                //setTimeout(()=>alert.dismiss(),3500);
             } else {
               this.navCtrl.push(HomePage);
               let alert = this.alertCtrl.create({
@@ -158,28 +162,48 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
         } 
         else if(tmp == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/corepay?' && tmpr == "https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/"){
                   browser.close();
-                  this.navCtrl.push(HomePage);
                   let alert = this.alertCtrl.create({
-                    title: 'Payment info',
-                    subTitle: "Payment unsuccessfull",
-                    buttons:['ok']
+                    title: 'Request',
+                    subTitle: "Your Request has been submitted",
+                    buttons:[{
+                      text: 'Ok',
+                      role: 'submit',
+                      handler: () => {
+                        console.log('Cancel clicked');
+                        this.navCtrl.push(SongrequestsPage, {
+                          eventid: this.pdata.eventid,
+                          djid:this.pdata.djid
+                        });
+                      }
+                    }]
                     });
                     alert.present();
-                    setTimeout(()=>alert.dismiss(),3500);
+                    //setTimeout(()=>alert.dismiss(),3500);
           }
         else if(redirect_url[0] == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/closewindow?'){
             browser.close();
             this.http.post(this.appsetting.myGlobalVar + 'users/sendnotif', serialized_data, option).map(res => res.json()).subscribe(response => {
               this.Loading.dismiss();
               if (response.status == "true") {
-                this.navCtrl.push(HomePage);
+                //this.navCtrl.push(HomePage);
+                
                 let alert = this.alertCtrl.create({
-                  title: 'Payment info',
-                  subTitle: "Payment done successfully",
-                  buttons:['ok']
+                  title: 'Request',
+                  subTitle: "Your Request has been submitted",
+                  buttons:[{
+                    text: 'Ok',
+                    role: 'submit',
+                    handler: () => {
+                      console.log('Cancel clicked');
+                      this.navCtrl.push(SongrequestsPage, {
+                        eventid: this.pdata.eventid,
+                        djid:this.pdata.djid
+                      });
+                    }
+                  }]
                   });
                   alert.present();
-                  setTimeout(()=>alert.dismiss(),3500);
+                  //setTimeout(()=>alert.dismiss(),3500);
               } else {
                 this.navCtrl.push(HomePage);
                 let alert = this.alertCtrl.create({
@@ -193,18 +217,39 @@ var options = 'top=' + top + ', left=' + left + ', width=' + width + ', height='
             })
         } else if(redirect_rrl[0] == 'https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/closewindow?'){
           browser.close();
-          this.navCtrl.push(HomePage);
+          //this.navCtrl.push(HomePage);
           let alert = this.alertCtrl.create({
-            title: 'Payment info',
-            subTitle: "Payment unsuccessfull",
-            buttons:['ok']
+            title: 'Request',
+            subTitle: "Your Request has been submitted",
+            buttons:[{
+              text: 'Ok',
+              role: 'submit',
+              handler: () => {
+                console.log('Cancel clicked');
+                this.navCtrl.push(SongrequestsPage, {
+                  eventid: this.pdata.eventid,
+                  djid:this.pdata.djid
+                });
+              }
+            }]
             });
             alert.present();
-            setTimeout(()=>alert.dismiss(),3500);
+           // setTimeout(()=>alert.dismiss(),3500);
        } 
       }, err => {
+       // alert('done err');
         //console.log("InAppBrowser loadstart Event Error: " + err);
        // alert(err)
+      });
+      browser.on("exit").subscribe((e) => {
+       // alert('exit fucntion'); 
+        this.navCtrl.push(SongrequestsPage, {
+          eventid: this.pdata.eventid,
+          djid:this.pdata.djid
+        });
+      },
+      err => {
+          console.log("InAppBrowser loadstart Event Error: " + err);
       });
     }
 

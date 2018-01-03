@@ -44,13 +44,23 @@ public Loading=this.loadingCtrl.create({
 		let options = new RequestOptions({ headers: headers });
     var User = JSON.parse(localStorage.getItem("USER_DATA"));
     var userid = User.id;
+
+    var d = new Date();
+    var mm = ("0" + (d.getMonth() + 1)).slice(-2);
+    var day = ("0" + (d.getDate())).slice(-2);
+   
+    var minutes = d.getMinutes();
+    var hour = d.getHours();
+    var datime = d.getFullYear()+"-"+mm+"-"+day+" "+"00"+":"+"00"+":00";
+
 		var postdata = {
 			userid: userid,
       djid:this.djid,
-      eventid:this.eventid
+      eventid:this.eventid,
+      datime: datime
 		};
     this.Loading.present();
-    console.log(postdata);
+
 		var serialized = this.serializeObj(postdata);
 		this.http.post(this.appsetting.myGlobalVar + 'users/userrequests', serialized, options).map(res => res.json()).subscribe(data => {
 			this.Loading.dismiss();

@@ -118,8 +118,9 @@ cancel1(){
         .subscribe(response => {
           Loader.dismiss();
           if (response.isSuccess == "true") {
+            this.subscrip = response.data;
             localStorage.removeItem("USER_DATA");
-            localStorage.setItem("USER_DATA", JSON.stringify(response.data));
+            localStorage.setItem("USER_DATA", JSON.stringify(response.data.User));
                 let alert = this.alertCtrl.create({
                   title: 'Subscription',
                   subTitle: response.msg,
@@ -159,6 +160,8 @@ cancel1(){
   }
   ionViewCanEnter(){
     this.getsubsdata();
+      clearInterval(this.appsetting.interval);
+ 
   }
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {

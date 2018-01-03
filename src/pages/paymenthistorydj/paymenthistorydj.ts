@@ -100,7 +100,7 @@ export class PaymenthistorydjPage {
       var Serialized = this.serializeObj(data);
       this.payPal.init({
         PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
-        PayPalEnvironmentSandbox: 'Af3HzSUz5a2jlbLEK1bJqLYRekJEGam9p0kdR7Pqn5WdPqvHWQ2D5BOkdbnjX7RS6AOF5KkxOMm_Kv9k'
+        PayPalEnvironmentSandbox: 'AUQH6SoDJmAlXBpqHMZYv-TJPr5CVCpCqfbMCkLqKsQZBUdL1DIyIDcTqqx5jC4Y6F9UEzcVhM_kAZWO'
   }).then(() => {
     // Environments: PayPalEnvironmentNoNetwork, PayPalEnvironmentSandbox, PayPalEnvironmentProduction
     this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({

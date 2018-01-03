@@ -11,6 +11,7 @@ import {ToastController} from 'ionic-angular';
 */
 @Injectable()
 export class Appsetting {
+  interval:any;
  myGlobalVar: string ='http://vikrant.crystalbiltech.com/dj/api/'; //shop/shippingaddress
  showGlobalurl: string="http://vikrant.crystalbiltech.com/dj/img/eventdd/";
  editGlobalevntimg: string="http://vikrant.crystalbiltech.com/dj/img/editeventimg/";

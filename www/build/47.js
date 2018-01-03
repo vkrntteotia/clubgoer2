@@ -1,14 +1,14 @@
 webpackJsonp([47],{
 
-/***/ 796:
+/***/ 780:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangepassworddjPageModule", function() { return ChangepassworddjPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditeventPageModule", function() { return EditeventPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__changepassworddj__ = __webpack_require__(188);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__editevent__ = __webpack_require__(183);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ChangepassworddjPageModule = (function () {
-    function ChangepassworddjPageModule() {
+var EditeventPageModule = (function () {
+    function EditeventPageModule() {
     }
-    return ChangepassworddjPageModule;
+    return EditeventPageModule;
 }());
-ChangepassworddjPageModule = __decorate([
+EditeventPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__changepassworddj__["a" /* ChangepassworddjPage */],
+            __WEBPACK_IMPORTED_MODULE_2__editevent__["a" /* EditeventPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__changepassworddj__["a" /* ChangepassworddjPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__editevent__["a" /* EditeventPage */]),
         ],
     })
-], ChangepassworddjPageModule);
+], EditeventPageModule);
 
-//# sourceMappingURL=changepassworddj.module.js.map
+//# sourceMappingURL=editevent.module.js.map
 
 /***/ })
 

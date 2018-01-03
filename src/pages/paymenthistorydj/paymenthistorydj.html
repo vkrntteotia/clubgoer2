@@ -19,14 +19,20 @@
 	<div class="past">
 		<ion-list>
 	      <ion-item *ngFor="let pay of payhistdata; let i = index">
-	        	<div class="right-sec">
+	        	<div class="right-sec" *ngIf="pay?.ClubgoerRequest.request_type==1">
 	        		<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" *ngIf="pay?.ClubgoerRequest.buttoncol" ion-button (click)="refundnow(pay?.ClubgoerRequest.id,pay?.ClubgoerRequest.djshare,pay?.ClubgoerRequest.songname,pay?.ClubgoerRequest.artist_name,pay?.ClubgoerRequest.adminemail)">Refund</button> 
+							<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" ion-button *ngIf="!pay?.ClubgoerRequest.buttoncol">Refunded</button> 
+							<p>${{pay?.ClubgoerRequest.djshare}}</p>
+	        	</div>
+						<div class="right-sec" *ngIf="pay?.ClubgoerRequest.request_type==3">
+	        		<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" *ngIf="pay?.ClubgoerRequest.buttoncol" ion-button (click)="refundnow(pay?.ClubgoerRequest.id,pay?.ClubgoerRequest.djshare,pay?.ClubgoerRequest.shoutout_name,pay?.ClubgoerRequest.shoutout_type,pay?.ClubgoerRequest.adminemail)">Refund</button> 
 							<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" ion-button *ngIf="!pay?.ClubgoerRequest.buttoncol">Refunded</button> 
 							<p>${{pay?.ClubgoerRequest.djshare}}</p>
 	        	</div>
 	        	<h2>{{pay?.Clubgoer.complete_name}}</h2>
 	        	<h3>{{pay?.Event.event_name}}</h3>
-	        	<p>{{pay?.ClubgoerRequest.songname}} ,{{pay?.ClubgoerRequest.artist_name}} </p>
+	        	<p *ngIf="pay?.ClubgoerRequest.request_type==1">{{pay?.ClubgoerRequest.songname}} ,{{pay?.ClubgoerRequest.artist_name}} </p>
+						<p *ngIf="pay?.ClubgoerRequest.request_type==3">{{pay?.ClubgoerRequest.shoutout_type}} ,{{pay?.ClubgoerRequest.shoutout_name}} </p>
 	      </ion-item>
 	  </ion-list>
 	</div>

@@ -58,9 +58,9 @@ public Loading=this.loadingCtrl.create({
       this.Loading.dismiss();
        if(data.isSucess == "true"){
       this.djs=data.data;
-      console.log(this.djs);
-         if (data.data.User.audiourl == null || data.data.User.audiourl == undefined || data.data.User.audiourl == "") {
-          this.videoUrl="";
+      //console.log(this.djs);
+         if (data.data.User.audiourl == null || data.data.User.audiourl == "null" || data.data.User.audiourl == undefined || data.data.User.audiourl == "") {
+          this.videoUrl=null;
           }
           else{
            this.utube = data.data.User.audiourl.replace("watch?v=", "embed/");

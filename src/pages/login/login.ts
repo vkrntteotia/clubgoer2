@@ -92,10 +92,10 @@ ionViewDidEnter() {
       let headers = new Headers();
       headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
       let options = new RequestOptions({ headers: headers });
-    this.firebase.onTokenRefresh().subscribe(
-    token => {
-      console.log(`The new token is ${token}`);
-      this.token = token;
+     this.firebase.onTokenRefresh().subscribe(
+     token => {
+       console.log(`The new token is ${token}`);
+       this.token = token;
       var data = {
         email: form.value.email,
         password: form.value.password,
@@ -134,6 +134,13 @@ ionViewDidEnter() {
 
 fblogin(){
 // alert("fblogin");
+var d = new Date();
+var mm = ("0" + (d.getMonth() + 1)).slice(-2);
+var day = ("0" + (d.getDate())).slice(-2);
+var minutes = d.getMinutes();
+var hour = d.getHours();
+var datime = d.getFullYear()+"-"+mm+"-"+day+" "+hour+":"+minutes+":00";
+
 this.fb.login(['public_profile', 'user_friends', 'email'])
   .then((res: FacebookLoginResponse) => {
 this.fb.api('me/?fields=id,email,last_name,first_name', ["public_profile", "email"])
@@ -155,7 +162,8 @@ this.fb.api('me/?fields=id,email,last_name,first_name', ["public_profile", "emai
               name:result.first_name+" "+result.last_name,
               img:this.profilepicface,
               role:"clubgoer",
-              token:this.token
+              token:this.token,
+              datime:datime
           }
    // alert(JSON.stringify(signindata));
       var serialized_data = this.Cmn.serializeObj(signindata);

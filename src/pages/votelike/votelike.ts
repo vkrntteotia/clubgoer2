@@ -45,14 +45,22 @@ public Loading=this.loadingCtrl.create({
     this.Loading.present();
     var User = JSON.parse(localStorage.getItem("USER_DATA"));
     var userid = User.id;
+
+    var d = new Date();
+    var mm = ("0" + (d.getMonth() + 1)).slice(-2);
+    var day = ("0" + (d.getDate())).slice(-2);
+
+    var datime = d.getFullYear()+"-"+mm+"-"+day+" "+"00"+":"+"00"+":00";
+
 		var postdata = {
-			userid: userid
+      userid: userid,
+      datime: datime
 		};
-    console.log(postdata);
+    //console.log(postdata);
 		var serialized = this.serializeObj(postdata);
 		this.http.post(this.appsetting.myGlobalVar + 'users/userrequestslike', serialized, options).map(res => res.json()).subscribe(data => {
       this.Loading.dismiss();
-      console.log(data);
+      //console.log(data);
       if(data.isSucess == "true"){
             this.requests=data.data;
       }else{

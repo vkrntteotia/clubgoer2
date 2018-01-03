@@ -1,14 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 764:
+/***/ 777:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VotelikePageModule", function() { return VotelikePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VotingPageModule", function() { return VotingPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__votelike__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__voting__ = __webpack_require__(181);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var VotelikePageModule = (function () {
-    function VotelikePageModule() {
+var VotingPageModule = (function () {
+    function VotingPageModule() {
     }
-    return VotelikePageModule;
+    return VotingPageModule;
 }());
-VotelikePageModule = __decorate([
+VotingPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__votelike__["a" /* VotelikePage */],
+            __WEBPACK_IMPORTED_MODULE_2__voting__["a" /* VotingPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__votelike__["a" /* VotelikePage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__voting__["a" /* VotingPage */]),
         ],
     })
-], VotelikePageModule);
+], VotingPageModule);
 
-//# sourceMappingURL=votelike.module.js.map
+//# sourceMappingURL=voting.module.js.map
 
 /***/ })
 

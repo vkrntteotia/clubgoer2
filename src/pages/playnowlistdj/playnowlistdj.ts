@@ -38,6 +38,7 @@ export class PlaynowlistdjPage {
 
     ionViewCanEnter(){
       this.playnowlist();
+      clearInterval(this.appsetting.interval);
     }
 
   playnowlist(){

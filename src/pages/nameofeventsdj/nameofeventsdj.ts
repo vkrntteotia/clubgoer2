@@ -22,6 +22,7 @@ import { VotingPage } from '../voting/voting';
   templateUrl: 'nameofeventsdj.html',
 })
 export class NameofeventsdjPage {
+  setbit: boolean = false;
   public playnow;
   public gauranteedplay;
   public possiblyplay;
@@ -50,6 +51,7 @@ export class NameofeventsdjPage {
     //   this.eventidd = 0;
     //   this.shoutoutdj = 0;
     // }
+        
   }
 
   doRefresh(refresher) {
@@ -67,19 +69,32 @@ export class NameofeventsdjPage {
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
     var options = new RequestOptions({ headers: headers });
     var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
-    let Loader = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    Loader.present().then(() => {
+    // let Loader = this.loadingCtrl.create({
+    //   content: 'Please wait...'
+    // });
+    
+    var d = new Date();
+    var mm = ("0" + (d.getMonth() + 1)).slice(-2);
+    var day = ("0" + (d.getDate())).slice(-2);
+    var date = d.getFullYear()+"-"+mm+"-"+day;
+    var minutes = d.getMinutes();
+    var hour = d.getHours();
+    var datime = d.getFullYear()+"-"+mm+"-"+day+" "+hour+":"+minutes+":00";
+    var tmnow = hour+":"+minutes+":00";
+
+    //Loader.present().then(() => {
       var data = {
         djid: Userid,
+        date: date,
+        dattim:datime,
+        tmnow:tmnow
       }
       console.log(data);
       var serialized = this.serializeObj(data);
       this.http.post(this.appsetting.myGlobalVar + 'events/requestcount', serialized, options)
         .map(res => res.json())
         .subscribe(data => {
-          Loader.dismiss();
+         // Loader.dismiss();
           console.log(data);
           if (data.isSucess == "true") {
             this.playnow = data.playnow;
@@ -95,13 +110,18 @@ export class NameofeventsdjPage {
                 subTitle: data.msgg,
                 buttons:['ok']
               });
-              alert.present();
-              setTimeout(()=>alert.dismiss(),2500);
+              if(this.setbit ==false){
+                alert.present();
+              }
+              setTimeout(()=>{
+                alert.dismiss();
+                this.setbit = true;
+              },2500);
             }
           } else {
 
           }
-        })
+       // })
     });
   }
 
@@ -114,6 +134,7 @@ export class NameofeventsdjPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NameofeventsdjPage');
+    
   }
 
   topque(eventid) {
@@ -204,7 +225,13 @@ export class NameofeventsdjPage {
 
 
   ionViewCanEnter(){
+    console.log('can enter');
     this.requestinfo();
+    /********** Code to refresh page after 1 second **************/
+this.appsetting.interval = setInterval(() => {
+  this.requestinfo();
+ }, 5000);
+   /***** end **********/
   }
 
   ionViewDidEnter() {
