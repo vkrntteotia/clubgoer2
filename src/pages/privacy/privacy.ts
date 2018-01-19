@@ -33,7 +33,18 @@ public terms;
   public Loader = this.loadingCtrl.create({
 		content: 'Please wait...',
     dismissOnPageChange: true
-	});
+  });
+  
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.getterms();
+    console.log('refreshed')
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
     getterms(){
     this.Loader.present();
     let headers = new Headers();

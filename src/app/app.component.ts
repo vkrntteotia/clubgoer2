@@ -265,9 +265,9 @@ export class MyApp {
           //this.rootPage = (JSON.parse(localStorage.getItem("USER_DATA")).subscription_status!=1) ? SubscribedjPage : localStorage.getItem("USER_DATA") != null ? EventsdjPage : SignindjPage;
         } 
       }
-  if(localStorage.getItem("USER_DATA") != null) {
-        this.profile = JSON.parse(localStorage.getItem("USER_DATA"));
-      }
+      if(localStorage.getItem("USER_DATA") != null) {
+            this.profile = JSON.parse(localStorage.getItem("USER_DATA"));
+          }
     });
   }
 

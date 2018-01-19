@@ -18,7 +18,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 
 export class DjsdetailsPage {
-  public djid; djs; videoUrl;utube;
+  public djid; djs; videoUrl;utube;mixvideoUrl;
   constructor(public navCtrl: NavController,
   public navParams: NavParams, 
   public http:Http,
@@ -30,12 +30,10 @@ export class DjsdetailsPage {
     this.showdjsdetail(this.djid);
   }
 
-public Loading=this.loadingCtrl.create({
-    content: 'Please wait...',
-    dismissOnPageChange: true
-  });
-
-
+  public Loading=this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
+    });
 
   serializeObj(obj) {
     var result = [];
@@ -58,17 +56,17 @@ public Loading=this.loadingCtrl.create({
       this.Loading.dismiss();
        if(data.isSucess == "true"){
       this.djs=data.data;
-      //console.log(this.djs);
          if (data.data.User.audiourl == null || data.data.User.audiourl == "null" || data.data.User.audiourl == undefined || data.data.User.audiourl == "") {
-          this.videoUrl=null;
+            this.videoUrl=null;
           }
           else{
-           this.utube = data.data.User.audiourl.replace("watch?v=", "embed/");
-      this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.utube);
-           
+            if(data.data.User.audiourl.search("mixcloud")!=-1){
+              this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(data.data.User.audiourl);
+            } else{
+              this.utube = data.data.User.audiourl.replace("watch?v=", "embed/");
+              this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.utube);
+            }
           }
-      
-
     }else{
             let alert = this.alertCtrl.create({
                 title: 'Dj Details',

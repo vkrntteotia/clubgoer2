@@ -31,9 +31,18 @@
 				</div>
 				<div class="content-text">
 					<h3>Tip Amounts</h3>
-					<p>Play Now ${{pastevntdata?.TipOptionPrice.playnow}}</p>
-					<p>Guaranteed Play  ${{pastevntdata?.TipOptionPrice.guareteedplay}}</p>
-					<p>Possibly Play  ${{pastevntdata?.TipOptionPrice.possiblyplay}}</p>
+					<p>Play Now 
+						<span *ngIf="pastevntdata?.TipOptionPrice.playnow!=null">${{pastevntdata?.TipOptionPrice.playnow}}</span>
+						<span *ngIf="pastevntdata?.TipOptionPrice.playnow==null">${{playnow}}</span>
+					</p>
+					<p>Guaranteed Play  
+							<span *ngIf="pastevntdata?.TipOptionPrice.guareteedplay!=null">${{pastevntdata?.TipOptionPrice.guareteedplay}}</span>
+							<span *ngIf="pastevntdata?.TipOptionPrice.guareteedplay==null">${{grntplay}}</span>
+					</p>
+					<p>Possibly Play  
+							<span *ngIf="pastevntdata?.TipOptionPrice.possiblyplay!=null">${{pastevntdata?.TipOptionPrice.possiblyplay}}</span>
+							<span *ngIf="pastevntdata?.TipOptionPrice.possiblyplay==null">${{possibly}}</span>
+					</p>
 				</div>
 				<div class="bottom-sec">
 					<h3>Address</h3>

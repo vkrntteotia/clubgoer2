@@ -33,6 +33,16 @@ export class HelpdjPage {
     dismissOnPageChange: true
   });
   
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    this.gethelp();
+    console.log('refreshed')
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
     gethelp(){
     this.Loader.present();
     let headers = new Headers();

@@ -20,6 +20,9 @@ import { Appsetting } from '../../providers/appsetting';
 export class PasteventdjPage {
   public pastevntid;
   public pastevntdata;
+  public playnow;
+  public grntplay;
+  public possibly;
   public Loader=this.loadingCtrl.create({
     content: 'Please wait...',
     dismissOnPageChange: true
@@ -55,6 +58,9 @@ export class PasteventdjPage {
           Loader.dismiss();
           if (data.isSucess == "true") {
             this.pastevntdata = data.data;
+            this.playnow=data.data[0][0].TipOption.price;
+            this.grntplay=data.data[0][1].TipOption.price;
+            this.possibly=data.data[0][2].TipOption.price;
           } else {
             
           }

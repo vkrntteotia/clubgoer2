@@ -31,7 +31,8 @@ export class TermsPage {
 		content: 'Please wait...',
     dismissOnPageChange: true
 	});
-    getterms(){
+
+getterms(){
     this.Loader.present();
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
@@ -41,7 +42,7 @@ export class TermsPage {
       userid:user_id,
       position:"terms"
     };
-console.log(postdata);
+    
     var serialized = this.serializeObj(postdata);
     this.http.post(this.appsetting.myGlobalVar + 'users/gettermclubgoer', serialized, options).map(res => res.json()).subscribe(response => {
       this.Loader.dismiss();
@@ -53,6 +54,17 @@ console.log(postdata);
         }
       })
     }
+
+    doRefresh(refresher) {
+      console.log('Begin async operation', refresher);
+      this.getterms();
+      console.log('refreshed')
+      setTimeout(() => {
+        console.log('Async operation has ended');
+        refresher.complete();
+      }, 2000);
+    }
+    
 serializeObj(obj) {
     var result = [];
     for (var property in obj)
@@ -60,7 +72,12 @@ serializeObj(obj) {
 
     return result.join("&");
   }
-    ionViewDidEnter() {
+
+ionViewCanEnter(){
+    this.getterms();
+  }  
+
+ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {
       this.Loader.dismissAll();

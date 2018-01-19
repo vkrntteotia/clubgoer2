@@ -41,7 +41,6 @@ export class ManageeventsdjPage {
   }
 
   manageevent() {
-
     var d = new Date();
     var mm = ("0" + (d.getMonth() + 1)).slice(-2);
     var day = ("0" + (d.getDate())).slice(-2);
@@ -97,6 +96,7 @@ export class ManageeventsdjPage {
   ionViewCanEnter(){
     this.manageevent();
   }
+  
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {
@@ -116,8 +116,6 @@ export class ManageeventsdjPage {
       evntiid: eventid
     });
   }
-        
-
 
   omniaclubevent(eventid,eventname) {
    localStorage.setItem('name',eventname);

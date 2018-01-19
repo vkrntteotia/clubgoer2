@@ -200,7 +200,7 @@ import { AddCardPage } from '../pages/add-card/add-card';
     Firebase,
     Appsetting,
     SplashScreen,
-  StatusBar,
+    StatusBar,
     Camera,
     Facebook,
     File,

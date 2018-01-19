@@ -18,7 +18,7 @@ import { NameofeventsdjPage } from '../nameofeventsdj/nameofeventsdj';
 })
 export class OmniaclubeventdjPage {
   public upevntid;
-  public upevntdata;
+  public upevntdata;playnow;grntplay;possibly;
   public Loader=this.loadingCtrl.create({
     content: 'Please wait...',
     dismissOnPageChange: true
@@ -45,19 +45,17 @@ export class OmniaclubeventdjPage {
       var data = {
         eventid: eventidd,
             }
-
       var serialized = this.serializeObj(data);
       this.http.post(this.appsetting.myGlobalVar + 'events/eventdetail', serialized, options)
         .map(res => res.json())
         .subscribe(data => {
           Loader.dismiss();
           console.log(data);
-      
           if (data.isSucess == "true") {
-            console.log(data);
-           
-
             this.upevntdata = data.data;
+            this.playnow=data.data[0][0].TipOption.price;
+            this.grntplay=data.data[0][1].TipOption.price;
+            this.possibly=data.data[0][2].TipOption.price;
             if(data.data.Event.active==1){
               this.buttonColor="#328000";
             }

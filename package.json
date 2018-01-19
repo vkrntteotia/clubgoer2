@@ -40,6 +40,7 @@
     "card.io.cordova.mobilesdk": "^2.1.0",
     "com.hutchind.cordova.plugins.streamingmedia": "~0.1.4",
     "com.paypal.cordova.mobilesdk": "^3.5.0",
+    "cordova-android": "^6.3.0",
     "cordova-ios": "^4.5.4",
     "cordova-plugin-camera": "^3.0.0",
     "cordova-plugin-compat": "^1.2.0",
@@ -93,7 +94,8 @@
       "cordova-plugin-stripe": {}
     },
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }

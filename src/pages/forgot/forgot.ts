@@ -53,6 +53,7 @@ forgot(form){
   var Serialized = this.serializeObj(data);
   this.http.post(this.appsetting.myGlobalVar + 'users/forgetpwd', Serialized, options).map(res=>res.json()).subscribe(response=>{
       this.Loading.dismiss();
+      
         if(response.isSucess == "true"){
             let alert = this.alertCtrl.create({
             title: 'Forget password',
@@ -84,7 +85,6 @@ forgot(form){
     var result = [];
     for (var property in obj)
       result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
-
     return result.join("&");
   }
   ionViewDidLoad() {

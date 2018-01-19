@@ -20,13 +20,23 @@
 		<ion-list>
 	      <ion-item *ngFor="let pay of payhistdata; let i = index">
 	        	<div class="right-sec" *ngIf="pay?.ClubgoerRequest.request_type==1">
-	        		<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" *ngIf="pay?.ClubgoerRequest.buttoncol" ion-button (click)="refundnow(pay?.ClubgoerRequest.id,pay?.ClubgoerRequest.djshare,pay?.ClubgoerRequest.songname,pay?.ClubgoerRequest.artist_name,pay?.ClubgoerRequest.adminemail)">Refund</button> 
-							<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" ion-button *ngIf="!pay?.ClubgoerRequest.buttoncol">Refunded</button> 
+							<span *ngIf="pay?.ClubgoerRequest.top_queue_accept==0">
+								<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" *ngIf="pay?.ClubgoerRequest.buttoncol" ion-button (click)="refundnow(pay?.ClubgoerRequest.id,pay?.ClubgoerRequest.djshare,pay?.ClubgoerRequest.songname,pay?.ClubgoerRequest.artist_name,pay?.ClubgoerRequest.senderemail)">Refund</button> 
+								<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" ion-button *ngIf="!pay?.ClubgoerRequest.buttoncol">Refunded</button> 
+							</span>
+							<span *ngIf="pay?.ClubgoerRequest.top_queue_accept==1">
+									<button [ngStyle]="{'background-color': 'rgb(50, 128, 0)'}" ion-button>Accepted</button> 
+							</span>
 							<p>${{pay?.ClubgoerRequest.djshare}}</p>
 	        	</div>
 						<div class="right-sec" *ngIf="pay?.ClubgoerRequest.request_type==3">
-	        		<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" *ngIf="pay?.ClubgoerRequest.buttoncol" ion-button (click)="refundnow(pay?.ClubgoerRequest.id,pay?.ClubgoerRequest.djshare,pay?.ClubgoerRequest.shoutout_name,pay?.ClubgoerRequest.shoutout_type,pay?.ClubgoerRequest.adminemail)">Refund</button> 
-							<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" ion-button *ngIf="!pay?.ClubgoerRequest.buttoncol">Refunded</button> 
+							<span *ngIf="pay?.ClubgoerRequest.top_queue==0">
+	        			<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" *ngIf="pay?.ClubgoerRequest.buttoncol" ion-button (click)="refundnow(pay?.ClubgoerRequest.id,pay?.ClubgoerRequest.djshare,pay?.ClubgoerRequest.shoutout_name,pay?.ClubgoerRequest.shoutout_type,pay?.ClubgoerRequest.senderemail)">Refund</button> 
+								<button [ngStyle]="{'background-color': pay?.ClubgoerRequest.buttoncolor}" ion-button *ngIf="!pay?.ClubgoerRequest.buttoncol">Refunded</button> 
+							</span>
+							<span *ngIf="pay?.ClubgoerRequest.top_queue==1">
+									<button [ngStyle]="{'background-color': 'rgb(50, 128, 0)'}" ion-button>Accepted</button> 
+							</span>
 							<p>${{pay?.ClubgoerRequest.djshare}}</p>
 	        	</div>
 	        	<h2>{{pay?.Clubgoer.complete_name}}</h2>

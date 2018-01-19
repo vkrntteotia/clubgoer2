@@ -28,14 +28,15 @@ export class TermsdjPage {
    public loadingCtrl: LoadingController,
    public toastCtrl:ToastController,
    private alertCtrl: AlertController) {
-      this.getterms();
+      
   }
 
   public Loader = this.loadingCtrl.create({
 		content: 'Please wait...',
     dismissOnPageChange: true
-	});
-    getterms(){
+  });
+  
+getterms(){
     this.Loader.present();
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
@@ -57,6 +58,17 @@ console.log(postdata);
         }
       })
     }
+
+    doRefresh(refresher) {
+      console.log('Begin async operation', refresher);
+      this.getterms();
+      console.log('refreshed')
+      setTimeout(() => {
+        console.log('Async operation has ended');
+        refresher.complete();
+      }, 2000);
+    }
+
 serializeObj(obj) {
     var result = [];
     for (var property in obj)
@@ -64,6 +76,7 @@ serializeObj(obj) {
 
     return result.join("&");
   }
+
     ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {
@@ -77,7 +90,9 @@ serializeObj(obj) {
        setTimeout(()=>alert.dismiss(),2500);
       }
   }
-  ionViewCanEnter(){
+
+ionViewCanEnter(){
     clearInterval(this.appsetting.interval);
+    this.getterms();
   }
 }

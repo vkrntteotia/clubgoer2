@@ -94,6 +94,7 @@ export class PaymenthistorydjPage {
       //var userdata = JSON.parse(localStorage.getItem("USER_DATA"));
       var data = {
           id : clubgoerqstid,
+          amt : money
           //sub_id : this.subscriv.id
         }
         var description = song+", "+artist;
@@ -109,7 +110,9 @@ export class PaymenthistorydjPage {
     })).then(() => {
       let payment = new PayPalPayment(money, 'USD', description, 'sale');
       this.payPal.renderSinglePaymentUI(payment).then(() => {
+        this.Loader.present();
         this.http.post(this.appsetting.myGlobalVar + 'subscriptions/refund', Serialized, options).map(res => res.json()).subscribe(response => {
+          this.Loader.dismiss();
           if(response.isSucess=="true"){
             this.payhistdata = response.data;
             this.totalpay=0;

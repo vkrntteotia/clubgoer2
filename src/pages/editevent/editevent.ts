@@ -42,7 +42,7 @@ export class EditeventPage {
     public toastCtrl: ToastController,
     public appsetting: Appsetting,
     private alertCtrl: AlertController) {
-    this.editevnt = navParams.get("evntiid")
+    this.editevnt = navParams.get("evntiid");
     this.getevent(this.editevnt);
 
     var d = new Date();

@@ -50,8 +50,7 @@ export class NameofeventsdjPage {
     //   this.voteup = 0;
     //   this.eventidd = 0;
     //   this.shoutoutdj = 0;
-    // }
-        
+    // } 
   }
 
   doRefresh(refresher) {
@@ -72,7 +71,6 @@ export class NameofeventsdjPage {
     // let Loader = this.loadingCtrl.create({
     //   content: 'Please wait...'
     // });
-    
     var d = new Date();
     var mm = ("0" + (d.getMonth() + 1)).slice(-2);
     var day = ("0" + (d.getDate())).slice(-2);
@@ -81,7 +79,6 @@ export class NameofeventsdjPage {
     var hour = d.getHours();
     var datime = d.getFullYear()+"-"+mm+"-"+day+" "+hour+":"+minutes+":00";
     var tmnow = hour+":"+minutes+":00";
-
     //Loader.present().then(() => {
       var data = {
         djid: Userid,
@@ -106,6 +103,9 @@ export class NameofeventsdjPage {
             this.shoutoutdj = data.shoutout;
             this.eventname = data.eventname;
             if(data.msg=="vikki"){
+              if(data.msgg=='' || data.msgg==undefined || data.msgg=="undefined"){
+                data.msgg = "No events available";
+              }
               let alert = this.alertCtrl.create({
                 subTitle: data.msgg,
                 buttons:['ok']
@@ -228,9 +228,9 @@ export class NameofeventsdjPage {
     console.log('can enter');
     this.requestinfo();
     /********** Code to refresh page after 1 second **************/
-this.appsetting.interval = setInterval(() => {
-  this.requestinfo();
- }, 5000);
+        this.appsetting.interval = setInterval(() => {
+          this.requestinfo();
+        }, 5000);
    /***** end **********/
   }
 

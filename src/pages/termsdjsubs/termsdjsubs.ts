@@ -28,7 +28,7 @@ export class TermsdjsubsPage {
    public loadingCtrl: LoadingController,
    public toastCtrl:ToastController,
    private alertCtrl: AlertController) {
-      this.getterms();
+      
   }
 
   public Loader = this.loadingCtrl.create({
@@ -59,7 +59,11 @@ console.log(postdata);
       })
     }
 
-    setBackButtonAction(){
+    ionViewCanEnter(){
+      this.getterms();
+    }
+
+setBackButtonAction(){
       //Write here wherever you wanna do
       this.navCtrl.push(SubscribedjPage);
    }

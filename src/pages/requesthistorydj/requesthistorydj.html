@@ -23,10 +23,19 @@
       <ion-item *ngFor="let req of reqhistdata; let i = index">
         	<div class="img-sec">
         		<img src="assets/img/headphn.png">
-        	</div>
-        	<h3> {{req?.ClubgoerRequest.songname}} </h3>
-        	<p>{{req?.ClubgoerRequest.artist_name}}</p>
-        	<p>Requested By : {{req?.Clubgoer.complete_name}}</p>
+          </div>
+          <div class="right-sec" *ngIf="req?.ClubgoerRequest.request_type==1">
+            <h3>Song request : {{req?.TipOption.name}}</h3>
+            <h2>Song name : {{req?.ClubgoerRequest.songname}} </h2>
+            <p>Artist name : {{req?.ClubgoerRequest.artist_name}}</p>
+          </div>
+          <div class="right-sec" *ngIf="req?.ClubgoerRequest.request_type==3">
+              <h3>Shoutout</h3>
+              <h2>Shoutout type : {{req?.ClubgoerRequest.shoutout_type}} </h2>
+              <p>Shoutout name : {{req?.ClubgoerRequest.shoutout_name}}</p>
+          </div>
+            <p>Requested By : {{req?.Clubgoer.complete_name}}</p>
+          
       </ion-item>
       <div class="unshow" *ngIf="reqhistdata?.length == 0">
         <h3>No data available</h3>
