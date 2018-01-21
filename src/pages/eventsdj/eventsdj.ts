@@ -5,7 +5,7 @@ import {ManageeventsdjPage} from '../manageeventsdj/manageeventsdj';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Appsetting } from '../../providers/appsetting';
 import { EditprofiledjPage} from '../editprofiledj/editprofiledj';
-import { MembershipdetaildjPage } from '../membershipdetaildj/membershipdetaildj';
+//import { MembershipdetaildjPage } from '../membershipdetaildj/membershipdetaildj';
 /**
  * Generated class for the EventsdjPage page.
  *
@@ -19,10 +19,12 @@ import { MembershipdetaildjPage } from '../membershipdetaildj/membershipdetaildj
 })
 export class EventsdjPage {
   profile;
+
   public Loader=this.loadingCtrl.create({
     content: 'Please wait...',
     dismissOnPageChange: true
   });
+
   constructor(
     public navCtrl: NavController,
     public appsetting: Appsetting, 
@@ -43,10 +45,32 @@ export class EventsdjPage {
     }
   }
 
-  
+  public Loading=this.loadingCtrl.create({
+    content: 'Please wait...',
+    dismissOnPageChange: true
+  });
+
+  getuser() {
+    this.Loading.present();
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+    let options = new RequestOptions({ headers: headers });
+    var data = {
+      userid: JSON.parse(localStorage.getItem('USER_DATA')).id
+    }
+    var Serialized = this.serializeObj(data);
+    this.http.post(this.appsetting.myGlobalVar + 'users/getuserbyid', Serialized, options).map(res => res.json()).subscribe(response => {
+      this.Loading.dismiss();
+      if (response.isSucess == "true") {
+        localStorage.setItem("USER_DATA", JSON.stringify(response.data.User));
+        this.events.publish('role', 'dj'); 
+      }
+    })
+  }
 
   ionViewDidEnter() {
     if (window.navigator.onLine == true) {
+      this.getuser();
     } else {
       this.Loader.dismiss();
        let alert = this.alertCtrl.create({
@@ -63,6 +87,7 @@ export class EventsdjPage {
     console.log('ionViewDidLoad EventsdjPage');
     clearInterval(this.appsetting.interval);
   }
+
   addEvent(){
     this.Loader.present();
     let headers = new Headers();

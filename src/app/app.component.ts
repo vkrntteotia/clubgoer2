@@ -92,7 +92,7 @@ export class MyApp {
       //this.role = data;
       if (localStorage.getItem("USER_DATA")!=null) {   
         this.profile = JSON.parse(localStorage.getItem("USER_DATA"));
-        console.log(this.profile);
+        
       if (this.profile.role == 'clubgoer') {
         this.role="clubgoer";
         this.pages = [

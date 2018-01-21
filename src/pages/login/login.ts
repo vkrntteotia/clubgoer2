@@ -80,7 +80,6 @@ ionViewDidEnter() {
     }
     
   login(form) {
-  
     if(form.value.checkbx==true){
       localStorage.setItem("username",form.value.email);
       localStorage.setItem("password",form.value.password);
@@ -128,7 +127,7 @@ ionViewDidEnter() {
             alert.present();
             setTimeout(()=>alert.dismiss(),3500);
       }
-   // })
+   //})
   })
   }
 

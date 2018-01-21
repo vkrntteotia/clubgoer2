@@ -34,7 +34,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>0.0.32</string>
+	<string>0.0.34</string>
 	<key>FacebookAppID</key>
 	<string>300176463724883</string>
 	<key>FacebookDisplayName</key>
@@ -77,10 +77,10 @@
 			<dict/>
 		</dict>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>${PRODUCT_NAME} wants to access camera</string>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>${PRODUCT_NAME} wants to access media library</string>
+	<key>NSCameraUsageDescription</key>
+	<string>${PRODUCT_NAME} wants to access camera</string>
 	<key>NSMainNibFile</key>
 	<string></string>
 	<key>NSMainNibFile~ipad</key>

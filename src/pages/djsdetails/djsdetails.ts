@@ -61,8 +61,14 @@ export class DjsdetailsPage {
           }
           else{
             if(data.data.User.audiourl.search("mixcloud")!=-1){
-              this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(data.data.User.audiourl);
+              if(data.data.User.audiourl.search("www.mixcloud.com/widget/iframe")!=-1){
+               this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(data.data.User.audiourl);
+              }  else {
+                var url = "https://www.mixcloud.com/widget/iframe/?hide_cover=1&amp;mini=1&amp;feed="+data.data.User.audiourl;
+                this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+              }
             } else{
+              console.log("Hello");
               this.utube = data.data.User.audiourl.replace("watch?v=", "embed/");
               this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.utube);
             }

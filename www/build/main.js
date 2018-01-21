@@ -408,10 +408,14 @@ NameofeventsdjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-nameofeventsdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/nameofeventsdj/nameofeventsdj.html"*/'<!--\n  Generated template for the NameofeventsdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="black">\n        <button ion-button menuToggle>\n					<ion-icon style="color:#fff;" name="menu"></ion-icon>\n			</button>\n        <ion-title>{{eventname}}</ion-title>\n        <div class="logo">\n            <img src="assets/img/rlogo.png">\n        </div>\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n    </ion-refresher>\n    <ion-grid>\n        <ion-row>\n            <ion-col col-6>\n                <div class="colm" (click)="play(eventidd)">\n                    <img src="assets/img/playbg.png">\n                    <h6>Play Now</h6>\n                    <div class="cricle">\n                        <p>{{playnow}}</p>\n                    </div>\n                </div>\n            </ion-col>\n            <ion-col col-6>\n                <div class="colm" (click)="topque(eventidd)">\n                    <img src="assets/img/topbg.png">\n                    <h6 class="">Top Queue </h6>\n                    <div class="cricle">\n                        <p>{{topqueue}}</p>\n                    </div>\n                </div>\n            </ion-col>\n            <ion-col col-6 (click)="grntply(eventidd)">\n                <div class="colm">\n                    <img src="assets/img/guarbg.png">\n                    <h6 class="">GUARANTEED PLAY</h6>\n                    <div class="cricle">\n                        <p>{{gauranteedplay}}</p>\n                    </div>\n                </div>\n            </ion-col>\n\n            <ion-col col-6 (click)="possply(eventidd)">\n                <div class="colm">\n                    <img src="assets/img/possbg.png">\n                    <h6 class="">Possibly Play</h6>\n                    <div class="cricle">\n                        <p>{{possiblyplay}}</p>\n                    </div>\n                </div>\n            </ion-col>\n\n           <!-- <ion-col col-12 (click)="voteupnow(eventidd)">\n                <div class="colm">\n                    <img src="assets/img/votbg.png">\n                    <h6 class="">Voteup Requests</h6>\n                    <div class="cricle">\n                        <p>{{voteup}}</p>\n                    </div>\n                </div>\n            </ion-col>  -->\n            \n            <ion-col col-12 (click)="shoutout(eventidd)">\n                <div class="colm">\n                    <img src="assets/img/votbg.png">\n                    <h6 class="">Shoutouts Requests</h6>\n                    <div class="cricle">\n                        <p>{{shoutoutdj}}</p>\n                    </div>\n                </div>\n            </ion-col>\n\n        </ion-row>\n    </ion-grid>\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/nameofeventsdj/nameofeventsdj.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__["a" /* Appsetting */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__["a" /* Appsetting */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
 ], NameofeventsdjPage);
 
-var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=nameofeventsdj.js.map
 
 /***/ }),
@@ -521,7 +525,7 @@ var TermsdjsubsPage = (function () {
 TermsdjsubsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-termsdjsubs',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/termsdjsubs/termsdjsubs.html"*/'<!--\n  Generated template for the TermsPage page.\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-toolbar color="black">\n    <ion-title>{{terms?.title}}</ion-title>\n    <button (click)="setBackButtonAction()"ion-button="bar-button">\n        <span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" aria-label="arrow back"></ion-icon>\n        <span class="back-button-text back-button-text-ios" style="transform: translateX(0px);"></span></span>\n        <div class="button-effect"></div>\n    </button>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n\n<!-- <ion-content padding style="background:#373737;">\n  <div class="termsdj">\n <p> {{terms?.description}}</p>\n  </div>\n</ion-content> -->\n<ion-content padding>\n    <div class="main">\n     <h3>Terms & Conditions</h3>\n     <p>{{terms?.description}}</p>\n    </div>\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/termsdjsubs/termsdjsubs.html"*/,
+        selector: 'page-termsdjsubs',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/termsdjsubs/termsdjsubs.html"*/'<!--\n  Generated template for the TermsPage page.\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-toolbar color="black">\n    <ion-title>{{terms?.title}}</ion-title>\n    <button (click)="setBackButtonAction()"ion-button="bar-button">\n        <span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" aria-label="arrow back"></ion-icon>\n        <span class="back-button-text back-button-text-ios" style="transform: translateX(0px);"></span></span>\n        <div class="button-effect"></div>\n    </button>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n\n<!-- <ion-content padding style="background:#373737;">\n  <div class="termsdj">\n <p> {{terms?.description}}</p>\n  </div>\n</ion-content> -->\n<ion-content padding>\n    <div class="main">\n     <h3>Terms & Conditions</h3>\n     <p [innerHTML]="terms?.description"></p>\n    </div>\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/termsdjsubs/termsdjsubs.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -1705,9 +1709,16 @@ var DjsdetailsPage = (function () {
                 }
                 else {
                     if (data.data.User.audiourl.search("mixcloud") != -1) {
-                        _this.videoUrl = _this.sanitizer.bypassSecurityTrustResourceUrl(data.data.User.audiourl);
+                        if (data.data.User.audiourl.search("www.mixcloud.com/widget/iframe") != -1) {
+                            _this.videoUrl = _this.sanitizer.bypassSecurityTrustResourceUrl(data.data.User.audiourl);
+                        }
+                        else {
+                            var url = "https://www.mixcloud.com/widget/iframe/?hide_cover=1&amp;mini=1&amp;feed=" + data.data.User.audiourl;
+                            _this.videoUrl = _this.sanitizer.bypassSecurityTrustResourceUrl(url);
+                        }
                     }
                     else {
+                        console.log("Hello");
                         _this.utube = data.data.User.audiourl.replace("watch?v=", "embed/");
                         _this.videoUrl = _this.sanitizer.bypassSecurityTrustResourceUrl(_this.utube);
                     }
@@ -1745,10 +1756,15 @@ DjsdetailsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-djsdetails',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/djsdetails/djsdetails.html"*/'<!--\n  Generated template for the DjsdetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="black">\n        <ion-title>Dj\'s Details</ion-title>\n        <ion-buttons end class="rbutton">\n            <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n        </ion-buttons>\n    </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="djs_bg">\n    <div class="djdetails_sec">\n        <div class="full_img">\n            <img *ngIf="djs?.User.image" [src]="djs?.User.image">\n        </div>\n    </div>\n    <div class="padding titletxt">\n        <p style="font-size: 17px;"><span>Name: </span>{{djs?.User.complete_name}}</p>\n        <p style="font-size: 17px;"><span>E-mail: </span>{{djs?.User.email}}</p>\n        <p style="font-size: 17px;"><span>Dj Code: </span>{{djs?.User.djcode}}</p>\n        <p style="font-size: 17px;" *ngIf="djs?.User.biography"><span>Dj Biography : </span>{{djs?.User.biography}}</p>\n        <iframe *ngIf="videoUrl!=null" width="100%" height="315" [src]="videoUrl" frameborder="0" align="middle"></iframe>\n    </div>\n    <h4 style="    color: #fff;\n    text-align: center;\n    font-size: 19px; margin: 28px 0 0 0;">Upcoming Events</h4>\n    <div class="productscroll">\n\n        <ion-scroll scrollX="true" *ngIf="djs?.Event">\n            <div class="event_box" *ngIf="djs?.Event?.length == 0">\n                <h3 style="color: #fff;">No events available</h3>\n            </div>\n            <div class="event_box" *ngFor="let dj of djs?.Event">\n                <h5 style="font-size: 17px;">{{dj?.event_name}}</h5>\n                <div class="imageboxed">\n                    <img [src]="dj?.image">\n                </div>\n             \n\n                <ion-item>\n                            <ion-label>\n                                    Venue Name:\n                            </ion-label>\n                            <div item-content>\n                                    {{dj?.venue_name}}\n                            </div>\n                          </ion-item>\n            \n                          <ion-item>\n                                <ion-label>\n                                        Event Date/Time:\n                                </ion-label>\n                                <div item-content>\n                                        {{dj?.event_date+" "+dj?.event_time}}\n                                </div>\n                              </ion-item>\n            \n            \n                          <!-- <ion-item>\n                                <ion-label>\n                                        TO\n                                </ion-label>\n                                <div item-content>\n                                        {{dj?.start_event+" "+dj?.scheduled_start_time}}\n                                </div>\n                          </ion-item> -->\n                </div>\n        </ion-scroll>\n       \n    \n    \n\n\n\n    </div>\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/djsdetails/djsdetails.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["c" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["c" /* DomSanitizer */]) === "function" && _h || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["c" /* DomSanitizer */]])
 ], DjsdetailsPage);
 
-var _a, _b, _c, _d, _e, _f, _g, _h;
 //# sourceMappingURL=djsdetails.js.map
 
 /***/ }),
@@ -1985,7 +2001,7 @@ var TermsPage = (function () {
 TermsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-terms',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/terms/terms.html"*/'<!--\n  Generated template for the TermsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#fff;" name="menu"></ion-icon>\n    </button>\n    <ion-title>{{terms?.title}}</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n    </ion-refresher>\n    <div class="main">\n     <h3>Terms & Conditions</h3>\n     <p>{{terms?.description}}</p>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/terms/terms.html"*/,
+        selector: 'page-terms',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/terms/terms.html"*/'<!--\n  Generated template for the TermsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#fff;" name="menu"></ion-icon>\n    </button>\n    <ion-title>{{terms?.title}}</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n    </ion-refresher>\n    <div class="main">\n     <h3>Terms & Conditions</h3>\n     <p [innerHTML]="terms?.description"></p>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/terms/terms.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -2106,7 +2122,7 @@ var PrivacyPage = (function () {
 PrivacyPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-privacy',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/privacy/privacy.html"*/'<!--\n  Generated template for the PrivacyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#fff;" name="menu"></ion-icon>\n    </button>\n    <ion-title>{{terms?.title}}</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n    </ion-refresher>\n    <div class="main">\n     <h3>Privacy Policy</h3>\n     <p>{{terms?.description}}</p>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/privacy/privacy.html"*/,
+        selector: 'page-privacy',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/privacy/privacy.html"*/'<!--\n  Generated template for the PrivacyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#fff;" name="menu"></ion-icon>\n    </button>\n    <ion-title>{{terms?.title}}</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n    </ion-refresher>\n    <div class="main">\n     <h3>Privacy Policy</h3>\n     <p [innerHTML]="terms?.description"></p>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/privacy/privacy.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -4839,6 +4855,408 @@ EditeventPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangepasswordPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_appsetting__ = __webpack_require__(8);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+/**
+ * Generated class for the ChangepasswordPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var ChangepasswordPage = (function () {
+    function ChangepasswordPage(navCtrl, navParams, http, appsetting, loadingCtrl, toastCtrl, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.appsetting = appsetting;
+        this.loadingCtrl = loadingCtrl;
+        this.toastCtrl = toastCtrl;
+        this.alertCtrl = alertCtrl;
+        this.data = '';
+        this.Loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+    }
+    ChangepasswordPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loading.dismiss();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 3500);
+        }
+    };
+    ChangepasswordPage.prototype.changepass = function (form) {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var User = JSON.parse(localStorage.getItem("USER_DATA"));
+        var email = User.id;
+        if (form.value.newpassword.indexOf(' ') >= 0) {
+            var alert_2 = this.alertCtrl.create({
+                title: 'Change password',
+                subTitle: 'Space not allowed',
+                buttons: ['ok']
+            });
+            alert_2.present();
+            setTimeout(function () { return alert_2.dismiss(); }, 3500);
+        }
+        else if (form.value.newpassword == form.value.conpassword) {
+            this.Loading.present();
+            var data = {
+                email: email,
+                old_password: form.value.password,
+                new_password: form.value.newpassword
+            };
+            console.log(data);
+            var Serialized = this.serializeObj(data);
+            console.log(data);
+            this.http.post(this.appsetting.myGlobalVar + 'users/changepassword', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (data) {
+                _this.Loading.dismiss();
+                if (data.isSucess == "true") {
+                    localStorage.removeItem("password");
+                    localStorage.setItem("password", form.value.newpassword);
+                    var alert_3 = _this.alertCtrl.create({
+                        title: 'Change password',
+                        subTitle: data.msg,
+                        buttons: ['ok']
+                    });
+                    alert_3.present();
+                    setTimeout(function () { return alert_3.dismiss(); }, 3500);
+                    //localStorage.clear();
+                    localStorage.removeItem("fblogin");
+                    localStorage.removeItem("USER_DATA");
+                    localStorage.removeItem("facebook_pic");
+                    localStorage.removeItem("facebook_login");
+                    localStorage.removeItem("userid");
+                    localStorage.removeItem("fblogin");
+                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__login_login__["a" /* LoginPage */]);
+                }
+                else {
+                    var alert_4 = _this.alertCtrl.create({
+                        title: 'Change password',
+                        subTitle: data.msg,
+                        buttons: ['ok']
+                    });
+                    alert_4.present();
+                    setTimeout(function () { return alert_4.dismiss(); }, 3500);
+                }
+            });
+        }
+        else {
+            var alert_5 = this.alertCtrl.create({
+                title: 'Change password',
+                subTitle: 'Password do not match',
+                buttons: ['ok']
+            });
+            alert_5.present();
+            setTimeout(function () { return alert_5.dismiss(); }, 3500);
+        }
+    };
+    ChangepasswordPage.prototype.serializeObj = function (obj) {
+        var result = [];
+        for (var property in obj)
+            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
+        return result.join("&");
+    };
+    ChangepasswordPage.prototype.homePage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
+    };
+    ChangepasswordPage.prototype.ionViewCanEnter = function () {
+        clearInterval(this.appsetting.interval);
+    };
+    return ChangepasswordPage;
+}());
+ChangepasswordPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-changepassword',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/changepassword/changepassword.html"*/'<ion-header class="headerbg">\n\n  <ion-navbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Change Password</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n<ion-content class="margintop" padding style="background: url(assets/img/loginbg.jpg); background-size:cover;">\n<div class="login_outer">\n  <div class="logo"><img src="assets/img/logofull.png"></div>\n<div class="form_sec">\n<form #changeForm="ngForm" (ngSubmit)="changepass(changeForm)" novalidate>\n  <ion-list>\n  <ion-item>\n    <ion-input type="password" minlength="5" placeholder="Enter your Old Password" [(ngModel)]="data.password"  name=\'password\' required #password="ngModel"></ion-input>\n  </ion-item>\n  <ion-label class="alert alert-danger" color="danger">\n        <div *ngIf="password.errors && (password.dirty || password.touched)">\n        <div [hidden]="!password.errors.required" >\n         Password is required\n        </div>\n    </div>\n    <div *ngIf="password.errors && (password.dirty || password.touched)" >\n       <div [hidden]="!password.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n   </ion-label>\n  <ion-item>\n    <ion-input type="password" minlength="5" placeholder="Enter your New Password" [(ngModel)]="data.newpassword" name=\'newpassword\' required #newpassword="ngModel" ></ion-input>\n  </ion-item>\n  <ion-label class="alert alert-danger" color="danger">\n    <div *ngIf="newpassword.errors && (newpassword.dirty || newpassword.touched)">\n       <div [hidden]="!newpassword.errors.required" >\n         Password is required\n        </div>\n    </div>\n    <div *ngIf="newpassword.errors && (newpassword.dirty || newpassword.touched)" >\n       <div [hidden]="!newpassword.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n  </ion-label>\n\n  <ion-item>\n    <ion-input type="password" minlength="5" placeholder="Confirm Password" [(ngModel)]="data.conpassword" name=\'conpassword\' required #conpassword="ngModel"></ion-input>\n  </ion-item>\n  <ion-label class="alert alert-danger" color="danger">\n    <div *ngIf="conpassword.errors && (conpassword.dirty || conpassword.touched)">\n       <div [hidden]="!conpassword.errors.required" >\n         Password is required\n        </div>\n    </div>\n    <div *ngIf="conpassword.errors && (conpassword.dirty || conpassword.touched)" >\n       <div [hidden]="!conpassword.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n   </ion-label>\n</ion-list>\n<div class="centerbutton">\n   <button class="custom_btn" color="yellow" [disabled]="!changeForm.form.valid" style="text-transform: uppercase;" ion-button round>Submit</button>\n</div>\n</form>\n</div>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/changepassword/changepassword.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_6__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+], ChangepasswordPage);
+
+//# sourceMappingURL=changepassword.js.map
+
+/***/ }),
+
+/***/ 185:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TransactionhstrydjPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(8);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the TransactionhstrydjPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var TransactionhstrydjPage = (function () {
+    function TransactionhstrydjPage(navCtrl, navParams, http, appsetting, loadingCtrl, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.appsetting = appsetting;
+        this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
+        this.Loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+    }
+    TransactionhstrydjPage.prototype.paidinfo = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
+        var Loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+        Loader.present().then(function () {
+            var data = {
+                djid: Userid,
+            };
+            var serialized = _this.serializeObj(data);
+            _this.http.post(_this.appsetting.myGlobalVar + 'events/getpaymantdata', serialized, options)
+                .map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                Loader.dismiss();
+                console.log(data);
+                console.log("Transaction history");
+                if (data.isSucess == "true") {
+                    _this.transachistdata = data.data;
+                }
+                else {
+                    _this.transachistdata = "";
+                }
+            });
+        });
+    };
+    TransactionhstrydjPage.prototype.serializeObj = function (obj) {
+        var result = [];
+        for (var property in obj)
+            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
+        return result.join("&");
+    };
+    TransactionhstrydjPage.prototype.ionViewCanEnter = function () {
+        this.paidinfo();
+    };
+    TransactionhstrydjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loader.dismissAll();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection',
+                buttons: ['ok']
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 2500);
+        }
+    };
+    TransactionhstrydjPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TransactionhstrydjPage');
+    };
+    return TransactionhstrydjPage;
+}());
+TransactionhstrydjPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-transactionhstrydj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/transactionhstrydj/transactionhstrydj.html"*/'<!--\n  Generated template for the TransactionhstrydjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		<ion-toolbar color="black">\n				<button ion-button menuToggle>\n				  <ion-icon style="color:#fff;" name="menu"></ion-icon>\n				</button>\n				<ion-title>Transaction History</ion-title>\n				<div class="logo">\n					<img src="assets/img/rlogo.png">\n				</div>\n			</ion-toolbar>\n  <!-- <ion-navbar color="theme-header">\n    <ion-title>Transaction History</ion-title>\n    <div class="logo">\n    	<img src="../assets/img/rlogo.png">\n    </div>\n  </ion-navbar> -->\n\n</ion-header>\n\n\n<ion-content padding>     	\n	<div class="content-sec" *ngFor="let thist of transachistdata; let i = index">\n		<div class="top-sec">\n			<h2>{{thist?.Clubgoer.complete_name}}</h2>\n			<h3>{{thist?.Event.event_name}}</h3>\n			<h3 *ngIf="thist?.ClubgoerRequest.shoutout_name">Paid for shoutout</h3>\n			<h3 *ngIf="thist?.ClubgoerRequest.songname">Paid for song request</h3>\n			<p *ngIf="thist?.TipOption.name">{{thist?.TipOption.name}}</p>\n			<p *ngIf="thist?.ClubgoerRequest.songname">Songname : {{thist?.ClubgoerRequest.songname}}</p>\n			<p *ngIf="thist?.ClubgoerRequest.songname">Artistname : {{thist?.ClubgoerRequest.artist_name}}</p>\n			<p *ngIf="thist?.ClubgoerRequest.shoutout_name">Shoutout type : {{thist?.ClubgoerRequest.shoutout_type}}</p>\n			<p *ngIf="thist?.ClubgoerRequest.shoutout_name">Shoutout name : {{thist?.ClubgoerRequest.shoutout_name}}</p>\n			<div class="right">\n				<p>${{thist?.ClubgoerRequest.total}}</p>\n			</div>\n		</div>\n		<div class="bottom-sec">\n			<p>Total payment</p>\n			<h2>You Received</h2>\n			<div class="right">\n				<p>${{thist?.ClubgoerRequest.total}}</p>\n				<h2>${{thist?.ClubgoerRequest.djshare}}</h2>\n			</div>\n		</div>\n	</div>\n	<div class="unshow" *ngIf="transachistdata?.length == 0">\n		  <h3> No transaction available</h3>\n	</div>\n	\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/transactionhstrydj/transactionhstrydj.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+], TransactionhstrydjPage);
+
+//# sourceMappingURL=transactionhstrydj.js.map
+
+/***/ }),
+
+/***/ 186:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelpdjPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(8);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ * Generated class for the HelpdjPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var HelpdjPage = (function () {
+    function HelpdjPage(navCtrl, navParams, http, appsetting, loadingCtrl, toastCtrl, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.http = http;
+        this.appsetting = appsetting;
+        this.loadingCtrl = loadingCtrl;
+        this.toastCtrl = toastCtrl;
+        this.alertCtrl = alertCtrl;
+        this.Loader = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
+        this.gethelp();
+    }
+    HelpdjPage.prototype.doRefresh = function (refresher) {
+        console.log('Begin async operation', refresher);
+        this.gethelp();
+        console.log('refreshed');
+        setTimeout(function () {
+            console.log('Async operation has ended');
+            refresher.complete();
+        }, 2000);
+    };
+    HelpdjPage.prototype.gethelp = function () {
+        var _this = this;
+        this.Loader.present();
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var user_id = JSON.parse(localStorage.getItem("USER_DATA")).id;
+        var postdata = {
+            userid: user_id,
+            position: "help"
+        };
+        console.log(postdata);
+        var serialized = this.serializeObj(postdata);
+        this.http.post(this.appsetting.myGlobalVar + 'users/gethelpdj', serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+            _this.Loader.dismiss();
+            if (response.isSucess == "true") {
+                _this.help = response.data.Staticpage;
+                console.log(response.data.Staticpage);
+            }
+            else {
+                _this.help = [];
+            }
+        });
+    };
+    HelpdjPage.prototype.serializeObj = function (obj) {
+        var result = [];
+        for (var property in obj)
+            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
+        return result.join("&");
+    };
+    HelpdjPage.prototype.ionViewDidEnter = function () {
+        if (window.navigator.onLine == true) {
+        }
+        else {
+            this.Loader.dismiss();
+            var alert_1 = this.alertCtrl.create({
+                title: 'Network connection',
+                subTitle: 'Something went wrong check your internet connection'
+            });
+            alert_1.present();
+            setTimeout(function () { return alert_1.dismiss(); }, 1500);
+        }
+    };
+    HelpdjPage.prototype.ionViewCanEnter = function () {
+        clearInterval(this.appsetting.interval);
+    };
+    return HelpdjPage;
+}());
+HelpdjPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-helpdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/helpdj/helpdj.html"*/'<!--\n  Generated template for the HelpdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="black">\n        <button ion-button menuToggle>\n            <ion-icon style="color:#fff;" name="menu"></ion-icon>\n          </button>\n        <ion-title style="padding-right: 22% !important;">{{help?.title}}</ion-title>\n        <div class="logo">\n          <img src="assets/img/rlogo.png">\n        </div>\n      </ion-navbar>\n\n</ion-header>\n\n\n\n    <ion-content padding>\n        <ion-refresher (ionRefresh)="doRefresh($event)">\n            <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n        </ion-refresher>\n        <div class="main">\n         <h3>Help</h3>\n         <p [innerHTML]="help?.description"></p>\n        </div>\n   </ion-content>\n       \n\n\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/helpdj/helpdj.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__["a" /* Appsetting */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+], HelpdjPage);
+
+//# sourceMappingURL=helpdj.js.map
+
+/***/ }),
+
+/***/ 187:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MembershipdetaildjPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
@@ -5039,408 +5457,6 @@ MembershipdetaildjPage = __decorate([
 ], MembershipdetaildjPage);
 
 //# sourceMappingURL=membershipdetaildj.js.map
-
-/***/ }),
-
-/***/ 185:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangepasswordPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_appsetting__ = __webpack_require__(8);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-/**
- * Generated class for the ChangepasswordPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var ChangepasswordPage = (function () {
-    function ChangepasswordPage(navCtrl, navParams, http, appsetting, loadingCtrl, toastCtrl, alertCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.http = http;
-        this.appsetting = appsetting;
-        this.loadingCtrl = loadingCtrl;
-        this.toastCtrl = toastCtrl;
-        this.alertCtrl = alertCtrl;
-        this.data = '';
-        this.Loading = this.loadingCtrl.create({
-            content: 'Please wait...',
-            dismissOnPageChange: true
-        });
-    }
-    ChangepasswordPage.prototype.ionViewDidEnter = function () {
-        if (window.navigator.onLine == true) {
-        }
-        else {
-            this.Loading.dismiss();
-            var alert_1 = this.alertCtrl.create({
-                title: 'Network connection',
-                subTitle: 'Something went wrong check your internet connection',
-                buttons: ['ok']
-            });
-            alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 3500);
-        }
-    };
-    ChangepasswordPage.prototype.changepass = function (form) {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var User = JSON.parse(localStorage.getItem("USER_DATA"));
-        var email = User.id;
-        if (form.value.newpassword.indexOf(' ') >= 0) {
-            var alert_2 = this.alertCtrl.create({
-                title: 'Change password',
-                subTitle: 'Space not allowed',
-                buttons: ['ok']
-            });
-            alert_2.present();
-            setTimeout(function () { return alert_2.dismiss(); }, 3500);
-        }
-        else if (form.value.newpassword == form.value.conpassword) {
-            this.Loading.present();
-            var data = {
-                email: email,
-                old_password: form.value.password,
-                new_password: form.value.newpassword
-            };
-            console.log(data);
-            var Serialized = this.serializeObj(data);
-            console.log(data);
-            this.http.post(this.appsetting.myGlobalVar + 'users/changepassword', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (data) {
-                _this.Loading.dismiss();
-                if (data.isSucess == "true") {
-                    localStorage.removeItem("password");
-                    localStorage.setItem("password", form.value.newpassword);
-                    var alert_3 = _this.alertCtrl.create({
-                        title: 'Change password',
-                        subTitle: data.msg,
-                        buttons: ['ok']
-                    });
-                    alert_3.present();
-                    setTimeout(function () { return alert_3.dismiss(); }, 3500);
-                    //localStorage.clear();
-                    localStorage.removeItem("fblogin");
-                    localStorage.removeItem("USER_DATA");
-                    localStorage.removeItem("facebook_pic");
-                    localStorage.removeItem("facebook_login");
-                    localStorage.removeItem("userid");
-                    localStorage.removeItem("fblogin");
-                    _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__login_login__["a" /* LoginPage */]);
-                }
-                else {
-                    var alert_4 = _this.alertCtrl.create({
-                        title: 'Change password',
-                        subTitle: data.msg,
-                        buttons: ['ok']
-                    });
-                    alert_4.present();
-                    setTimeout(function () { return alert_4.dismiss(); }, 3500);
-                }
-            });
-        }
-        else {
-            var alert_5 = this.alertCtrl.create({
-                title: 'Change password',
-                subTitle: 'Password do not match',
-                buttons: ['ok']
-            });
-            alert_5.present();
-            setTimeout(function () { return alert_5.dismiss(); }, 3500);
-        }
-    };
-    ChangepasswordPage.prototype.serializeObj = function (obj) {
-        var result = [];
-        for (var property in obj)
-            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
-        return result.join("&");
-    };
-    ChangepasswordPage.prototype.homePage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
-    };
-    ChangepasswordPage.prototype.ionViewCanEnter = function () {
-        clearInterval(this.appsetting.interval);
-    };
-    return ChangepasswordPage;
-}());
-ChangepasswordPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-changepassword',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/changepassword/changepassword.html"*/'<ion-header class="headerbg">\n\n  <ion-navbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Change Password</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n<ion-content class="margintop" padding style="background: url(assets/img/loginbg.jpg); background-size:cover;">\n<div class="login_outer">\n  <div class="logo"><img src="assets/img/logofull.png"></div>\n<div class="form_sec">\n<form #changeForm="ngForm" (ngSubmit)="changepass(changeForm)" novalidate>\n  <ion-list>\n  <ion-item>\n    <ion-input type="password" minlength="5" placeholder="Enter your Old Password" [(ngModel)]="data.password"  name=\'password\' required #password="ngModel"></ion-input>\n  </ion-item>\n  <ion-label class="alert alert-danger" color="danger">\n        <div *ngIf="password.errors && (password.dirty || password.touched)">\n        <div [hidden]="!password.errors.required" >\n         Password is required\n        </div>\n    </div>\n    <div *ngIf="password.errors && (password.dirty || password.touched)" >\n       <div [hidden]="!password.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n   </ion-label>\n  <ion-item>\n    <ion-input type="password" minlength="5" placeholder="Enter your New Password" [(ngModel)]="data.newpassword" name=\'newpassword\' required #newpassword="ngModel" ></ion-input>\n  </ion-item>\n  <ion-label class="alert alert-danger" color="danger">\n    <div *ngIf="newpassword.errors && (newpassword.dirty || newpassword.touched)">\n       <div [hidden]="!newpassword.errors.required" >\n         Password is required\n        </div>\n    </div>\n    <div *ngIf="newpassword.errors && (newpassword.dirty || newpassword.touched)" >\n       <div [hidden]="!newpassword.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n  </ion-label>\n\n  <ion-item>\n    <ion-input type="password" minlength="5" placeholder="Confirm Password" [(ngModel)]="data.conpassword" name=\'conpassword\' required #conpassword="ngModel"></ion-input>\n  </ion-item>\n  <ion-label class="alert alert-danger" color="danger">\n    <div *ngIf="conpassword.errors && (conpassword.dirty || conpassword.touched)">\n       <div [hidden]="!conpassword.errors.required" >\n         Password is required\n        </div>\n    </div>\n    <div *ngIf="conpassword.errors && (conpassword.dirty || conpassword.touched)" >\n       <div [hidden]="!conpassword.errors.minlength" >\n          Minimum length 5 character \n        </div>\n    </div>\n   </ion-label>\n</ion-list>\n<div class="centerbutton">\n   <button class="custom_btn" color="yellow" [disabled]="!changeForm.form.valid" style="text-transform: uppercase;" ion-button round>Submit</button>\n</div>\n</form>\n</div>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/changepassword/changepassword.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_6__providers_appsetting__["a" /* Appsetting */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
-], ChangepasswordPage);
-
-//# sourceMappingURL=changepassword.js.map
-
-/***/ }),
-
-/***/ 186:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TransactionhstrydjPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__ = __webpack_require__(8);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the TransactionhstrydjPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var TransactionhstrydjPage = (function () {
-    function TransactionhstrydjPage(navCtrl, navParams, http, appsetting, loadingCtrl, alertCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.http = http;
-        this.appsetting = appsetting;
-        this.loadingCtrl = loadingCtrl;
-        this.alertCtrl = alertCtrl;
-        this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...',
-            dismissOnPageChange: true
-        });
-    }
-    TransactionhstrydjPage.prototype.paidinfo = function () {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-        var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var Userid = JSON.parse(localStorage.getItem("USER_DATA")).id;
-        var Loader = this.loadingCtrl.create({
-            content: 'Please wait...',
-            dismissOnPageChange: true
-        });
-        Loader.present().then(function () {
-            var data = {
-                djid: Userid,
-            };
-            var serialized = _this.serializeObj(data);
-            _this.http.post(_this.appsetting.myGlobalVar + 'events/getpaymantdata', serialized, options)
-                .map(function (res) { return res.json(); })
-                .subscribe(function (data) {
-                Loader.dismiss();
-                console.log(data);
-                console.log("Transaction history");
-                if (data.isSucess == "true") {
-                    _this.transachistdata = data.data;
-                }
-                else {
-                    _this.transachistdata = "";
-                }
-            });
-        });
-    };
-    TransactionhstrydjPage.prototype.serializeObj = function (obj) {
-        var result = [];
-        for (var property in obj)
-            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
-        return result.join("&");
-    };
-    TransactionhstrydjPage.prototype.ionViewCanEnter = function () {
-        this.paidinfo();
-    };
-    TransactionhstrydjPage.prototype.ionViewDidEnter = function () {
-        if (window.navigator.onLine == true) {
-        }
-        else {
-            this.Loader.dismissAll();
-            var alert_1 = this.alertCtrl.create({
-                title: 'Network connection',
-                subTitle: 'Something went wrong check your internet connection',
-                buttons: ['ok']
-            });
-            alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 2500);
-        }
-    };
-    TransactionhstrydjPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad TransactionhstrydjPage');
-    };
-    return TransactionhstrydjPage;
-}());
-TransactionhstrydjPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-transactionhstrydj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/transactionhstrydj/transactionhstrydj.html"*/'<!--\n  Generated template for the TransactionhstrydjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n		<ion-toolbar color="black">\n				<button ion-button menuToggle>\n				  <ion-icon style="color:#fff;" name="menu"></ion-icon>\n				</button>\n				<ion-title>Transaction History</ion-title>\n				<div class="logo">\n					<img src="assets/img/rlogo.png">\n				</div>\n			</ion-toolbar>\n  <!-- <ion-navbar color="theme-header">\n    <ion-title>Transaction History</ion-title>\n    <div class="logo">\n    	<img src="../assets/img/rlogo.png">\n    </div>\n  </ion-navbar> -->\n\n</ion-header>\n\n\n<ion-content padding>     	\n	<div class="content-sec" *ngFor="let thist of transachistdata; let i = index">\n		<div class="top-sec">\n			<h2>{{thist?.Clubgoer.complete_name}}</h2>\n			<h3>{{thist?.Event.event_name}}</h3>\n			<h3 *ngIf="thist?.ClubgoerRequest.shoutout_name">Paid for shoutout</h3>\n			<h3 *ngIf="thist?.ClubgoerRequest.songname">Paid for song request</h3>\n			<p *ngIf="thist?.TipOption.name">{{thist?.TipOption.name}}</p>\n			<p *ngIf="thist?.ClubgoerRequest.songname">Songname : {{thist?.ClubgoerRequest.songname}}</p>\n			<p *ngIf="thist?.ClubgoerRequest.songname">Artistname : {{thist?.ClubgoerRequest.artist_name}}</p>\n			<p *ngIf="thist?.ClubgoerRequest.shoutout_name">Shoutout type : {{thist?.ClubgoerRequest.shoutout_type}}</p>\n			<p *ngIf="thist?.ClubgoerRequest.shoutout_name">Shoutout name : {{thist?.ClubgoerRequest.shoutout_name}}</p>\n			<div class="right">\n				<p>${{thist?.ClubgoerRequest.total}}</p>\n			</div>\n		</div>\n		<div class="bottom-sec">\n			<p>Total payment</p>\n			<h2>You Received</h2>\n			<div class="right">\n				<p>${{thist?.ClubgoerRequest.total}}</p>\n				<h2>${{thist?.ClubgoerRequest.djshare}}</h2>\n			</div>\n		</div>\n	</div>\n	<div class="unshow" *ngIf="transachistdata?.length == 0">\n		  <h3> No transaction available</h3>\n	</div>\n	\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/transactionhstrydj/transactionhstrydj.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_appsetting__["a" /* Appsetting */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
-], TransactionhstrydjPage);
-
-//# sourceMappingURL=transactionhstrydj.js.map
-
-/***/ }),
-
-/***/ 187:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HelpdjPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__ = __webpack_require__(8);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-/**
- * Generated class for the HelpdjPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-var HelpdjPage = (function () {
-    function HelpdjPage(navCtrl, navParams, http, appsetting, loadingCtrl, toastCtrl, alertCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.http = http;
-        this.appsetting = appsetting;
-        this.loadingCtrl = loadingCtrl;
-        this.toastCtrl = toastCtrl;
-        this.alertCtrl = alertCtrl;
-        this.Loader = this.loadingCtrl.create({
-            content: 'Please wait...',
-            dismissOnPageChange: true
-        });
-        this.gethelp();
-    }
-    HelpdjPage.prototype.doRefresh = function (refresher) {
-        console.log('Begin async operation', refresher);
-        this.gethelp();
-        console.log('refreshed');
-        setTimeout(function () {
-            console.log('Async operation has ended');
-            refresher.complete();
-        }, 2000);
-    };
-    HelpdjPage.prototype.gethelp = function () {
-        var _this = this;
-        this.Loader.present();
-        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var user_id = JSON.parse(localStorage.getItem("USER_DATA")).id;
-        var postdata = {
-            userid: user_id,
-            position: "help"
-        };
-        console.log(postdata);
-        var serialized = this.serializeObj(postdata);
-        this.http.post(this.appsetting.myGlobalVar + 'users/gethelpdj', serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-            _this.Loader.dismiss();
-            if (response.isSucess == "true") {
-                _this.help = response.data.Staticpage;
-                console.log(response.data.Staticpage);
-            }
-            else {
-                _this.help = [];
-            }
-        });
-    };
-    HelpdjPage.prototype.serializeObj = function (obj) {
-        var result = [];
-        for (var property in obj)
-            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
-        return result.join("&");
-    };
-    HelpdjPage.prototype.ionViewDidEnter = function () {
-        if (window.navigator.onLine == true) {
-        }
-        else {
-            this.Loader.dismiss();
-            var alert_1 = this.alertCtrl.create({
-                title: 'Network connection',
-                subTitle: 'Something went wrong check your internet connection'
-            });
-            alert_1.present();
-            setTimeout(function () { return alert_1.dismiss(); }, 1500);
-        }
-    };
-    HelpdjPage.prototype.ionViewCanEnter = function () {
-        clearInterval(this.appsetting.interval);
-    };
-    return HelpdjPage;
-}());
-HelpdjPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-helpdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/helpdj/helpdj.html"*/'<!--\n  Generated template for the HelpdjPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n    <ion-navbar color="black">\n        <button ion-button menuToggle>\n            <ion-icon style="color:#fff;" name="menu"></ion-icon>\n          </button>\n        <ion-title style="padding-right: 22% !important;">{{help?.title}}</ion-title>\n        <div class="logo">\n          <img src="assets/img/rlogo.png">\n        </div>\n      </ion-navbar>\n\n</ion-header>\n\n\n\n    <ion-content padding>\n        <ion-refresher (ionRefresh)="doRefresh($event)">\n            <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n        </ion-refresher>\n        <div class="main">\n         <h3>Help</h3>\n         <p>{{help?.description}}</p>\n        </div>\n   </ion-content>\n       \n\n\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/helpdj/helpdj.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_4__providers_appsetting__["a" /* Appsetting */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ToastController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
-], HelpdjPage);
-
-//# sourceMappingURL=helpdj.js.map
 
 /***/ }),
 
@@ -5718,7 +5734,7 @@ var TermsdjPage = (function () {
 TermsdjPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-termsdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/termsdj/termsdj.html"*/'<!--\n  Generated template for the TermsPage page.\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#fff;" name="menu"></ion-icon>\n    </button>\n    <ion-title>{{terms?.title}}</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n\n<!-- <ion-content padding style="background:#373737;">\n  <div class="termsdj">\n <p> {{terms?.description}}</p>\n  </div>\n</ion-content> -->\n<ion-content padding>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n    </ion-refresher>\n    <div class="main">\n     <h3>Terms & Conditions</h3>\n     <p>{{terms?.description}}</p>\n    </div>\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/termsdj/termsdj.html"*/,
+        selector: 'page-termsdj',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/termsdj/termsdj.html"*/'<!--\n  Generated template for the TermsPage page.\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#fff;" name="menu"></ion-icon>\n    </button>\n    <ion-title>{{terms?.title}}</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n\n<!-- <ion-content padding style="background:#373737;">\n  <div class="termsdj">\n <p> {{terms?.description}}</p>\n  </div>\n</ion-content> -->\n<ion-content padding>\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n        <ion-refresher-content style="color:#878787;" pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>\n    </ion-refresher>\n    <div class="main">\n     <h3>Terms & Conditions</h3>\n     <p [innerHTML]="terms?.description"></p>\n    </div>\n</ion-content>'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/termsdj/termsdj.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* NavParams */],
@@ -5942,7 +5958,7 @@ webpackEmptyAsyncContext.id = 201;
 
 var map = {
 	"../pages/add-card/add-card.module": [
-		783,
+		784,
 		54
 	],
 	"../pages/addeventdj/addeventdj.module": [
@@ -5958,7 +5974,7 @@ var map = {
 		52
 	],
 	"../pages/changepassword/changepassword.module": [
-		793,
+		791,
 		51
 	],
 	"../pages/changepassworddj/changepassworddj.module": [
@@ -5986,7 +6002,7 @@ var map = {
 		45
 	],
 	"../pages/eventsdj/eventsdj.module": [
-		786,
+		782,
 		44
 	],
 	"../pages/forgot/forgot.module": [
@@ -5998,7 +6014,7 @@ var map = {
 		42
 	],
 	"../pages/helpdj/helpdj.module": [
-		795,
+		793,
 		41
 	],
 	"../pages/historicalrequests/historicalrequests.module": [
@@ -6010,11 +6026,11 @@ var map = {
 		2
 	],
 	"../pages/login/login.module": [
-		792,
+		790,
 		39
 	],
 	"../pages/logindj/logindj.module": [
-		788,
+		786,
 		38
 	],
 	"../pages/manageeventsdj/manageeventsdj.module": [
@@ -6026,7 +6042,7 @@ var map = {
 		1
 	],
 	"../pages/membershipdetaildj/membershipdetaildj.module": [
-		785,
+		795,
 		36
 	],
 	"../pages/nameofeventsdj/nameofeventsdj.module": [
@@ -6102,15 +6118,15 @@ var map = {
 		19
 	],
 	"../pages/signindj/signindj.module": [
-		790,
+		788,
 		18
 	],
 	"../pages/signup/signup.module": [
-		791,
+		789,
 		17
 	],
 	"../pages/signupdj/signupdj.module": [
-		789,
+		787,
 		16
 	],
 	"../pages/songrequests/songrequests.module": [
@@ -6118,11 +6134,11 @@ var map = {
 		15
 	],
 	"../pages/subscribedj/subscribedj.module": [
-		787,
+		785,
 		14
 	],
 	"../pages/subscribedjupdate/subscribedjupdate.module": [
-		784,
+		794,
 		13
 	],
 	"../pages/terms/terms.module": [
@@ -6134,7 +6150,7 @@ var map = {
 		11
 	],
 	"../pages/termsdjsubs/termsdjsubs.module": [
-		782,
+		783,
 		10
 	],
 	"../pages/topqueuedj/topqueuedj.module": [
@@ -6142,7 +6158,7 @@ var map = {
 		9
 	],
 	"../pages/transactionhstrydj/transactionhstrydj.module": [
-		794,
+		792,
 		8
 	],
 	"../pages/votelike/votelike.module": [
@@ -6206,6 +6222,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+//import { MembershipdetaildjPage } from '../membershipdetaildj/membershipdetaildj';
 /**
  * Generated class for the EventsdjPage page.
  *
@@ -6225,6 +6242,10 @@ var EventsdjPage = (function () {
             content: 'Please wait...',
             dismissOnPageChange: true
         });
+        this.Loading = this.loadingCtrl.create({
+            content: 'Please wait...',
+            dismissOnPageChange: true
+        });
         if (localStorage.getItem("USER_DATA") != null) {
             this.profile = JSON.parse(localStorage.getItem("USER_DATA"));
             if (this.profile.role == 'dj') {
@@ -6235,8 +6256,27 @@ var EventsdjPage = (function () {
             }
         }
     }
+    EventsdjPage.prototype.getuser = function () {
+        var _this = this;
+        this.Loading.present();
+        var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var data = {
+            userid: JSON.parse(localStorage.getItem('USER_DATA')).id
+        };
+        var Serialized = this.serializeObj(data);
+        this.http.post(this.appsetting.myGlobalVar + 'users/getuserbyid', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+            _this.Loading.dismiss();
+            if (response.isSucess == "true") {
+                localStorage.setItem("USER_DATA", JSON.stringify(response.data.User));
+                _this.events.publish('role', 'dj');
+            }
+        });
+    };
     EventsdjPage.prototype.ionViewDidEnter = function () {
         if (window.navigator.onLine == true) {
+            this.getuser();
         }
         else {
             this.Loader.dismiss();
@@ -6325,6 +6365,8 @@ EventsdjPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__entercode_entercode__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__historicalrequests_historicalrequests__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_appsetting__ = __webpack_require__(8);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6340,13 +6382,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var HomePage = (function () {
-    function HomePage(navCtrl, alertCtrl, statusBar, loadingCtrl, events) {
+    function HomePage(navCtrl, alertCtrl, statusBar, loadingCtrl, events, http, appsetting) {
         this.navCtrl = navCtrl;
         this.alertCtrl = alertCtrl;
         this.statusBar = statusBar;
         this.loadingCtrl = loadingCtrl;
         this.events = events;
+        this.http = http;
+        this.appsetting = appsetting;
         this.Loading = this.loadingCtrl.create({
             content: 'Please wait...',
             dismissOnPageChange: true
@@ -6355,6 +6401,7 @@ var HomePage = (function () {
     }
     HomePage.prototype.ionViewDidEnter = function () {
         if (window.navigator.onLine == true) {
+            this.getuser();
         }
         else {
             this.Loading.dismiss();
@@ -6366,6 +6413,30 @@ var HomePage = (function () {
             alert_1.present();
             setTimeout(function () { return alert_1.dismiss(); }, 2500);
         }
+    };
+    HomePage.prototype.serializeObj = function (obj) {
+        var result = [];
+        for (var property in obj)
+            result.push(encodeURIComponent(property) + "=" + encodeURIComponent(obj[property]));
+        return result.join("&");
+    };
+    HomePage.prototype.getuser = function () {
+        var _this = this;
+        this.Loading.present();
+        var headers = new __WEBPACK_IMPORTED_MODULE_6__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+        var options = new __WEBPACK_IMPORTED_MODULE_6__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var data = {
+            userid: JSON.parse(localStorage.getItem('USER_DATA')).id
+        };
+        var Serialized = this.serializeObj(data);
+        this.http.post(this.appsetting.myGlobalVar + 'users/getuserbyid', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+            _this.Loading.dismiss();
+            if (response.isSucess == "true") {
+                localStorage.setItem("USER_DATA", JSON.stringify(response.data.User));
+                _this.events.publish('role', 'clubgoer');
+            }
+        });
     };
     HomePage.prototype.editprofile = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__profileedit_profileedit__["a" /* ProfileeditPage */]);
@@ -6382,7 +6453,13 @@ HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-home',template:/*ion-inline-start:"/Volumes/D/rahulsingh/clubgoer2/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar color="black">\n    <button ion-button menuToggle>\n      <ion-icon style="color:#ffae00;" name="menu"></ion-icon>\n    </button>\n    <ion-title>Home</ion-title>\n    <ion-buttons end class="rbutton">\n      <button ion-button clear><img width="15px" src="assets/img/rlogo.png"></button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n<ion-content padding style="background: url(assets/img/loginbg.jpg); background-size:cover;">\n  <div class="homemain">\n    <div class="logo"><img src="assets/img/logofull.png"></div>\n    <div class="home_list">\n    <ion-item no-lines item-right>\n      <button (click)="entercodePage()"  ion-button secondary color="" block>Enter Dj Code <ion-icon name="arrow-forward"></ion-icon></button>\n    </ion-item>\n    <ion-item no-lines>\n      <button  (click)="editprofile()" ion-button secondary  block>Edit Profile <ion-icon name="arrow-forward"></ion-icon></button>\n    </ion-item>\n    <ion-item no-lines>\n      <button (click)="historicalrequestsPage()" ion-button secondary  block>Historical Requests <ion-icon name="arrow-forward"></ion-icon></button>\n    </ion-item>\n  </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Volumes/D/rahulsingh/clubgoer2/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* Events */],
+        __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_7__providers_appsetting__["a" /* Appsetting */]])
 ], HomePage);
 
 //# sourceMappingURL=home.js.map
@@ -7165,7 +7242,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_signup_signup__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_forgot_forgot__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_changepassword_changepassword__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_changepassword_changepassword__ = __webpack_require__(184);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_file__ = __webpack_require__(100);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_transfer__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_file_path__ = __webpack_require__(102);
@@ -7191,7 +7268,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_nameofeventsdj_nameofeventsdj__ = __webpack_require__(104);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_paymenthistorydj_paymenthistorydj__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_requesthistorydj_requesthistorydj__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_helpdj_helpdj__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_helpdj_helpdj__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_editevent_editevent__ = __webpack_require__(183);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_addeventdjnew_addeventdjnew__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_termsdj_termsdj__ = __webpack_require__(189);
@@ -7213,10 +7290,10 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_voteupdj_voteupdj__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_shoutoutdj_shoutoutdj__ = __webpack_require__(180);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__pages_subscribedjupdate_subscribedjupdate__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_transactionhstrydj_transactionhstrydj__ = __webpack_require__(186);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_transactionhstrydj_transactionhstrydj__ = __webpack_require__(185);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__ionic_native_paypal__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__ionic_native_status_bar__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__ionic_native_splash_screen__ = __webpack_require__(428);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__providers_appsetting__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__ionic_native_camera__ = __webpack_require__(51);
@@ -7404,11 +7481,9 @@ AppModule = __decorate([
                     { loadChildren: '../pages/omniaclubeventdj/omniaclubeventdj.module#OmniaclubeventdjPageModule', name: 'OmniaclubeventdjPage', segment: 'omniaclubeventdj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/editevent/editevent.module#EditeventPageModule', name: 'EditeventPage', segment: 'editevent', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/manageeventsdj/manageeventsdj.module#ManageeventsdjPageModule', name: 'ManageeventsdjPage', segment: 'manageeventsdj', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/eventsdj/eventsdj.module#EventsdjPageModule', name: 'EventsdjPage', segment: 'eventsdj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/termsdjsubs/termsdjsubs.module#TermsdjsubsPageModule', name: 'TermsdjsubsPage', segment: 'termsdjsubs', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/add-card/add-card.module#AddCardPageModule', name: 'AddCardPage', segment: 'add-card', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/subscribedjupdate/subscribedjupdate.module#SubscribedjupdatePageModule', name: 'SubscribedjupdatePage', segment: 'subscribedjupdate', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/membershipdetaildj/membershipdetaildj.module#MembershipdetaildjPageModule', name: 'MembershipdetaildjPage', segment: 'membershipdetaildj', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/eventsdj/eventsdj.module#EventsdjPageModule', name: 'EventsdjPage', segment: 'eventsdj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/subscribedj/subscribedj.module#SubscribedjPageModule', name: 'SubscribedjPage', segment: 'subscribedj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/logindj/logindj.module#LogindjPageModule', name: 'LogindjPage', segment: 'logindj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/signupdj/signupdj.module#SignupdjPageModule', name: 'SignupdjPage', segment: 'signupdj', priority: 'low', defaultHistory: [] },
@@ -7418,6 +7493,8 @@ AppModule = __decorate([
                     { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/transactionhstrydj/transactionhstrydj.module#TransactionhstrydjPageModule', name: 'TransactionhstrydjPage', segment: 'transactionhstrydj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/helpdj/helpdj.module#HelpdjPageModule', name: 'HelpdjPage', segment: 'helpdj', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/subscribedjupdate/subscribedjupdate.module#SubscribedjupdatePageModule', name: 'SubscribedjupdatePage', segment: 'subscribedjupdate', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/membershipdetaildj/membershipdetaildj.module#MembershipdetaildjPageModule', name: 'MembershipdetaildjPage', segment: 'membershipdetaildj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/changepassworddj/changepassworddj.module#ChangepassworddjPageModule', name: 'ChangepassworddjPage', segment: 'changepassworddj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/termsdj/termsdj.module#TermsdjPageModule', name: 'TermsdjPage', segment: 'termsdj', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/notificationdj/notificationdj.module#NotificationdjPageModule', name: 'NotificationdjPage', segment: 'notificationdj', priority: 'low', defaultHistory: [] },
@@ -8530,7 +8607,7 @@ var LoginPage = (function () {
                 alert_3.present();
                 setTimeout(function () { return alert_3.dismiss(); }, 3500);
             }
-            // })
+            //})
         });
     };
     LoginPage.prototype.fblogin = function () {
@@ -8803,66 +8880,65 @@ var LogindjPage = (function () {
     };
     LogindjPage.prototype.login = function (form) {
         var _this = this;
-        //  this.firebase.onTokenRefresh().subscribe(
-        //    token => {
-        //      console.log(`The new token is ${token}`);
-        //      this.token = token;
-        if (form.value.checkbx == true) {
-            localStorage.setItem("usernamedj", form.value.email);
-            localStorage.setItem("passworddj", form.value.password);
-        }
-        else {
-            localStorage.removeItem("usernamedj");
-            localStorage.removeItem("passworddj");
-        }
-        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-        var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var data = {
-            email: form.value.email,
-            password: form.value.password,
-            token: this.token
-        };
-        var Serialized = this.serializeObj(data);
-        var Loading = this.loadingCtrl.create({
-            content: 'Please wait...',
-        });
-        Loading.present().then(function () {
-            _this.http.post(_this.appsetting.myGlobalVar + 'users/logindj', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
-                Loading.dismiss();
-                if (response.status == true) {
-                    _this.Loading.dismiss();
-                    var alert_2 = _this.alertCtrl.create({
-                        title: 'Logged in',
-                        subTitle: response.msg,
-                        cssClass: 'newpop'
-                    });
-                    alert_2.present();
-                    setTimeout(function () { return alert_2.dismiss(); }, 1500);
-                    localStorage.removeItem("fblogin");
-                    localStorage.setItem("USER_DATA", JSON.stringify(response.user));
-                    _this.appsetting.profile = response.user;
-                    _this.events.publish('role', 'dj');
-                    if (response.user.subscription_paymant_status != 1) {
-                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
+        this.firebase.onTokenRefresh().subscribe(function (token) {
+            console.log("The new token is " + token);
+            _this.token = token;
+            if (form.value.checkbx == true) {
+                localStorage.setItem("usernamedj", form.value.email);
+                localStorage.setItem("passworddj", form.value.password);
+            }
+            else {
+                localStorage.removeItem("usernamedj");
+                localStorage.removeItem("passworddj");
+            }
+            var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]();
+            headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
+            var options = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* RequestOptions */]({ headers: headers });
+            var data = {
+                email: form.value.email,
+                password: form.value.password,
+                token: _this.token
+            };
+            var Serialized = _this.serializeObj(data);
+            var Loading = _this.loadingCtrl.create({
+                content: 'Please wait...',
+            });
+            Loading.present().then(function () {
+                _this.http.post(_this.appsetting.myGlobalVar + 'users/logindj', Serialized, options).map(function (res) { return res.json(); }).subscribe(function (response) {
+                    Loading.dismiss();
+                    if (response.status == true) {
+                        _this.Loading.dismiss();
+                        var alert_2 = _this.alertCtrl.create({
+                            title: 'Logged in',
+                            subTitle: response.msg,
+                            cssClass: 'newpop'
+                        });
+                        alert_2.present();
+                        setTimeout(function () { return alert_2.dismiss(); }, 1500);
+                        localStorage.removeItem("fblogin");
+                        localStorage.setItem("USER_DATA", JSON.stringify(response.user));
+                        _this.appsetting.profile = response.user;
+                        _this.events.publish('role', 'dj');
+                        if (response.user.subscription_paymant_status != 1) {
+                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__subscribedj_subscribedj__["a" /* SubscribedjPage */]);
+                        }
+                        else {
+                            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                        }
                     }
                     else {
-                        _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__eventsdj_eventsdj__["a" /* EventsdjPage */]);
+                        _this.Loading.dismiss();
+                        var alert_3 = _this.alertCtrl.create({
+                            title: 'Login',
+                            subTitle: response.msg,
+                            buttons: ['ok']
+                        });
+                        alert_3.present();
+                        setTimeout(function () { return alert_3.dismiss(); }, 3500);
                     }
-                }
-                else {
-                    _this.Loading.dismiss();
-                    var alert_3 = _this.alertCtrl.create({
-                        title: 'Login',
-                        subTitle: response.msg,
-                        buttons: ['ok']
-                    });
-                    alert_3.present();
-                    setTimeout(function () { return alert_3.dismiss(); }, 3500);
-                }
+                });
             });
         });
-        //})
     };
     LogindjPage.prototype.fblogin = function () {
         var _this = this;
@@ -9229,12 +9305,12 @@ SignupPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_privacy_privacy__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_appsetting__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_historicalrequests_historicalrequests__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_changepassword_changepassword__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_transactionhstrydj_transactionhstrydj__ = __webpack_require__(186);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_helpdj_helpdj__ = __webpack_require__(187);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_changepassword_changepassword__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_transactionhstrydj_transactionhstrydj__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_helpdj_helpdj__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_logindj_logindj__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_login_login__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_membershipdetaildj_membershipdetaildj__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_changepassworddj_changepassworddj__ = __webpack_require__(188);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_signindj_signindj__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_eventsdj_eventsdj__ = __webpack_require__(28);
@@ -9326,7 +9402,6 @@ var MyApp = (function () {
             //this.role = data;
             if (localStorage.getItem("USER_DATA") != null) {
                 _this.profile = JSON.parse(localStorage.getItem("USER_DATA"));
-                console.log(_this.profile);
                 if (_this.profile.role == 'clubgoer') {
                     _this.role = "clubgoer";
                     _this.pages = [

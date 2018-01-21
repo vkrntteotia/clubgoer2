@@ -17,10 +17,12 @@ import { Appsetting } from '../../providers/appsetting';
 })
 export class NotificationdjPage {
   public playnowreq;eventid;eventname;shoutreq;
+
   public Loader = this.loadingCtrl.create({
     content: 'Please wait...',
     dismissOnPageChange: true
   });
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
     public http: Http,
@@ -39,6 +41,7 @@ export class NotificationdjPage {
       content: 'Please wait...',
       dismissOnPageChange: true
     });
+    
     Loader.present().then(() => {
       var data = {
         djid: Userid,
@@ -147,6 +150,7 @@ export class NotificationdjPage {
   ionViewCanEnter(){
     this.notifreq();
   }
+
   serializeObj(obj) {
     var result = [];
     for (var property in obj)

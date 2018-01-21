@@ -100,10 +100,10 @@ export class LogindjPage {
   }
 
   login(form) {
-  //  this.firebase.onTokenRefresh().subscribe(
-  //    token => {
-  //      console.log(`The new token is ${token}`);
-  //      this.token = token;
+   this.firebase.onTokenRefresh().subscribe(
+     token => {
+       console.log(`The new token is ${token}`);
+       this.token = token;
  if (form.value.checkbx == true) {
       localStorage.setItem("usernamedj", form.value.email);
       localStorage.setItem("passworddj", form.value.password);
@@ -160,7 +160,7 @@ export class LogindjPage {
       }
     })
       })
-    //})
+    })
   }
 
   fblogin() {
