@@ -80,7 +80,7 @@ export class LogindjPage {
       setTimeout(() => alert.dismiss(), 3500);
     }
   }
-  
+
   scrollHandler(event) {
     console.log(`ScrollEvent: ${event}`)
    // console.log(JSON.stringify(event.scrollTop));
@@ -92,7 +92,6 @@ export class LogindjPage {
          this.classval = 'headerbg1';
       }
       console.log('hello')
-      
       // since scrollAmount is data-binded,
       // the update needs to happen in zone
       this.scrollAmount++
@@ -100,10 +99,10 @@ export class LogindjPage {
   }
 
   login(form) {
-   this.firebase.onTokenRefresh().subscribe(
-     token => {
-       console.log(`The new token is ${token}`);
-       this.token = token;
+  //  this.firebase.onTokenRefresh().subscribe(
+  //    token => {
+  //      console.log(`The new token is ${token}`);
+  //      this.token = token;
  if (form.value.checkbx == true) {
       localStorage.setItem("usernamedj", form.value.email);
       localStorage.setItem("passworddj", form.value.password);
@@ -111,7 +110,7 @@ export class LogindjPage {
       localStorage.removeItem("usernamedj");
       localStorage.removeItem("passworddj");
     }
-  
+
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
     let options = new RequestOptions({ headers: headers });
@@ -147,7 +146,7 @@ export class LogindjPage {
         } else {
           this.navCtrl.push(EventsdjPage);
         }
-        
+
       } else {
         this.Loading.dismiss();
         let alert = this.alertCtrl.create({
@@ -158,7 +157,7 @@ export class LogindjPage {
         alert.present();
         setTimeout(() => alert.dismiss(), 3500);
       }
-    })
+    //})
       })
     })
   }
@@ -206,7 +205,7 @@ export class LogindjPage {
               Loading.dismiss();
               this.Loading.dismiss();
                 if (resolve.isSucess == "true") {
-                  
+
                   localStorage.setItem('userid', resolve.data.User.id);
                   localStorage.setItem("USER_DATA", JSON.stringify(resolve.data.User));
                   this.appsetting.profile = resolve.data.User;
@@ -233,7 +232,7 @@ export class LogindjPage {
                   });
                   alert.present();
                   setTimeout(() => alert.dismiss(), 2500);
-                 
+
                 }
               })
           })

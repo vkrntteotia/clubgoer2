@@ -17,6 +17,7 @@
 
 
 <ion-content class="djs_bg">
+
     <div class="djdetails_sec">
         <div class="full_img">
             <img *ngIf="djs?.User.image" [src]="djs?.User.image">
@@ -43,7 +44,7 @@
                 <div class="imageboxed">
                     <img [src]="dj?.image">
                 </div>
-             
+
 
                 <ion-item>
                             <ion-label>
@@ -53,7 +54,7 @@
                                     {{dj?.venue_name}}
                             </div>
                           </ion-item>
-            
+
                           <ion-item>
                                 <ion-label>
                                         Event Date/Time:
@@ -62,8 +63,8 @@
                                         {{dj?.event_date+" "+dj?.event_time}}
                                 </div>
                               </ion-item>
-            
-            
+
+
                           <!-- <ion-item>
                                 <ion-label>
                                         TO
@@ -74,11 +75,5 @@
                           </ion-item> -->
                 </div>
         </ion-scroll>
-       
-    
-    
-
-
-
     </div>
 </ion-content>

@@ -12,12 +12,12 @@ page-notificationdj{
 	}
 	.logo img{
         width: 12%;
-        margin-top: 19px;
+        //margin-top: 19px;
 	}
     .past{
         width: 100%;
         float: left;
-        
+
     }
     .past .list{
         width: 100%;
@@ -25,7 +25,7 @@ page-notificationdj{
         margin:0px;
     }
     .past .list .item:last-child{
-        border-bottom:none;	
+        border-bottom:none;
     }
     .past .item {
         width: 100%;
@@ -37,7 +37,7 @@ page-notificationdj{
         margin-top: 5px;
         margin: 5px 0px;
         border-bottom: 0.55px solid #c8c7cc;
-    
+
     }
     .past .item-inner{
         border:none !important
@@ -58,7 +58,7 @@ page-notificationdj{
         font-size: 12px;
         letter-spacing: 1px;
         margin: 0px;
-    
+
     }
     .past .item .label{
         margin: 0px 8px 15px 0;
@@ -82,7 +82,7 @@ page-notificationdj{
         text-align: right;
         margin: 0px;
         color: #fff;
-    
+
     }
     .past .item .img-right .imgmain img{
             width: 37%;
@@ -115,5 +115,5 @@ page-notificationdj{
         text-align: center;
         font-weight: 700 !important;
     }
-    
+
 }

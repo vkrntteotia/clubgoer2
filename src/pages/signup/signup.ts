@@ -61,11 +61,11 @@ ionViewDidEnter() {
       }
     }
     setBackButtonAction(){
-      
+
       //Write here wherever you wanna do
       this.navCtrl.push(SignindjPage);
    }
-   
+
    scrollHandler(event) {
     console.log(`ScrollEvent: ${event}`)
    // console.log(JSON.stringify(event.scrollTop));
@@ -77,7 +77,7 @@ ionViewDidEnter() {
          this.classval = 'headerbg1';
       }
       console.log('hello')
-      
+
       // since scrollAmount is data-binded,
       // the update needs to happen in zone
       this.scrollAmount++
@@ -85,7 +85,7 @@ ionViewDidEnter() {
   }
 
  public register(signup){
-  
+
 let headers = new Headers();
 headers.append('Content-Type',  'application/x-www-form-urlencoded;charset=utf-8');
 let options= new RequestOptions({ headers: headers });
@@ -96,7 +96,7 @@ let options= new RequestOptions({ headers: headers });
             buttons:['ok']
       });
           alert.present();
-          setTimeout(()=>alert.dismiss(),2500);   
+          setTimeout(()=>alert.dismiss(),2500);
   } else if(signup.value.name.replace(/ /g,'')==""){
       let alert = this.alertCtrl.create({
         title: 'Signup',
@@ -143,16 +143,15 @@ let options= new RequestOptions({ headers: headers });
           //setTimeout(()=>alert.dismiss(),1500);
     this.navCtrl.push(HomePage);
 }else{
-              
+
       let alert = this.alertCtrl.create({
-        
+
             title: 'Sign Up',
             subTitle: response.msg,
             buttons:['ok']
       });
           alert.present();
           //setTimeout(()=>alert.dismiss(),1500);
-          
 }
     })
   })

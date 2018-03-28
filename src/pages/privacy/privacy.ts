@@ -20,7 +20,7 @@ import { ActionSheetController } from 'ionic-angular';
 export class PrivacyPage {
 public terms;
   constructor(public navCtrl: NavController,
-   public navParams: NavParams, 
+   public navParams: NavParams,
    public http: Http,
    public appsetting: Appsetting,
    public actionSheetCtrl: ActionSheetController,
@@ -34,7 +34,7 @@ public terms;
 		content: 'Please wait...',
     dismissOnPageChange: true
   });
-  
+
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
     this.getterms();
@@ -49,7 +49,7 @@ public terms;
     this.Loader.present();
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded;charset=utf-8');
-    var options = new RequestOptions({ headers: headers }); 
+    var options = new RequestOptions({ headers: headers });
 		var user_id = JSON.parse(localStorage.getItem("USER_DATA")).id;
     var postdata = {
       userid:user_id,
@@ -67,6 +67,7 @@ console.log(postdata);
         }
       })
     }
+
 serializeObj(obj) {
     var result = [];
     for (var property in obj)
@@ -74,6 +75,7 @@ serializeObj(obj) {
 
     return result.join("&");
   }
+
     ionViewDidEnter() {
     if (window.navigator.onLine == true) {
     } else {

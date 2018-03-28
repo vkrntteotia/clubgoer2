@@ -20,7 +20,7 @@ import {DjsdetailsPage} from '../djsdetails/djsdetails';
 export class DjslistPage {
   public djs:any;
   constructor(public navCtrl: NavController,
-  public navParams: NavParams, 
+  public navParams: NavParams,
   public http:Http,
   public app: App,
   public appsetting: Appsetting,
@@ -32,7 +32,7 @@ public Loading=this.loadingCtrl.create({
     content: 'Please wait...',
     dismissOnPageChange: true
   });
-  
+
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
     this.showdjslist();
@@ -57,7 +57,7 @@ public Loading=this.loadingCtrl.create({
 			this.Loading.dismiss();
       if(data.isSucess == "true"){
       this.djs=data.data;
-    }else{
+    } else {
               let alert = this.alertCtrl.create({
                 title: 'Dj List',
                 subTitle: data.msg,
@@ -68,7 +68,7 @@ public Loading=this.loadingCtrl.create({
     }
 		})
   }
-  
+
   serializeObj(obj) {
     var result = [];
     for (var property in obj)

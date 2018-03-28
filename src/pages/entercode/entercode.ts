@@ -33,7 +33,7 @@ export class EntercodePage {
    public toastCtrl:ToastController,
    private alertCtrl: AlertController,
   ) {
-  
+
 }
   public Loading=this.loadingCtrl.create({
     content: 'Please wait...',
@@ -47,7 +47,8 @@ export class EntercodePage {
   }
  pad(d) {
     return (d < 10) ? '0' + d.toString() : d.toString();
-}
+  }
+
  entercode(form){
   let headers = new Headers();
 headers.append('Content-Type',  'application/x-www-form-urlencoded;charset=utf-8');
@@ -72,7 +73,7 @@ var tmnow = hour+":"+minutes+":00";
         dattim:datime,
         tmnow:tmnow
     }
-    
+
 var Serialized = this.serializeObj(data);
 
 this.http.post(this.appsetting.myGlobalVar + 'events/entercode', Serialized, options).map(res=>res.json()).subscribe(data=>{
@@ -83,7 +84,7 @@ if(data.isSucess == "true"){
   }else{
     this.showConfirm(data.data);
   }
-}else{
+} else {
     let alert = this.alertCtrl.create({
     title: 'Dj Confirmation',
     subTitle: data.msg,

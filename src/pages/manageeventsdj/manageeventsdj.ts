@@ -32,7 +32,6 @@ export class ManageeventsdjPage {
     public loadingCtrl: LoadingController,
     private alertCtrl: AlertController
             ) {
-              
               this.segments = "team";
   }
 

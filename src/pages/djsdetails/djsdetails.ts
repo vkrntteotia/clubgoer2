@@ -68,7 +68,6 @@ export class DjsdetailsPage {
                 this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
               }
             } else{
-              console.log("Hello");
               this.utube = data.data.User.audiourl.replace("watch?v=", "embed/");
               this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.utube);
             }

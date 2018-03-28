@@ -62,11 +62,11 @@ export class MyApp {
     public events: Events,
     public menuCtrl: MenuController
   ) {
-    
+
     platform.ready().then(() => {
-    
+
       statusBar.overlaysWebView(true);
-      
+
       statusBar.hide();
       this.firebase.grantPermission();   // for push notifications
 			if (this.platform.is('cordova')) {
@@ -90,9 +90,9 @@ export class MyApp {
     this.events.subscribe('role', data => {
       //console.log(data);
       //this.role = data;
-      if (localStorage.getItem("USER_DATA")!=null) {   
+      if (localStorage.getItem("USER_DATA")!=null) {
         this.profile = JSON.parse(localStorage.getItem("USER_DATA"));
-        
+
       if (this.profile.role == 'clubgoer') {
         this.role="clubgoer";
         this.pages = [
@@ -121,7 +121,7 @@ export class MyApp {
           { title: 'Help', component: HelpdjPage, icon: 'hel' },];
           if(localStorage.getItem("fblogin")==null){
             this.djmenu.push({ title: 'Change Password', component: ChangepassworddjPage, icon: 'historical' });
-          }          
+          }
           this.djmenu.push({ title: 'Sign Out', component: null, icon: 'log' });
           this.menuCtrl.enable(true, 'dj');
       }
@@ -179,9 +179,9 @@ export class MyApp {
 		console.log('Sending token to the server...');
 		return Promise.resolve(true);
   }
-  
+
   private subscribeToPushNotificationEvents(): void {
-    
+
         //	alert("hello everyone");
         // Handle token refresh
         this.firebase.onTokenRefresh().subscribe(
@@ -213,7 +213,7 @@ export class MyApp {
               // !notification.tap
               // 	? console.log('The user was using the app when the notification arrived...')
               // 	: console.log('The app was closed when the notification arrived...')
-      
+
               let toast = this.toastCtrl.create({
                 message: '' + notification.title + ': '+notification.body ,
                 duration: 3000,
@@ -237,11 +237,11 @@ export class MyApp {
               // 			} else {
               // 				this.nav.push(TabsPage, { message: notification }); //this.nav.setRoot(this.pages2.SchedulePage);
               // 			}
-      
+
               // 		}
               // 	}]
               // });
-      
+
               if (notification.title != undefined) {
                 toast.present();
               }
@@ -251,19 +251,19 @@ export class MyApp {
             });
           }
 
- 
+
   initializeApp() {
     this.platform.ready().then(() => {
       //  this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.rootPage = SignindjPage;
-      if (localStorage.getItem('role')!=null) { 
+      if (localStorage.getItem('role')!=null) {
         if (localStorage.getItem('role') == 'clubgoer') {
           this.rootPage = localStorage.getItem("USER_DATA") != null ? HomePage : SignindjPage;
         } else {
           this.rootPage = localStorage.getItem("USER_DATA") != null ? EventsdjPage : SignindjPage;
           //this.rootPage = (JSON.parse(localStorage.getItem("USER_DATA")).subscription_status!=1) ? SubscribedjPage : localStorage.getItem("USER_DATA") != null ? EventsdjPage : SignindjPage;
-        } 
+        }
       }
       if(localStorage.getItem("USER_DATA") != null) {
             this.profile = JSON.parse(localStorage.getItem("USER_DATA"));
@@ -278,12 +278,12 @@ export class MyApp {
       this.nav.setRoot(page.component);
       this.activePage = page;
     } else {
-      if(localStorage.getItem('role')=="dj")
-      {
-        this.menuCtrl.enable(false, 'dj');
-      } else {
-        this.menuCtrl.enable(false, 'clubgoer');
-      }
+              if(localStorage.getItem('role')=="dj")
+              {
+                this.menuCtrl.enable(false, 'dj');
+              } else {
+                this.menuCtrl.enable(false, 'clubgoer');
+              }
       localStorage.removeItem("fblogin");
       localStorage.removeItem("USER_DATA");
       localStorage.removeItem("facebook_pic");
@@ -306,9 +306,10 @@ export class MyApp {
       }
     }
   }
+
   public checkActivePage(page): boolean {
     return page === this.activePage;
   }
-  
- 
+
+
 }

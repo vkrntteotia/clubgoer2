@@ -75,6 +75,7 @@ import { CommonProvider } from '../providers/common/common';
 import { Firebase } from '@ionic-native/firebase'; 
 import { Stripe } from '@ionic-native/stripe';
 import { AddCardPage } from '../pages/add-card/add-card';
+
 @NgModule({
   declarations: [
     ShoutoutdjPage,
